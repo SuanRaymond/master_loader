@@ -1,0 +1,8 @@
+.button1{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 500px 100px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}

@@ -1,0 +1,251 @@
+
+body{
+	margin: 0;
+	overflow-x: hidden;
+}
+
+#doSomethingBlock{
+	margin: 0 auto;
+	padding: 0;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	position: relative;
+}
+
+#doSomethingBlock header{
+	width: 100vw;
+	height: 50px;
+	top: 0;
+	left: 0;
+	position: fixed;
+	z-index: 999;
+	/*background-color: #AE63E4;*/
+
+	background: rgb(181,189,200);
+	background: -moz-linear-gradient(top, rgba(181,189,200,1) 0%, rgba(130,140,149,1) 5%, rgba(41,42,63,1) 100%);
+	background: -webkit-linear-gradient(top, rgba(181,189,200,1) 0%,rgba(130,140,149,1) 5%,rgba(41,42,63,1) 100%);
+	background: linear-gradient(to bottom, rgba(181,189,200,1) 0%,rgba(130,140,149,1) 5%,rgba(41,42,63,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#292a3f',GradientType=0 );
+
+	-moz-box-shadow: 	0px 1px 1px rgba(20%,20%,40%,0.6),
+						0px 2px 4px rgba(20%,20%,40%,0.4),
+						0px 4px 6px rgba(20%,20%,40%,0.4);
+	webkit-box-shadow: 	0px 1px 1px rgba(20%,20%,40%,0.6),
+						0px 2px 4px rgba(20%,20%,40%,0.4),
+						0px 4px 6px rgba(20%,20%,40%,0.4);
+	box-shadow: 		0px 1px 1px rgba(20%,20%,40%,0.6),
+						0px 2px 4px rgba(20%,20%,40%,0.4),
+						0px 4px 16px rgba(20%,20%,40%,0.4);
+
+}
+
+#doSomethingBlock header img{
+	margin: 5px;
+}
+
+#doSomethingBlock header div{
+	width: 100%;
+	height: 50px;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	position: absolute;
+}
+
+#doSomethingBlock header div h1{
+	margin: 10px 0;
+	color: white;
+	font-size: 19pt;
+}
+
+#doSomethingBlockMenuButton{
+	margin: 5px;
+	top: 10px;
+	right: 10px;
+	position: absolute;
+
+	text-decoration:none;
+	color: #FFF;
+}
+
+#doSomethingBlockLoginButton{
+	margin: 5px;
+	top: 10px;
+	right: 10px;
+	position: absolute;
+
+	text-decoration:none;
+	color: #FFF;
+}
+
+#doSomethingBlockBanner{
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+}
+
+#doSomethingBlockBannerBody{
+	margin-top: 50px;
+	margin-bottom: 20vh;
+	width: 100vw;
+	height: 90vh;
+}
+
+#doSomethingBlockBannerBody img{
+    width:  100%;
+    height: 100%;
+    top:  0;
+    left: 0;
+}
+
+
+#doSomethingBlockBannerDown{
+	margin-left: -40px;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(131, 139, 139, 0.8);
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    bottom: 50px;
+    left: 50%;
+    position: absolute;
+    z-index: 100;
+}
+
+#doSomethingBlockBannerDown i{
+	margin-left: -23px;
+    bottom: 20px;
+    left: 50%;
+    position: absolute;
+    z-index: 100;
+}
+
+#doSomethingBlockBannerUp{
+	margin-left: -40px;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(131, 139, 139, 0.8);
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    bottom: 5px;
+    left: 50%;
+    position: absolute;
+    z-index: 100;
+}
+
+#doSomethingBlockBannerUp i{
+	margin-left: -23px;
+    bottom: 20px;
+    left: 50%;
+    position: absolute;
+    z-index: 100;
+}
+
+#doSomethingBlockBody{
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+#doSomethingBlockBodyBackImg{
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+
+	-webkit-filter: blur(1px);
+       -moz-filter: blur(1px);
+        -ms-filter: blur(1px);
+            filter: blur(1px);
+}
+
+
+#doSomethingBlockBodyFence{
+	width: 100vw;
+	height: 50px;
+}
+
+.BlockBodyBox{
+	margin: 15px;
+	padding: 10px;
+	float: left;
+	position: relative;
+}
+
+#doSomethingBlockBodyBox_0{
+	/*background-color: #ff3c41;*/
+	-webkit-box-shadow: 0 0 15px 5px #ff3c41;
+	-moz-box-shadow: 0 0 15px 5px #ff3c41;
+	box-shadow: 0 0 15px 5px #ff3c41;
+}
+
+#doSomethingBlockBodyBox_1{
+	/*background-color: #47cf73;*/
+	-webkit-box-shadow: 0 0 15px 5px #47cf73;
+	-moz-box-shadow: 0 0 15px 5px #47cf73;
+	box-shadow: 0 0 15px 5px #47cf73;
+}
+
+#doSomethingBlockBodyBox_2{
+	/*background-color: #0ebeff;*/
+	-webkit-box-shadow: 0 0 15px 5px #0ebeff;
+	-moz-box-shadow: 0 0 15px 5px #0ebeff;
+	box-shadow: 0 0 15px 5px #0ebeff;
+}
+
+#doSomethingBlockBodyBox_3{
+	/*background-color: #fcd000;*/
+	-webkit-box-shadow: 0 0 15px 5px #fcd000;
+	-moz-box-shadow: 0 0 15px 5px #fcd000;
+	box-shadow: 0 0 15px 5px #fcd000;
+}
+
+#doSomethingBlockBodyBox_4{
+	/*background-color: #ae63e4;*/
+	-webkit-box-shadow: 0 0 15px 5px #ae63e4;
+	-moz-box-shadow: 0 0 15px 5px #ae63e4;
+	box-shadow: 0 0 15px 5px #ae63e4;
+}
+
+.BlockBodyBox img{
+	margin: 0 auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+/*Menu 內部 大頭照*/
+#MenuUserImg{
+	margin: 10px auto;
+	width: 100px;
+	height: 100px;
+	-moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background-size: 100%;
+}
+
+#MenuMemberInfo{
+	margin: 15px;
+	font-size: 12pt;
+}
+
+
+
+
+#backGatePage{
+	top: 0;
+	left: 0;
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.7);
+	display: none;
+	z-index: 999;
+}

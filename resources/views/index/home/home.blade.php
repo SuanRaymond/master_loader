@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <title>測試專用頁面</title>
-    <link type="text/css" rel="stylesheet" href="./lib/css/bootstrap.css"/>
-    <link type="text/css" rel="stylesheet" href="./lib/css/bootstrap-theme.css"/>
-    <link href="./lib/css/buttons.css" rel="stylesheet" type="text/css"/>
-    <link href="./lib/css/sweetalert.css" rel="stylesheet" type="text/css"/>
-    <link href="./lib/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    {{-- <link href="./lib/css/animate.css" rel="stylesheet" type="text/css"/> --}}
-    <link href="./lib/css/jquery.sidr.dark.min.css" rel="stylesheet" type="text/css"/>
-    <link href="./css/randomBlock.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Days+One" />
-    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Anton' type='text/css' />
+    <title>{{ trans('view.home.title') }}</title>
+    <link type="text/css" rel="stylesheet" href="./lib/css/buttons.css">
+    <link type="text/css" rel="stylesheet" href="./lib/css/sweetalert.css">
+    <link type="text/css" rel="stylesheet" href="./lib/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="./lib/css/animate.css"/>
+    <link type="text/css" rel="stylesheet" href="./lib/css/jquery.sidr.dark.min.css"/>
+    <link type="text/css" rel="stylesheet" href="./lib/css/DaysOne.css"/>
+    <link type="text/css" rel="stylesheet" href="./lib/css/Anton.css"/>
+
+    <link type="text/css" rel="stylesheet" href="./css/home.css"/>
+
     <!-- <link href="./lib/css/.css" rel="stylesheet" type="text/css"/> -->
 
-    <script src="./lib/js/jquery-3.2.1.js" type="text/javascript"></script>
-    <script type="text/javascript" src="./lib/js/bootstrap.js"></script>
-    <script src="./lib/js/jquery.cycle.all.min.js" type="text/javascript"></script>
-    <script src="./lib/js/jquery.easing.1.3.js" type="text/javascript"></script>
-    <script src="./lib/js/jquery.scrollTo.min.js" type="text/javascript"></script>
-    <script src="./lib/js/jquery.sidr.min.js" type="text/javascript"></script>
-    <script src="./lib/js/sweetalert.js" type="text/javascript"></script>
-    <script src="./lib/js/base.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./lib/js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="./lib/js/jquery.cycle.all.min.js"></script>
+    <script type="text/javascript" src="./lib/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="./lib/js/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="./lib/js/jquery.sidr.min.js"></script>
+    <script type="text/javascript" src="./lib/js/sweetalert.js"></script>
+    <script type="text/javascript" src="./lib/js/base.js"></script>
 
-    <script src="./js/randomBlock.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./js/home.js"></script>
 
     <!-- <script src="./lib/js/.js" type="text/javascript"></script> -->
 
@@ -50,38 +49,40 @@
         <!-- top banner -->
         <header>
             <img src="./images/logo.png" height="70%">
-            <div align="center"><h1>FunMugle</h1></div>
+            <div align="center"><h1>{{ trans('view.home.headerTitle') }}</h1></div>
             @if($box->loginType)
                 <a href="" id="doSomethingBlockMenuButton">
-                    <i class="fa fa-lg fa-bars" aria-hidden="true"></i>
+                    <i class="fa fa-2x fa-bars" aria-hidden="true"></i>
                 </a>
             @else
                 <a href="/Login" id="doSomethingBlockLoginButton">
-                    <i class="fa fa-lg fa-sign-in" aria-hidden="true"></i>
+                    <i class="fa fa-2x fa-sign-in" aria-hidden="true"></i>
                 </a>
             @endif
         </header>
 
-        <div id="doSomethingBlockBanner">
+        <div class="animated bounceInDown" id="doSomethingBlockBanner">
             <div id="doSomethingBlockBannerBody">
-            <img src="images/banner1.jpg"/>
+                <img src="images/banner1.jpg"/>
+            </div>
+        </div>
+
+        <div id="doSomethingBlockBody" align="center" class="row">
+            <div class="animated bounceInLeft span6">
+                <a href="{{ $box->loginType ? '' : '/Login' }}">
+                    <img src="./images/Gift.png" width="100%">
+                    <div align="center">{{ trans('view.home.b.quickTask') }}</div>
+                </a>
+            </div>
+            <div class="animated bounceInRight span6">
+                <a href="{{ $box->loginType ? '' : '/Login' }}">
+                    <img src="./images/shop.png" width="100%">
+                    <div align="center">{{ trans('view.home.b.quickShop') }}</div>
+                </a>
             </div>
         </div>
     </div>
-    <div align="center" style="margin: 5%; margin-top: 20%">
-        <div class="span1">&nbsp;</div>
-        <div class="span5">
-            <img src="./images/Gift.png" width="100%">
-            <br>
-            <div style="margin-top: 5%; color: #9b4949; font-size: 3vh;">每日任務</div>
-        </div>
-        <div class="span5">
-            <img src="./images/shop.png" width="100%">
-            <br>
-            <div style="margin-top: 5%; color: #9b4949; font-size: 3vh;">購物</div>
-        </div>
-        <div class="span1">&nbsp;</div>
-    </div>
+
     <div id="sidr">
         <ul>
             <li>
@@ -96,25 +97,25 @@
                         @endif
                     "></div>
                     @if($box->loginType)
-                        <span>暱稱：{{ $box->member->name }}</span>
-                        <span>推薦碼：{{ $box->member->memberID }}</span>
-                        <span>點數：{{ $box->member->points }}</span>
-                        <span>藏蛋數：{{ $box->member->integral }}</span>
-                        <span>贈送紅利：{{ $box->member->bonus }}</span>
+                        <span>{{ trans('memberMenu.nickName') }} {{ $box->member->name }}</span>
+                        <span>{{ trans('memberMenu.share') }} {{ $box->member->memberID }}</span>
+                        <span>{{ trans('memberMenu.points') }} {{ $box->member->points }}</span>
+                        <span>{{ trans('memberMenu.integral') }} {{ $box->member->integral }}</span>
+                        <span>{{ trans('memberMenu.bonus') }} {{ $box->member->bonus }}</span>
                         <a href="/Logout">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>
-                            登出
+                            {{ trans('memberMenu.logout') }}
                         </a>
                         <hr>
                     @endif
                 </div>
             </li>
             <li><a href="/MFire">會員中心</a></li>
-            <li><a>購物</a></li>
-            <li><a>音樂</a></li>
+            <li><a>{{ trans('view.home.b.quickShop') }}</a></li>
+            {{-- <li><a>音樂</a></li>
             <li><a>教育</a></li>
             <li><a>遊戲</a></li>
-            <li><a>直播</a></li>
+            <li><a>直播</a></li> --}}
             <li><a id="closeMenu">關閉選單</a></li>
         </ul>
     </div>

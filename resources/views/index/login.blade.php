@@ -2,13 +2,16 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta content="" name="description">
-    <meta content="" name="author">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <title>{{ trans('view.home.title') }}-{{ trans('view.login.headerTitle') }}</title>
 
     <link type="text/css" href="./lib/css/bootstrap.css" rel="stylesheet"/>
     <link type="text/css" href="./lib/css/bootstrap-theme.css" rel="stylesheet"/>
@@ -38,28 +41,43 @@
 </head>
 
 <body>
-    <div class="login-box">
-        <h3 class="title">登錄</h3>
-        <div class="login-form">
-            <form method="post" id="Login_Form">
-                {{ csrf_field() }}
-                <div class="user-name">
-                    <label for="account"><i class="glyphicon glyphicon-user"></i></label>
-                    <input type="text" name="account" id="account" placeholder="帳號" value="">
+    <div class="container" id="LoginBox">
+        <form class="form-signin" role="form">
+            <h2 class="title form-signin-heading">{{ trans('view.login.subTitle') }}</h2>
+
+            <label for="account" class="sr-only"></label>
+            <input type="text" name="account" id="account" class="form-control"
+                   placeholder="{{ trans('view.plzenter'). trans('view.account') }}" required="" autofocus="">
+
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" name="password" id="password" class="form-control"
+                   placeholder="{{ trans('view.plzenter'). trans('view.password') }}" required="">
+
+            <a class="button button-flat-action button-lg button-block" id="Login_Submit">{{ trans('view.login.b.login') }}</a>
+            <div align="center">{{ trans('view.and') }}</div>
+
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="button button-flat button-lg button-block accordion-toggle"
+                       data-toggle="collapse" data-parent="#accordion2" href="#Login_Other_From">
+                        {{ trans('view.login.b.other') }}
+                    </a>
                 </div>
-                <div class="user-pass">
-                    <label for="password"><i class="glyphicon glyphicon-lock"></i></label>
-                    <input type="password" name="password" id="password" placeholder="密碼" value="">
+                <div id="Login_Other_From" class="accordion-body collapse">
+                    <hr>
+                    <div class="accordion-inner">
+                        <a class="button button-flat-royal button-lg button-block" id="Forget_Submit">
+                            {{ trans('view.login.b.forget') }}
+                        </a>
+                        <div align="center">{{ trans('view.and') }}</div>
+
+                        <a href="/Registered" class="button button-flat-primary button-lg button-block" id="Create_Submit">
+                            {{ trans('view.login.b.create') }}
+                        </a>
+                    </div>
                 </div>
-            </form>
-        </div>
-        <div class="login-links">
-            <a href="#">忘記密碼</a>
-        </div>
-        <div class="login-button">
-            <a class="button button-flat-primary button-lg button-block" style="margin-bottom: 10px;" id="Login_Submit">登 錄</a>
-            <a href="/Registered" class="button button-flat-primary button-lg button-block">注 冊</a>
-        </div>
+            </div>
+        </form>
     </div>
 </body>
 

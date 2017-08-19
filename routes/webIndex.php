@@ -38,3 +38,7 @@ Route::get('/MFire', 'memberProfile@index');//會員明細
 Route::get('/CMFire', 'changeMemberProfile@index');
 //修改會員資料 驗證
 Route::post('/CMFire', 'changeMemberProfile@check');
+
+
+//購物網
+Route::get('/Shop', 'homeShop@index');//首頁

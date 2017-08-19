@@ -25,13 +25,25 @@ if(!function_exists('ip')){
 
 if(!function_exists('mIView')){
     /**
-     * Shop View ReUse
+     * Index View ReUse
      */
     function mIView($_name, $_cup = null){
         if(is_null($_cup)){
             $_cup = compact(null);
         }
         return view('index.'. $_name, $_cup);
+    }
+}
+
+if(!function_exists('mSView')){
+    /**
+     * Shop View ReUse
+     */
+    function mSView($_name, $_cup = null){
+        if(is_null($_cup)){
+            $_cup = compact(null);
+        }
+        return view('shop.'. $_name, $_cup);
     }
 }
 

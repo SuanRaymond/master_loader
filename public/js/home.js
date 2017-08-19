@@ -2,13 +2,18 @@
 $(document).ready(function(){
 	$.scrollTo(0);
 
+	$("#backGatePage, #closeMenu").click(function(){
+  		$("#backGatePage").fadeOut();
+  		$("#doSomethingBlockMenuButton").click();
+  	});
+
 	$('#doSomethingBlockMenuButton').sidr({
 		side: 'right',
 		timing: 'ease-in-out',
 		onOpenEnd: function(){
 			$("#backGatePage").css({
 				width: "100vw",
-				height: $("body").height()
+				height: "100vh"
 			}).fadeIn();
 		}
   	});

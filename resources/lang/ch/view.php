@@ -7,10 +7,12 @@
 	 */
 	return [
 		'title'    => 'FunMugle',
-		'account'  => '帳號',
+		'account'  => '手機號碼',
 		'password' => '密碼',
 		'plzenter' => '請輸入',
-		'and'	   => '或',
+		'and'      => '或',
+		'confirm'  => '確認',
+		'cancel'   => '取消',
 
 		'memberMenu' => [
 			'nickName' => '暱稱：',
@@ -29,6 +31,21 @@
 				'other'  => '其&nbsp;他&nbsp;選&nbsp;項',
 				'forget' => '忘&nbsp;記&nbsp;密&nbsp;碼',
 				'create' => '創&nbsp;建&nbsp;帳&nbsp;號',
+			],
+		],
+
+		'registered' => [
+			'headerTitle' 	=> '註冊',
+			'phone'         => '請輸入手機號共X碼',
+			'nickName'      => '請輸入暱稱',
+			'mail'          => '請輸入信箱',
+			'passowrd'      => '請輸入密碼',
+			'passwordCheck' => '請輸入密碼確認',
+			'recommendL'    => '推薦碼',
+			'recommend'     => '請輸入推薦碼共X碼數字',
+			'check'         => '請輸入驗證碼',
+			'b' => [
+				'registered'  => '註&nbsp;&nbsp;&nbsp;&nbsp;冊',
 			],
 		],
 

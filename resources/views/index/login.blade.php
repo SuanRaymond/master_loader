@@ -11,7 +11,7 @@
     <meta content="" name="author" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <title>{{ trans('view.home.title') }}-{{ trans('view.login.headerTitle') }}</title>
+    <title>{{ trans('view.title') }}-{{ trans('view.login.headerTitle') }}</title>
 
     <link type="text/css" href="./lib/css/bootstrap.css" rel="stylesheet"/>
     <link type="text/css" href="./lib/css/bootstrap-theme.css" rel="stylesheet"/>
@@ -30,7 +30,8 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $("#Login_Submit").click(function(){
-                $("#Login_Form").submit();
+                RaySys.Alert.Loading();
+                setTimeout(function(){ $("#Login_Form").submit(); }, 100);
             });
 
             /** Alert **/
@@ -42,7 +43,8 @@
 
 <body>
     <div class="container" id="LoginBox">
-        <form class="form-signin" role="form">
+        <form method="post" class="form-signin" role="form" id="Login_Form">
+            {{ csrf_field() }}
             <h2 class="title form-signin-heading">{{ trans('view.login.subTitle') }}</h2>
 
             <label for="account" class="sr-only"></label>
@@ -53,7 +55,14 @@
             <input type="password" name="password" id="password" class="form-control"
                    placeholder="{{ trans('view.plzenter'). trans('view.password') }}" required="">
 
-            <a class="button button-flat-action button-lg button-block" id="Login_Submit">{{ trans('view.login.b.login') }}</a>
+            <a class="button button-flat-action button-lg button-block" id="Login_Submit">
+                {{ trans('view.login.b.login') }}
+            </a>
+
+            <a href="/" class="button button-flat-caution button-large  button-block">
+                {{ trans('view.cancel') }}
+            </a>
+
             <div align="center">{{ trans('view.and') }}</div>
 
             <div class="accordion-group">

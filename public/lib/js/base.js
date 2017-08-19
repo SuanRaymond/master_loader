@@ -233,6 +233,19 @@ RaySys = {
             _Function
             );
         },
+        Loading:function(){
+            swal({
+                title: "跳转中<img src='../../images/loadertitle.gif'><br>Loading<img src='../../images/loadertitle.gif'>",
+                text: "",
+                type: "",
+                html: true,
+                allowEscapeKey: false,
+                showCancelButton: false,
+                closeOnConfirm: false,
+                showConfirmButton: false,
+                showLoaderOnConfirm: false
+            });
+        },
         Status:function(_Status){
             if(_Status == 0){
                 return 'info';

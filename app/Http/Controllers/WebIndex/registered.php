@@ -35,7 +35,8 @@ class registered extends Controller
 
     public function index()
     {
-        return mIView('registered');
+        $box = $this->box;
+        return mIView('registered', compact('box'));
     }
 
     /**
@@ -102,6 +103,6 @@ class registered extends Controller
     public function reRrror($_msg)
     {
         setMesage([alert(trans('message.title.error'), $_msg, 2)]);
-        return mIView('registered');
+        return $this->index();
     }
 }

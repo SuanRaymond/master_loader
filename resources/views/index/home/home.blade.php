@@ -10,7 +10,7 @@
     <meta content="" name="author" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <title>{{ trans('view.home.title') }}</title>
+    <title>{{ trans('view.title') }}</title>
     <link type="text/css" rel="stylesheet" href="./lib/css/buttons.css">
     <link type="text/css" rel="stylesheet" href="./lib/css/sweetalert.css">
     <link type="text/css" rel="stylesheet" href="./lib/css/font-awesome.min.css">
@@ -97,14 +97,14 @@
                         @endif
                     "></div>
                     @if($box->loginType)
-                        <span>{{ trans('memberMenu.nickName') }} {{ $box->member->name }}</span>
-                        <span>{{ trans('memberMenu.share') }} {{ $box->member->memberID }}</span>
-                        <span>{{ trans('memberMenu.points') }} {{ $box->member->points }}</span>
-                        <span>{{ trans('memberMenu.integral') }} {{ $box->member->integral }}</span>
-                        <span>{{ trans('memberMenu.bonus') }} {{ $box->member->bonus }}</span>
+                        <span>{{ trans('view.memberMenu.nickName') }} {{ $box->member->name }}</span>
+                        <span>{{ trans('view.memberMenu.share') }} {{ $box->member->memberID }}</span>
+                        <span>{{ trans('view.memberMenu.points') }} {{ $box->member->points }}</span>
+                        <span>{{ trans('view.memberMenu.integral') }} {{ $box->member->integral }}</span>
+                        <span>{{ trans('view.memberMenu.bonus') }} {{ $box->member->bonus }}</span>
                         <a href="/Logout">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>
-                            {{ trans('memberMenu.logout') }}
+                            {{ trans('view.memberMenu.logout') }}
                         </a>
                         <hr>
                     @endif

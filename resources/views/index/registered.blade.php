@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
-        <meta charset="utf-8">
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <title>{{ trans('view.title') }}-{{ trans('view.registered.headerTitle') }}</title>
         <!-- 引入JS -->
         <link type="text/css" rel="stylesheet" href="./lib/css/bootstrap.css"/>
         <link type="text/css" rel="stylesheet" href="./lib/css/bootstrap-theme.css"/>
@@ -18,13 +24,36 @@
         <script type="text/javascript" src="./lib/js/buttons.js"></script>
         <script type="text/javascript" src="./lib/js/base.js"></script>
         <script type="text/javascript" src="./lib/js/gVerify.js"></script>
-        <script type="text/javascript" src="./js/registered.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function(){
-                // $("#Registered_Submit").click(function(){
-                //     $("#Registered_Form").submit();
-                // });
+                var verifyCode = new GVerify("v_container");
+                $("#Registered_Submit").click(function(){
+                    var res = verifyCode.validate($("#code_input").val());
+                    if(res){
+                        if($("#upmemberID").val() == ""){
+                            swal({
+                                title: "{{ trans('message.title.warning') }}",
+                                text: "{!! trans('message.registered.checkRecommend') !!}",
+                                type: "info",
+                                confirmButtonText: "{{ trans('view.confirm') }}",
+                                cancelButtonText: "{{ trans('view.cancel') }}",
+                                html: true,
+                                showCancelButton: true,
+                                closeOnConfirm: false,
+                                showLoaderOnConfirm: true,
+                            },
+                            function(){
+                                $("#Registered_Form").submit();
+                            });
+                        }
+                        else{
+                            $("#Registered_Form").submit();
+                        }
+                    }else{
+                        swal("{{ trans('message.registered.checkError') }}", "", "error");
+                    }
+                });
 
                 /** Alert **/
                 {!! session()->get('msg', '') !!}
@@ -35,7 +64,9 @@
     <body>
         <!-- 頁簽參數 -->
         <div class="span12">
-            <div class="span12" style="text-align: center;"><h1>註冊</h1></div>
+            <div class="span12" style="text-align: center;">
+                <h1>{{ trans('view.registered.headerTitle') }}</h1>
+            </div>
             <br>
             <div id="myTabContent" class="tab-content">
                 <br><br>
@@ -43,37 +74,49 @@
                     {{ csrf_field() }}
                     <div class="input-group">
                         <span class="input-group-addon glyphicon glyphicon-phone"></span>
-                        <input type="text" class="form-control" placeholder="請輸入手機號共X碼" name="account">
+                        <input type="text" class="form-control" placeholder="{{ trans('view.registered.phone') }}"
+                               name="account" value="{{ $box->params->account }}">
                     </div><br>
                     <div class="input-group">
                         <span class="input-group-addon glyphicon glyphicon-user"></span>
-                        <input type="text" class="form-control" placeholder="請輸入暱稱" name="name">
+                        <input type="text" class="form-control" placeholder="{{ trans('view.registered.nickName') }}"
+                               name="name" value="{{ $box->params->name }}">
                     </div><br>
                     <div class="input-group">
                         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-                        <input type="text" class="form-control" placeholder="請輸入信箱" name="mail">
+                        <input type="text" class="form-control" placeholder="{{ trans('view.registered.mail') }}"
+                               name="mail" value="{{ $box->params->mail }}">
                     </div><br>
                     <div class="input-group">
                         <span class="input-group-addon glyphicon glyphicon-lock"></span>
-                        <input type="password" class="form-control" placeholder="請輸入密碼" name="password">
+                        <input type="password" class="form-control" placeholder="{{ trans('view.registered.passowrd') }}"
+                               name="password">
                     </div><br>
                     <div class="input-group">
                         <span class="input-group-addon glyphicon glyphicon-lock"></span>
-                        <input type="password" class="form-control" placeholder="請輸入密碼確認" name="repassword">
+                        <input type="password" class="form-control" placeholder="{{ trans('view.registered.passwordCheck') }}"
+                               name="repassword">
                     </div><br>
                     <div class="input-group">
-                        <span class="input-group-addon">推薦碼</span>
-                        <input type="text" class="form-control" placeholder="請輸入推薦碼共X碼數字" name="upmemberID">
+                        <span class="input-group-addon">{{ trans('view.registered.recommendL') }}</span>
+                        <input type="text" class="form-control" placeholder="{{ trans('view.registered.recommend') }}"
+                               name="upmemberID" id="upmemberID" value="{{ $box->params->upmemberID }}">
                     </div><br>
 
-                        <input type="hidden" class="form-control" name="groupID" value="210">
+                    <input type="hidden" class="form-control" name="groupID" value="210">
 
-                    <div>
+                    <div class="input-group" style="margin: 0 auto;">
                         <div id="v_container" style="width: 200px;height: 50px;"></div><br>
-                        <input type="text" id="code_input" value="" placeholder="請輸入驗證碼"/>
+                        <input type="text" id="code_input" value="" placeholder="{{ trans('view.registered.check') }}"/>
                     </div><br>
                 </form>
-                <a id="Registered_Submit" class="button button-flat-primary button-large  button-block">註冊</a>
+                <a id="Registered_Submit" class="button button-flat-primary button-large  button-block"
+                   style="margin-bottom: 5px;">
+                    {{ trans('view.registered.b.registered') }}
+                </a>
+                <a href="/Login" class="button button-flat-caution button-large  button-block">
+                    {{ trans('view.cancel') }}
+                </a>
             </div>
         </div>
     </body>

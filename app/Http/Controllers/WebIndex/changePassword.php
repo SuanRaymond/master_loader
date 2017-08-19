@@ -41,16 +41,16 @@ class changePassword extends Controller
     {
         //資料是否空白
         if(empty($this->box->params->PasswordO)){
-            return $this->reRrror(trans('message.registered.passwordNull'));
+            return $this->reRrror("舊密碼不能為空");
         }
         if(empty($this->box->params->PasswordN)){
-            return $this->reRrror(trans('message.registered.passwordNull'));
+            return $this->reRrror("新密碼不能為空");
         }
         if(empty($this->box->params->rePasswordN)){
-            return $this->reRrror(trans('message.registered.repasswordNull'));
+            return $this->reRrror("密碼確認不能為空");
         }
         if($this->box->params->rePasswordN != $this->box->params->PasswordN){
-            return $this->reRrror(trans('message.registered.repasswordError'));
+            return $this->reRrror("新密碼與密碼確認不相同");
         }
 
         /*----------------------------------與廠商溝通----------------------------------*/
@@ -87,6 +87,6 @@ class changePassword extends Controller
     public function reRrror($_msg)
     {
         setMesage([alert(trans('message.title.error'), $_msg, 2)]);
-        return mIView('/MFire');
+        return back();
     }
 }

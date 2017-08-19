@@ -52,27 +52,26 @@ class memberProfile extends Controller
             return $this->reRrror($this->box->status);
         }
         //整理資料
-        $this->box->member             = $this->box->result->Member;
-        $this->box->member->memberID   = $this->box->member->memberID;
-        $this->box->member->name       = $this->box->member->name;
-        $this->box->member->account    = $this->box->member->account;
-        $this->box->member->mail       = $this->box->member->mail;
-        $this->box->member->address    = $this->box->member->address;
-        $this->box->member->birthday   = $this->box->member->birthday;
-        $this->box->member->gender     = $this->box->member->gender;
-        $this->box->member->cardID     = $this->box->member->cardID;
-        $this->box->member->languageID = $this->box->member->languageID;
-        $this->box->member->points     = $this->box->member->points;
-        $this->box->member->integral   = $this->box->member->integral;
-        $this->box->member->bonus      = $this->box->member->bonus;
+        $this->box->member            = $this->box->result->Member;
+        $this->box->member->memberID  = ($this->box->member->memberID);
+        $this->box->member->name      = ($this->box->member->name);
+        $this->box->member->account   = ($this->box->member->account);
+        $this->box->member->mail      = ($this->box->member->mail);
+        $this->box->member->address   = ($this->box->member->address);
+        $this->box->member->birthday  = ($this->box->member->birthday);
+        $this->box->member->gender    = ($this->box->member->gender);
+        $this->box->member->cardID    = ($this->box->member->cardID);
+        $this->box->member->languageID = ($this->box->member->languageID);
+        $this->box->member->points    = ($this->box->member->points);
+        $this->box->member->integral  = ($this->box->member->integral);
+        $this->box->member->bonus     = ($this->box->member->bonus);
 
         //重新導向
         return mIView('memberCentre.memberProfile', compact('box'));
     }
     public function reRrror($_msg)
     {
-        dd($this->box);
         setMesage([alert(trans('message.title.error'), $_msg, 2)]);
-        return mIView('memberCentre.memberProfile');
+        return redirect('memberCentre.memberProfile');
     }
 }

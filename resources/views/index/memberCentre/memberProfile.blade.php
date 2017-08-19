@@ -23,13 +23,13 @@
         <script type="text/javascript" src="./lib/js/buttons.js"></script>
         <script type="text/javascript" src="./lib/js/base.js"></script>
 
-        {{-- <script type="text/javascript">
+        <script type="text/javascript">
             $(document).ready(function(){
                 /** Alert **/
                 {!! session()->get('msg', '') !!}
                 {{ setMesage(null) }}
             });
-        </script> --}}
+        </script>
 
     </head>
     <body>
@@ -80,11 +80,26 @@
                     </div>
                     <div class="list-group-item">
                         <span style="text-align: right;">　　性別：</span>
-                        <span style="padding-left: 20px;">{{ $box->member->gender }}</span>
+                        <span style="padding-left: 20px;">
+                            @if($box->member->gender == 0)
+                                男
+                            @else
+                                女
+                            @endif
+                        </span>
                     </div>
                     <div class="list-group-item" style="background-color: #f0f0f0;">
                         <span style="text-align: right;">　　語言：</span>
-                        <span style="padding-left: 20px;">{{ $box->member->languageID }}</span>
+                        <span style="padding-left: 20px;">
+                            @if($box->member->languageID==1)
+                                English
+                            @elseif($box->member->languageID==2)
+                                簡體中文
+                            @elseif($box->member->languageID==3)
+                                繁體中文
+                            @else
+                            @endif
+                        </span>
                     </div>
                     <div class="list-group-item">
                         <span style="text-align: right;">銀行卡號：</span>

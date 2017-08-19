@@ -59,9 +59,16 @@
         <header>
             <img src="./images/logo.png" height="70%">
             <div align="center"><h1>{{ trans('view.title') }}-{{ trans('menu.'. session()->get('menu')) }}</h1></div>
-                <a href="" id="doSomethingBlockMenuButton">
-                    <i class="fa fa-2x fa-bars" aria-hidden="true"></i>
-                </a>
+                @if($box->loginType)
+                    <a href="" id="doSomethingBlockMenuButton">
+                        <i class="fa fa-2x fa-bars" aria-hidden="true"></i>
+                    </a>
+                @else
+                    <a href="/Login" id="doSomethingBlockLoginButton">
+                        <i class="fa fa-2x fa-sign-in" aria-hidden="true"></i>
+                    </a>
+                @endif
+
         </header>
 
         @yield('content')

@@ -3,7 +3,7 @@ body{
 	margin: 0;
 	width: 100vw;
 	height: 100vh;
-	overflow: hidden;
+	overflow-x: hidden;
     background-color: #f3f3f3;
     font-family:Microsoft JhengHei;
 }
@@ -133,8 +133,10 @@ body{
 #backGatePage{
 	top: 0;
 	left: 0;
+	height: 100vh;
+	width: 100vw;
 	position: absolute;
 	background-color: rgba(0, 0, 0, 0.7);
 	display: none;
-	z-index: 999;
+	z-index: 9999;
 }

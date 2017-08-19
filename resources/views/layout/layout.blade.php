@@ -11,7 +11,7 @@
     <meta content="" name="author" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <title>{{ trans('view.title') }}-{{ trans('view.'. session()->get('menu') '.headerTitle') }}</title>
+    <title>{{ trans('view.title') }}-{{ trans('menu.'. session()->get('menu')) }}</title>
     <link type="text/css" rel="stylesheet" href="./lib/css/bootstrap.css"/>
     <link type="text/css" rel="stylesheet" href="./lib/css/bootstrap-theme.css"/>
     <link type="text/css" rel="stylesheet" href="./lib/css/buttons.css">
@@ -22,7 +22,9 @@
     <link type="text/css" rel="stylesheet" href="./lib/css/DaysOne.css"/>
     <link type="text/css" rel="stylesheet" href="./lib/css/Anton.css"/>
 
-    <link type="text/css" rel="stylesheet" href="./css/shop/shop.css"/>
+    <link type="text/css" rel="stylesheet" href="./css/home.css"/>
+
+    <!-- <link href="./lib/css/.css" rel="stylesheet" type="text/css"/> -->
 
     @yield('cssImport')
 
@@ -36,61 +38,37 @@
     <script type="text/javascript" src="./lib/js/sweetalert.js"></script>
     <script type="text/javascript" src="./lib/js/base.js"></script>
 
-    <script type="text/javascript" src="./js/shop/shop.js"></script>
+    <script type="text/javascript" src="./js/home.js"></script>
+
+    <!-- <script src="./lib/js/.js" type="text/javascript"></script> -->
 
     @yield('jsImport')
 
-    <title>{{ trans('view.title') }}</title>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            /** Alert **/
+            {!! session()->get('msg', '') !!}
+            {{ setMesage(null) }}
+        });
+    </script>
+
 </head>
 
 <body>
-    <!-- 搜尋 -->
      <div id="doSomethingBlock">
-        <!-- top banner -->
         <header>
             <img src="./images/logo.png" height="70%">
-            <div align="center"><h1>{{ trans('view.home.headerTitle') }}</h1></div>
+            <div align="center"><h1>{{ trans('view.title') }}-{{ trans('menu.'. session()->get('menu')) }}</h1></div>
                 <a href="" id="doSomethingBlockMenuButton">
                     <i class="fa fa-2x fa-bars" aria-hidden="true"></i>
                 </a>
         </header>
+
+        @yield('content')
+
     </div>
 
-    @yield('content')
-
-    <!-- 浮動底端 -->
-    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-        <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-            <a class="btn navbar-brand span4" role="button" href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>首頁</a>
-            <a class="btn navbar-brand span4" role="button" href="#sidr" id="simple-menu"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>分類</a>
-            <a class="btn navbar-brand span4" role="button" href="/shopCar"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>購物車</a>
-            <a class="btn navbar-brand span4" role="button" href="/login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>我的</a>
-        </div>
-    </nav>
-    <div id="sidr">
-        <!-- Your content -->
-        <a href="#" id="sidrclose">
-            <div class="span12" style="margin-bottom: 10px; text-align: right;">
-                <span class="glyphicon glyphicon-remove"></span>關閉
-            </div>
-        </a>
-        <ul>
-            <li><a href="/">3C</a></li>
-            <li><a href="/">周邊</a></li>
-            <li><a href="/">NB</a></li>
-            <li><a href="/">通訊</a></li>
-            <li><a href="/">數位</a></li>
-            <li><a href="/">家電</a></li>
-            <li><a href="/">日用</a></li>
-            <li><a href="/">食品</a></li>
-            <li><a href="/">生活</a></li>
-            <li><a href="/">休閒</a></li>
-            <li><a href="/">美妝保健</a></li>
-            <li><a href="/">衣鞋包表</a></li>
-            <li><a href="/">運動戶外</a></li>
-            <li><a href="/">時尚</a></li>
-        </ul>
-    </div>
+    @yield('contentBottom')
 
     <div id="sidr">
         <ul>

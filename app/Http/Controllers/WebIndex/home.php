@@ -19,8 +19,8 @@ class home extends Controller
     public function index()
     {
         $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
+        session()->put('menu', Request()->path());
         $box = $this->box;
-
         return mIView('home.home', compact('box'));
     }
 

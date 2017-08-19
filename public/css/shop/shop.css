@@ -1,0 +1,18 @@
+.popular-search-div{
+	margin: 0 auto;
+	font-size: 14pt;
+	font-family: 'Days One';
+
+	width: 100%;
+	position: relative;
+}
+
+.popular-search-div .popular{
+	margin-left: 20px;
+}
+
+.popular-search-div .see-more{
+	font-size: 10pt;
+	float: right;
+}
+

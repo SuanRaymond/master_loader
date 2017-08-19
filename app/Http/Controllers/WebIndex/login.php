@@ -18,7 +18,7 @@ class login extends Controller
 
         $this->box->params->account     = Request()->get('account');
         $this->box->params->password    = Request()->get('password');
-        $this->box->params->languageID  = session()->get('lang', '0');
+        // $this->box->params->languageID  = session()->get('lang', '0');
         $this->box->params->equipmentID = browser();
         $this->box->params->ip          = ip();
 
@@ -101,7 +101,7 @@ class login extends Controller
         $this->box->member->points   = pFormat($this->box->member->points);
         $this->box->member->integral = pFormat($this->box->member->integral);
         $this->box->member->bonus    = pFormat($this->box->member->bonus);
-
+        $this->box->params->languageID = $this->box->member->languageID;
         return true;
     }
 

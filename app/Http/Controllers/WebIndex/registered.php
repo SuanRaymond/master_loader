@@ -48,6 +48,12 @@ class registered extends Controller
         if(empty($this->box->params->account)){
             return $this->reRrror(trans('message.registered.accountNull'));
         }
+        if(empty($this->box->params->name)){
+            return $this->reRrror(trans('message.registered.nameNull'));
+        }
+        if(empty($this->box->params->mail)){
+            return $this->reRrror(trans('message.registered.mailNull'));
+        }
         if(empty($this->box->params->password)){
             return $this->reRrror(trans('message.registered.passwordNull'));
         }
@@ -56,12 +62,6 @@ class registered extends Controller
         }
         if($this->box->params->repassword != $this->box->params->password){
             return $this->reRrror(trans('message.registered.repasswordError'));
-        }
-        if(empty($this->box->params->name)){
-            return $this->reRrror(trans('message.registered.nameNull'));
-        }
-        if(empty($this->box->params->mail)){
-            return $this->reRrror(trans('message.registered.mailNull'));
         }
         if(empty($this->box->params->groupID)){
             return $this->reRrror(trans('message.registered.groupIDNull'));
@@ -90,7 +90,8 @@ class registered extends Controller
         //檢查廠商回傳資訊
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
         if($this->box->status != 0){
-            return $this->reRrror($this->box->status);
+            return $this->reRrror(trans('message.error.'.$this->box->status));
+            // return $this->reRrror($this->box->status);
         }
 
         //輸出成功訊息

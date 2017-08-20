@@ -18,7 +18,7 @@ class login extends Controller
 
         $this->box->params->account     = Request()->get('account');
         $this->box->params->password    = Request()->get('password');
-        // $this->box->params->languageID  = session()->get('lang', '0');
+        //$this->box->params->languageID  = session()->get('lang', '0');
         $this->box->params->equipmentID = browser();
         $this->box->params->ip          = ip();
 
@@ -49,31 +49,8 @@ class login extends Controller
             return $this->reRrror(trans('message.login.passwordNull'));
         }
 
+
         //執行登入
-        $this->runLogin();
-        if($this->box->status != 0){
-            return back();
-        }
-        //執行寫入登入資訊
-        $this->runSetLoginInfo();
-        if($this->box->status != 0){
-            return back();
-        }
-
-        //將資料寫入 session
-        session()->put('member', json_encode($this->box->member));
-
-        //輸出成功訊息
-        setMesage([alert(trans('message.title.success'), trans('message.login.pass'), 1)]);
-        //重新導向
-        return redirect('/');
-    }
-
-    /**
-     * 執行登入
-     */
-    public function runLogin()
-    {
         /*----------------------------------與廠商溝通----------------------------------*/
         //放入連線區塊
         //需呼叫的功能
@@ -91,25 +68,21 @@ class login extends Controller
         $this->box->getResult = $this->box->result;
         //檢查廠商回傳資訊
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
+
         if($this->box->status != 0){
             return $this->reRrror($this->box->status);
         }
         /*----------------------------------與廠商溝通----------------------------------*/
 
         //整理資料
-        $this->box->member           = $this->box->result->Member;
-        $this->box->member->points   = pFormat($this->box->member->points);
-        $this->box->member->integral = pFormat($this->box->member->integral);
-        $this->box->member->bonus    = pFormat($this->box->member->bonus);
+        $this->box->member             = $this->box->result->Member;
+        $this->box->member->points     = pFormat($this->box->member->points);
+        $this->box->member->integral   = pFormat($this->box->member->integral);
+        $this->box->member->bonus      = pFormat($this->box->member->bonus);
         $this->box->params->languageID = $this->box->member->languageID;
-        return true;
-    }
 
-    /**
-     * 寫入登入資訊
-     */
-    public function runSetLoginInfo()
-    {
+
+        //執行寫入登入資訊
          /*----------------------------------與廠商溝通----------------------------------*/
         //放入連線區塊
         //需呼叫的功能
@@ -136,11 +109,18 @@ class login extends Controller
         //整理資料
         $this->box->member->token = $this->box->result->Token;
 
-        return true;
+        //將資料寫入 session
+        session()->put('member', json_encode($this->box->member));
+
+        //輸出成功訊息
+        setMesage([alert(trans('message.title.success'), trans('message.login.pass'), 1)]);
+        //重新導向
+        return redirect('/');
     }
 
     public function reRrror($_msg)
     {
         setMesage([alert(trans('message.title.error'), $_msg, 2)]);
+        return back();
     }
 }

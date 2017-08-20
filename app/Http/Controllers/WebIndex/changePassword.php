@@ -76,12 +76,12 @@ class changePassword extends Controller
         if($this->box->status != 0){
             return $this->reRrror($this->box->status);
         }
-
+        session()->put('member', '{}');
         //輸出成功訊息
         setMesage([alert(trans('message.title.success'), '密碼修改成功請重新登入', 1)]);
 
         //重新導向
-        return redirect('/Logout');
+        return redirect('/');
     }
 
     public function reRrror($_msg)

@@ -27,7 +27,6 @@ Route::post('/Registered', 'registered@check');
 //登出
 Route::get('/Logout', 'logout@index');
 
-Route::get('/shopCar', 'shopCar@index');//購物車
 //修改密碼
 Route::get('/CPwd', 'changePassword@index');
 //修改密碼 驗證
@@ -42,3 +41,5 @@ Route::post('/CMFire', 'changeMemberProfile@check');
 
 //購物網
 Route::get('/Shop', 'homeShop@index');//首頁
+//購物車
+Route::get('/ShopCar', 'shopCar@index');//購物車

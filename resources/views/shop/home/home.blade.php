@@ -12,98 +12,62 @@
 @stop
 
 @section('content')
-    <!-- 萬元專區 -->
     <div class="panel panel-default">
         <div class="panel-body">
-            <div class="popular-search-div">
-                <span class="popular">萬元專區</span>
-                <span class="see-more">查看更多</span>
-            </div>
-
-            <div class="popular-search">
-                <a href="/detail"><img src="images/shop/pi.png"  width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi1.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi2.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi3.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi4.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi5.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi6.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi7.png" width="100%" alt="" ></a>
+            <div id="Banner">
+                <img src="images/shop/ad1.jpg" width="100%">
+                <img src="images/shop/ad2.jpg" width="100%">
+                <img src="images/shop/ad3.jpg" width="100%">
+                <img src="images/shop/ad4.jpg" width="100%">
             </div>
         </div>
     </div>
 
-    <!-- 萬元專區 -->
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="popular-search-div">
-                <span class="popular">萬元專區</span>
-                <span class="see-more">查看更多</span>
-            </div>
+    {!! $box->html->menuListCommodity !!}
 
-            <div class="popular-search">
-                <a href="/detail"><img src="images/shop/pi.png"  width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi1.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi2.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi3.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi4.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi5.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi6.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi7.png" width="100%" alt="" ></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- 萬元專區 -->
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="popular-search-div">
-                <span class="popular">萬元專區</span>
-                <span class="see-more">查看更多</span>
-            </div>
-
-            <div class="popular-search">
-                <a href="/detail"><img src="images/shop/pi.png"  width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi1.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi2.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi3.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi4.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi5.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi6.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi7.png" width="100%" alt="" ></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- 萬元專區 -->
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="popular-search-div">
-                <span class="popular">萬元專區</span>
-                <span class="see-more">查看更多</span>
-            </div>
-
-            <div class="popular-search">
-                <a href="/detail"><img src="images/shop/pi.png"  width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi1.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi2.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi3.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi4.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi5.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi6.png" width="100%" alt="" ></a>
-                <a href="/detail"><img src="images/shop/pi7.png" width="100%" alt="" ></a>
-            </div>
-        </div>
-    </div>
+    <div style="height: 60px; width: 100%;"></div>
 @stop
 
 @section('contentBottom')
     <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
         <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-            <a class="btn navbar-brand span4" role="button" href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>首頁</a>
-            <a class="btn navbar-brand span4" role="button" href="#sidr" id="simple-menu"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>分類</a>
-            <a class="btn navbar-brand span4" role="button" href="/shopCar"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>購物車</a>
-            <a class="btn navbar-brand span4" role="button" href="/login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>我的</a>
+            <div class="span3">
+                <a class="btn navbar-brand" role="button" href="/Shop">
+                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    首頁
+                </a>
+            </div>
+            <div class="dropup span3">
+                <a class="btn navbar-brand" role="button" href=":javascript" id="simple-menu"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                    分類
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="simple-menu">
+                    {!! $box->html->menuList !!}
+                    <li role="separator" class="divider"></li>
+                    <li><a href="/Shop">{{ trans('menu.menu.0') }}</a></li>
+                </ul>
+            </div>
+            <div class="span3">
+                <a class="btn navbar-brand" role="button" href="/shopCar">
+                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                    購物車
+                </a>
+            </div>
+            <div class="span3">
+                <a class="btn navbar-brand" role="button" href="/login">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    我的
+                </a>
+            </div>
         </div>
     </nav>
 @stop
+
+
+
+
+
+

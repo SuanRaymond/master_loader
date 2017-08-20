@@ -3,22 +3,23 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="" name="description" />
     <meta content="" name="author" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
     <title>{{ trans('view.title') }}-{{ trans('menu.'. session()->get('menu')) }}</title>
+
+    <link type="text/css" rel="stylesheet" href="./lib/css/jquery.sidr.dark.min.css"/>
     <link type="text/css" rel="stylesheet" href="./lib/css/bootstrap.css"/>
     <link type="text/css" rel="stylesheet" href="./lib/css/bootstrap-theme.css"/>
     <link type="text/css" rel="stylesheet" href="./lib/css/buttons.css">
     <link type="text/css" rel="stylesheet" href="./lib/css/sweetalert.css">
     <link type="text/css" rel="stylesheet" href="./lib/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="./lib/css/animate.css"/>
-    <link type="text/css" rel="stylesheet" href="./lib/css/jquery.sidr.dark.min.css"/>
     <link type="text/css" rel="stylesheet" href="./lib/css/DaysOne.css"/>
     <link type="text/css" rel="stylesheet" href="./lib/css/Anton.css"/>
 
@@ -30,7 +31,6 @@
 
     <script type="text/javascript" src="./lib/js/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="./lib/js/bootstrap.js"></script>
-    <script type="text/javascript" src="./lib/js/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="./lib/js/jquery.cycle.all.min.js"></script>
     <script type="text/javascript" src="./lib/js/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="./lib/js/jquery.scrollTo.min.js"></script>

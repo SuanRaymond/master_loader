@@ -1,3 +1,16 @@
+#Banner{
+	margin: 0 auto;
+	height: 45vh;
+
+	max-height: 800px;
+	max-width: 800px;
+}
+
+#Banner img{
+	height: 100%;
+	width: 100%;
+}
+
 .popular-search-div{
 	margin: 0 auto;
 	font-size: 14pt;
@@ -5,6 +18,15 @@
 
 	width: 100%;
 	position: relative;
+}
+
+.popular-search a{
+	margin: 0 2px;
+	height: 35vh;
+}
+
+.popular-search a img{
+	height: 80%;
 }
 
 .popular-search-div .popular{

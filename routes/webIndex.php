@@ -43,3 +43,5 @@ Route::post('/CMFire', 'changeMemberProfile@check');
 Route::get('/Shop', 'homeShop@index');//首頁
 //購物車
 Route::get('/ShopCar', 'shopCar@index');//購物車
+//結算
+Route::get('/Buy', 'buy@index');//結算

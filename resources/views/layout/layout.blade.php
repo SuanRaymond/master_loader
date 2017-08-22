@@ -105,11 +105,12 @@
                 </div>
             </li>
             <li><a href="/MFire">會員中心</a></li>
-            <li><a>{{ trans('view.home.b.quickShop') }}</a></li>
+            <li><a href="/Shop">{{ trans('view.home.b.quickShop') }}</a></li>
             {{-- <li><a>音樂</a></li>
             <li><a>教育</a></li>
             <li><a>遊戲</a></li>
             <li><a>直播</a></li> --}}
+            <li><a href="/">返回入口</a></li>
             <li><a id="closeMenu">關閉選單</a></li>
         </ul>
     </div>

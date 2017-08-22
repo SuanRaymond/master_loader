@@ -13,6 +13,7 @@
 		'and'      => '或',
 		'confirm'  => '確認',
 		'cancel'   => '取消',
+		'nodata'   => '沒有任何資料喔！',
 
 		'memberMenu' => [
 			'nickName' => '暱稱：',
@@ -63,6 +64,18 @@
 			'headerTitle' => '購物平台',
 			'b' => [
 				'more' => '查看更多',
+			],
+		],
+
+		'ShopDetail' => [
+			'headerTitle' => '商品資訊',
+			'price'       => '購買',
+			'transport'   => '運費',
+			'bdate'		  => '上架時間',
+			'b' => [
+				'detail' => '詳細資訊',
+				'norm'   => '規格',
+				'memo'   => '備註',
 			],
 		],
 

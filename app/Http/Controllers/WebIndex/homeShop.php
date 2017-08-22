@@ -42,8 +42,9 @@ class homeShop extends Controller
         if(!$this->box->loginType){
             return false;
         }
-// return true;
-        $encrypt_services     = new encrypt_services(env('APP_KEY'));
+
+        $encrypt_services = new encrypt_services(env('APP_KEY'));
+        $menu_presenter   = new menu_presenter();
 
         //是否開啟開發模式
         $this->box->deBugMode = false;
@@ -77,7 +78,7 @@ class homeShop extends Controller
         }
 
         //組合Html
-        $this->box->html->menuList = with(new menu_presenter())->menuList($this->box->result->Menu);
+        $this->box->html->menuList = $menu_presenter->menuList($this->box->result->Menu);
 
         //取得商品選單
         $this->box->result = with(new connection_services())
@@ -89,7 +90,7 @@ class homeShop extends Controller
         }
 
         //組合Html
-        $this->box->html->menuListCommodity = with(new menu_presenter())->menuListMenuCommodity($this->box->result->MenuCommodity);
+        $this->box->html->menuListCommodity = $menu_presenter->menuListMenuCommodity($this->box->result->MenuCommodity);
 
         return true;
     }

@@ -40,10 +40,12 @@ Route::post('/CMFire', 'changeMemberProfile@check');
 
 
 //購物網
-Route::get('/Shop', 'homeShop@index');//首頁
+Route::get('/Shop', 'homeShop@index');
+//商品詳細
+Route::get('/ShopDetail', 'Shop\detail@index');
 //購物車
-Route::get('/ShopCar', 'shopCar@index');//購物車
+Route::get('/ShopCar', 'shopCar@index');
 //結算
-Route::get('/Buy', 'buy@index');//結算
+Route::get('/Buy', 'buy@index');
 //分類頁
-Route::get('/Sort', 'sortPage@index');//分類頁
+Route::get('/Sort', 'sortPage@index');

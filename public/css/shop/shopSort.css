@@ -1,0 +1,30 @@
+.sortListBox{
+    padding: 0px;
+    background-color: #ffffff;
+    border : 1px solid #DDD9D9;
+    margin-left: 6vw;
+    margin-bottom: 3vw;
+}
+.sortImg{
+    padding: 0px;
+    width: 100%;
+}
+.sortListTextBox{
+    padding: 5px;
+}
+.sortListTextTitle{
+    padding: 5px;
+    font-size: 4vw;
+}
+.sortListTextMoney{
+    padding: 0px;
+    font-size: 2vw;
+    background-color: #5cb85c;
+    color: #ffffff;
+}
+.sortListTextPoint{
+    padding: 0px;
+    font-size: 2vw;
+    background-color: #d9534f;
+    color: #ffffff;
+}

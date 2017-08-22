@@ -55,4 +55,44 @@ class menu_presenter{
 
         return $html;
 	}
+
+    /**
+     * 分類頁顯示商品列表
+     * @param object $_object 資料物件
+     */
+    public function sortList($_object)
+    {
+        $html = '';
+        $_object = reSetKey($_object);
+        // dd($_object);
+        foreach ($_object as $menuID => $group) {
+            foreach ($group as $ShopID => $row) {
+                if(strlen($row->title) > 7){
+                    $row->title = mb_substr($row->title, 0, 7). '...';
+                }
+                $html .= '
+                        <a href="/ShopDetail?ShopID='.$ShopID.'">
+                            <div class="span5 sortListBox">
+                                <img class="span12 sortImg" src="images/shop/item/'.$ShopID.'/Title.png">
+                                <div class="span12 sortListTextBox">
+                                    <div class="span12 sortListTextTitle">'. $row->title.'</div>
+                                    <div class="span6 sortListTextMoney">$ '. $row->price.'</div>
+                                    <div class="span6 sortListTextPoint">PP '. $row->price.'</div>
+                                </div>
+                            </div>
+                        </a>';
+            }
+        }
+        for($i=1;$i<=7;$i++){
+            $html .= '<div class="span5 sortListBox">
+                        <img class="span12 sortImg" src="images/shop/item/'.$ShopID.'/Title.png">
+                        <div class="span12 sortListTextBox">
+                            <div class="span12 sortListTextTitle">'. $row->title.'</div>
+                            <div class="span6 sortListTextMoney">$ '. $row->price.'</div>
+                            <div class="span6 sortListTextPoint">PP '. $row->price.'</div>
+                        </div>
+                      </div>';
+        }
+        return $html;
+    }
 }

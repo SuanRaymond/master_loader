@@ -69,10 +69,13 @@
         </div>
 
         <div class="span12" style="padding: 15px;">
-
-            <a class="span6 button button-flat-caution" style="height: 40px;line-height: 40px; font-size: 4.5vw" role="button" href="/ShopCar">加入購物車</a>
-
-            <a class="span5 button button-flat-caution" style="height: 40px;line-height: 40px; font-size: 4.5vw" role="button" href="/ShopCar">立即購買</a>
+            <div class="span5">
+                <a class="span12 button button-flat-caution" style="height: 40px;line-height: 40px; font-size: 3vw" role="button" href="/ShopCar">加入</a>
+            </div>
+            <div class="span1">&nbsp;</div>
+            <div class="span5">
+                <a class="span12 button button-flat-caution" style="height: 40px;line-height: 40px; font-size: 3vw" role="button" href="/Buy">即購</a>
+            </div>
         </div>
         <!-- 頁簽參數 -->
         <div class="span12" style="margin-bottom: 100px;">

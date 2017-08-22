@@ -23,7 +23,22 @@ $(document).ready(function(){
 	});
 
   	reSize();
+
+  	$.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    RaySys.AJAX.Send({ShopID: 101}, '/ajax/ShopCarAdd', 'SuFun', 'ErFun');
 });
+
+function SuFun(_obj){
+	console.log(_obj);
+}
+function ErFun(_obj){
+	console.log(_obj);
+}
 
 function reSize(){
 	var MenuButtonHeight 	= 25;

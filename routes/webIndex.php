@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'home@index');//首頁
-Route::get('/detail', 'productDetail@index');//商品明細頁
+Route::get('/ShopDetail', 'productDetail@index');//商品明細頁
 
 //登入
 Route::get('/Login', 'login@index');
@@ -45,3 +45,5 @@ Route::get('/Shop', 'homeShop@index');//首頁
 Route::get('/ShopCar', 'shopCar@index');//購物車
 //結算
 Route::get('/Buy', 'buy@index');//結算
+//分類頁
+Route::get('/Sort', 'sortPage@index');//分類頁

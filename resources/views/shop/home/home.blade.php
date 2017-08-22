@@ -51,7 +51,7 @@
                 </ul>
             </div>
             <div class="span3">
-                <a class="btn navbar-brand" role="button" href="/shopCar">
+                <a class="btn navbar-brand" role="button" href="/ShopCar">
                     <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                     購物車
                 </a>

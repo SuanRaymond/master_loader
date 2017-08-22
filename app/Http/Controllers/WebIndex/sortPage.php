@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Services\web_judge_services;
-class productDetail extends Controller
+class sortPage extends Controller
 {
     public $box;
 
@@ -24,7 +24,7 @@ class productDetail extends Controller
         }
         session()->put('menu', Request()->path());
         $box = $this->box;
-        return mSView('productDetail.productDetail', compact('box'));
+        return mSView('sortPage.sortPage', compact('box'));
     }
     public function search()
     {

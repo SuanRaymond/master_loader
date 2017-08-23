@@ -54,7 +54,6 @@ class changeMemberProfile extends Controller
         //送出資料
         $this->box->result    = with(new connection_services())->callApi($this->box);
         $this->box->getResult = $this->box->result;
-
         //檢查廠商回傳資訊
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
 
@@ -67,7 +66,7 @@ class changeMemberProfile extends Controller
         $this->box->member->name      = ($this->box->member->name);
         $this->box->member->mail      = ($this->box->member->mail);
         $this->box->member->address   = ($this->box->member->address);
-        $this->box->member->birthday  = ($this->box->member->birthday);
+        $this->box->member->birthday  = empty($this->box->member->birthday)?'-0-0':$this->box->member->birthday;
         $this->box->member->gender    = ($this->box->member->gender);
         $this->box->member->cardID    = ($this->box->member->cardID);
         $this->box->member->languageID = ($this->box->member->languageID);

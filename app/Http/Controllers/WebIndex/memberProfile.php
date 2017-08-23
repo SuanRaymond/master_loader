@@ -48,6 +48,7 @@ class memberProfile extends Controller
         //檢查廠商回傳資訊
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
 
+        // dd($this->box);
         if($this->box->status != 0){
             return $this->reRrror($this->box->status);
         }
@@ -72,6 +73,6 @@ class memberProfile extends Controller
     public function reRrror($_msg)
     {
         setMesage([alert(trans('message.title.error'), $_msg, 2)]);
-        return redirect('memberCentre.memberProfile');
+        return back();
     }
 }

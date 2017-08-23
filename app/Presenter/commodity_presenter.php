@@ -38,8 +38,10 @@ class commodity_presenter{
 			            <span id="DetailPoints">PP：<u><strong>
 			            '. pFormat($_object->points). '</strong></u></span>
 			        </div>
-                    <a href="#" id="ShopCarAdd" class="button button-flat-caution span4" style="margin-left: 10vw;">加入</a>
-                    <a href="/PassBuy?ShopID='. $_object->shopID.'" class="button button-flat-caution span4" style="margin-left: 10vw;">即購</a>
+                    <div>
+                        <a href="#" id="ShopCarAdd" class="button button-flat-caution span4" style="margin-left: 10vw;">加入</a>
+                        <a href="/PassBuy?ShopID='. $_object->shopID.'" class="button button-flat-caution span4" style="margin-left: 10vw;">即購</a>
+                    </div>
 			    </div>
 			</div>';
 

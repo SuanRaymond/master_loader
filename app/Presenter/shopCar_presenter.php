@@ -59,52 +59,6 @@ class shopCar_presenter{
                             </div>
                         </div>';
         }
-        // for($i=1;$i<=7;$i++){
-        //     $html .= '
-        //                 <div class="span12 shopCarItemBox">
-        //                     <div class="span3" style="padding: 1px;">
-        //                         <img src="images/shop/1.jpg" width="100%">
-        //                     </div>
-        //                     <div class="span8" style="padding: 1px;">
-        //                         <div class="shopCarItemTitle">即時空運櫻桃</div>
-        //                         <div class="row shopCarItemTextBox">
-        //                             <div class="span3 shopCarListTitle">
-        //                                 '.trans('view.shopCar.th.productMoney').'
-        //                             </div>
-        //                             <div class="span3">
-        //                                 100.00
-        //                             </div>
-        //                             <div class="span3 shopCarListTitle" style="text-align: right;">
-        //                                 '.trans('view.shopCar.th.productFare').'
-        //                             </div>
-        //                             <div class="span3">
-        //                                 10.00
-        //                             </div>
-        //                             <div class="span3 shopCarListTitle">
-        //                                 '.trans('view.shopCar.th.productPoint').'
-        //                             </div>
-        //                             <div class="span9">
-        //                                 10000
-        //                             </div>
-        //                             <div class="span3 shopCarListTitle">
-        //                                 '.trans('view.shopCar.th.productQuantity').'
-        //                             </div>
-        //                             <div class="span3">
-        //                                 1
-        //                             </div>
-        //                             <div class="span3 shopCarListTitle" style="text-align: right;">
-        //                                 '.trans('view.shopCar.th.productStyle').'
-        //                             </div>
-        //                             <div class="span3">
-        //                                 紅
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                     <div class="span1" style="padding: 1px; font-size: 4.5vw;">
-        //                         <a href="#">X</a>
-        //                     </div>
-        //                 </div>';
-        // }
         return $html;
     }
     /**
@@ -161,52 +115,6 @@ class shopCar_presenter{
                             </div>
                         </div>';
         }
-        // for($i=1;$i<=7;$i++){
-        //     $html .= '
-        //                 <div class="span12 shopCarItemBox">
-        //                     <div class="span3" style="padding: 1px;">
-        //                         <img src="images/shop/1.jpg" width="100%">
-        //                     </div>
-        //                     <div class="span8" style="padding: 1px;">
-        //                         <div class="shopCarItemTitle">即時空運櫻桃</div>
-        //                         <div class="row shopCarItemTextBox">
-        //                             <div class="span3 shopCarListTitle">
-        //                                 '.trans('view.shopCar.th.productMoney').'
-        //                             </div>
-        //                             <div class="span3">
-        //                                 100.00
-        //                             </div>
-        //                             <div class="span3 shopCarListTitle" style="text-align: right;">
-        //                                 '.trans('view.shopCar.th.productFare').'
-        //                             </div>
-        //                             <div class="span3">
-        //                                 10.00
-        //                             </div>
-        //                             <div class="span3 shopCarListTitle">
-        //                                 '.trans('view.shopCar.th.productPoint').'
-        //                             </div>
-        //                             <div class="span9">
-        //                                 10000
-        //                             </div>
-        //                             <div class="span3 shopCarListTitle">
-        //                                 '.trans('view.shopCar.th.productQuantity').'
-        //                             </div>
-        //                             <div class="span3">
-        //                                 1
-        //                             </div>
-        //                             <div class="span3 shopCarListTitle" style="text-align: right;">
-        //                                 '.trans('view.shopCar.th.productStyle').'
-        //                             </div>
-        //                             <div class="span3">
-        //                                 紅
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                     <div class="span1" style="padding: 1px; font-size: 4.5vw;">
-        //                         <a href="#">X</a>
-        //                     </div>
-        //                 </div>';
-        // }
         return $html;
     }
     public function priceBox($_object){
@@ -301,7 +209,7 @@ class shopCar_presenter{
                     <div class="span5 shopCarNavbarBottom" style="text-align: right;">
                         '. trans('view.shopCar.totalMoney') .'：'. pFormat($totalMoney) .'
                     </div>
-                    <a class="span4 button button-flat-caution shopCarNavbarBottom" role="button" href="#">
+                    <a class="span4 button button-flat-caution shopCarNavbarBottom" role="button" href="/Send">
                         '. trans('view.shopBuy.b.buy') .'
                     </a>
                 </nav>';

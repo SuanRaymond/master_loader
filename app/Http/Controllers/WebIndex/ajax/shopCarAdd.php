@@ -24,7 +24,9 @@ class shopCarAdd extends Controller
             if(empty(getSessionJson('SetShopID'))){
                 createSessionJson('SetShopID');
             }
-            addSessionJson('SetShopID', $this->box->params->shopID);
+            if(!searchSessionJson('SetShopID',$this->box->params->shopID)){
+                addSessionJson('SetShopID', $this->box->params->shopID);
+            }
             session()->save();
             echo json_encode(array(
                 'result' => 'SU',

@@ -27,7 +27,9 @@ class passBuy extends Controller
         if(empty(getSessionJson('SetShopID'))){
             createSessionJson('SetShopID');
         }
-        addSessionJson('SetShopID', $this->box->params->shopID);
+        if(!searchSessionJson('SetShopID',$this->box->params->shopID)){
+            addSessionJson('SetShopID', $this->box->params->shopID);
+        }
         $box = $this->box;
         return redirect('/ShopCar');
     }

@@ -27,12 +27,15 @@ class buy extends Controller
 
     public function index()
     {
+        if(empty(getSessionJson('SetShopID'))){
+            return $this->reRrror('沒有商品無法付款');
+        }
         $result = $this->search();
         if(!$result){
             return mIView('login');
         }
         // dd(session()->get('BuyShopID'));
-        // session()->put('menu', Request()->path());
+        session()->put('menu', Request()->path());
         $box = $this->box;
         return mSView('shopCar.buy', compact('box'));
     }
@@ -73,20 +76,20 @@ class buy extends Controller
         $this->box->result = with(new connection_services())
                                 ->sendHTTP(env('SHOP_DOMAIN'). '/GetShopltemCar', $this->box->postArray);
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
-        // dd($this->box->result->GetShopltemCar);
         if($this->box->status != 0){
             return $this->reRrror($this->box->status);
         }
-
+        if(empty(getSessionJson('GetShopltemCar'))){
+            createSessionJson('GetShopltemCar');
+        }
+        addSessionJson('GetShopltemCar',$this->box->result->GetShopltemCar);
         $this->box->html->buydetailList   = with(new shopCar_presenter())->buydetailList($this->box->result->GetShopltemCar);
         $this->box->html->priceBox        = with(new shopCar_presenter())->priceBox($this->box->result->GetShopltemCar);
         $this->box->html->buyNavbarBottom = with(new shopCar_presenter())->buyNavbarBottom($this->box->result->GetShopltemCar);
 
         //放入資料區塊
         $this->box->postArray = [];
-        // dd($this->box->member->memberID);
         $this->box->postArray['MemberID'] = $this->box->member->memberID;
-        // dd($this->box);
 
         $Params = json_encode($this->box->postArray);
         $Sign   = $Params;
@@ -110,5 +113,10 @@ class buy extends Controller
         }
 
         return true;
+    }
+    public function reRrror($_msg)
+    {
+        setMesage([alert(trans('message.title.error'), $_msg, 2)]);
+        return back();
     }
 }

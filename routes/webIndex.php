@@ -51,3 +51,5 @@ Route::get('/ClearBuy', 'clearShopCarList@index');
 Route::get('/Buy', 'buy@index');
 //分類頁
 Route::get('/Sort', 'sortPage@index');
+
+Route::get('/Send', 'commodityOrderAdd@index');

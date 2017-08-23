@@ -47,6 +47,18 @@ if(!function_exists('mSView')){
     }
 }
 
+if(!function_exists('mMView')){
+    /**
+     * Manager View ReUse
+     */
+    function mMView($_name, $_cup = null){
+        if(is_null($_cup)){
+            $_cup = compact(null);
+        }
+        return view('manager.'. $_name, $_cup);
+    }
+}
+
 if(!function_exists('alert')){
     /**
      * 訊息視窗
@@ -198,6 +210,87 @@ if(!function_exists('reSetKey')){
         return $reObject;
     }
 }
+
+if(!function_exists('createSessionJson')){
+    /**
+     * Session Json 創建
+     * @param  string  $_key        Key
+     */
+    function createSessionJson($_key){
+        $json = [];
+        session()->put($_key, json_encode($json));
+    }
+}
+
+if(!function_exists('removeSessionJson')){
+    /**
+     * Session Json 刪除
+     * @param  string  $_key        Key
+     */
+    function removeSessionJson($_key){
+        session()->forget($_key);
+    }
+}
+
+if(!function_exists('addSessionJson')){
+    /**
+     * Session Json 增加
+     * @param  string  $_value      值
+     * @param  string  $_key        Key
+     */
+    function addSessionJson($_key, $_value){
+        $json = session()->get($_key, null);
+        if(!is_null($json)){
+            if(isJson($json)){
+                $json   = json_decode($json);
+                $json[] = $_value;
+                session()->put($_key, json_encode($json));
+            }
+        }
+    }
+}
+
+if(!function_exists('masSessionJson')){
+    /**
+     * Session Json 減少
+     * @param  string  $_value      值
+     * @param  string  $_key        Key
+     */
+    function masSessionJson($_key, $_value){
+        $json = session()->get($_key, null);
+        if(!is_null($json)){
+            if(isJson($json)){
+                $json   = json_decode($json);
+                foreach($json as $key => $value){
+                    if($_value == $value){
+                        array_splice($json, $key, $key);
+                        session()->put($_key, json_encode($json));
+                        return;
+                    }
+                }
+            }
+        }
+    }
+}
+
+if(!function_exists('getSessionJson')){
+    /**
+     * Session Json 撈取
+     * @param  string  $_value      值
+     * @param  string  $_key        Key
+     */
+    function getSessionJson($_key){
+        $json = session()->get($_key, null);
+        if(!is_null($json)){
+            if(isJson($json)){
+                $json = json_decode($json);
+                return $json;
+            }
+        }
+        return [];
+    }
+}
+
 
 if(!function_exists('checkMobile')){
     function checkMobile() {

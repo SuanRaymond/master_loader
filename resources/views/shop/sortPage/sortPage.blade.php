@@ -29,7 +29,43 @@
         </div>
     </div>
 @stop
+@section('contentBottom')
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+        <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+            <div class="span3">
+                <a class="btn navbar-brand" role="button" href="/Shop" style="padding-left: 0px; padding-right: 0px;">
+                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    首頁
+                </a>
+            </div>
+            <div class="dropup span3">
+                <a class="btn navbar-brand" role="button" href=":javascript" id="simple-menu"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 0px; padding-right: 0px;">
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                    分類
+                </a>
 
+                <ul class="dropdown-menu" aria-labelledby="simple-menu">
+                    {!! $box->html->menuList !!}
+                    <li role="separator" class="divider"></li>
+                    <li><a href="/Shop">{{ trans('menu.menu.0') }}</a></li>
+                </ul>
+            </div>
+            <div class="span3">
+                <a class="btn navbar-brand" role="button" href="/ShopCar" style="padding-left: 0px; padding-right: 0px;">
+                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                    購物車
+                </a>
+            </div>
+            <div class="span3">
+                <a class="btn navbar-brand" role="button" href="/MFire" style="padding-left: 0px; padding-right: 0px;">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    我的
+                </a>
+            </div>
+        </div>
+    </nav>
+@stop
 
 
 

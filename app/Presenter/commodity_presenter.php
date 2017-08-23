@@ -38,10 +38,26 @@ class commodity_presenter{
 			            <span id="DetailPoints">PP：<u><strong>
 			            '. pFormat($_object->points). '</strong></u></span>
 			        </div>
-                    <div>
-                        <a href="#" id="ShopCarAdd" class="button button-flat-caution span4" style="margin-left: 10vw;">加入</a>
-                        <a href="/PassBuy?ShopID='. $_object->shopID.'" class="button button-flat-caution span4" style="margin-left: 10vw;">即購</a>
-                    </div>
+		        	<div class="panel panel-default">
+			    		<div class="panel-body">
+			    			<div class="row">
+			                    <div class="span6">
+			                    	<a id="ShopCarAdd"
+			                    	   class="button button-rounded button-flat-highlight span12">
+			                    		<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+			                    		'. trans('view.ShopDetail.b.addCar'). '
+			                    	</a>
+			                    </div>
+			                    <div class="span6">
+			                    	<a href="/PassBuy?ShopID='. $_object->shopID.'"
+			                    	   class="button button-rounded button-flat-caution span12">
+			                    		'. trans('view.ShopDetail.b.buyNow'). '
+			                    		<span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+			                    	</a>
+			                    </div>
+		                    </div>
+		                </div>
+					</div>
 			    </div>
 			</div>';
 

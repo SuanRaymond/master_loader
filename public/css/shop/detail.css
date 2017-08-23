@@ -22,3 +22,26 @@
 #DetailDetail, #DetailNorm, #DetailMemo{
 	padding: 10px;
 }
+
+#shopCarBall{
+	width: 50px;
+	height: 50px;
+	background-color: rgb(224, 143, 52);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	border-radius: 50px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	font-size: 30px;
+	line-height: 50px;
+}
+
+#ShopCarAdd{
+	cursor: pointer;
+}
+
+#shopCarBall span{
+	margin-left: 10px;
+}

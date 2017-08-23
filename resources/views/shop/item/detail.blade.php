@@ -99,6 +99,8 @@
             </div>
         </div>
     </nav>
+
+    <div id="shopCarBall"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></div>
 @stop
 
 

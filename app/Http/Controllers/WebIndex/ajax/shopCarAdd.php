@@ -13,14 +13,19 @@ class shopCarAdd extends Controller
 		$this->box                 = (object) array();
 		$this->box->result         = (object) array();
 		$this->box->params         = (object) array();
-        $this->box->html           = (object) array();
+        $this->box->shopIDs        = (object) array();
         $this->box->params->shopID = Request()->get('ShopID', null);
 
     }
 
     public function index()
     {
-        if($this->box->params->shopID == 1){
+        if(!is_null($this->box->params->shopID)){
+            if(empty(getSessionJson('SetShopID'))){
+                createSessionJson('SetShopID');
+            }
+            addSessionJson('SetShopID', $this->box->params->shopID);
+            session()->save();
             echo json_encode(array(
                 'result' => 'SU',
                 'msg'    => request('ID'),

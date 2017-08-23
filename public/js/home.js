@@ -30,7 +30,7 @@ $(document).ready(function(){
         }
     });
 
-    RaySys.AJAX.Send({ShopID: 101}, '/ajax/ShopCarAdd', 'SuFun', 'ErFun');
+    // RaySys.AJAX.Send({ShopID: 101}, '/ajax/ShopCarAdd', 'SuFun', 'ErFun');
 });
 
 function SuFun(_obj){

@@ -75,8 +75,9 @@ class RouteServiceProvider extends ServiceProvider
                 require base_path('routes/webIndex.php');
             });
             Route::group([
-                'prefix'    => 'ajax',
-                'namespace' => 'ajax',
+                'prefix'     => 'ajax',
+                'namespace'  => 'ajax',
+                'middleware' => 'webIndex',
             ], function ($router) {
                 require base_path('routes/webIndex.ajax.php');
             });

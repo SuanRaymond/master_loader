@@ -263,7 +263,7 @@ if(!function_exists('masSessionJson')){
                 $json   = json_decode($json);
                 foreach($json as $key => $value){
                     if($_value == $value){
-                        array_splice($json, $key, $key);
+                        array_splice($json, $key, 1);
                         session()->put($_key, json_encode($json));
                         return;
                     }

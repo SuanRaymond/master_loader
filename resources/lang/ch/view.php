@@ -79,4 +79,31 @@
 			],
 		],
 
+		'shopCar' => [
+			'headerTitle' => '購物車',
+			'productTitle' => '產品',
+			'totalMoney' => '總金額',
+			'priceTitle' => '價格',
+			'b' => [
+				'Checkout' => '結帳'
+			],
+			'th' => [
+				'productMoney' => '金額',
+				'productFare' => '運費',
+				'productPoint' => '點數',
+				'productQuantity' => '數量',
+				'productStyle' => '樣式',
+				'productTotalPoint' => '可獲得點數',
+			]
+		],
+		'shopBuy' =>[
+			'memberTitle' => '買家資訊',
+			'memberName' => '收貨人',
+			'memberPhone' => '聯絡電話',
+			'memberAddress' => '地址',
+			'b' => [
+				'buy' => '付款'
+			],
+		],
+
 	];

@@ -38,9 +38,12 @@ class commodity_presenter{
 			            <span id="DetailPoints">PP：<u><strong>
 			            '. pFormat($_object->points). '</strong></u></span>
 			        </div>
+                    <a href="#" id="ShopCarAdd" class="button button-flat-caution span4" style="margin-left: 10vw;">加入</a>
+                    <a href="/PassBuy?ShopID='. $_object->shopID.'" class="button button-flat-caution span4" style="margin-left: 10vw;">即購</a>
 			    </div>
 			</div>';
 
+        $html .= '<input type="hidden" class="form-control" id="ShopID" value='. $_object->shopID. ' >';
 		return $html;
 	}
 
@@ -70,11 +73,13 @@ class commodity_presenter{
 	 */
 	public function norm($_object)
 	{
+        if(empty($_object->norm))
+            return '';
 		$_object->norm = json_decode($_object->norm);
 		//輸出物件
 		$html = '<table class="table table-striped table-bordered">
         			<tbody>';
-
+        // dd($_object->norm);
         foreach($_object->norm as $key => $value){
         	$html .= '	<tr>
 			                <th scope="row">'. $key. '</th>

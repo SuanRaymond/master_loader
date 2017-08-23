@@ -1,0 +1,42 @@
+.shopCarBlockTitle{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 6vw;
+    background-color: #AED1CF
+}
+.shopCarItemBox{
+    padding: 10px;
+    background-color: #ffffff;
+    border-bottom : 1px solid #DDD9D9;
+}
+.shopCarItemTitle{
+    width: 100%;
+    font-size: 5.5vw;
+}
+.shopCarItemTextBox{
+    width: 100%;
+    margin: 0px;
+    font-size: 4.5vw;
+}
+.shopCarListTitle{
+    padding: 0px;
+}
+.shopCarPriceBox{
+    border-bottom : 1px solid #DDD9D9;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    background-color: #FFFFFF;
+    font-size: 4.5vw;
+}
+.shopCarTotalPointBox{
+    height: 40px;
+    line-height: 40px;
+    background-color: #FFFFFF;
+    font-size: 5vw;
+    margin-top: 10px;
+}
+.shopCarNavbarBottom{
+    height: 50px;
+    line-height: 50px;
+    font-size: 4.5vw;
+}

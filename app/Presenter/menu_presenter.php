@@ -34,7 +34,7 @@ class menu_presenter{
 						    <div class="panel-body">
 						        <div class="popular-search-div">
 						            <span class="popular">'. trans('menu.menu.'. $menuID). '</span>
-						            <span class="see-more">'. trans('view.Shop.b.more'). '</span>
+						            <span class="see-more"><a href="/Sort?menuID='. $menuID. '">'. trans('view.Shop.b.more'). '</a></span>
 						        </div>
 						        <div class="popular-search">';
         	foreach($group as $shopID => $row){
@@ -73,25 +73,15 @@ class menu_presenter{
                 $html .= '
                         <a href="/ShopDetail?ShopID='.$ShopID.'">
                             <div class="span5 sortListBox">
-                                <img class="span12 sortImg" src="images/shop/item/'.$ShopID.'/Title.png">
+                                <img class="span12 sortImg" src="images/shop/item/'.$ShopID.'/Title.jpg">
                                 <div class="span12 sortListTextBox">
                                     <div class="span12 sortListTextTitle">'. $row->title.'</div>
                                     <div class="span6 sortListTextMoney">$ '. $row->price.'</div>
-                                    <div class="span6 sortListTextPoint">PP '. $row->price.'</div>
+                                    <div class="span6 sortListTextPoint">PP '. $row->points.'</div>
                                 </div>
                             </div>
                         </a>';
             }
-        }
-        for($i=1;$i<=7;$i++){
-            $html .= '<div class="span5 sortListBox">
-                        <img class="span12 sortImg" src="images/shop/item/'.$ShopID.'/Title.png">
-                        <div class="span12 sortListTextBox">
-                            <div class="span12 sortListTextTitle">'. $row->title.'</div>
-                            <div class="span6 sortListTextMoney">$ '. $row->price.'</div>
-                            <div class="span6 sortListTextPoint">PP '. $row->price.'</div>
-                        </div>
-                      </div>';
         }
         return $html;
     }

@@ -20,6 +20,7 @@ class sortPage extends Controller
         $this->box->params = (object) array();
         $this->box->html   = (object) array();
 
+        $this->box->params->menuID        = Request()->get('menuID', null);
         $this->box->html->sortList = '';
     }
 
@@ -50,7 +51,7 @@ class sortPage extends Controller
         }
 
         $this->box->postArray = [];
-        $this->box->postArray = ['MenuID' => '4001'];
+        $this->box->postArray = ['MenuID' => $this->box->params->menuID];
 
         $Params = json_encode($this->box->postArray);
         $Sign   = $Params;

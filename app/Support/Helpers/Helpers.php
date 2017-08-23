@@ -273,6 +273,28 @@ if(!function_exists('masSessionJson')){
     }
 }
 
+if(!function_exists('searchSessionJson')){
+    /**
+     * Session Json 查單一值
+     * @param  string  $_value      值
+     * @param  string  $_key        Key
+     */
+    function searchSessionJson($_key, $_value){
+        $json = session()->get($_key, null);
+        if(!is_null($json)){
+            if(isJson($json)){
+                $json   = json_decode($json);
+                foreach($json as $key => $value){
+                    if($_value == $value){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+}
+
 if(!function_exists('getSessionJson')){
     /**
      * Session Json 撈取

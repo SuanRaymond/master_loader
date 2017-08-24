@@ -31,33 +31,33 @@
         </script>
     </head>
     <body>
-        <div class="span12" style="text-align: center;"><h1>修改會員資料</h1></div>
+        <div class="span12" style="text-align: center;"><h1>{{ trans('view.CMFile.CMFileTitle') }}</h1></div>
             <div class="span12">
                 <div class="list-group">
                     <form method="post" id="CMFrie_Form">
                     {{ csrf_field() }}
                         <div class="list-group-item" style="background-color: #f0f0f0;">
-                            <span style="text-align: right; color: red;">*為必填</span>
+                            <span style="text-align: right; color: red;">{{ trans('view.CMFile.CMFileremark') }}</span>
                             <span style="padding-left: 20px;"></span>
                         </div>
                         <div class="list-group-item">
-                            <span style="text-align: right;">　　暱稱：</span>
+                            <span style="text-align: right;">　　{{ trans('view.CMFile.th.name') }}</span>
                             <span style="padding-left: 20px;"><input type="text" name="name" size="15" value={{ $box->member->name }}><span style="color: red;">*</span></span>
                         </div>
                         <div class="list-group-item" style="background-color: #f0f0f0;">
-                            <span style="text-align: right;">電子郵箱：</span>
+                            <span style="text-align: right;">{{ trans('view.CMFile.th.mail') }}</span>
                             <span style="padding-left: 20px;"><input type="text" name="mail" value={{ $box->member->mail }}><span style="color: red;">*</span></span>
                         </div>
                         <div class="list-group-item">
-                            <span style="text-align: right;">　　地址：</span>
+                            <span style="text-align: right;">　　{{ trans('view.CMFile.th.address') }}</span>
                             <span style="padding-left: 20px;"><input type="text" size="50" name="address" value={{ $box->member->address }}></span>
                         </div>
                         <div class="list-group-item" style="background-color: #f0f0f0;">
-                            <span style="text-align: right;">　　生日：</span>
+                            <span style="text-align: right;">　　{{ trans('view.CMFile.th.birthday') }}</span>
                             <span style="padding-left: 20px;">
-                                西元  <input type="text" maxlength="4" size="4" name="birthdayYear" value={{ explode("-", $box->member->birthday)[0] }}>  年
+                                {{ trans('view.CMFile.th.year') }}  <input type="text" maxlength="4" size="4" name="birthdayYear" value={{ explode("-", $box->member->birthday)[0] }}>  {{ trans('view.CMFile.th.years') }}
                                 <select id="Months" name="Months">
-                                    <option value="0" {{ explode("-", $box->member->birthday)[1]  == '0' ? " selected='true'" : ''  }}>請選擇</option>
+                                    <option value="0" {{ explode("-", $box->member->birthday)[1]  == '0' ? " selected='true'" : ''  }}>{{ trans('view.CMFile.cl.select') }}</option>
                                     <option value="01" {{ explode("-", $box->member->birthday)[1]  == '01' ? " selected='true'" : ''  }}>1</option>
                                     <option value="02" {{ explode("-", $box->member->birthday)[1]  == '02' ? " selected='true'" : ''  }}>2</option>
                                     <option value="03" {{ explode("-", $box->member->birthday)[1]  == '03' ? " selected='true'" : ''  }}>3</option>
@@ -70,9 +70,9 @@
                                     <option value="10" {{ explode("-", $box->member->birthday)[1]  == '10' ? " selected='true'" : ''  }}>10</option>
                                     <option value="11" {{ explode("-", $box->member->birthday)[1]  == '11' ? " selected='true'" : ''  }}>11</option>
                                     <option value="12" {{ explode("-", $box->member->birthday)[1]  == '12' ? " selected='true'" : ''  }}>12</option>
-                                </select>月
+                                </select>{{ trans('view.CMFile.th.month') }}
                                 <select id="Days" name="Days">
-                                    <option value="0" {{ explode("-", $box->member->birthday)[2]  == '0' ? " selected='true'" : ''  }}>請選擇</option>
+                                    <option value="0" {{ explode("-", $box->member->birthday)[2]  == '0' ? " selected='true'" : ''  }}>{{ trans('view.CMFile.cl.select') }}</option>
                                     <option value="01" {{ explode("-", $box->member->birthday)[2]  == '01' ? " selected='true'" : ''  }}>1</option>
                                     <option value="02" {{ explode("-", $box->member->birthday)[2]  == '02' ? " selected='true'" : ''  }}>2</option>
                                     <option value="03" {{ explode("-", $box->member->birthday)[2]  == '03' ? " selected='true'" : ''  }}>3</option>
@@ -105,39 +105,39 @@
                                     <option value="30" {{ explode("-", $box->member->birthday)[2]  == '30' ? " selected='true'" : ''  }}>30</option>
                                     <option value="31" {{ explode("-", $box->member->birthday)[2]  == '31' ? " selected='true'" : ''  }}>31</option>
                                 </select>
-                                日
+                                {{ trans('view.CMFile.th.day') }}
                             </span>
                         </div>
                         <div class="list-group-item">
-                            <span style="text-align: right;">　　性別：</span>
+                            <span style="text-align: right;">　　{{ trans('view.CMFile.th.gender') }}</span>
                             <span style="padding-left: 20px;">
                                 <input type="radio" name="gender" value="0" {{ $box->member->gender  != 1 ? " checked" : ''  }}>  男
                                 <input type="radio" name="gender" value="1" {{ $box->member->gender  == 1 ? " checked" : ''  }}>  女
                             </span>
                         </div>
                         <div class="list-group-item" style="background-color: #f0f0f0;">
-                            <span style="text-align: right;">　　語言：</span>
+                            <span style="text-align: right;">　　{{ trans('view.CMFile.th.language') }}</span>
                             <span style="padding-left: 20px;">
                                 <select id="language" name="language">
-                                    <option value="0" {{ $box->member->languageID  == 0 ? " selected='true'" : ''  }}>請選擇</option>
-                                    <option value="1" {{ $box->member->languageID  == 1 ? " selected='true'" : ''  }}>English</option>
-                                    <option value="2" {{ $box->member->languageID  == 2 ? " selected='true'" : ''  }}>簡體中文</option>
-                                    {{-- <option value="3" {{ $box->member->languageID  == 3 ? " selected='true'" : ''  }}>繁體中文</option> --}}
+                                    <option value="0" {{ $box->member->languageID  == 0 ? " selected='true'" : ''  }}>{{ trans('view.CMFile.cl.select') }}</option>
+                                    <option value="1" {{ $box->member->languageID  == 1 ? " selected='true'" : ''  }}>{{ trans('view.CMFile.cl.ENUS') }}</option>
+                                    <option value="2" {{ $box->member->languageID  == 2 ? " selected='true'" : ''  }}>{{ trans('view.CMFile.cl.ZHCN') }}</option>
+                                    {{-- <option value="3" {{ $box->member->languageID  == 3 ? " selected='true'" : ''  }}>{{ trans('view.CMFile.cl.ZHTW') }}</option> --}}
                                 </select>
                             </span>
                         </div>
                         <div class="list-group-item">
-                            <span style="text-align: right;">銀行卡號：</span>
+                            <span style="text-align: right;">{{ trans('view.CMFile.th.cardnumber') }}</span>
                             <span style="padding-left: 20px;"><input type="text" name="cardID"  value={{ $box->member->cardID }}></span>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="span6">
-                <a id="CMFrie_Submit" class="button button-flat-primary button-large  button-block">儲存</a>
+                <a id="CMFrie_Submit" class="button button-flat-primary button-large  button-block">{{ trans('view.CMFile.b.save') }}</a>
             </div>
             <div class="span6">
-                <a href="/MFire" class="button button-flat-primary button-large  button-block">取消</a>
+                <a href="/MFire" class="button button-flat-primary button-large  button-block">{{ trans('view.CMFile.b.cancel') }}</a>
             </div>
         </div>
     </body>

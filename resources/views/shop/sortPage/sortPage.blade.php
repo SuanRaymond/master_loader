@@ -15,16 +15,6 @@
 @section('content')
     <div class="panel panel-default">
         <div class="panel-body">
-            <!-- <a href="/ShopDetail?ShopID=4001">
-                <div class="span5 sortListBox">
-                    <img class="span12 sortImg" src="images/shop/pi1.png">
-                    <div class="span12 sortListTextBox">
-                        <div class="span12 sortListTextTitle">XXXXXX標題</div>
-                        <div class="span6 sortListTextOther">$ 100</div>
-                        <div class="span6 sortListTextOther">P 1000</div>
-                    </div>
-                </div>
-            </a> -->
             {!! $box->html->sortList !!}
         </div>
     </div>
@@ -35,14 +25,14 @@
             <div class="span3">
                 <a class="btn navbar-brand" role="button" href="/Shop" style="padding-left: 0px; padding-right: 0px;">
                     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    首頁
+                    {{ trans('view.shophome') }}
                 </a>
             </div>
             <div class="dropup span3">
                 <a class="btn navbar-brand" role="button" href=":javascript" id="simple-menu"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 0px; padding-right: 0px;">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-                    分類
+                    {{ trans('view.sort') }}
                 </a>
 
                 <ul class="dropdown-menu" aria-labelledby="simple-menu">
@@ -54,13 +44,13 @@
             <div class="span3">
                 <a class="btn navbar-brand" role="button" href="/ShopCar" style="padding-left: 0px; padding-right: 0px;">
                     <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                    購物車
+                    {{ trans('view.shopcar') }}
                 </a>
             </div>
             <div class="span3">
                 <a class="btn navbar-brand" role="button" href="/MFire" style="padding-left: 0px; padding-right: 0px;">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                    我的
+                    {{ trans('view.mfile') }}
                 </a>
             </div>
         </div>

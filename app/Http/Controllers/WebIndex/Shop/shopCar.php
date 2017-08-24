@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\WebIndex;
+namespace App\Http\Controllers\WebIndex\Shop;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

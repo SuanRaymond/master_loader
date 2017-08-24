@@ -14,6 +14,10 @@
 		'confirm'  => '確認',
 		'cancel'   => '取消',
 		'nodata'   => '沒有任何資料喔！',
+		'shophome' => '首頁',
+		'sort'     => '分類',
+		'shopcar'  => '購物車',
+		'mfile'    => '我的',
 
 		'memberMenu' => [
 			'nickName' => '暱稱：',
@@ -22,6 +26,11 @@
 			'integral' => '藏蛋數：',
 			'bonus'    => '贈送紅利：',
 			'logout'   => '登出',
+		],
+		'homemenu' =>[
+			'MFile'  => '會員中心',
+			'returnhome' =>'返回入口',
+			'closemenu' => '關閉選單',
 		],
 
 		'login' => [
@@ -82,32 +91,104 @@
 		],
 
 		'shopCar' => [
-			'headerTitle' => '購物車',
+			'headerTitle'  => '購物車',
 			'productTitle' => '產品',
-			'totalMoney' => '總金額',
-			'priceTitle' => '價格',
+			'totalMoney'   => '總金額',
+			'priceTitle'   => '價格',
 			'b' => [
 				'Checkout' => '結帳'
 			],
 			'th' => [
-				'productMoney' => '金額',
-				'productFare' => '運費',
-				'productPoint' => '點數',
-				'productQuantity' => '數量',
-				'productStyle' => '樣式',
+				'productMoney'      => '金額',
+				'productFare'       => '運費',
+				'productPoint'      => '點數',
+				'productQuantity'   => '數量',
+				'productStyle'      => '樣式',
 				'productTotalPoint' => '可獲得點數',
 			]
 		],
 		'shopBuy' =>[
-			'memberTitle' => '買家資訊',
-			'memberName' => '收貨人',
-			'memberPhone' => '聯絡電話',
+			'memberTitle'   => '買家資訊',
+			'memberName'    => '收貨人',
+			'memberPhone'   => '聯絡電話',
 			'memberAddress' => '地址',
 			'b' => [
 				'buy' => '付款'
 			],
 		],
+		'MFile' => [
+			'MFileTitle'  => '會員中心',
+			'b' => [
+				'CMFile' => '修改資料',
+				'cancel' => '取消',
+				'CPwd'   => '修改密碼',
+			],
+			'th' => [
+				'memberid'   => '推薦碼：',
+				'account'    => '帳號：',
+				'pwd'        => '密碼：',
+				'points'     => '點數：',
+				'integral'   => '藏蛋數：',
+				'bonus'      => '贈送紅利：',
+				'name'       => '暱稱：',
+				'mail'       => '電子郵箱：',
+				'address'    => '地址：',
+				'birthday'   => '生日：',
+				'year'       => '西元',
+				'years'      => '年',
+				'month'      => '月',
+				'day'        =>'日',
+				'gender'     => '性別：',
+				'language'   => '語言：',
+				'cardnumber' => '銀行卡號：'
+			],
+			'cl' =>[
+				'man'    => '男',
+				'woman'  => '女',
+				'ENUS'   => 'English',
+				'ZHCN'   => '簡體中文',
+				'ZHTW'   => '繁體中文',
+			],
 
+		],
+		'CMFile' => [
+			'CMFileTitle'  => '修改會員資料',
+			'CMFileremark' => '*為必填',
+			'b' => [
+				'save'   => '儲存',
+				'cancel' => '取消',
+			],
+			'th' => [
+				'name'       => '暱稱：',
+				'mail'       => '電子郵箱：',
+				'address'    => '地址：',
+				'birthday'   => '生日：',
+				'year'       => '西元',
+				'years'      => '年',
+				'month'      => '月',
+				'day'        =>'日',
+				'gender'     => '性別：',
+				'language'   => '語言：',
+				'cardnumber' => '銀行卡號：'
+			],
+			'cl' =>[
+				'select' => '選擇',
+				'man'    => '男',
+				'woman'  => '女',
+				'ENUS'   => 'English',
+				'ZHCN'   => '簡體中文',
+				'ZHTW'   => '繁體中文',
+			],
+
+		],
+		'CPwd' => [
+			'CPwdTitle' => '修改密碼',
+			'ca' => [
+				'oldpwd'   => '舊密碼',
+				'newpwd'   => '新密碼',
+				'renewpwd' => '新密碼確認',
+			],
+		],
 
 		//後台用
 		'manager' => [

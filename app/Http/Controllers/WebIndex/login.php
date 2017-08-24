@@ -69,6 +69,10 @@ class login extends Controller
         //檢查廠商回傳資訊
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
 
+        if($this->box->status == 13){
+            session()->put('memberID', json_encode($this->box->result->Member->memberID));
+            return redirect('/Check');
+        }
         if($this->box->status != 0){
             return $this->reRrror($this->box->status);
         }

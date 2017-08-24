@@ -34,14 +34,14 @@
             <div class="span3">
                 <a class="btn navbar-brand" role="button" href="/Shop" style="padding-left: 0px; padding-right: 0px;">
                     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    首頁
+                    {{ trans('view.shophome') }}
                 </a>
             </div>
             <div class="dropup span3">
                 <a class="btn navbar-brand" role="button" href=":javascript" id="simple-menu"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 0px; padding-right: 0px;">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-                    分類
+                    {{ trans('view.sort') }}
                 </a>
 
                 <ul class="dropdown-menu" aria-labelledby="simple-menu">
@@ -53,13 +53,13 @@
             <div class="span3">
                 <a class="btn navbar-brand" role="button" href="/ShopCar" style="padding-left: 0px; padding-right: 0px;">
                     <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                    購物車
+                    {{ trans('view.shopcar') }}
                 </a>
             </div>
             <div class="span3">
                 <a class="btn navbar-brand" role="button" href="/MFire" style="padding-left: 0px; padding-right: 0px;">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                    我的
+                    {{ trans('view.mfile') }}
                 </a>
             </div>
         </div>

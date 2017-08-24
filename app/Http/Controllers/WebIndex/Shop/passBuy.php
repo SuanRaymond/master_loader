@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\WebIndex;
+namespace App\Http\Controllers\WebIndex\Shop;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Services\web_judge_services;
-class productDetail extends Controller
+class passBuy extends Controller
 {
     public $box;
 
@@ -14,6 +14,8 @@ class productDetail extends Controller
         $this->box         = (object) array();
         $this->box->result = (object) array();
         $this->box->params = (object) array();
+
+        $this->box->params->shopID        = Request()->get('ShopID', null);
     }
 
     public function index()
@@ -22,9 +24,14 @@ class productDetail extends Controller
         if(!$result){
             return mIView('login');
         }
-        session()->put('menu', Request()->path());
+        if(empty(getSessionJson('SetShopID'))){
+            createSessionJson('SetShopID');
+        }
+        if(!searchSessionJson('SetShopID',$this->box->params->shopID)){
+            addSessionJson('SetShopID', $this->box->params->shopID);
+        }
         $box = $this->box;
-        return mSView('productDetail.productDetail', compact('box'));
+        return redirect('/ShopCar');
     }
     public function search()
     {

@@ -34,85 +34,85 @@
     </head>
     <body>
         <div>
-            <div class="span12" style="text-align: center;"><h1>會員中心</h1></div>
+            <div class="span12" style="text-align: center;"><h1>{{ trans('view.MFile.MFileTitle') }}</h1></div>
             <div class="span12">
                 <div class="list-group">
                     <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">　推薦碼：</span>
+                        <span style="text-align: right;">　{{ trans('view.MFile.th.memberid') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->memberID }}</span>
                     </div>
                     <div class="list-group-item">
-                        <span style="text-align: right;">　　帳號：</span>
+                        <span style="text-align: right;">　　{{ trans('view.MFile.th.account') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->account }}</span>
                     </div>
                     <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">　　密碼：</span>
+                        <span style="text-align: right;">　　{{ trans('view.MFile.th.pwd') }}</span>
                         <span style="padding-left: 20px;">****************</span>
-                        <a href="/CPwd" class="button button-flat-primary button-lg">修改密碼</a>
+                        <a href="/CPwd" class="button button-flat-primary button-lg">{{ trans('view.MFile.b.CPwd') }}</a>
                     </div>
                     <div class="list-group-item">
-                        <span style="text-align: right;">　　暱稱：</span>
+                        <span style="text-align: right;">　　{{ trans('view.MFile.th.name') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->name }}</span>
                     </div>
                     <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">　　點數：</span>
+                        <span style="text-align: right;">　　{{ trans('view.MFile.th.points') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->points }}</span>
                     </div>
                     <div class="list-group-item">
-                        <span style="text-align: right;">　　積分：</span>
+                        <span style="text-align: right;">　　{{ trans('view.MFile.th.integral') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->integral }}</span>
                     </div>
                     <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">　　紅利：</span>
+                        <span style="text-align: right;">　　{{ trans('view.MFile.th.bonus') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->bonus }}</span>
                     </div>
                     <div class="list-group-item">
-                        <span style="text-align: right;">電子郵箱：</span>
+                        <span style="text-align: right;">{{ trans('view.MFile.th.mail') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->mail }}</span>
                     </div>
                     <div class="list-group-item">
-                        <span style="text-align: right;">　　地址：</span>
+                        <span style="text-align: right;">　　{{ trans('view.MFile.th.address') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->address }}</span>
                     </div>
                     <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">　　生日：</span>
+                        <span style="text-align: right;">　　{{ trans('view.MFile.th.birthday') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->birthday }}</span>
                     </div>
                     <div class="list-group-item">
-                        <span style="text-align: right;">　　性別：</span>
+                        <span style="text-align: right;">　　{{ trans('view.MFile.th.gender') }}</span>
                         <span style="padding-left: 20px;">
                             @if($box->member->gender == 0)
-                                男
+                                {{ trans('view.MFile.cl.man') }}
                             @else
-                                女
+                                {{ trans('view.MFile.cl.woman') }}
                             @endif
                         </span>
                     </div>
                     <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">　　語言：</span>
+                        <span style="text-align: right;">　　{{ trans('view.MFile.th.cardnumber') }}</span>
                         <span style="padding-left: 20px;">
                             @if($box->member->languageID==1)
-                                English
+                                {{ trans('view.MFile.cl.ENUS') }}
                             @elseif($box->member->languageID==2)
-                                簡體中文
+                                {{ trans('view.MFile.cl.ZHCN') }}
                             @elseif($box->member->languageID==3)
-                                繁體中文
+                                {{ trans('view.MFile.cl.ZHTW') }}
                             @else
                             @endif
                         </span>
                     </div>
                     <div class="list-group-item">
-                        <span style="text-align: right;">銀行卡號：</span>
+                        <span style="text-align: right;">{{ trans('view.MFile.th.cardnumber') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->cardID }}</span>
                     </div>
                 </div>
             </div>
             <div class="span6">
-                <a href="/CMFire" class="button button-flat-primary button-large  button-block">修改資料</a>
+                <a href="/CMFire" class="button button-flat-primary button-large  button-block">{{ trans('view.MFile.b.CMFile') }}</a>
                 <br><br>
             </div>
             <div class="span6">
-                <a href="/" class="button button-flat-primary button-large  button-block">取消</a>
+                <a href="/" class="button button-flat-primary button-large  button-block">{{ trans('view.MFile.b.cancel') }}</a>
             </div>
         </div>
     </body>

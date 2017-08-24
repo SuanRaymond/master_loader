@@ -12,7 +12,6 @@
 */
 
 Route::get('/', 'home@index');//首頁
-// Route::get('/ShopDetail', 'productDetail@index');//商品明細頁
 
 //登入
 Route::get('/Login', 'login@index');
@@ -37,19 +36,24 @@ Route::get('/MFire', 'memberProfile@index');//會員明細
 Route::get('/CMFire', 'changeMemberProfile@index');
 //修改會員資料 驗證
 Route::post('/CMFire', 'changeMemberProfile@check');
+//驗證碼驗證
+Route::get('/Check', 'verificationCheck@index');
+//驗證碼驗證 驗證
+Route::post('/Check', 'verificationCheck@check');
+
 
 
 //購物網
-Route::get('/Shop', 'homeShop@index');
+Route::get('/Shop', 'Shop\homeShop@index');
 //商品詳細
 Route::get('/ShopDetail', 'Shop\detail@index');
 //購物車
-Route::get('/ShopCar', 'shopCar@index');
+Route::get('/ShopCar', 'Shop\shopCar@index');
 //結算
-Route::get('/PassBuy', 'passBuy@index');
-Route::get('/ClearBuy', 'clearShopCarList@index');
-Route::get('/Buy', 'buy@index');
+Route::get('/PassBuy', 'Shop\passBuy@index');
+Route::get('/ClearBuy', 'Shop\clearShopCarList@index');
+Route::get('/Buy', 'Shop\buy@index');
 //分類頁
-Route::get('/Sort', 'sortPage@index');
+Route::get('/Sort', 'Shop\sortPage@index');
 
-Route::get('/Send', 'commodityOrderAdd@index');
+Route::get('/Send', 'Shop\commodityOrderAdd@index');

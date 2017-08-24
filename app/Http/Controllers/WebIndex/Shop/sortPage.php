@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\WebIndex;
+namespace App\Http\Controllers\WebIndex\Shop;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Presenter\shopCar_presenter;
+use App\Presenter\menu_presenter;
 
 use App\Services\encrypt_services;
 use App\Services\connection_services;
 use App\Services\web_judge_services;
-class buy extends Controller
+class sortPage extends Controller
 {
     public $box;
 
@@ -18,26 +18,22 @@ class buy extends Controller
         $this->box         = (object) array();
         $this->box->result = (object) array();
         $this->box->params = (object) array();
-        $this->box->html       = (object) array();
+        $this->box->html   = (object) array();
 
-        $this->box->html->buydetailList   ='';
-        $this->box->html->priceBox        ='';
-        $this->box->html->buyNavbarBottom ='';
+        $this->box->params->menuID = Request()->get('menuID', null);
+        $this->box->html->sortList = '';
+        $this->box->html->menuList = '';
     }
 
     public function index()
     {
-        if(empty(getSessionJson('SetShopID'))){
-            return $this->reRrror('沒有商品無法付款');
-        }
         $result = $this->search();
         if(!$result){
             return mIView('login');
         }
-        // dd(session()->get('BuyShopID'));
         session()->put('menu', Request()->path());
         $box = $this->box;
-        return mSView('shopCar.buy', compact('box'));
+        return mSView('sortPage.sortPage', compact('box'));
     }
     public function search()
     {
@@ -47,49 +43,43 @@ class buy extends Controller
             return false;
         }
 
-        $encrypt_services     = new encrypt_services(env('APP_KEY'));
-
+        $encrypt_services = new encrypt_services(env('APP_KEY'));
+        $menu_presenter   = new menu_presenter();
         //是否開啟開發模式
         $this->box->deBugMode = false;
         if(config('app.debug') == true && env('USETYPE') == 'LOCAL'){
             $this->box->deBugMode = true;
         }
-
         $this->box->postArray = [];
-        $this->box->postArray = ['ShopID' => getSessionJson('SetShopID')];
+        $this->box->postArray = ['MenuID' => ''];
+
+        $Params = json_encode($this->box->postArray);
+        $Sign   = $Params;
+        if(!$this->box->deBugMode){
+            $Params = $encrypt_services->LaravelEncode($Params);
+            $Sign   = $encrypt_services->EnSign($Sign);
+        }
+        //資料加密與打包
+        $this->box->postArray   = http_build_query(
+            array(
+                'Params' => $Params,
+                'Sign'   => $Sign
+        ));
+        //取得類別選單
+        $this->box->result = with(new connection_services())
+                                ->sendHTTP(env('SHOP_DOMAIN'). '/GetMenu', $this->box->postArray);
+        $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
         // dd($this->box);
 
-        $Params = json_encode($this->box->postArray);
-        $Sign   = $Params;
-        if(!$this->box->deBugMode){
-            $Params = $encrypt_services->LaravelEncode($Params);
-            $Sign   = $encrypt_services->EnSign($Sign);
-        }
-        //資料加密與打包
-        $this->box->postArray   = http_build_query(
-            array(
-                'Params' => $Params,
-                'Sign'   => $Sign
-        ));
-
-        //取得類別選單
-        $this->box->result = with(new connection_services())
-                                ->sendHTTP(env('SHOP_DOMAIN'). '/GetShopltemCar', $this->box->postArray);
-        $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
         if($this->box->status != 0){
             return $this->reRrror($this->box->status);
         }
-        if(empty(getSessionJson('GetShopltemCar'))){
-            createSessionJson('GetShopltemCar');
-        }
-        addSessionJson('GetShopltemCar',$this->box->result->GetShopltemCar);
-        $this->box->html->buydetailList   = with(new shopCar_presenter())->buydetailList($this->box->result->GetShopltemCar);
-        $this->box->html->priceBox        = with(new shopCar_presenter())->priceBox($this->box->result->GetShopltemCar);
-        $this->box->html->buyNavbarBottom = with(new shopCar_presenter())->buyNavbarBottom($this->box->result->GetShopltemCar);
 
-        //放入資料區塊
+        //組合Html
+        $this->box->html->menuList = $menu_presenter->menuList($this->box->result->Menu);
+
         $this->box->postArray = [];
-        $this->box->postArray['MemberID'] = $this->box->member->memberID;
+        $this->box->postArray = ['MenuID' => $this->box->params->menuID];
 
         $Params = json_encode($this->box->postArray);
         $Sign   = $Params;
@@ -106,17 +96,16 @@ class buy extends Controller
 
         //取得類別選單
         $this->box->result = with(new connection_services())
-                                ->sendHTTP(env('SHOP_DOMAIN'). '/DetailSimple', $this->box->postArray);
+                                ->sendHTTP(env('SHOP_DOMAIN'). '/GetMenuCommodity', $this->box->postArray);
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
+        // dd($this->box->result->MenuCommodity);
         if($this->box->status != 0){
             return $this->reRrror($this->box->status);
         }
+
+        $this->box->html->sortList = $menu_presenter->sortList($this->box->result->MenuCommodity);
+
 
         return true;
-    }
-    public function reRrror($_msg)
-    {
-        setMesage([alert(trans('message.title.error'), $_msg, 2)]);
-        return back();
     }
 }

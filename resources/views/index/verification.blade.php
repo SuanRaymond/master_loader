@@ -46,7 +46,7 @@
                     {{ csrf_field() }}
                         <div class="input-group">
                             <span class="input-group-addon glyphicon glyphicon-lock"></span>
-                            <input type="text" class="form-control" placeholder="請輸入驗證碼" name="verification">
+                            <input type="text" class="form-control" placeholder="請輸入驗證碼（不區分英文字母大小寫）" name="verification">
                         </div>
                         <div class="fontred">可重新發送驗證碼時間：<span id="ChDate">{{ $box->result->VerificationDate }}</span></div>
                         <br>

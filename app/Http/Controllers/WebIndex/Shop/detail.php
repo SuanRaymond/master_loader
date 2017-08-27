@@ -47,10 +47,6 @@ class detail extends Controller
     {
         $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
 
-        // if(!$this->box->loginType){
-        //     return 1;
-        // }
-
         $encrypt_services    = new encrypt_services(env('APP_KEY'));
         $commodity_presenter = new commodity_presenter();
 

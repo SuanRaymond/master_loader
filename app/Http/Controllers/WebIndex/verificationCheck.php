@@ -32,8 +32,7 @@ class verificationCheck extends Controller
 
         $box = $this->box;
         $this->box->callFunction = 'VerificationDate';
-        $this->box->sendApiUrl   = [];
-        $this->box->sendApiUrl[] = env('INDEX_DOMAIN');
+        $this->box->sendApiUrl = env('INDEX_DOMAIN');
 
         // dd(getSessionJson('memberID'));
         //放入資料區塊
@@ -59,15 +58,14 @@ class verificationCheck extends Controller
     {
         //資料是否空白
         if(empty($this->box->params->verification)){
-            return $this->reRrror("認證碼不能為空");
+            return $this->reRrror(trans('message.warn.CheckCodeNull'));
         }
 
         /*----------------------------------與廠商溝通----------------------------------*/
         //放入連線區塊
         //需呼叫的功能
         $this->box->callFunction = 'VerificationCheck';
-        $this->box->sendApiUrl   = [];
-        $this->box->sendApiUrl[] = env('INDEX_DOMAIN');
+        $this->box->sendApiUrl = env('INDEX_DOMAIN');
 
         //放入資料區塊
         $this->box->sendParams                 = [];
@@ -84,7 +82,7 @@ class verificationCheck extends Controller
             return $this->reRrror($this->box->status);
         }
         //輸出成功訊息
-        setMesage([alert(trans('message.title.success'), '帳號認證成功', 1)]);
+        setMesage([alert(trans('message.title.success'), trans('message.success.CheckCodeOK'), 1)]);
 
         //重新導向
         return redirect('/');

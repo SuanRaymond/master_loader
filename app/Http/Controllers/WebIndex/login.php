@@ -29,10 +29,10 @@ class login extends Controller
     {
         //資料是否空白
         if(empty($this->box->params->account)){
-            return $this->reRrror(trans('message.login.accountNull'));
+            return $this->rewarning(trans('message.login.accountNull'));
         }
         if(empty($this->box->params->password)){
-            return $this->reRrror(trans('message.login.passwordNull'));
+            return $this->rewarning(trans('message.login.passwordNull'));
         }
 
         session()->put('account', $this->box->params->account);
@@ -40,5 +40,10 @@ class login extends Controller
 
         //重新導向
         return redirect(session()->get('menu', '/'));
+    }
+    public function rewarning($_msg)
+    {
+        setMesage([alert(trans('message.title.warning'), $_msg, 3)]);
+        return back();
     }
 }

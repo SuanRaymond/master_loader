@@ -43,7 +43,7 @@ class commodityOrderAdd extends Controller
         $this->box->MemberBuyToabl=[];
         $this->box->memberBuy = (object) array();
         $this->box->memberBuy = reSetKey(getSessionJson('GetShopltemCar'));
-        $this->box->MemberBuyToabl['MemberID'] = $this->box->member->memberID;
+        $this->box->MemberBuyToabl['MemberID'] = auth()->user->memberID;
         foreach ($this->box->memberBuy as $rowID => $group) {
             foreach($group as $shopID => $row){
                 $this->box->MemberBuyToabl['Item'][$row->shopID] =  $row->quantity;
@@ -72,17 +72,13 @@ class commodityOrderAdd extends Controller
         }
         removeSessionJson('SetShopID');
         removeSessionJson('GetShopltemCar');
-        setMesage([alert(trans('message.title.success'), '購買成功', 1)]);
+        setMesage([alert(trans('message.title.success'), trans('message.success.buyOK'), 1)]);
         $box = $this->box;
         return redirect('/Shop');
     }
     public function search()
     {
         $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
-
-        if(!$this->box->loginType){
-            return false;
-        }
 
         return true;
     }

@@ -37,23 +37,19 @@ class changeMemberProfile extends Controller
 
     public function index()
     {
-        $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
-        if(!$this->box->loginType){
-            return redirect('/Login');
-        }
+        session()->put('menu', Request()->path());
         $box = $this->box;
 
         /*----------------------------------與廠商溝通----------------------------------*/
         //放入連線區塊
         //需呼叫的功能
         $this->box->callFunction = 'Detail';
-        $this->box->sendApiUrl   = [];
-        $this->box->sendApiUrl[] = env('INDEX_DOMAIN');
+        $this->box->sendApiUrl = env('INDEX_DOMAIN');
 
         $this->box->sessionmember = with(new web_judge_services($this->box))->check(['CMSS']);
         //放入資料區塊
         $this->box->sendParams             = [];
-        $this->box->sendParams['memberID'] = $this->box->sessionmember->member->memberID;
+        $this->box->sendParams['memberID'] = auth()->user->memberID;
 
         //送出資料
         $this->box->result    = with(new connection_services())->callApi($this->box);
@@ -84,22 +80,21 @@ class changeMemberProfile extends Controller
     {
         //資料是否空白
         if(empty($this->box->params->name)){
-            return $this->reRrror("暱稱不能為空值");
+            return $this->rewarning(trans('message.warn.nameNull'));
         }
         if(empty($this->box->params->mail)){
-            return $this->reRrror("信箱不能為空值");
+            return $this->rewarning(trans('message.warn.mailNull'));
         }
         //----------------------------------與廠商溝通----------------------------------
         //放入連線區塊
         //需呼叫的功能
         $this->box->callFunction = 'DetailUpdate';
-        $this->box->sendApiUrl   = [];
-        $this->box->sendApiUrl[] = env('INDEX_DOMAIN');
+        $this->box->sendApiUrl = env('INDEX_DOMAIN');
 
         $this->box->sessionmember = with(new web_judge_services($this->box))->check(['CMSS']);
         //放入資料區塊
         $this->box->sendParams             = [];
-        $this->box->sendParams['memberID'] = $this->box->sessionmember->member->memberID;
+        $this->box->sendParams['memberID'] = auth()->user->memberID;
         $this->box->sendParams['name']     = $this->box->params->name;
         $this->box->sendParams['mail']     = $this->box->params->mail;
         if(!empty($this->box->params->birthdayYear)){
@@ -133,7 +128,7 @@ class changeMemberProfile extends Controller
         }
 
         //輸出成功訊息
-        setMesage([alert(trans('message.title.success'), '資料修改成功', 1)]);
+        setMesage([alert(trans('message.title.success'), trans('message.success.CMFileOK'), 1)]);
 
         //重新導向
         return redirect('/MFire');
@@ -142,6 +137,11 @@ class changeMemberProfile extends Controller
     public function reRrror($_msg)
     {
         setMesage([alert(trans('message.title.error'), $_msg, 2)]);
+        return back();
+    }
+    public function rewarning($_msg)
+    {
+        setMesage([alert(trans('message.title.warning'), $_msg, 3)]);
         return back();
     }
 }

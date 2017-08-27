@@ -33,8 +33,7 @@ class verificationReSend extends Controller
         $box = $this->box;
         if(!is_null($this->box->params->shopID)){
             $this->box->callFunction = 'VerificationReSend';
-            $this->box->sendApiUrl   = [];
-            $this->box->sendApiUrl[] = env('INDEX_DOMAIN');
+            $this->box->sendApiUrl = env('INDEX_DOMAIN');
 
             $this->box->sessionmember = with(new web_judge_services($this->box))->check(['CMSS']);
             //放入資料區塊
@@ -58,8 +57,7 @@ class verificationReSend extends Controller
 
 
             $this->box->callFunction = 'VerificationDate';
-            $this->box->sendApiUrl   = [];
-            $this->box->sendApiUrl[] = env('INDEX_DOMAIN');
+            $this->box->sendApiUrl = env('INDEX_DOMAIN');
 
             // dd(getSessionJson('memberID'));
             //放入資料區塊

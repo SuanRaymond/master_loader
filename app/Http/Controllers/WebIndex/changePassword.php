@@ -31,10 +31,7 @@ class changePassword extends Controller
 
     public function index()
     {
-        $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
-        if(!$this->box->loginType){
-            return redirect('/Login');
-        }
+        session()->put('menu', Request()->path());
         $box = $this->box;
         return mIView('memberCentre.changePassword', compact('box'));
     }
@@ -45,29 +42,27 @@ class changePassword extends Controller
     {
         //資料是否空白
         if(empty($this->box->params->PasswordO)){
-            return $this->reRrror("舊密碼不能為空");
+            return $this->rewarning(trans('message.warn.oldPwdNull'));
         }
         if(empty($this->box->params->PasswordN)){
-            return $this->reRrror("新密碼不能為空");
+            return $this->rewarning(trans('message.warn.newPwdNull'));
         }
         if(empty($this->box->params->rePasswordN)){
-            return $this->reRrror("密碼確認不能為空");
+            return $this->rewarning(trans('message.warn.rePwdNull'));
         }
         if($this->box->params->rePasswordN != $this->box->params->PasswordN){
-            return $this->reRrror("新密碼與密碼確認不相同");
+            return $this->rewarning(trans('message.warn.CheckPwdNull'));
         }
 
         /*----------------------------------與廠商溝通----------------------------------*/
         //放入連線區塊
         //需呼叫的功能
         $this->box->callFunction = 'PasswordUpdate';
-        $this->box->sendApiUrl   = [];
-        $this->box->sendApiUrl[] = env('INDEX_DOMAIN');
+        $this->box->sendApiUrl = env('INDEX_DOMAIN');
 
-        $this->box->sessionmember = with(new web_judge_services($this->box))->check(['CMSS']);
         //放入資料區塊
         $this->box->sendParams              = [];
-        $this->box->sendParams['MemberID']  = $this->box->sessionmember->member->memberID;
+        $this->box->sendParams['MemberID']  = auth()->user->memberID;
         $this->box->sendParams['PasswordO'] = $this->box->params->PasswordO;
         $this->box->sendParams['PasswordN'] = $this->box->params->PasswordN;
 
@@ -80,9 +75,11 @@ class changePassword extends Controller
         if($this->box->status != 0){
             return $this->reRrror($this->box->status);
         }
-        session()->put('member', '{}');
+        removeSessionJson('account');
+        removeSessionJson('password');
+        removeSessionJson('member');
         //輸出成功訊息
-        setMesage([alert(trans('message.title.success'), '密碼修改成功請重新登入', 1)]);
+        setMesage([alert(trans('message.title.success'), trans('message.success.CpwdOK'), 1)]);
 
         //重新導向
         return redirect('/');
@@ -91,6 +88,11 @@ class changePassword extends Controller
     public function reRrror($_msg)
     {
         setMesage([alert(trans('message.title.error'), $_msg, 2)]);
+        return back();
+    }
+    public function rewarning($_msg)
+    {
+        setMesage([alert(trans('message.title.warning'), $_msg, 3)]);
         return back();
     }
 }

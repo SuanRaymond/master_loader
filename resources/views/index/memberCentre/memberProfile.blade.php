@@ -59,11 +59,11 @@
                         <span style="padding-left: 20px;">{{ $box->member->points }}</span>
                     </div>
                     <div class="list-group-item">
-                        <span style="text-align: right;">　　{{ trans('view.MFile.th.integral') }}</span>
+                        <span style="text-align: right;">　{{ trans('view.MFile.th.integral') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->integral }}</span>
                     </div>
                     <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">　　{{ trans('view.MFile.th.bonus') }}</span>
+                        <span style="text-align: right;">{{ trans('view.MFile.th.bonus') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->bonus }}</span>
                     </div>
                     <div class="list-group-item">
@@ -89,7 +89,7 @@
                         </span>
                     </div>
                     <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">　　{{ trans('view.MFile.th.cardnumber') }}</span>
+                        <span style="text-align: right;">　　{{ trans('view.MFile.th.language') }}</span>
                         <span style="padding-left: 20px;">
                             @if($box->member->languageID==1)
                                 {{ trans('view.MFile.cl.ENUS') }}

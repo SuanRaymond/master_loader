@@ -46,33 +46,32 @@ class registered extends Controller
     {
         //資料是否空白
         if(empty($this->box->params->account)){
-            return $this->reRrror(trans('message.registered.accountNull'));
+            return $this->rewarning(trans('message.registered.accountNull'));
         }
         if(empty($this->box->params->name)){
-            return $this->reRrror(trans('message.registered.nameNull'));
+            return $this->rewarning(trans('message.registered.nameNull'));
         }
         if(empty($this->box->params->mail)){
-            return $this->reRrror(trans('message.registered.mailNull'));
+            return $this->rewarning(trans('message.registered.mailNull'));
         }
         if(empty($this->box->params->password)){
-            return $this->reRrror(trans('message.registered.passwordNull'));
+            return $this->rewarning(trans('message.registered.passwordNull'));
         }
         if(empty($this->box->params->repassword)){
-            return $this->reRrror(trans('message.registered.repasswordNull'));
+            return $this->rewarning(trans('message.registered.repasswordNull'));
         }
         if($this->box->params->repassword != $this->box->params->password){
-            return $this->reRrror(trans('message.registered.repasswordError'));
+            return $this->rewarning(trans('message.registered.repasswordError'));
         }
         if(empty($this->box->params->groupID)){
-            return $this->reRrror(trans('message.registered.groupIDNull'));
+            return $this->rewarning(trans('message.registered.groupIDNull'));
         }
 
         /*----------------------------------與廠商溝通----------------------------------*/
         //放入連線區塊
         //需呼叫的功能
         $this->box->callFunction = 'Create';
-        $this->box->sendApiUrl   = [];
-        $this->box->sendApiUrl[] = env('INDEX_DOMAIN');
+        $this->box->sendApiUrl = env('INDEX_DOMAIN');
 
         //放入資料區塊
         $this->box->sendParams               = [];
@@ -105,5 +104,10 @@ class registered extends Controller
     {
         setMesage([alert(trans('message.title.error'), $_msg, 2)]);
         return $this->index();
+    }
+    public function rewarning($_msg)
+    {
+        setMesage([alert(trans('message.title.warning'), $_msg, 3)]);
+        return back();
     }
 }

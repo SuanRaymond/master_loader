@@ -35,3 +35,15 @@
     /*display: none;*/
     position: absolute;
 }
+.fly{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    background-color: white;
+    margin-bottom: 55px;
+    text-align: center;
+}
+.fly hr{
+    margin-top: 5px;margin-bottom: 5px;
+}

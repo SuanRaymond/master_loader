@@ -37,10 +37,6 @@ class passBuy extends Controller
     {
         $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
 
-        if(!$this->box->loginType){
-            return false;
-        }
-
         return true;
     }
 }

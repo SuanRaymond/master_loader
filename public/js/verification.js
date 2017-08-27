@@ -15,7 +15,7 @@ function SuFun(_obj){
 }
 function ErFun(_obj){
     if(_obj.ResultJSON.error == 520){
-        swal("失敗", "重新發送驗證碼時間未到", "error");
+        swal("失败", "重新发送验证码时间未到", "error");
     }
     console.log(_obj);
 }

@@ -15,10 +15,12 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <div id="Banner">
-                <img src="images/shop/ad1.jpg" width="100%">
+                <!-- <img src="images/shop/ad1.jpg" width="100%">
                 <img src="images/shop/ad2.jpg" width="100%">
                 <img src="images/shop/ad3.jpg" width="100%">
-                <img src="images/shop/ad4.jpg" width="100%">
+                <img src="images/shop/ad4.jpg" width="100%"> -->
+                <img src="images/shop/ad5.jpg" width="100%">
+                <img src="images/shop/ad5.jpg" width="100%">
             </div>
         </div>
     </div>

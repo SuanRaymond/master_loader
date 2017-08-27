@@ -57,7 +57,7 @@
 <body>
      <div id="doSomethingBlock">
         <header>
-            <img src="./images/logo.png" height="70%">
+            <a href="/"><img src="./images/logo.png" height="70%"></a>
             <div align="center"><h1>{{ trans('view.title') }}-{{ trans('menu.'. session()->get('menu')) }}</h1></div>
                 @if(auth()->loginType)
                     <a href="" id="doSomethingBlockMenuButton">

@@ -28,7 +28,7 @@ class buy extends Controller
     public function index()
     {
         if(empty(getSessionJson('SetShopID'))){
-            return $this->reRrror('沒有商品無法結帳');
+            return $this->rewarning(trans('message.warn.projectNull'));
         }
         $result = $this->search();
         if(!$result){
@@ -42,10 +42,6 @@ class buy extends Controller
     public function search()
     {
         $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
-
-        if(!$this->box->loginType){
-            return false;
-        }
 
         $encrypt_services     = new encrypt_services(env('APP_KEY'));
 
@@ -86,10 +82,9 @@ class buy extends Controller
         $this->box->html->buydetailList   = with(new shopCar_presenter())->buydetailList($this->box->result->GetShopltemCar);
         $this->box->html->priceBox        = with(new shopCar_presenter())->priceBox($this->box->result->GetShopltemCar);
         $this->box->html->buyNavbarBottom = with(new shopCar_presenter())->buyNavbarBottom($this->box->result->GetShopltemCar);
-
         //放入資料區塊
         $this->box->postArray = [];
-        $this->box->postArray['MemberID'] = $this->box->member->memberID;
+        $this->box->postArray['MemberID'] = auth()->user->memberID;
 
         $Params = json_encode($this->box->postArray);
         $Sign   = $Params;
@@ -117,6 +112,11 @@ class buy extends Controller
     public function reRrror($_msg)
     {
         setMesage([alert(trans('message.title.error'), $_msg, 2)]);
+        return back();
+    }
+    public function rewarning($_msg)
+    {
+        setMesage([alert(trans('message.title.warning'), $_msg, 3)]);
         return back();
     }
 }

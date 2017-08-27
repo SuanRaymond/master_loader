@@ -31,17 +31,13 @@ class sortPage extends Controller
         if(!$result){
             return mIView('login');
         }
-        session()->put('menu', Request()->path());
+        session()->put('menu', Request()->path(). '?menuID='. $this->box->params->menuID);
         $box = $this->box;
         return mSView('sortPage.sortPage', compact('box'));
     }
     public function search()
     {
         $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
-
-        // if(!$this->box->loginType){
-        //     return false;
-        // }
 
         $encrypt_services = new encrypt_services(env('APP_KEY'));
         $menu_presenter   = new menu_presenter();

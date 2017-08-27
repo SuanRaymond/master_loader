@@ -37,7 +37,7 @@
         </script>
     </head>
     <body>
-        <div class="span12" style="text-align: center;"><h1>帳號驗證</h1></div>
+        <div class="span12" style="text-align: center;"><h1>{{ trans('view.CheckCode.Title') }}</h1></div>
         <div class="span12">
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade in active" id="PhoneAccount">
@@ -46,17 +46,17 @@
                     {{ csrf_field() }}
                         <div class="input-group">
                             <span class="input-group-addon glyphicon glyphicon-lock"></span>
-                            <input type="text" class="form-control" placeholder="請輸入驗證碼（不區分英文字母大小寫）" name="verification">
+                            <input type="text" class="form-control" placeholder={{ trans('view.CheckCode.ca.Checkplaceholder') }} name="verification">
                         </div>
-                        <div class="fontred">可重新發送驗證碼時間：<span id="ChDate">{{ $box->result->VerificationDate }}</span></div>
+                        <div class="fontred">{{ trans('view.CheckCode.remark') }}<span id="ChDate">{{ $box->result->VerificationDate }}</span></div>
                         <br>
                         <br>
                     </form>
                     <div class="span6">
-                        <a id="reverification_Submit" class="button button-flat-primary button-large  button-block">重新發送</a>
+                        <a id="reverification_Submit" class="button button-flat-primary button-large  button-block">{{ trans('view.CheckCode.b.resend') }}</a>
                     </div>
                     <div class="span6">
-                        <a id="verification_Submit" class="button button-flat-primary button-large  button-block">認證</a>
+                        <a id="verification_Submit" class="button button-flat-primary button-large  button-block">{{ trans('view.CheckCode.b.CheckOK') }}</a>
                     </div>
                 </div>
             </div>

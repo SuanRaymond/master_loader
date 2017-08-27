@@ -21,7 +21,11 @@ class ShopAuthenticate
             'Logout',
             'Registered',
             'Shop',
+            'ShopCar',
+            'ClearBuy',
+            'Sort',
             'ShopDetail',
+            'PassBuy',
             'ajax/ShopCarAdd',
             'ajax/VerificationReSend',
         ];
@@ -125,7 +129,11 @@ class ShopAuthenticate
             return $next($request);
         }
 
-        return redirect('Login');
+        if($this->box->path == 'Login'){
+            return $next($request);
+        }else{
+            return redirect('Login');
+        }
     }
 
     public function reRrror($_msg)

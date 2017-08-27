@@ -7,55 +7,56 @@
 	 */
 	return [
 		'title'    => 'FunMugle',
-		'account'  => '手機號碼',
-		'password' => '密碼',
-		'plzenter' => '請輸入',
+		'account'  => '手机号码',
+		'password' => '密码',
+		'plzenter' => '请输入',
 		'and'      => '或',
-		'confirm'  => '確認',
+		'confirm'  => '确认',
 		'cancel'   => '取消',
-		'nodata'   => '沒有任何資料喔！',
-		'shophome' => '首頁',
-		'sort'     => '分類',
-		'shopcar'  => '購物車',
+		'nodata'   => '没有任何资料喔！',
+		'shophome' => '首页',
+		'sort'     => '分类',
+		'shopcar'  => '购物车',
 		'mfile'    => '我的',
 
 		'memberMenu' => [
-			'nickName' => '暱稱：',
-			'share'    => '推薦碼：',
-			'points'   => '點數：',
-			'integral' => '藏蛋數：',
-			'bonus'    => '贈送紅利：',
+			'nickName' => '昵称：',
+			'share'    => '推荐码：',
+			'points'   => '点数：',
+			'integral' => '藏蛋数：',
+			'bonus'    => '赠送红利：',
 			'logout'   => '登出',
+			'login'    => '登入',
 		],
 		'homemenu' =>[
-			'MFile'  => '會員中心',
+			'MFile'  => '会员中心',
 			'returnhome' =>'返回入口',
-			'closemenu' => '關閉選單',
+			'closemenu' => '关闭选单',
 		],
 
 		'login' => [
 			'headerTitle' => '登入',
-			'subTitle'    => '請先登入',
+			'subTitle'    => '请先登入',
 			'b' => [
 				'login'  => '登&nbsp;&nbsp;&nbsp;&nbsp;入',
-				'other'  => '其&nbsp;他&nbsp;選&nbsp;項',
-				'forget' => '忘&nbsp;記&nbsp;密&nbsp;碼',
-				'create' => '創&nbsp;建&nbsp;帳&nbsp;號',
+				'other'  => '其&nbsp;他&nbsp;选&nbsp;项',
+				'forget' => '忘&nbsp;记&nbsp;密&nbsp;码',
+				'create' => '创&nbsp;建&nbsp;帐&nbsp;号',
 			],
 		],
 
 		'registered' => [
-			'headerTitle' 	=> '註冊',
-			'phone'         => '請輸入手機號共X碼',
-			'nickName'      => '請輸入暱稱',
-			'mail'          => '請輸入信箱',
-			'passowrd'      => '請輸入密碼',
-			'passwordCheck' => '請輸入密碼確認',
-			'recommendL'    => '推薦碼',
-			'recommend'     => '請輸入推薦碼共X碼數字',
-			'check'         => '請輸入驗證碼',
+			'headerTitle' 	=> '注册',
+			'phone'         => '请输入手机号共X码',
+			'nickName'      => '请输入昵称',
+			'mail'          => '请输入信箱',
+			'passowrd'      => '请输入密码',
+			'passwordCheck' => '请输入密码确认',
+			'recommendL'    => '推荐码',
+			'recommend'     => '请输入推荐码共X码数字',
+			'check'         => '请输入验证码',
 			'b' => [
-				'registered'  => '註&nbsp;&nbsp;&nbsp;&nbsp;冊',
+				'registered'  => '注&nbsp;&nbsp;&nbsp;&nbsp;册',
 			],
 		],
 
@@ -63,133 +64,143 @@
 		'home' => [
 			'headerTitle' => 'FunMugle',
 			'b' => [
-				'quickTask' => '每日任務',
-				'quickShop' => '購物',
+				'quickTask' => '每日任务',
+				'quickShop' => '购物',
 			],
 		],
 
 
 		'Shop' => [
-			'headerTitle' => '購物平台',
+			'headerTitle' => '购物平台',
 			'b' => [
 				'more' => '查看更多',
 			],
 		],
 
 		'ShopDetail' => [
-			'headerTitle' => '商品資訊',
-			'price'       => '購買',
-			'transport'   => '運費',
-			'bdate'		  => '上架時間',
+			'headerTitle' => '商品资讯',
+			'price'       => '购买',
+			'transport'   => '运费',
+			'bdate'		  => '上架时间',
 			'b' => [
-				'detail' => '詳細資訊',
-				'norm'   => '規格',
-				'memo'   => '備註',
-				'addCar' => '加入購物車',
-				'buyNow' => '立即購買',
+				'detail' => '详细资讯',
+				'norm'   => '规格',
+				'memo'   => '备注',
+				'addCar' => '加入购物车',
+				'buyNow' => '立即购买',
 			],
 		],
 
 		'shopCar' => [
-			'headerTitle'  => '購物車',
-			'productTitle' => '產品',
-			'totalMoney'   => '總金額',
-			'priceTitle'   => '價格',
+			'headerTitle'  => '购物车',
+			'productTitle' => '产品',
+			'totalMoney'   => '总金额',
+			'priceTitle'   => '价格',
 			'b' => [
-				'Checkout' => '結帳'
+				'Checkout' => '结帐'
 			],
 			'th' => [
-				'productMoney'      => '金額',
-				'productFare'       => '運費',
-				'productPoint'      => '點數',
-				'productQuantity'   => '數量',
-				'productStyle'      => '樣式',
-				'productTotalPoint' => '可獲得點數',
+				'productMoney'      => '金额',
+				'productFare'       => '运费',
+				'productPoint'      => '点数',
+				'productQuantity'   => '数量',
+				'productStyle'      => '样式',
+				'productTotalPoint' => '可获得点数',
 			]
 		],
 		'shopBuy' =>[
-			'memberTitle'   => '買家資訊',
-			'memberName'    => '收貨人',
-			'memberPhone'   => '聯絡電話',
+			'memberTitle'   => '买家资讯',
+			'memberName'    => '收货人',
+			'memberPhone'   => '联络电话',
 			'memberAddress' => '地址',
 			'b' => [
 				'buy' => '付款'
 			],
 		],
 		'MFile' => [
-			'MFileTitle'  => '會員中心',
+			'MFileTitle'  => '会员中心',
 			'b' => [
-				'CMFile' => '修改資料',
+				'CMFile' => '修改资料',
 				'cancel' => '取消',
-				'CPwd'   => '修改密碼',
+				'CPwd'   => '修改密码',
 			],
 			'th' => [
-				'memberid'   => '推薦碼：',
-				'account'    => '帳號：',
-				'pwd'        => '密碼：',
-				'points'     => '點數：',
-				'integral'   => '藏蛋數：',
-				'bonus'      => '贈送紅利：',
-				'name'       => '暱稱：',
-				'mail'       => '電子郵箱：',
+				'memberid'   => '推荐码：',
+				'account'    => '帐号：',
+				'pwd'        => '密码：',
+				'points'     => '点数：',
+				'integral'   => '藏蛋数：',
+				'bonus'      => '赠送红利：',
+				'name'       => '昵称：',
+				'mail'       => '电子邮箱：',
 				'address'    => '地址：',
 				'birthday'   => '生日：',
 				'year'       => '西元',
 				'years'      => '年',
 				'month'      => '月',
 				'day'        =>'日',
-				'gender'     => '性別：',
-				'language'   => '語言：',
-				'cardnumber' => '銀行卡號：'
+				'gender'     => '性别：',
+				'language'   => '语言：',
+				'cardnumber' => '银行卡号：'
 			],
 			'cl' =>[
 				'man'    => '男',
 				'woman'  => '女',
 				'ENUS'   => 'English',
-				'ZHCN'   => '簡體中文',
-				'ZHTW'   => '繁體中文',
+				'ZHCN'   => '简体中文',
+				'ZHTW'   => '繁体中文',
 			],
 
 		],
 		'CMFile' => [
-			'CMFileTitle'  => '修改會員資料',
-			'CMFileremark' => '*為必填',
+			'CMFileTitle'  => '修改会员资料',
+			'CMFileremark' => '*为必填',
 			'b' => [
-				'save'   => '儲存',
+				'save'   => '储存',
 				'cancel' => '取消',
 			],
 			'th' => [
-				'name'       => '暱稱：',
-				'mail'       => '電子郵箱：',
+				'name'       => '昵称：',
+				'mail'       => '电子邮箱：',
 				'address'    => '地址：',
 				'birthday'   => '生日：',
 				'year'       => '西元',
 				'years'      => '年',
 				'month'      => '月',
 				'day'        =>'日',
-				'gender'     => '性別：',
-				'language'   => '語言：',
-				'cardnumber' => '銀行卡號：'
+				'gender'     => '性别：',
+				'language'   => '语言：',
+				'cardnumber' => '银行卡号：'
 			],
 			'cl' =>[
-				'select' => '選擇',
+				'select' => '选择',
 				'man'    => '男',
 				'woman'  => '女',
 				'ENUS'   => 'English',
-				'ZHCN'   => '簡體中文',
-				'ZHTW'   => '繁體中文',
+				'ZHCN'   => '简体中文',
+				'ZHTW'   => '繁体中文',
 			],
 
 		],
 		'CPwd' => [
-			'CPwdTitle' => '修改密碼',
+			'CPwdTitle' => '修改密码',
 			'ca' => [
-				'oldpwd'   => '舊密碼',
-				'newpwd'   => '新密碼',
-				'renewpwd' => '新密碼確認',
+				'oldpwd'   => '旧密码',
+				'newpwd'   => '新密码',
+				'renewpwd' => '新密码确认',
 			],
 		],
-
+		'CheckCode' =>[
+			'Title'  => '帐号验证',
+			'remark' => '可重新发送验证码时间：',
+			'b' =>[
+				'resend'  => '重新发送',
+				'CheckOK' => '认证',
+			],
+			'ca'     =>[
+				'Checkplaceholder' => '请输入验证码（不区分英文字母大小写）',
+			],
+		],
 		//後台用
 		'manager' => [
 			'login'                     => [
@@ -227,3 +238,4 @@
 		],
 
 	];
+

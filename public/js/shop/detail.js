@@ -26,7 +26,7 @@ function SuFun(_obj){
 }
 function ErFun(_obj){
     // console.log(_obj);
-    swal("失敗", "", "error");
+    swal("失败", "", "error");
 }
 
 function curr(_deg){
@@ -53,7 +53,7 @@ function curr(_deg){
 				left: "-=50px"
 			}, 100, function(){
 				$("#shopCarBall").hide();
-				swal("已加入購物車", "", "success");
+				swal("已加入购物车", "", "success");
 			});
 		}
 	});

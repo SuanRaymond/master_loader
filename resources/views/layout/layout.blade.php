@@ -11,7 +11,13 @@
     <meta content="" name="author" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <title>{{ trans('view.title') }}-{{ trans('menu.'. session()->get('menu')) }}</title>
+    <title>{{ trans('view.title') }}-
+        @if(strpos(session()->get('menu'), '?') > 0)
+            {{ trans('menu.'. substr(session()->get('menu'), 0, strpos(session()->get('menu'), '?'))) }}
+        @else
+            {{ trans('menu.'. session()->get('menu')) }}
+        @endif
+    </title>
 
     <link type="text/css" rel="stylesheet" href="./lib/css/jquery.sidr.dark.min.css"/>
     <link type="text/css" rel="stylesheet" href="./lib/css/bootstrap.css"/>
@@ -58,7 +64,14 @@
      <div id="doSomethingBlock">
         <header>
             <a href="/"><img src="./images/logo.png" height="70%"></a>
-            <div align="center"><h1>{{ trans('view.title') }}-{{ trans('menu.'. session()->get('menu')) }}</h1></div>
+            <div align="center">
+                <h1>
+                    @if(strpos(session()->get('menu'), '?') > 0)
+                        {{ trans('menu.'. substr(session()->get('menu'), 0, strpos(session()->get('menu'), '?'))) }}
+                    @else
+                        {{ trans('menu.'. session()->get('menu')) }}
+                    @endif
+                </h1></div>
                 @if(auth()->loginType)
                     <a href="" id="doSomethingBlockMenuButton">
                         <i class="fa fa-2x fa-bars" aria-hidden="true"></i>

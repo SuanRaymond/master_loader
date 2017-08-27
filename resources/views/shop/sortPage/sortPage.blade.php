@@ -33,7 +33,7 @@
     </div> -->
 @stop
 @section('contentBottom')
-    <div class="fly">
+    <!-- <div class="fly">
         <a href="javascript:history.back(1)">
             <span>
                 回上頁
@@ -45,7 +45,7 @@
                 TOP
             </span>
         </a>
-    </div>
+    </div> -->
     <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
         <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
             <div class="span3">

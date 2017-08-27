@@ -26,7 +26,8 @@
             </a>
         </div>
         <div class="animated bounceInRight span6">
-            <a href="{{ $box->loginType ? '/Shop' : '/Login' }}">
+            <!-- <a href="{{ $box->loginType ? '/Shop' : '/Login' }}"> -->
+            <a href="/Shop">
                 <img src="./images/shop.png" width="100%">
                 <div align="center">{{ trans('view.home.b.quickShop') }}</div>
             </a>

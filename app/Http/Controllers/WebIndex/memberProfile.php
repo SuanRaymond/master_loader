@@ -27,7 +27,11 @@ class memberProfile extends Controller
 
     public function index()
     {
+        $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
         $box = $this->box;
+        if(!$this->box->loginType){
+            return redirect('/Login');
+        }
 
         /*----------------------------------與廠商溝通----------------------------------*/
         //放入連線區塊

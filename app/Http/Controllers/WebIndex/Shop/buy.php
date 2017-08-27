@@ -77,7 +77,7 @@ class buy extends Controller
                                 ->sendHTTP(env('SHOP_DOMAIN'). '/GetShopltemCar', $this->box->postArray);
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
         if($this->box->status != 0){
-            return $this->reRrror($this->box->status);
+            return $this->reRrror(trans('message.error.'.$this->box->status));
         }
         if(empty(getSessionJson('GetShopltemCar'))){
             createSessionJson('GetShopltemCar');
@@ -109,7 +109,7 @@ class buy extends Controller
                                 ->sendHTTP(env('SHOP_DOMAIN'). '/DetailSimple', $this->box->postArray);
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
         if($this->box->status != 0){
-            return $this->reRrror($this->box->status);
+            return $this->reRrror(trans('message.error.'.$this->box->status));
         }
 
         return true;

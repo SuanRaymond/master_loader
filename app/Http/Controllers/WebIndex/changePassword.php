@@ -31,6 +31,10 @@ class changePassword extends Controller
 
     public function index()
     {
+        $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
+        if(!$this->box->loginType){
+            return redirect('/Login');
+        }
         $box = $this->box;
         return mIView('memberCentre.changePassword', compact('box'));
     }

@@ -14,5 +14,8 @@ function SuFun(_obj){
     console.log(_obj.ResultJSON.reDate);
 }
 function ErFun(_obj){
+    if(_obj.ResultJSON.error == 520){
+        swal("失敗", "重新發送驗證碼時間未到", "error");
+    }
     console.log(_obj);
 }

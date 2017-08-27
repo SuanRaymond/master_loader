@@ -13,7 +13,7 @@ class menu_presenter{
 
         foreach($_object as $row){
         	foreach($row as $value){
-        		$html .= '<li><a href="/MenuListDetail?MenyID='. $value. '">'. trans('menu.menu.'. $value). '</a></li>';
+        		$html .= '<li><a href="/Sort?menuID='. $value. '">'. trans('menu.menu.'. $value). '</a></li>';
         	}
         }
 
@@ -83,6 +83,19 @@ class menu_presenter{
                         </a>';
             }
         }
+        // for ($i=0; $i < 9; $i++) {
+        //     $html .= '
+        //                 <a href="/ShopDetail?ShopID=1">
+        //                     <div class="span5 sortListBox">
+        //                         <img class="span12 sortImg" src="images/shop/item/18/Title.jpg">
+        //                         <div class="span12 sortListTextBox">
+        //                             <div class="span12 sortListTextTitle">18</div>
+        //                             <div class="span6 sortListTextMoney">$ 1000</div>
+        //                             <div class="span6 sortListTextPoint">PP 10000</div>
+        //                         </div>
+        //                     </div>
+        //                 </a>';
+        // }
         return $html;
     }
 }

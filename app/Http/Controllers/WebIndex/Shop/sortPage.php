@@ -39,9 +39,9 @@ class sortPage extends Controller
     {
         $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
 
-        if(!$this->box->loginType){
-            return false;
-        }
+        // if(!$this->box->loginType){
+        //     return false;
+        // }
 
         $encrypt_services = new encrypt_services(env('APP_KEY'));
         $menu_presenter   = new menu_presenter();
@@ -72,7 +72,7 @@ class sortPage extends Controller
         // dd($this->box);
 
         if($this->box->status != 0){
-            return $this->reRrror($this->box->status);
+            return $this->reRrror(trans('message.error.'.$this->box->status));
         }
 
         //組合Html
@@ -100,12 +100,17 @@ class sortPage extends Controller
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
         // dd($this->box->result->MenuCommodity);
         if($this->box->status != 0){
-            return $this->reRrror($this->box->status);
+            return $this->reRrror(trans('message.error.'.$this->box->status));
         }
 
         $this->box->html->sortList = $menu_presenter->sortList($this->box->result->MenuCommodity);
 
 
         return true;
+    }
+    public function reRrror($_msg)
+    {
+        setMesage([alert(trans('message.title.error'), $_msg, 2)]);
+        return back();
     }
 }

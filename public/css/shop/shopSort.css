@@ -1,3 +1,6 @@
+.panel-body{
+    background-color: #f3f3f3;
+}
 .sortListBox{
     padding: 0px;
     background-color: #ffffff;
@@ -27,4 +30,8 @@
     font-size: 2vw;
     background-color: #d9534f;
     color: #ffffff;
+}
+#abgne_float_ad {
+    /*display: none;*/
+    position: absolute;
 }

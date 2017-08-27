@@ -39,9 +39,9 @@ class homeShop extends Controller
     {
         $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
 
-        if(!$this->box->loginType){
-            return false;
-        }
+        // if(!$this->box->loginType){
+        //     return false;
+        // }
 
         $encrypt_services = new encrypt_services(env('APP_KEY'));
         $menu_presenter   = new menu_presenter();
@@ -74,7 +74,7 @@ class homeShop extends Controller
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
 
         if($this->box->status != 0){
-            return $this->reRrror($this->box->status);
+            return $this->reRrror(trans('message.error.'.$this->box->status));
         }
 
         //組合Html
@@ -86,7 +86,7 @@ class homeShop extends Controller
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
 
         if($this->box->status != 0){
-            return $this->reRrror($this->box->status);
+            return $this->reRrror(trans('message.error.'.$this->box->status));
         }
 
         //組合Html

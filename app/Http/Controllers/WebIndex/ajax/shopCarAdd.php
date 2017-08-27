@@ -21,9 +21,11 @@ class shopCarAdd extends Controller
     public function index()
     {
         if(!is_null($this->box->params->shopID)){
+            //判斷是否建立session
             if(empty(getSessionJson('SetShopID'))){
                 createSessionJson('SetShopID');
             }
+            //判斷是否存入session
             if(!searchSessionJson('SetShopID',$this->box->params->shopID)){
                 addSessionJson('SetShopID', $this->box->params->shopID);
             }

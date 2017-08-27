@@ -47,9 +47,9 @@ class detail extends Controller
     {
         $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
 
-        if(!$this->box->loginType){
-            return 1;
-        }
+        // if(!$this->box->loginType){
+        //     return 1;
+        // }
 
         $encrypt_services    = new encrypt_services(env('APP_KEY'));
         $commodity_presenter = new commodity_presenter();
@@ -82,7 +82,7 @@ class detail extends Controller
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
 
         if($this->box->status != 0){
-            $this->reRrror($this->box->status);
+            $this->reRrror(trans('message.error.'.$this->box->status));
             return 1;
         }
 
@@ -95,7 +95,7 @@ class detail extends Controller
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
 
         if($this->box->status != 0){
-            $this->reRrror($this->box->status);
+            $this->reRrror(trans('message.error.'.$this->box->status));
             return 2;
         }
 

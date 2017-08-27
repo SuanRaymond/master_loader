@@ -5,6 +5,7 @@
     <link type="text/css" href="./lib/css/slick-theme.css" rel="stylesheet"/>
     <link type="text/css" rel="stylesheet" href="./css/shop/shop.css"/>
     <link type="text/css" rel="stylesheet" href="./css/shop/shopSort.css"/>
+
 @stop
 
 @section('jsImport')
@@ -18,6 +19,18 @@
             {!! $box->html->sortList !!}
         </div>
     </div>
+    <!-- <div id="abgne_float_ad" >
+        <a href="javascript:history.back(1)">
+            <span>
+                回上頁
+            </span>
+        </a><br><br>
+        <a href="#">
+            <span>
+                TOP
+            </span>
+        </a>
+    </div> -->
 @stop
 @section('contentBottom')
     <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">

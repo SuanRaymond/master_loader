@@ -47,7 +47,13 @@ class verificationReSend extends Controller
             //檢查廠商回傳資訊
             $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
             if($this->box->status != 0){
-                return $this->reRrror($this->box->status);
+                echo json_encode(array(
+                    'result' => 'ER',
+                    'msg'    => request('ID'),
+                    'error'  => $this->box->status,
+                ));
+                exit;
+                return $this->reRrror(trans('message.error.'.$this->box->status));
             }
 
 
@@ -68,7 +74,7 @@ class verificationReSend extends Controller
             // dd($this->box);
             // dd($box->result->VerificationDate);
             if($this->box->status != 0){
-                return $this->reRrror($this->box->status);
+                return $this->reRrror(trans('message.error.'.$this->box->status));
             }
             echo json_encode(array(
                 'result' => 'SU',

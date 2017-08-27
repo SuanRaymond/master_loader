@@ -68,7 +68,7 @@ class commodityOrderAdd extends Controller
                                 ->sendHTTP(env('SHOP_DOMAIN'). '/CommodityOrderAdd', $this->box->MemberBuyToabl);
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
         if($this->box->status != 0){
-            return $this->reRrror($this->box->status);
+            return $this->reRrror(trans('message.error.'.$this->box->status));
         }
         removeSessionJson('SetShopID');
         removeSessionJson('GetShopltemCar');

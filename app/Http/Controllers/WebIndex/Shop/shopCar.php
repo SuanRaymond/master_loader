@@ -75,7 +75,7 @@ class shopCar extends Controller
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
         // dd($this->box->result->GetShopltemCar);
         if($this->box->status != 0){
-            return $this->reRrror($this->box->status);
+            return $this->reRrror(trans('message.error.'.$this->box->status));
         }
 
         $this->box->html->detailList   = with(new shopCar_presenter())->detailList($this->box->result->GetShopltemCar);

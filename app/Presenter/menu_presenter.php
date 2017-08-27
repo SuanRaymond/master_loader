@@ -44,8 +44,8 @@ class menu_presenter{
         		$html .= 	'<a href="/ShopDetail?ShopID='. $shopID. '" class="thumbnail">
                 				<img src="images/shop/item/'. $shopID. '/Title.jpg"  height="100%" alt="" >
                 				<div class="CommodityTitle">'. $row->title. '</div>
-                				<span class="label label-success">$ '. $row->price. '</span>
-                    			<span class="label label-danger">PP '. $row->points. '</span>
+                				<span class="label label-success">$ '. pFormat($row->price). '</span>
+                    			<span class="label label-danger">PP '. pFormat($row->points). '</span>
             				</a>';
         	}
         	$html .= 			'</div>
@@ -76,8 +76,8 @@ class menu_presenter{
                                 <img class="span12 sortImg" src="images/shop/item/'.$ShopID.'/Title.jpg">
                                 <div class="span12 sortListTextBox">
                                     <div class="span12 sortListTextTitle">'. $row->title.'</div>
-                                    <div class="span6 sortListTextMoney">$ '. $row->price.'</div>
-                                    <div class="span6 sortListTextPoint">PP '. $row->points.'</div>
+                                    <div class="span6 sortListTextMoney">$ '. pFormat($row->price). '</div>
+                                    <div class="span6 sortListTextPoint">PP '. pFormat($row->points). '</div>
                                 </div>
                             </div>
                         </a>';

@@ -56,15 +56,15 @@
                     </div>
                     <div class="list-group-item" style="background-color: #f0f0f0;">
                         <span style="text-align: right;">　　{{ trans('view.MFile.th.points') }}</span>
-                        <span style="padding-left: 20px;">{{ pFormat($box->member->points) }}</span>
+                        <span style="padding-left: 20px;">{{ $box->member->points }}</span>
                     </div>
                     <div class="list-group-item">
                         <span style="text-align: right;">　{{ trans('view.MFile.th.integral') }}</span>
-                        <span style="padding-left: 20px;">{{ pFormat($box->member->integral) }}</span>
+                        <span style="padding-left: 20px;">{{ $box->member->integral }}</span>
                     </div>
                     <div class="list-group-item" style="background-color: #f0f0f0;">
                         <span style="text-align: right;">{{ trans('view.MFile.th.bonus') }}</span>
-                        <span style="padding-left: 20px;">{{ pFormat($box->member->bonus) }}</span>
+                        <span style="padding-left: 20px;">{{ $box->member->bonus }}</span>
                     </div>
                     <div class="list-group-item">
                         <span style="text-align: right;">{{ trans('view.MFile.th.mail') }}</span>

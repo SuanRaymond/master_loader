@@ -9,6 +9,12 @@ class connection_services{
 	 */
 	public function callApi($_object)
 	{
+		$_object->reKey     = config('app.key');
+        $_object->deBugMode = false;
+        if(config('app.debug') == true && env('USETYPE') == 'LOCAL'){
+            $_object->deBugMode = true;
+        }
+
 		//初始化加密方法
         $encrypt_services = new encrypt_services($_object->reKey);
 		//轉換資料為JSON
@@ -26,7 +32,7 @@ class connection_services{
         ));
 
          //送出
-        return $this->sendHTTP($_object->sendApiUrl[0]. '/'. $_object->callFunction, $_object->Post_Array);
+        return $this->sendHTTP($_object->sendApiUrl. '/'. $_object->callFunction, $_object->Post_Array);
 	}
 
 	/**

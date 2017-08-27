@@ -38,7 +38,7 @@ class detail extends Controller
         else if($result == 2){
             return redirect('/Shop');
         }
-        session()->put('menu', Request()->path());
+        session()->put('menu', Request()->path(). '?ShopID='. $this->box->params->shopID);
         $box = $this->box;
         return mSView('item.detail', compact('box'));
     }

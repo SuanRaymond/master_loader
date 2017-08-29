@@ -42,7 +42,7 @@ class menu_presenter{
         			$row->title = mb_substr($row->title, 0, 20). '...';
         		}
         		$html .= 	'<a href="/ShopDetail?ShopID='. $shopID. '" class="thumbnail">
-                				<img src="images/shop/item/'. $shopID. '/Title.jpg"  height="100%" alt="" >
+                				<img src="'. $row->images. '" height="100%" alt="" >
                 				<div class="CommodityTitle">'. $row->title. '</div>
                 				<span class="label label-success">$ '. pFormat($row->price). '</span>
                     			<span class="label label-danger">PP '. pFormat($row->points). '</span>
@@ -73,7 +73,7 @@ class menu_presenter{
                 $html .= '
                         <a href="/ShopDetail?ShopID='.$ShopID.'">
                             <div class="span5 sortListBox">
-                                <img class="span12 sortImg" src="images/shop/item/'.$ShopID.'/Title.jpg">
+                                <img class="span12 sortImg" src="'. $row->images. '">
                                 <div class="span12 sortListTextBox">
                                     <div class="span12 sortListTextTitle">'. $row->title.'</div>
                                     <div class="span6 sortListTextMoney">$ '. pFormat($row->price). '</div>
@@ -83,19 +83,6 @@ class menu_presenter{
                         </a>';
             }
         }
-        // for ($i=0; $i < 9; $i++) {
-        //     $html .= '
-        //                 <a href="/ShopDetail?ShopID=1">
-        //                     <div class="span5 sortListBox">
-        //                         <img class="span12 sortImg" src="images/shop/item/18/Title.jpg">
-        //                         <div class="span12 sortListTextBox">
-        //                             <div class="span12 sortListTextTitle">18</div>
-        //                             <div class="span6 sortListTextMoney">$ 1000</div>
-        //                             <div class="span6 sortListTextPoint">PP 10000</div>
-        //                         </div>
-        //                     </div>
-        //                 </a>';
-        // }
         return $html;
     }
 }

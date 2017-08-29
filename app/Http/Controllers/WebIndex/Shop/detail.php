@@ -88,6 +88,7 @@ class detail extends Controller
         //取得類別選單
         $this->box->result = with(new connection_services())
                                 ->sendHTTP(env('SHOP_DOMAIN'). '/GetShopltemDetail', $this->box->postArray);
+
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
 
         if($this->box->status != 0){

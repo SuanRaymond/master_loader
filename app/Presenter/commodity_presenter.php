@@ -9,13 +9,8 @@ class commodity_presenter{
 				    <div class="panel-body">
 				        <div id="Banner">';
 
-    	for($x=1;$x<=10;$x++){
-    		if(is_file('./images/shop/item/'. $_object->shopID. '/item'. $x. '.jpg')){
-			   $html .= '<img src="./images/shop/item/'. $_object->shopID. '/item'. $x. '.jpg" width="100%">';
-			}
-			else{
-			   break;
-			}
+    	foreach($_object->images as $imgBase64){
+    		$html .= '<img src="'. $imgBase64. '" width="100%">';
     	}
 
     	$html .= 	'</div>

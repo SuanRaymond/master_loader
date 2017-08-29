@@ -10,47 +10,47 @@ class shopCar_presenter{
     {
         $html = '';
         $_object = reSetKey($_object);
-        foreach ($_object as $shopID => $group) {
-            if(strlen($group->title) > 10){
-                $group->title = mb_substr($group->title, 0, 10). '...';
+        foreach($_object as $shopID => $row){
+            if(strlen($row->title) > 10){
+                $row->title = mb_substr($row->title, 0, 10). '...';
             }
             $html .= '
                         <div class="span12 shopCarItemBox">
                             <div class="span3" style="padding: 1px;">
-                                <img src="images/shop/item/'. $shopID .'/Title.jpg" width="100%">
+                                <img src="'. $row->images. '" width="100%">
                             </div>
                             <div class="span8" style="padding: 1px;">
-                                <div class="shopCarItemTitle">'. $group->title .'</div>
+                                <div class="shopCarItemTitle">'. $row->title .'</div>
                                 <div class="row shopCarItemTextBox">
                                     <div class="span3 shopCarListTitle">
                                         '.trans('view.shopCar.th.productMoney').'
                                     </div>
                                     <div class="span3">
-                                        '. pFormat($group->price) .'
+                                        '. pFormat($row->price) .'
                                     </div>
                                     <div class="span3 shopCarListTitle" style="text-align: right;">
                                         '.trans('view.shopCar.th.productFare').'
                                     </div>
                                     <div class="span3">
-                                        '. pFormat($group->transport) .'
+                                        '. pFormat($row->transport) .'
                                     </div>
                                     <div class="span3 shopCarListTitle">
                                         '.trans('view.shopCar.th.productPoint').'
                                     </div>
                                     <div class="span9">
-                                        '. pFormat($group->points) .'
+                                        '. pFormat($row->points) .'
                                     </div>
                                     <div class="span3 shopCarListTitle">
                                         '.trans('view.shopCar.th.productQuantity').'
                                     </div>
                                     <div class="span3">
-                                        '. pFormat($group->quantity) .'
+                                        '. pFormat($row->quantity) .'
                                     </div>
                                     <div class="span3 shopCarListTitle" style="text-align: right;">
                                         '.trans('view.shopCar.th.productStyle').'
                                     </div>
                                     <div class="span3">
-                                        '. $group->style .'
+                                        '. $row->style .'
                                     </div>
                                 </div>
                             </div>
@@ -69,47 +69,47 @@ class shopCar_presenter{
     {
         $html = '';
         $_object = reSetKey($_object);
-        foreach ($_object as $shopID => $group) {
-            if(strlen($group->title) > 10){
-                $group->title = mb_substr($group->title, 0, 10). '...';
+        foreach($_object as $shopID => $row){
+            if(strlen($row->title) > 10){
+                $row->title = mb_substr($row->title, 0, 10). '...';
             }
             $html .= '
                         <div class="span12 shopCarItemBox">
                             <div class="span3" style="padding: 1px;">
-                                <img src="images/shop/item/'. $shopID .'/Title.jpg" width="100%">
+                                <img src="'. $row->images. '" width="100%">
                             </div>
                             <div class="span9" style="padding: 1px;">
-                                <div class="shopCarItemTitle">'. $group->title .'</div>
+                                <div class="shopCarItemTitle">'. $row->title .'</div>
                                 <div class="row shopCarItemTextBox">
                                     <div class="span3 shopCarListTitle">
                                         '.trans('view.shopCar.th.productMoney').'
                                     </div>
                                     <div class="span3">
-                                        '. pFormat($group->price) .'
+                                        '. pFormat($row->price) .'
                                     </div>
                                     <div class="span3 shopCarListTitle" style="text-align: right;">
                                         '.trans('view.shopCar.th.productFare').'
                                     </div>
                                     <div class="span3">
-                                        '. pFormat($group->transport) .'
+                                        '. pFormat($row->transport) .'
                                     </div>
                                     <div class="span3 shopCarListTitle">
                                         '.trans('view.shopCar.th.productPoint').'
                                     </div>
                                     <div class="span9">
-                                        '. pFormat($group->points) .'
+                                        '. pFormat($row->points) .'
                                     </div>
                                     <div class="span3 shopCarListTitle">
                                         '.trans('view.shopCar.th.productQuantity').'
                                     </div>
                                     <div class="span3">
-                                        '. pFormat($group->quantity) .'
+                                        '. pFormat($row->quantity) .'
                                     </div>
                                     <div class="span3 shopCarListTitle" style="text-align: right;">
                                         '.trans('view.shopCar.th.productStyle').'
                                     </div>
                                     <div class="span3">
-                                        '. $group->style .'
+                                        '. $row->style .'
                                     </div>
                                 </div>
                             </div>

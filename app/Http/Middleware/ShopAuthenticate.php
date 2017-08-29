@@ -27,9 +27,12 @@ class ShopAuthenticate
             'ShopDetail',
             'PassBuy',
             'ajax/ShopCarAdd',
-            'ajax/VerificationReSend',
         ];
-
+        $this->box->passInArray          =
+        [
+            'Check',
+            'ajax/VerificationReSend'
+        ];
         $this->box->path                 = Request()->path();
         $this->box->params->equipmentID  = browser();
         $this->box->params->ip           = ip();
@@ -56,8 +59,9 @@ class ShopAuthenticate
         // app()->setLocale(session()->get('lang', 'tw'));
 
         //是否允許未登入進入
-        if(in_array($this->box->path, $this->box->notInArray) &&
-          (is_null($this->box->params->account) && is_null($this->box->params->password))){
+        if((in_array($this->box->path, $this->box->notInArray) &&
+          (is_null($this->box->params->account) && is_null($this->box->params->password))) ||
+          (in_array($this->box->path, $this->box->passInArray))){
             return $next($request);
         }
 
@@ -82,10 +86,10 @@ class ShopAuthenticate
             $this->box->getResult = $this->box->result;
             //檢查廠商回傳資訊
             $this->box = $web_judge_services->check(['CAPI']);
-
             if($this->box->status == 13){
                 session()->put('memberID', json_encode($this->box->result->Member->memberID));
-                return redirect('/Check');
+            // dd($this->box);
+                return redirect('Check');
             }
             if($this->box->status != 0){
                 return $this->reRrror($this->box->status);

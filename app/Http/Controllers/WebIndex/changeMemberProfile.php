@@ -37,7 +37,6 @@ class changeMemberProfile extends Controller
 
     public function index()
     {
-        session()->put('menu', Request()->path());
         $box = $this->box;
 
         /*----------------------------------與廠商溝通----------------------------------*/

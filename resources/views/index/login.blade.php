@@ -59,7 +59,12 @@
                 {{ trans('view.login.b.login') }}
             </a>
 
-            <a href="/{{ session()->get('menu') }}" class="button button-flat-caution button-large  button-block">
+            <a href="
+                    @if(session()->get('menu')!='/')
+                        /{{ session()->get('menu') }}
+                    @else
+                        /
+                    @endif" class="button button-flat-caution button-large  button-block">
                 {{ trans('view.cancel') }}
             </a>
 

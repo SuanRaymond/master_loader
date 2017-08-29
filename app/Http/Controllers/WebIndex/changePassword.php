@@ -31,7 +31,6 @@ class changePassword extends Controller
 
     public function index()
     {
-        session()->put('menu', Request()->path());
         $box = $this->box;
         return mIView('memberCentre.changePassword', compact('box'));
     }

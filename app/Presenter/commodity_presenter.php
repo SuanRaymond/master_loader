@@ -9,7 +9,7 @@ class commodity_presenter{
 				    <div class="panel-body">
 				        <div id="Banner">';
 
-    	foreach($_object->images as $imgBase64){
+        foreach($_object->images as $imgBase64){
     		$html .= '<img src="'. $imgBase64. '" width="100%">';
     	}
 

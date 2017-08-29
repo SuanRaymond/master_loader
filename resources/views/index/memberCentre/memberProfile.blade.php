@@ -112,7 +112,12 @@
                 <br><br>
             </div>
             <div class="span6">
-                <a href="/{{ session()->get('menu') }}" class="button button-flat-primary button-large  button-block">{{ trans('view.MFile.b.cancel') }}</a>
+                <a href="
+                        @if(session()->get('menu')!='/')
+                            /{{ session()->get('menu') }}
+                        @else
+                            /
+                        @endif" class="button button-flat-primary button-large  button-block">{{ trans('view.MFile.b.cancel') }}</a>
             </div>
         </div>
     </body>

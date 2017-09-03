@@ -43,15 +43,15 @@ class shopCar_presenter{
                                     <div class="span3 shopCarListTitle">
                                         '.trans('view.shopCar.th.productQuantity').'
                                     </div>
-                                    <div class="span3">
+                                    <div class="span9">
                                         '. pFormat($row->quantity) .'
                                     </div>
-                                    <div class="span3 shopCarListTitle" style="text-align: right;">
+                                    <!-- <div class="span3 shopCarListTitle" style="text-align: right;">
                                         '.trans('view.shopCar.th.productStyle').'
                                     </div>
                                     <div class="span3">
                                         '. $row->style .'
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="span1" style="padding: 1px; font-size: 4.5vw;">
@@ -102,15 +102,15 @@ class shopCar_presenter{
                                     <div class="span3 shopCarListTitle">
                                         '.trans('view.shopCar.th.productQuantity').'
                                     </div>
-                                    <div class="span3">
+                                    <div class="span9">
                                         '. pFormat($row->quantity) .'
                                     </div>
-                                    <div class="span3 shopCarListTitle" style="text-align: right;">
+                                    <!-- <div class="span3 shopCarListTitle" style="text-align: right;">
                                         '.trans('view.shopCar.th.productStyle').'
                                     </div>
                                     <div class="span3">
                                         '. $row->style .'
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>';

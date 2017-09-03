@@ -61,13 +61,19 @@
 </head>
 
 <body>
+    <div id="Top"></div>
      <div id="doSomethingBlock">
         <header>
             <a href="/"><img src="./images/logo.png" height="70%"></a>
             <div align="center">
                 <h1>
                     @if(strpos(session()->get('menu'), '?') > 0)
-                        {{ trans('menu.'. substr(session()->get('menu'), 0, strpos(session()->get('menu'), '?'))) }}
+                        @if(strpos(session()->get('menu'), '=') > 0 &&
+                            substr(session()->get('menu'), 0, strpos(session()->get('menu'), '?')) == 'Sort')
+                            {{ trans('menu.'. substr(session()->get('menu'), strpos(session()->get('menu'), '=')+1 )) }}
+                        @else
+                            {{ trans('menu.'. substr(session()->get('menu'), 0, strpos(session()->get('menu'), '?'))) }}
+                        @endif
                     @else
                         {{ trans('menu.'. session()->get('menu')) }}
                     @endif
@@ -89,6 +95,22 @@
     </div>
 
     @yield('contentBottom')
+
+    @if(session()->get('menu')!='/')
+        <div class="fly">
+            <a href="javascript:history.back(1)">
+                <span>
+                    回上頁
+                </span>
+            </a>
+            <hr>
+            <a href="#Top">
+                <span>
+                    TOP
+                </span>
+            </a>
+        </div>
+    @endif
 
     <div id="sidr">
         <ul>

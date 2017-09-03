@@ -20,7 +20,7 @@
 
     <div id="doSomethingBlockBody" align="center" class="row">
         <div class="animated bounceInLeft span6">
-            <a href="">
+            <a href="/Task">
                 <img src="./images/Gift.png" width="100%">
                 <div align="center">{{ trans('view.home.b.quickTask') }}</div>
             </a>

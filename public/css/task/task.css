@@ -1,0 +1,33 @@
+.title .span3{
+    padding: 0px;
+    text-align: center;
+    font-size: 4.5vw;
+}
+.list .span3{
+    padding: 0px;
+    text-align: center;
+    font-size: 4.5vw;
+}
+.button{
+    font-size: 4.5vw;
+}
+.list-group-item{
+    font-size: 5vw;
+}
+.badge0{
+    font-size: 5vw;
+    background-color: #00A1CB;
+}
+.badge1{
+    font-size: 5vw;
+    background-color: #777777;
+}
+hr{
+    margin: 5px;
+    border-color: #DDD9D9;
+}
+.taskNavbarBottom{
+    height: 50px;
+    line-height: 50px;
+    font-size: 4.5vw;
+}

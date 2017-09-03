@@ -47,6 +47,18 @@ if(!function_exists('mSView')){
     }
 }
 
+if(!function_exists('mTView')){
+    /**
+     * Shop View ReUse
+     */
+    function mTView($_name, $_cup = null){
+        if(is_null($_cup)){
+            $_cup = compact(null);
+        }
+        return view('task.'. $_name, $_cup);
+    }
+}
+
 if(!function_exists('mMView')){
     /**
      * Manager View ReUse

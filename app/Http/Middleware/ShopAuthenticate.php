@@ -27,6 +27,11 @@ class ShopAuthenticate
             'ShopDetail',
             'PassBuy',
             'ajax/ShopCarAdd',
+
+            // 'Task',
+            // 'Sign',
+            // 'ajax/SignSend',
+            // 'SGame',
         ];
         $this->box->passInArray          =
         [

@@ -58,3 +58,18 @@ Route::get('/PassBuy', 'Shop\passBuy@index');
 Route::get('/Sort', 'Shop\sortPage@index');
 //付款
 Route::get('/Send', 'Shop\commodityOrderAdd@index');
+
+
+
+//任務網
+Route::get('/Task', 'Task\homeTask@index');
+//每天簽到
+Route::get('/Sign', 'Task\signEveryDay@index');
+//每日小遊戲
+Route::get('/SGame', 'Task\smallGame@index');
+
+
+
+
+
+

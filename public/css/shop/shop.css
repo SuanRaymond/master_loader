@@ -33,10 +33,13 @@
 }
 
 .popular-search-div .popular{
-	margin-left: 20px;
+	/*margin-left: 20px;*/
 }
 
 .popular-search-div .see-more{
 	font-size: 10pt;
-	float: right;
+	/*float: right;*/
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
 }

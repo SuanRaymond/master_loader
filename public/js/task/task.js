@@ -36,7 +36,7 @@ function doublecheck(Type){
                 showLoaderOnConfirm: true,
             },
             function(){
-                if($("#points").val()<=$("#points"+Type).val()){
+                if(parseInt($("#points").val())<=parseInt($("#points"+Type).val())){
                     swal.showInputError("點數不足無法購買");
                     return false
                 }else{

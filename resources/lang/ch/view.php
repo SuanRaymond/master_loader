@@ -24,7 +24,7 @@
 			'nickName' => '昵称：',
 			'share'    => '推荐码：',
 			'points'   => '点数：',
-			'integral' => '藏蛋数：',
+			'integral' => '金蛋数：',
 			'bonus'    => '赠送红利：',
 			'logout'   => '登出',
 			'login'    => '登入',

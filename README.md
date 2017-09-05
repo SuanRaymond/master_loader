@@ -1,14 +1,16 @@
-# master_loader
-
-#USETYPE=LOCAL
-USETYPE=LOCAL1
+# 模式
+USETYPE=LOCAL
 
 # 主網入口
 WEB_INDEX_DOMAIN={"0":"www.powerrun.dev"}
 
+# 後台入口
+WEB_MANAGER_DOMAIN={"0":"manager.powerrun.dev"}
+
 # 連接 API 使用
 INDEX_DOMAIN=api.powerrun.dev
 SHOP_DOMAIN=api.shop.dev
+MANAGER_DOMAIN=manager.member.dev
 
 APP_NAME=Laravel
 APP_ENV=local

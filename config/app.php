@@ -55,6 +55,8 @@ return [
 
     //入口網
     'urlWebIndex' => env('WEB_INDEX_DOMAIN', ''),
+    //後台入口
+    'urlWebManager' => env('WEB_MANAGER_DOMAIN', ''),
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

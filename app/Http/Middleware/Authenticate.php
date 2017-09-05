@@ -6,7 +6,6 @@ use App\Services\connection_services;
 use App\Services\web_judge_services;
 
 use Closure;
-use Crypt;
 class Authenticate
 {
     public $box;
@@ -35,20 +34,12 @@ class Authenticate
             $this->box->params->equipmentID = browser();
             $this->box->params->ip          = ip();
 
-            $this->box->reKey = config('app.key');
-            //是否開啟開發模式
-            $this->box->deBugMode = false;
-            if(config('app.debug') == true && env('USETYPE') == 'LOCAL'){
-                $this->box->deBugMode = true;
-            }
-
             //執行登入
             /*----------------------------------與廠商溝通----------------------------------*/
             //放入連線區塊
             //需呼叫的功能
             $this->box->callFunction = 'Login';
-            $this->box->sendApiUrl   = [];
-            $this->box->sendApiUrl[] = env('MANAGER_DOMAIN');
+            $this->box->sendApiUrl   = env('MANAGER_DOMAIN');
 
             //放入資料區塊
             $this->box->sendParams             = [];
@@ -78,8 +69,7 @@ class Authenticate
             //放入連線區塊
             //需呼叫的功能
             $this->box->callFunction = 'SetLoginInfo';
-            $this->box->sendApiUrl   = [];
-            $this->box->sendApiUrl[] = env('INDEX_DOMAIN');
+            $this->box->sendApiUrl   = env('INDEX_DOMAIN');
             //放入資料區塊
             $this->box->sendParams                = [];
             $this->box->sendParams['MemberID']    = $this->box->member->memberID;
@@ -98,13 +88,13 @@ class Authenticate
             /*----------------------------------與廠商溝通----------------------------------*/
 
             auth()->user = $this->box->member;
-            auth()->menuCheck = Request()->path();
+            auth()->menuCheck = Request()->path() == '/' ? 'Profile' : Request()->path();
 
             if(Request()->path() == 'login'){
                 return redirect('/');
             }
             else if(Request()->path() == '/'){
-                return redirect('profile');
+                return redirect('Profile');
             }
             else{
                 return $next($request);

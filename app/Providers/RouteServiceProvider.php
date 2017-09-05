@@ -14,8 +14,10 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $webIndexNameSpace = 'App\Http\Controllers\WebIndex';
-    protected $webIndexDomain    = 'localhost';
+    protected $webIndexNameSpace   = 'App\Http\Controllers\WebIndex';
+    protected $webIndexDomain      = 'localhost';
+    protected $webManagerNameSpace = 'App\Http\Controllers\WebManager';
+    protected $webManagerDomain    = 'localhost';
     /**
      * Define your route model bindings, pattern filters, etc.
      *
@@ -35,20 +37,30 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $this->webIndexDomain = config('app.urlWebIndex');
-        $this->webIndexDomain = json_decode($this->webIndexDomain, true);
+        $this->webIndexDomain   = config('app.urlWebIndex');
+        $this->webIndexDomain   = json_decode($this->webIndexDomain, true);
+        $this->webManagerDomain = config('app.urlWebManager');
+        $this->webManagerDomain = json_decode($this->webManagerDomain, true);
 
         if(empty($_SERVER['HTTP_HOST'])){
             $this->webIndexDomain = 'localhost';
+            $this->webManagerDomain = 'localhost';
         }
         else if(is_null($this->webIndexDomain)){
             $this->webIndexDomain = 'localhost';
+        }
+        else if(is_null($this->webManagerDomain)){
+            $this->webManagerDomain = 'localhost';
         }
         else{
             $host = explode(":", $_SERVER['HTTP_HOST'])[0];
             if(in_array($host, $this->webIndexDomain)){
                 $this->webIndexDomain = $host;
                 $this->mapWebIndexRoutes();
+            }
+            else if(in_array($host, $this->webManagerDomain)){
+                $this->webManagerDomain = $host;
+                $this->mapWebManagerRoutes();
             }
             else{
                 abort(404);
@@ -75,11 +87,32 @@ class RouteServiceProvider extends ServiceProvider
                 require base_path('routes/webIndex.php');
             });
             Route::group([
-                'prefix'     => 'ajax',
-                'namespace'  => 'ajax',
+                'prefix'    => 'ajax',
+                'namespace' => 'ajax',
                 'middleware' => 'webIndex',
             ], function ($router) {
                 require base_path('routes/webIndex.ajax.php');
+            });
+        });
+    }
+
+    protected function mapWebManagerRoutes()
+    {
+        Route::group([
+            'namespace' => $this->webManagerNameSpace,
+            'domain'    => $this->webManagerDomain,
+        ], function ($router) {
+            Route::group([
+                'middleware' => 'webManager',
+            ], function ($router) {
+                require base_path('routes/webManager.php');
+            });
+            Route::group([
+                'prefix'    => 'ajax',
+                'namespace' => 'ajax',
+                'middleware' => 'webManager',
+            ], function ($router) {
+                require base_path('routes/webManager.ajax.php');
             });
         });
     }

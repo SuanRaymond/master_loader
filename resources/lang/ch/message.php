@@ -1,5 +1,11 @@
 <?php
 	return [
+		'onWaiting'  => '請稍等',
+		'onLoading'  => '讀取中...',
+		'onWaited'   => '讀取完畢',
+		'onLoadSuc'  => '讀取成功',
+		'onLoadErr'  => '讀取失敗',
+		'browserLow' => '抱歉，你的浏覽器不支持',
 		'title'             => [
 	        'debug'         => '除错',
 	        'info'          => '信息',

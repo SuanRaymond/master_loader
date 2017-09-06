@@ -10,8 +10,11 @@ Route::get('/login', 'login@index');
 //登入驗證 功能
 Route::post('/login', 'login@check');
 
+//登出
+Route::get('/logout', 'logout@index');
 
 //商品上傳
 Route::get('/InsertShop', 'shop\commodity@insert');
 
-
+//圖片上傳
+Route::get('/UpdateImages', 'shop\images\images@insert');

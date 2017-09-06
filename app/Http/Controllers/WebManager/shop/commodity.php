@@ -15,6 +15,6 @@ class commodity extends Controller
     public function reRrror($_msg)
     {
         setMesage([alert(trans('message.title.error'), $_msg, 2)]);
-        return mMView('login.login');
+        return redirect('logout');
     }
 }

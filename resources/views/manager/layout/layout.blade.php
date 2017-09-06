@@ -88,6 +88,7 @@
     <script src="./lib/js/manager/jstree.min.js" type="text/javascript"></script>
 
     <script src="./lib/js/manager/app.js"></script>
+    <script src="./lib/js/manager/base.js"></script>
     <script type="text/javascript">
         var datePicker           = [];
         datePicker['todayS']     = '{{date('Y-m-d 00:00')}}';
@@ -113,7 +114,7 @@
                 autoclose: true,
                 todayBtn: true,
                 todayHighlight: true,
-                language: "{{ Request()->get('setLanguage', 'tw') }}",
+                language: "{{ Request()->get('setLanguage', 'ch') }}",
                 pickerPosition: "bottom-left",
                 minuteStep: 1
             });
@@ -128,13 +129,14 @@
             });
 
             $("#rowSelect").change(function(){
-                alertAllShow("{{ trans('message.onWaiting') }}", "{{ trans('message.onLoading') }}", 0);
+                RaySys.Alert.Fixet("{{ trans('message.onWaiting') }}", "{{ trans('message.onLoading') }}", 0);
+
                 $('#row').val($(this).val());
                 $("#searchForm").submit();
             });
 
             $("#m_rowSelect").change(function(){
-                alertAllShow("{{ trans('message.onWaiting') }}", "{{ trans('message.onLoading') }}", 0);
+                RaySys.Alert.Fixet("{{ trans('message.onWaiting') }}", "{{ trans('message.onLoading') }}", 0);
                 $('#mrow').val($(this).val());
                 $("#searchForm").submit();
             });
@@ -158,7 +160,7 @@
         });
 
         $(document).on("click", ".waitFrom, #searchBtn", function(){
-            alertAllShow("{{ trans('message.onWaiting') }}", "{{ trans('message.onLoading') }}", 0);
+            RaySys.Alert.Fixet("{{ trans('message.onWaiting') }}", "{{ trans('message.onLoading') }}", 0);
         });
 
         $(document).on("click", ".jstree-anchor", function(){

@@ -20,15 +20,15 @@ class profile extends Controller
 
     public function index()
     {
-        $this->box->result                   = auth()->user;
-        $this->box->result->mineAccount      = $this->box->result->account;
-        $this->box->result->mineAccountCrypt = Crypt::encrypt($this->box->result->mineAccount);
-        $this->box->result->points           = pFormat($this->box->result->points);
-        $this->box->result->integral         = pFormat($this->box->result->integral);
-        $this->box->result->bonus            = pFormat($this->box->result->bonus);
+      $this->box->result                   = auth()->user;
+      $this->box->result->mineAccount      = $this->box->result->account;
+      $this->box->result->mineAccountCrypt = Crypt::encrypt($this->box->result->mineAccount);
+      $this->box->result->points           = pFormat($this->box->result->points);
+      $this->box->result->integral         = pFormat($this->box->result->integral);
+      $this->box->result->bonus            = pFormat($this->box->result->bonus);
 
-        $box = $this->box;
-    	return mMView('profile.profile', compact('box'));
+      $box = $this->box;
+      return mMView('profile.profile', compact('box'));
     }
 }
 

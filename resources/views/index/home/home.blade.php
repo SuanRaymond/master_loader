@@ -63,6 +63,8 @@
                 于2015年我们于美国正式成立了【游戏电商程序开发群】，
                 全美加亚洲有1000多位软件开发工程师。
             </p>
+            <br>
+            <span style="color: blue;text-decoration: underline; font-size: 16pt;">回上页</span>
         </div>
     </div>
     <div id="third" class="animated bounceInLeft" style="overflow-y: scroll; height: 90vh;">
@@ -92,6 +94,8 @@
                 <br>
                   一起为中华承担责任  分享爱
             </p>
+            <br>
+            <span style="color: blue;text-decoration: underline; font-size: 16pt;">回上页</span>
         </div>
     </div>
 @stop

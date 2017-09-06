@@ -139,7 +139,7 @@ class shopCar_presenter{
                             '.trans('view.shopCar.th.productMoney').'
                         </div>
                         <div class="span6">
-                            '. pFormat($totalPoint) .'
+                            '. pFormat($totalprice) .'
                         </div>
                         <div class="span6" style="padding: 0px;">
                             '.trans('view.shopCar.th.productFare').'

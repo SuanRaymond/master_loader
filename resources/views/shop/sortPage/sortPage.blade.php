@@ -19,6 +19,7 @@
             {!! $box->html->sortList !!}
         </div>
     </div>
+    <div style="margin-bottom: 40px;">&nbsp;</div>
 @stop
 @section('contentBottom')
     <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">

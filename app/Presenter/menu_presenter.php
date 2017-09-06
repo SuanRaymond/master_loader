@@ -67,8 +67,8 @@ class menu_presenter{
         // dd($_object);
         foreach ($_object as $menuID => $group) {
             foreach ($group as $ShopID => $row) {
-                if(strlen($row->title) > 7){
-                    $row->title = mb_substr($row->title, 0, 7). '...';
+                if(strlen($row->title) > 6){
+                    $row->title = mb_substr($row->title, 0, 6). '...';
                 }
                 $html .= '
                         <a href="/ShopDetail?ShopID='.$ShopID.'">

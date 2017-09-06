@@ -31,6 +31,24 @@ $(document).ready(function(){
     });
 
     // RaySys.AJAX.Send({ShopID: 101}, '/ajax/ShopCarAdd', 'SuFun', 'ErFun');
+    $("#second").hide();
+    $("#third").hide();
+    $("#openSecond").click(function(){
+        $("#first").hide();
+        $("#second").show();
+    });
+    $("#openThird").click(function(){
+        $("#first").hide();
+        $("#third").show();
+    });
+    $("#second").click(function(){
+        $("#first").show();
+        $("#second").hide();
+    });
+    $("#third").click(function(){
+        $("#first").show();
+        $("#third").hide();
+    });
 });
 
 function SuFun(_obj){

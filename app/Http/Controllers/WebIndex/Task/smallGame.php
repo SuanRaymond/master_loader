@@ -25,4 +25,11 @@ class smallGame extends Controller
         $box = $this->box;
         return mTView('games.smallGame', compact('box'));
     }
+    public function pick()
+    {
+        //放置目前位置
+        session()->put('menu', Request()->path());
+        $box = $this->box;
+        return mTView('games.pickGames', compact('box'));
+    }
 }

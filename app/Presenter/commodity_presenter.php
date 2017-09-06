@@ -88,10 +88,11 @@ class commodity_presenter{
 	{
         if(empty($_object->norm))
             return '';
-		$_object->norm = json_decode($_object->norm);
-		//輸出物件
-		$html = '<table class="table table-striped table-bordered">
-        			<tbody>';
+        $_object->norm = json_decode($_object->norm);
+
+        //輸出物件
+        $html = '<table class="table table-striped table-bordered">
+                    <tbody>';
         // dd($_object->norm);
         foreach($_object->norm as $key => $value){
         	$html .= '	<tr>

@@ -1,0 +1,22 @@
+.panel-body{
+    background-color: #f3f3f3;
+}
+.sortListBox{
+    padding: 0px;
+    background-color: #ffffff;
+    border : 1px solid #DDD9D9;
+    margin-left: 6vw;
+    margin-bottom: 3vw;
+}
+.sortImg{
+    padding: 0px;
+    width: 100%;
+}
+.sortListTextBox{
+    padding: 5px;
+}
+.TextTitle{
+    padding: 5px;
+    font-size: 5vw;
+    text-align: center;
+}

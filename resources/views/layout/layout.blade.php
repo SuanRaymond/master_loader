@@ -100,7 +100,7 @@
         <div class="fly">
             <a href="javascript:history.back(1)">
                 <span>
-                    回上頁
+                    回上页
                 </span>
             </a>
             <hr>

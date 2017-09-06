@@ -211,10 +211,10 @@
 
 		//===任務頁面====任務頁面====任務頁面====任務頁面====任務頁面====任務頁面====任務頁面===
 		'Task' =>[
-			'TitleListName'   => '套餐名稱',
-			'TitleListPoints' => '所需積分',
-			'TitleListEgg'    => '獲得金蛋',
-			'MemberPoints'    => '目前積分：',
+			'TitleListName'   => '套餐名称',
+			'TitleListPoints' => '所需积分',
+			'TitleListEgg'    => '获得金蛋',
+			'MemberPoints'    => '目前积分：',
 			'th' =>[
 				'ListName1' => '藏蛋套餐A',
 				'ListName2' => '藏蛋套餐B',
@@ -222,25 +222,25 @@
 				'ListName4' => '藏蛋套餐D',
 			],
 			'b' =>[
-				'Buy'    => '購',
+				'Buy'    => '购',
 				'GoShop' => '前往商城',
 			],
 			'cl' =>[
-				'SignName' => '每日簽到',
-				'GameName' => '每日小遊戲',
-				'SignDay' => '連續 ',
+				'SignName' => '每日签到',
+				'GameName' => '每日小游戏',
+				'SignDay' => '连续 ',
 				'badge1' => '已完成',
 				'badge0' => '未完成',
 			],
 		],
 		'games' =>[
 			'b' =>[
-				'send' => '抽獎',
+				'send' => '抽奖',
 			],
 		],
 		'sign' =>[
 			'b' =>[
-				'send' => '簽',
+				'send' => '签',
 			],
 		],
 		//===任務頁面====任務頁面====任務頁面====任務頁面====任務頁面====任務頁面====任務頁面===

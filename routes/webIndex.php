@@ -68,6 +68,8 @@ Route::get('/Sign', 'Task\signEveryDay@index');
 //每日小遊戲
 Route::get('/SGame', 'Task\smallGame@index');
 
+Route::get('/PGame', 'Task\smallGame@pick');
+
 
 
 

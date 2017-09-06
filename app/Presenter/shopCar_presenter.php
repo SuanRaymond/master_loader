@@ -44,7 +44,7 @@ class shopCar_presenter{
                                         '.trans('view.shopCar.th.productQuantity').'
                                     </div>
                                     <div class="span9">
-                                        '. pFormat($row->quantity) .'
+                                        1
                                     </div>
                                     <!-- <div class="span3 shopCarListTitle" style="text-align: right;">
                                         '.trans('view.shopCar.th.productStyle').'
@@ -103,7 +103,7 @@ class shopCar_presenter{
                                         '.trans('view.shopCar.th.productQuantity').'
                                     </div>
                                     <div class="span9">
-                                        '. pFormat($row->quantity) .'
+                                        1
                                     </div>
                                     <!-- <div class="span3 shopCarListTitle" style="text-align: right;">
                                         '.trans('view.shopCar.th.productStyle').'

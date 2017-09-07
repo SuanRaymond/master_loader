@@ -110,6 +110,8 @@
                                </div>
                             </div>
                         </div>
+                    </div>
+               		<div class="row-fluid">
 						<div class="span12 pull-right">
                             <button class="btn green pull-right" type="button" id="searchBtn">
                                 <i class="icon-search"></i> {{ trans('view.manager.b.search') }}

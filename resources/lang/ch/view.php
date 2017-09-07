@@ -265,6 +265,9 @@
 		        'cancel'                => '取消',
 		        'confirm'               => '确认',
 		    ],
+		    's' => [
+		    	'0' => '未選擇',
+		    ],
 			'login'                     => [
 		        't'                     => [
 		            'title'             => '请先登入',
@@ -298,11 +301,29 @@
 		        ],
 		    ],
 
+		    'insertShop' => [
+		    	'title' => '新增商品',
+		    	'c' => [
+		    		'title'       => '標題',
+		    		'subTitle'    => '副標題',
+		    		'imagesTitle' => '主頁圖片',
+		    		'imagesShow'  => '展示圖片',
+		    		'menuID'      => '商品類別ID',
+		    		'price'       => '售價',
+		    		'points'      => '積分',
+		    		'transport'   => '運費',
+		    		'quantity'    => '數量',
+		    		'chstyle'     => '風格',
+		    		'detail'      => '商品說明',
+		    		'norm'        => '規格',
+		    		'memo'        => '備註',
+		    	],
+		    ],
 		    'updateImages' => [
 		    	'searchImages' => '搜尋到的圖檔',
 		    	'updateImages' => '將上傳的圖檔',
 		    	'c' => [
-		    		'FileName' => '圖檔名稱',
+		    		'FileName'         => '圖檔名稱',
 		    		'ImagesUpdateFile' => '欲上傳的檔案',
 		    	],
 		    ],

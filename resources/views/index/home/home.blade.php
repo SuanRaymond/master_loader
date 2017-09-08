@@ -1,6 +1,9 @@
 @extends('layout.layout')
 
 @section('cssImport')
+<link type="text/css" rel="stylesheet" href="./lib/css/slick.css"/>
+    <link type="text/css" rel="stylesheet" href="./lib/css/slick-theme.css"/>
+<link type="text/css" rel="stylesheet" href="./css/index/home.css"/>
     <style type="text/css" media="screen">
         body{
             overflow-y: hidden;
@@ -9,13 +12,20 @@
 @stop
 
 @section('jsImport')
+    <script type="text/javascript" src="./lib/js/slick.js"></script>
+    <script type="text/javascript" src="./js/index/home.js"></script>
 @stop
 
 @section('content')
     <div id="first">
         <div class="animated bounceInDown" id="doSomethingBlockBanner">
             <div id="doSomethingBlockBannerBody">
-                <img src="images/banner1.jpg"/>
+                <!-- <img src="images/banner1.jpg"/> -->
+                <div id="Banner">
+                    <img src="images/banner2.jpg"/>
+                    <img src="images/banner3.jpg"/>
+                    <img src="images/banner4.jpg"/>
+                </div>
             </div>
         </div>
 

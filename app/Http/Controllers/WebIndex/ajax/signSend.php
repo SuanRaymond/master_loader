@@ -77,6 +77,7 @@ class signSend extends Controller
             $this->box->getResult = $this->box->result;
             //檢查廠商回傳資訊
             $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
+            dd($this->box);
             if($this->box->status != 0){
                 echo json_encode(array(
                     'result' => 'ER',

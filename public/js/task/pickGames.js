@@ -1,9 +1,9 @@
 $(document).ready(function(){
     $("#Pick1").click(function(){
-        doublecheck(1);
+        doublecheck(0);
     });
     $("#Pick2").click(function(){
-        doublecheck(2);
+        doublecheck(1);
     });
 });
 function doublecheck(Type){
@@ -16,7 +16,7 @@ function doublecheck(Type){
         showLoaderOnConfirm: true,
     },
     function(){
-        if(Type==1){
+        if(Type==0){
             setTimeout(function(){
                 swal({
                     title: "富貴刮刮樂",
@@ -27,10 +27,10 @@ function doublecheck(Type){
                     showLoaderOnConfirm: true,
                 },
                 function(){
-
+                    RaySys.AJAX.Send({TypeID: Type}, '/ajax/GameSend', 'SuFun', 'ErFun');
                 });
             },1000)
-        }else if(Type==2){
+        }else if(Type==1){
             setTimeout(function(){
                 swal({
                     title: "敲金蛋",
@@ -41,9 +41,15 @@ function doublecheck(Type){
                     showLoaderOnConfirm: true,
                 },
                 function(){
-
+                    RaySys.AJAX.Send({TypeID: Type}, '/ajax/GameSend', 'SuFun', 'ErFun');
                 });
             },1000)
         }
     });
+}function SuFun(_obj){
+    document.location.href="/SGame";
+}
+function ErFun(_obj){
+    // console.log(_obj);
+    swal("失败", "", "error");
 }

@@ -63,7 +63,7 @@ class bateList_presenter{
                             <span class="label label-danger">'. trans('view.Task.cl.SignDay') .$_object->CheckinCount.'</span>
                             <span class="badge badge'.$_object->Checkin.'">'. trans('view.Task.cl.badge'.$_object->Checkin) .'</span>
                         </a>
-                        <a href="/SGame" class="list-group-item">
+                        <a href="/PGame" class="list-group-item">
                             '. trans('view.Task.cl.GameName') .'
                             <span class="badge badge'.$_object->ScratchCard.'">'. trans('view.Task.cl.badge'.$_object->ScratchCard) .'</span>
                         </a>

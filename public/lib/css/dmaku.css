@@ -1,0 +1,110 @@
+.span12{
+    margin: 0 auto;
+}
+#bridge1{
+    display:block;
+    margin:0 auto;
+    background-image:url("../../images/games/Awards2.jpg");
+    background-image:-webkit-image-set(url("../../images/games/Awards2.jpg") 1x,url("../../images/games/Awards2.jpg") 2x);
+    background-size:cover;
+    width:100%;max-width:300px;
+    height:auto;cursor:crosshair;
+    z-index: 1;
+    position: absolute;
+}
+#bridge{
+    display:block;
+    margin:0 auto;
+    background-size:cover;
+    width:100%;
+    max-width:300px;
+    height:auto;
+    cursor:crosshair;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+}
+
+#openrebate{
+    height:300px;
+    position: absolute;
+    width:100%;
+    max-width:300px;
+    z-index: 2;
+    font-size: 14pt;
+}
+.Awards{
+    position: absolute;
+}
+.Awards0{
+    top: 150px;
+    left: 70px;
+}
+.Awards1{
+    top: 230px;
+    left: 157px;
+}
+.Awards2{
+    top: 210px;
+    left: 65px;
+}
+.Awards3{
+    top: 92px;
+    left: 220px;
+}
+.Awards4{
+    top: 191px;
+    left: 190px;
+}
+.Awards5{
+    top: 130px;
+    left: 170px;
+}
+.Awards6{
+    top: 90px;
+    left: 150px;
+}
+.Awards7{
+    top: 175px;
+    left: 130px;
+}
+
+.EggAwards{
+    position: absolute;
+}
+.EggAwards00{
+    top: 30px;
+    left: 25px;
+}
+.EggAwards01{
+    top: 60px;
+    left: 55px;
+}
+.EggAwards10{
+    top: 215px;
+    left: 105px;
+}
+.EggAwards11{
+    top: 120px;
+    left: 100px;
+}
+.EggAwards12{
+    top: 191px;
+    left: 170px;
+}
+.EggAwards13{
+    top: 130px;
+    left: 170px;
+}
+.EggAwards14{
+    top: 90px;
+    left: 150px;
+}
+.EggAwards15{
+    top: 165px;
+    left: 110px;
+}
+/*$(".openrebate").css({top: "50px", left: "50px"});*/
+
+
+

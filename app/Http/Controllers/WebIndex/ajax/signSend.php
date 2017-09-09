@@ -17,6 +17,7 @@ class signSend extends Controller
         $this->box->params         = (object) array();
         $this->box->shopIDs        = (object) array();
         $this->box->params->memberID = Request()->get('memberID', null);
+        $this->box->params->TypeID = Request()->get('TypeID', null);
 
     }
     // 每日簽到
@@ -61,14 +62,15 @@ class signSend extends Controller
     // 每日小遊戲
     public function game()
     {
-        if(!is_null($this->box->params->memberID)){
+        if(!is_null($this->box->params->TypeID)){
             $this->box->callFunction = 'GetRebateTaskScratchCard';
             $this->box->sendApiUrl = env('INDEX_DOMAIN');
 
             $this->box->sessionmember = with(new web_judge_services($this->box))->check(['CMSS']);
             //放入資料區塊
-            $this->box->sendParams                 = [];
-            $this->box->sendParams['MemberID']     = auth()->user->memberID;
+            $this->box->sendParams             = [];
+            $this->box->sendParams['MemberID'] = auth()->user->memberID;
+            $this->box->sendParams['type']     = $this->box->params->TypeID;
 
             //送出資料
             $this->box->result    = with(new connection_services())->callApi($this->box);
@@ -83,12 +85,21 @@ class signSend extends Controller
                 ));
                 exit;
             }
+            //判斷是否建立session
+            if(empty(getSessionJson('SetGameANS'))){
+                createSessionJson('SetGameANS');
+            }else{
+                removeSessionJson('SetGameANS');
+                createSessionJson('SetGameANS');
+            }
+            if(!searchSessionJson('SetGameANS',$this->box->result)){
+                addSessionJson('SetGameANS', $this->box->result);
+            }
+            // addSessionJson('SetGameANS', $this->box->result);
+            session()->save();
             echo json_encode(array(
                 'result'    => 'SU',
                 'msg'       => request('ID'),
-                'MoneyBack' => $this->box->result->MoneyBack,
-                'ScratchID' => $this->box->result->ScratchID,
-                'TaskOdds'  => $this->box->result->TaskOdds,
             ));
         }
         else{

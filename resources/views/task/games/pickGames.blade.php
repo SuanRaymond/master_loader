@@ -16,7 +16,7 @@
                 <div class="span5 sortListBox">
                     <img class="span12 sortImg" src="./images/games/Awards1.jpg">
                     <div class="span12 sortListTextBox">
-                        <div class="span12 TextTitle">富貴刮刮樂</div>
+                        <div class="span12 TextTitle">神秘宝箱</div>
                     </div>
                 </div>
             </a>

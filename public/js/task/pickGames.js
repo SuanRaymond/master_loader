@@ -9,7 +9,7 @@ $(document).ready(function(){
 function doublecheck(Type){
     swal({
         title: "注意",
-        text: "選擇後即使退出結果一樣會送出",
+        text: "选择后即使退出结果一样会送出",
         type:"info",
         closeOnConfirm: false,
         showCancelButton: true,
@@ -19,8 +19,8 @@ function doublecheck(Type){
         if(Type==0){
             setTimeout(function(){
                 swal({
-                    title: "富貴刮刮樂",
-                    text: "8個數字3個相同即得該獎項",
+                    title: "神秘宝箱",
+                    text: "8个数字3个相同即得该奖项",
                     type:"warning",
                     closeOnConfirm: false,
                     showCancelButton: true,
@@ -34,7 +34,7 @@ function doublecheck(Type){
             setTimeout(function(){
                 swal({
                     title: "敲金蛋",
-                    text: "錘子與金蛋數字相同即得該獎項",
+                    text: "锤子与金蛋数字相同即得该奖项",
                     type:"warning",
                     closeOnConfirm: false,
                     showCancelButton: true,
@@ -53,3 +53,7 @@ function ErFun(_obj){
     // console.log(_obj);
     swal("失败", "", "error");
 }
+
+
+
+

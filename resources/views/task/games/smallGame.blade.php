@@ -29,9 +29,9 @@
     </div>
     <input type="hidden" name="MoneyBack" id="MoneyBack" value="{{ $box->GameAns[0]->MoneyBack }}">
     <input type="hidden" name="TaskOdds" id="TaskOdds" value="{{ $box->GameAns[0]->TaskOdds }}">
-    <div style="text-align: center; margin-top: 200px;">
+    <div style="text-align: center; margin-top: 350px;">
         <span class="button-wrap">
-            <a href="#" class="button button-circle button-primary" id="sign" style="font-size: 30pt;">
+            <a href="#" class="button button-circle button-primary" id="sign" style="font-size: 50pt;">
                 {{ trans('view.games.b.send') }}
             </a>
         </span>

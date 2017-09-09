@@ -46,7 +46,7 @@ class verificationCheck extends Controller
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
         // dd($box->result->VerificationDate);
         if($this->box->status != 0){
-            return $this->reRrror($this->box->status);
+            return $this->reRrror(trans('message.error.'.$this->box->status));
         }
 
         return mIView('verification', compact('box'));
@@ -79,7 +79,7 @@ class verificationCheck extends Controller
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
 
         if($this->box->status != 0){
-            return $this->reRrror($this->box->status);
+            return $this->reRrror(trans('message.error.'.$this->box->status));
         }
         //輸出成功訊息
         setMesage([alert(trans('message.title.success'), trans('message.success.CheckCodeOK'), 1)]);

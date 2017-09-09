@@ -57,7 +57,7 @@ class changeMemberProfile extends Controller
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
 
         if($this->box->status != 0){
-            return $this->reRrror($this->box->status);
+            return $this->reRrror(trans('message.error.'.$this->box->status));
         }
         //整理資料
         $this->box->member            = $this->box->result->Member;
@@ -123,7 +123,7 @@ class changeMemberProfile extends Controller
         //檢查廠商回傳資訊
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
         if($this->box->status != 0){
-            return $this->reRrror($this->box->status);
+            return $this->reRrror(trans('message.error.'.$this->box->status));
         }
 
         //輸出成功訊息

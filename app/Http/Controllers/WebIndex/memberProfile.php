@@ -36,7 +36,7 @@ class memberProfile extends Controller
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
 
         if($this->box->status != 0){
-            return $this->reRrror($this->box->status);
+            return $this->reRrror(trans('message.error.'.$this->box->status));
         }
         /*----------------------------------與廠商溝通----------------------------------*/
 

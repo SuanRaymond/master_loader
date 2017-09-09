@@ -41,7 +41,7 @@ class verificationReSend extends Controller
                 echo json_encode(array(
                     'result' => 'ER',
                     'msg'    => request('ID'),
-                    'error'  => $this->box->status,
+                    'error'  => trans('message.error.'.$this->box->status),
                 ));
                 exit;
                 return $this->reRrror(trans('message.error.'.$this->box->status));

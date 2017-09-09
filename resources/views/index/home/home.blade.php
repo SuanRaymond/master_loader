@@ -56,7 +56,7 @@
             </div>
         </div>
     </div>
-    <div id="second" class="animated bounceInRight" style="height: 90vh;">
+    <div id="second" class="animated bounceInRight" style="overflow-y: scroll; height: 90vh;">
         <div class="animated bounceInDown" id="doSomethingBlockBanner">
             <div id="doSomethingBlockBannerBody">
                 <img src="images/Welcome.jpg"/>

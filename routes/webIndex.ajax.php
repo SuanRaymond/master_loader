@@ -10,5 +10,10 @@ Route::post('/Rebate', 'rebateAdd@index');
 Route::post('/SignSend', 'signSend@index');
 //每日小遊戲
 Route::post('/GameSend', 'signSend@game');
+//大頭照上傳
+Route::post('/PhotoSend', 'photoSend@index');
+
+
+
 
 

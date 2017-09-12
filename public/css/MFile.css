@@ -1,0 +1,10 @@
+/*Menu 內部 大頭照*/
+#MenuUserImg{
+    margin: 10px auto;
+    width: 100px;
+    height: 100px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background-size: 100%;
+}

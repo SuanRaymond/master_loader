@@ -40,6 +40,8 @@ Route::post('/CMFire', 'changeMemberProfile@check');
 Route::get('/Check', 'verificationCheck@index');
 //驗證碼驗證 驗證
 Route::post('/Check', 'verificationCheck@check');
+//上傳頭像 頁面
+Route::get('/PUpload', 'photoUpload@index');
 
 
 

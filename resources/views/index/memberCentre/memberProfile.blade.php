@@ -83,15 +83,15 @@
                         <span style="text-align: right;">{{ trans('view.MFile.th.mail') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->mail }}</span>
                     </div>
-                    <div class="list-group-item">
+                    <div class="list-group-item" style="background-color: #f0f0f0;">
                         <span style="text-align: right;">　　{{ trans('view.MFile.th.address') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->address }}</span>
                     </div>
-                    <div class="list-group-item" style="background-color: #f0f0f0;">
+                    <div class="list-group-item">
                         <span style="text-align: right;">　　{{ trans('view.MFile.th.birthday') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->birthday }}</span>
                     </div>
-                    <div class="list-group-item">
+                    <div class="list-group-item" style="background-color: #f0f0f0;">
                         <span style="text-align: right;">　　{{ trans('view.MFile.th.gender') }}</span>
                         <span style="padding-left: 20px;">
                             @if($box->member->gender == 0)
@@ -101,7 +101,7 @@
                             @endif
                         </span>
                     </div>
-                    <div class="list-group-item" style="background-color: #f0f0f0;">
+                    <div class="list-group-item">
                         <span style="text-align: right;">　　{{ trans('view.MFile.th.language') }}</span>
                         <span style="padding-left: 20px;">
                             @if($box->member->languageID==1)
@@ -114,7 +114,7 @@
                             @endif
                         </span>
                     </div>
-                    <div class="list-group-item">
+                    <div class="list-group-item" style="background-color: #f0f0f0;">
                         <span style="text-align: right;">{{ trans('view.MFile.th.cardnumber') }}</span>
                         <span style="padding-left: 20px;">{{ $box->member->cardID }}</span>
                     </div>

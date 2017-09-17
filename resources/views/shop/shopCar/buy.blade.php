@@ -50,6 +50,21 @@
 
 
 @section('contentBottom')
+    @if(session()->get('menu')!='/')
+        <div class="fly">
+            <a href="javascript:history.back(1)">
+                <span>
+                    回上页
+                </span>
+            </a>
+            <hr>
+            <a href="#Top">
+                <span>
+                    TOP
+                </span>
+            </a>
+        </div>
+    @endif
     {!! $box->html->buyNavbarBottom !!}
 @stop
 

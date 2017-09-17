@@ -6,6 +6,14 @@
 
 @section('jsImport')
     <script type="text/javascript" src="./js/task/sign.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#sign").click(function(){
+                RaySys.Alert.Fixet("{{ trans('message.onWaiting') }}","", 0);
+                RaySys.AJAX.Send({memberID: 0}, '/ajax/SignSend', 'SuFun', 'ErFun');
+            });
+        });
+    </script>
 @stop
 
 @section('content')

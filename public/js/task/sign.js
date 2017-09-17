@@ -1,9 +1,9 @@
-$(document).ready(function(){
-    $("#sign").click(function(){
-        RaySys.Alert.Loading();
-        RaySys.AJAX.Send({memberID: 0}, '/ajax/SignSend', 'SuFun', 'ErFun');
-    });
-});
+// $(document).ready(function(){
+//     $("#sign").click(function(){
+//         RaySys.Alert.Fixet("{{ trans('message.onWaiting') }}", "{{ trans('message.onLoading') }}", 0);
+//         RaySys.AJAX.Send({memberID: 0}, '/ajax/SignSend', 'SuFun', 'ErFun');
+//     });
+// });
 function SuFun(_obj){
     // console.log(_obj);
     swal({

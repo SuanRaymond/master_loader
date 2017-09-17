@@ -95,8 +95,7 @@
     </div>
 
     @yield('contentBottom')
-
-    @if(session()->get('menu')!='/')
+    <!-- @if(session()->get('menu')!='/')
         <div class="fly">
             <a href="javascript:history.back(1)">
                 <span>
@@ -110,7 +109,7 @@
                 </span>
             </a>
         </div>
-    @endif
+    @endif -->
 
     <div id="sidr">
         <ul>

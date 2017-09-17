@@ -51,7 +51,7 @@
         <script src="./lib/js/hammer.js"></script>
         <script src="./lib/js/lrz.all.bundle.js"></script>
         <script src="./lib/js/jquery.photoClip.min.js"></script>
-        <script>
+        <script type="text/javascript">
             $(document).ready(function(){
                 $.ajaxSetup({
                     headers: {
@@ -65,22 +65,23 @@
                     view: "#view",
                     ok: "#clipBtn",
                     loadStart: function() {
-                        console.log("照片读取中");
+                        // console.log("照片读取中");
                     },
                     loadComplete: function() {
-                        console.log("照片读取完成");
+                        // console.log("照片读取完成");
                     },
                     clipFinish: function(dataURL) {
-                        console.log(dataURL);
+                        // console.log(dataURL);
                         $('#photodata').val(dataURL);
                     }
                 });
                 $('#photoSend').click(function(){
+                    RaySys.Alert.Fixet("{{ trans('message.onWaiting') }}", "{{ trans('message.onLoading') }}", 0);
                     RaySys.AJAX.Send({photo: $('#photodata').val()}, '/ajax/PhotoSend', 'SuFun', 'ErFun');
                 })
             });
             function SuFun(_obj){
-                console.log(_obj);
+                // console.log(_obj);
                 swal({
                     title: "上傳成功",
                     type:"success",
@@ -92,7 +93,7 @@
                 });
             }
             function ErFun(_obj){
-                console.log(_obj);
+                // console.log(_obj);
             }
         </script>
         <script type="text/javascript">

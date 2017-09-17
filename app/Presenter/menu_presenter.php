@@ -76,8 +76,8 @@ class menu_presenter{
                                 <img class="span12 sortImg" src="'. $row->images. '">
                                 <div class="span12 sortListTextBox">
                                     <div class="span12 sortListTextTitle">'. $row->title.'</div>
-                                    <div class="span6 sortListTextMoney">$ '. pFormat($row->price). '</div>
-                                    <div class="span6 sortListTextPoint">PP '. pFormat($row->points). '</div>
+                                    <div class="span12 sortListTextMoney">$&nbsp;&nbsp; '. pFormat($row->price). '</div>
+                                    <div class="span12 sortListTextPoint">PP '. pFormat($row->points). '</div>
                                 </div>
                             </div>
                         </a>';

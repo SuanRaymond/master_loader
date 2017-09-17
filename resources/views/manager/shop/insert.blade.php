@@ -42,7 +42,7 @@
                             <label class="control-label" for="title">{{ trans('view.manager.insertShop.c.title') }} ：</label>
                             <div class="controls">
                                 <input type="text" class="m-wrap span12" name="title" id="title"
-                                       placeholder="{{ trans('view.manager.insertShop.c.title') }}"
+                                       placeholder="{{ trans('view.manager.insertShop.p.title') }}"
                                        value="{{ $box->params->title }}">
                            </div>
                         </div>
@@ -54,7 +54,7 @@
                             <label class="control-label" for="subTitle">{{ trans('view.manager.insertShop.c.subTitle') }} ：</label>
                             <div class="controls">
                                 <input type="text" class="m-wrap span12" name="subTitle" id="subTitle"
-                                       placeholder="{{ trans('view.manager.insertShop.c.subTitle') }}"
+                                       placeholder="{{ trans('view.manager.insertShop.p.subTitle') }}"
                                        value="{{ $box->params->subTitle }}">
                            </div>
                         </div>
@@ -66,7 +66,7 @@
                             <label class="control-label" for="imagesTitle">{{ trans('view.manager.insertShop.c.imagesTitle') }} ：</label>
                             <div class="controls">
                                 <input type="text" class="m-wrap span12" name="imagesTitle" id="imagesTitle"
-                                       placeholder="{{ trans('view.manager.insertShop.c.imagesTitle') }}"
+                                       placeholder="{{ trans('view.manager.insertShop.p.imagesTitle') }}"
                                        value="{{ $box->params->imagesTitle }}">
                            </div>
                         </div>
@@ -78,7 +78,7 @@
                             <label class="control-label" for="imagesShow">{{ trans('view.manager.insertShop.c.imagesShow') }} ：</label>
                             <div class="controls">
                                 <input type="text" class="m-wrap span12" name="imagesShow" id="imagesShow"
-                                       placeholder="{{ trans('view.manager.insertShop.c.imagesShow') }}"
+                                       placeholder="{{ trans('view.manager.insertShop.p.imagesShow') }}"
                                        value="{{ $box->params->imagesShow }}">
                            </div>
                         </div>
@@ -108,7 +108,7 @@
                             <label class="control-label" for="price">{{ trans('view.manager.insertShop.c.price') }} ：</label>
                             <div class="controls">
                                 <input type="number" class="m-wrap span12" name="price" id="price"
-                                       placeholder="{{ trans('view.manager.insertShop.c.price') }}"
+                                       placeholder="{{ trans('view.manager.insertShop.p.price') }}"
                                        value="{{ $box->params->price }}">
                            </div>
                         </div>
@@ -120,7 +120,7 @@
                             <label class="control-label" for="points">{{ trans('view.manager.insertShop.c.points') }} ：</label>
                             <div class="controls">
                                 <input type="number" class="m-wrap span12" name="points" id="points"
-                                       placeholder="{{ trans('view.manager.insertShop.c.points') }}"
+                                       placeholder="{{ trans('view.manager.insertShop.p.points') }}"
                                        value="{{ $box->params->points }}">
                            </div>
                         </div>
@@ -132,7 +132,7 @@
                             <label class="control-label" for="transport">{{ trans('view.manager.insertShop.c.transport') }} ：</label>
                             <div class="controls">
                                 <input type="number" class="m-wrap span12" name="transport" id="transport"
-                                       placeholder="{{ trans('view.manager.insertShop.c.transport') }}"
+                                       placeholder="{{ trans('view.manager.insertShop.p.transport') }}"
                                        value="{{ $box->params->transport }}">
                            </div>
                         </div>
@@ -144,7 +144,7 @@
                             <label class="control-label" for="quantity">{{ trans('view.manager.insertShop.c.quantity') }} ：</label>
                             <div class="controls">
                                 <input type="number" class="m-wrap span12" name="quantity" id="quantity"
-                                       placeholder="{{ trans('view.manager.insertShop.c.quantity') }}"
+                                       placeholder="{{ trans('view.manager.insertShop.p.quantity') }}"
                                        value="{{ $box->params->quantity }}">
                            </div>
                         </div>
@@ -156,7 +156,7 @@
                             <label class="control-label" for="chstyle">{{ trans('view.manager.insertShop.c.chstyle') }} ：</label>
                             <div class="controls">
                                 <input type="text" class="m-wrap span12" name="chstyle" id="chstyle"
-                                       placeholder="{{ trans('view.manager.insertShop.c.chstyle') }}"
+                                       placeholder="{{ trans('view.manager.insertShop.p.chstyle') }}"
                                        value="{{ $box->params->chstyle }}">
                            </div>
                         </div>
@@ -179,7 +179,7 @@
                             <label class="control-label" for="norm">{{ trans('view.manager.insertShop.c.norm') }} ：</label>
                             <div class="controls">
                                 <input type="text" class="m-wrap span12" name="norm" id="norm"
-                                       placeholder="{{ trans('view.manager.insertShop.c.norm') }}"
+                                       placeholder="{{ trans('view.manager.insertShop.p.norm') }}"
                                        value="{{ $box->params->norm }}">
                            </div>
                         </div>

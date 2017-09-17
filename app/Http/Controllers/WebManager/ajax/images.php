@@ -83,6 +83,7 @@ class images extends Controller
         exit;
     }
 
+
     public function reRrror($_msg)
     {
         echo json_encode(array(

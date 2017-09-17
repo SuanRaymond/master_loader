@@ -19,5 +19,11 @@ Route::get('/InsertShop', 'shop\commodity@index');
 //商品上傳 - 資料寫入
 Route::post('/InsertShop', 'shop\commodity@insert');
 
+//商品更新 - 資料寫入
+Route::get('/UpdateShop', 'shop\commodityUpdate@index');
+
+//商品更新 - 資料寫入
+Route::post('/UpdateShop', 'shop\commodityUpdate@update');
+
 //圖片上傳
 Route::get('/UpdateImages', 'shop\images\images@insert');

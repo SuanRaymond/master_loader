@@ -16,6 +16,7 @@
 @section('content')
     <div class="panel panel-default">
         <div class="panel-body">
+            <div class="span12" style="text-align: center;"><h1>{{ trans('menu.'. substr(session()->get('menu'), strpos(session()->get('menu'), '=')+1)) }}</h1></div>
             {!! $box->html->sortList !!}
         </div>
     </div>

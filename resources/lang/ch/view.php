@@ -231,7 +231,7 @@
 		'Task' =>[
 			'TitleListName'   => '套餐名称',
 			'TitleListPoints' => '所需PP',
-			'TitleListEgg'    => '最高获得金蛋',
+			'TitleListEgg'    => '最高获得<br>金蛋',
 			'MemberPoints'    => '目前PP：',
 			'th' =>[
 				'ListName1' => '藏蛋套餐A',

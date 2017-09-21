@@ -10,9 +10,12 @@ class shopCar_presenter{
     {
         $html = '';
         $_object = reSetKey($_object);
+        $subTitle = '';
         foreach($_object as $shopID => $row){
-            if(strlen($row->title) > 10){
-                $row->title = mb_substr($row->title, 0, 10). '...';
+            if(mb_strlen($row->title) > 10){
+                $subTitle = mb_substr($row->title, 0, 10). '...';
+            }else{
+                $subTitle = $row->title;
             }
             $html .= '
                         <div class="span12 shopCarItemBox">
@@ -20,7 +23,7 @@ class shopCar_presenter{
                                 <img src="'. $row->images. '" width="100%">
                             </div>
                             <div class="span8" style="padding: 1px;">
-                                <div class="shopCarItemTitle">'. $row->title .'</div>
+                                <div class="shopCarItemTitle">'. $subTitle .'</div>
                                 <div class="row shopCarItemTextBox">
                                     <div class="span3 shopCarListTitle">
                                         '.trans('view.shopCar.th.productMoney').'
@@ -55,7 +58,10 @@ class shopCar_presenter{
                                 </div>
                             </div>
                             <div class="span1" style="padding: 1px; font-size: 4.5vw;">
-                                <a href="/ClearBuy?ShopID='. $shopID.'">X</a>
+                                <a class="daleteShop" id="Shop'. $shopID. '">
+                                    X
+                                    <span style="display:none;">'. $row->title .'</span>
+                                </a>
                             </div>
                         </div>';
         }
@@ -70,7 +76,7 @@ class shopCar_presenter{
         $html = '';
         $_object = reSetKey($_object);
         foreach($_object as $shopID => $row){
-            if(strlen($row->title) > 10){
+            if(mb_strlen($row->title) > 10){
                 $row->title = mb_substr($row->title, 0, 10). '...';
             }
             $html .= '

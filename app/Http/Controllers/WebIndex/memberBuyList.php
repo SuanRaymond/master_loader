@@ -5,9 +5,12 @@ namespace App\Http\Controllers\WebIndex;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Services\web_judge_services;
+use App\Presenter\buyList_presenter;
+
+use App\Services\encrypt_services;
 use App\Services\connection_services;
-class memberProfile extends Controller
+use App\Services\web_judge_services;
+class memberBuyList extends Controller
 {
     public $box;
 
@@ -15,15 +18,24 @@ class memberProfile extends Controller
         $this->box         = (object) array();
         $this->box->result = (object) array();
         $this->box->params = (object) array();
+        $this->box->html   = (object) array();
+        $this->box->html->BuyList = '';
     }
 
     public function index()
     {
+        $result = $this->search();
+        $box = $this->box;
+        return mIView('memberCentre.memberBuyList', compact('box'));
+    }
+    public function search()
+    {
+        $buylist_presenter = new buylist_presenter();
         /*----------------------------------與廠商溝通----------------------------------*/
         //放入連線區塊
         //需呼叫的功能
-        $this->box->callFunction = 'Detail';
-        $this->box->sendApiUrl   = env('INDEX_DOMAIN');
+        $this->box->callFunction = 'CommodityOrderList';
+        $this->box->sendApiUrl   = env('SHOP_DOMAIN');
 
         //放入資料區塊
         $this->box->sendParams             = [];
@@ -39,29 +51,10 @@ class memberProfile extends Controller
             return $this->reRrror(trans('message.error.'.$this->box->status));
         }
         /*----------------------------------與廠商溝通----------------------------------*/
+        $this->box->html->BuyList = $buylist_presenter->buyList($this->box->result->List);
 
-        //整理資料
-        $this->box->member             = $this->box->result->Member;
-        $this->box->member->memberID   = $this->box->member->memberID;
-        $this->box->member->name       = $this->box->member->name;
-        $this->box->member->account    = $this->box->member->account;
-        $this->box->member->mail       = $this->box->member->mail;
-        $this->box->member->address    = $this->box->member->address;
-        $this->box->member->birthday   = $this->box->member->birthday;
-        $this->box->member->gender     = $this->box->member->gender;
-        $this->box->member->cardID     = $this->box->member->cardID;
-        $this->box->member->languageID = $this->box->member->languageID;
-        $this->box->member->points     = pFormat($this->box->member->points);
-        $this->box->member->integral   = pFormat($this->box->member->integral);
-        $this->box->member->bonus      = pFormat($this->box->member->bonus);
-        $this->box->member->upID       = $this->box->member->upID;
-
-        $box = $this->box;
-
-        //重新導向
-        return mIView('memberCentre.memberProfile', compact('box'));
+        return true;
     }
-
     public function reRrror($_msg)
     {
         setMesage([alert(trans('message.title.error'), $_msg, 2)]);

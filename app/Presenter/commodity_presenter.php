@@ -9,13 +9,13 @@ class commodity_presenter{
 				    <div class="panel-body">
 				        <div id="Banner">';
 
-        foreach($_object->images as $imgBase64){
-    		$html .= '<img src="'. $imgBase64. '" width="100%">';
-    	}
+                    foreach($_object->images as $imgBase64){
+                		$html .= '<img src="'. $imgBase64. '" width="100%">';
+                	}
 
     	$html .= 	'</div>
-    			  	<h4>'. $_object->title. '</h4>
 			    </div>
+                <h4>'. $_object->title. '</h4>
 			</div>
 			<div class="panel panel-default">
 			    <div class="panel-body">
@@ -96,7 +96,7 @@ class commodity_presenter{
         // dd($_object->norm);
         foreach($_object->norm as $key => $value){
         	$html .= '	<tr>
-			                <th scope="row">'. $key. '</th>
+			                <th scope="row" id="th">'. $key. '</th>
 			                <td>'. $value. '</td>
 			            </tr>';
         }

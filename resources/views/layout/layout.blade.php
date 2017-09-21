@@ -68,12 +68,7 @@
             <div align="center">
                 <h1>
                     @if(strpos(session()->get('menu'), '?') > 0)
-                        @if(strpos(session()->get('menu'), '=') > 0 &&
-                            substr(session()->get('menu'), 0, strpos(session()->get('menu'), '?')) == 'Sort')
-                            {{ trans('menu.'. substr(session()->get('menu'), strpos(session()->get('menu'), '=')+1 )) }}
-                        @else
-                            {{ trans('menu.'. substr(session()->get('menu'), 0, strpos(session()->get('menu'), '?'))) }}
-                        @endif
+                        {{ trans('menu.'. substr(session()->get('menu'), 0, strpos(session()->get('menu'), '?'))) }}
                     @else
                         {{ trans('menu.'. session()->get('menu')) }}
                     @endif

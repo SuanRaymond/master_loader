@@ -16,6 +16,8 @@ class signEveryDay extends Controller
         $this->box         = (object) array();
         $this->box->result = (object) array();
         $this->box->params = (object) array();
+
+        $this->box->params->Count = Request()->get('Count');
     }
 
     public function index()

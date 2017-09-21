@@ -42,6 +42,9 @@ Route::get('/Check', 'verificationCheck@index');
 Route::post('/Check', 'verificationCheck@check');
 //上傳頭像 頁面
 Route::get('/PUpload', 'photoUpload@index');
+//上傳頭像 頁面
+Route::get('/BuyList', 'memberBuyList@index');
+
 
 
 

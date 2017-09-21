@@ -35,7 +35,7 @@ class buy extends Controller
             return mIView('login');
         }
         // dd(session()->get('BuyShopID'));
-        session()->put('menu', Request()->path());
+        // session()->put('menu', Request()->path());
         $box = $this->box;
         return mSView('shopCar.buy', compact('box'));
     }

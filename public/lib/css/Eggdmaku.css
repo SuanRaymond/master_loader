@@ -11,6 +11,8 @@
     height:auto;cursor:crosshair;
     z-index: 1;
     position: absolute;
+    left: 50%;
+    margin-left: -150px;
 }
 #bridge{
     display:block;
@@ -23,6 +25,8 @@
     z-index: 3;
     position: absolute;
     top: 0;
+    left: 50%;
+    margin-left: -150px;
 }
 
 #openrebate{
@@ -32,6 +36,8 @@
     max-width:300px;
     z-index: 2;
     font-size: 14pt;
+    left: 50%;
+    margin-left: -150px;
 }
 
 .EggAwards{

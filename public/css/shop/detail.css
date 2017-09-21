@@ -1,6 +1,9 @@
 .panel{
 	margin-bottom: 10px;
 }
+#th{
+	width: 15vw;
+}
 #Banner{
 	margin: 0 auto;
 

@@ -209,7 +209,7 @@ class shopCar_presenter{
                     <div class="span5 shopCarNavbarBottom" style="text-align: right;">
                         '. trans('view.shopCar.totalMoney') .'：'. pFormat($totalMoney) .'
                     </div>
-                    <a class="span4 button button-flat-caution shopCarNavbarBottom" role="button" href="/Send">
+                    <a class="span4 button button-flat-caution shopCarNavbarBottom" role="button" id="buysend">
                         '. trans('view.shopBuy.b.buy') .'
                     </a>
                 </nav>';

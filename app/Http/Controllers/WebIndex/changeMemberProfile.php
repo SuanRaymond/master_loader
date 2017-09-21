@@ -61,14 +61,14 @@ class changeMemberProfile extends Controller
         }
         //整理資料
         $this->box->member            = $this->box->result->Member;
-        $this->box->member->memberID  = ($this->box->member->memberID);
-        $this->box->member->name      = ($this->box->member->name);
-        $this->box->member->mail      = ($this->box->member->mail);
-        $this->box->member->address   = ($this->box->member->address);
+        $this->box->member->memberID  = $this->box->member->memberID;
+        $this->box->member->name      = $this->box->member->name;
+        $this->box->member->mail      = $this->box->member->mail;
+        $this->box->member->address   = $this->box->member->address;
         $this->box->member->birthday  = empty($this->box->member->birthday)?'-0-0':$this->box->member->birthday;
-        $this->box->member->gender    = ($this->box->member->gender);
-        $this->box->member->cardID    = ($this->box->member->cardID);
-        $this->box->member->languageID = ($this->box->member->languageID);
+        $this->box->member->gender    = $this->box->member->gender;
+        $this->box->member->cardID    = $this->box->member->cardID;
+        $this->box->member->languageID = $this->box->member->languageID;
 
         return mIView('memberCentre.changeMemberProfile', compact('box'));
     }
@@ -77,6 +77,7 @@ class changeMemberProfile extends Controller
      */
     public function check()
     {
+
         //資料是否空白
         if(empty($this->box->params->name)){
             return $this->rewarning(trans('message.warn.nameNull'));
@@ -96,7 +97,7 @@ class changeMemberProfile extends Controller
         $this->box->sendParams['memberID'] = auth()->user->memberID;
         $this->box->sendParams['name']     = $this->box->params->name;
         $this->box->sendParams['mail']     = $this->box->params->mail;
-        if(!empty($this->box->params->birthdayYear)){
+        if(!empty($this->box->params->address)){
             $this->box->sendParams['address']  = $this->box->params->address;
         }else{
             $this->box->sendParams['address']  = '';

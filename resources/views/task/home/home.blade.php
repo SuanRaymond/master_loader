@@ -19,6 +19,13 @@
 
 
 @section('contentBottom')
+    <div class="fly">
+        <a href="/">
+            <span>
+                首页
+            </span>
+        </a>
+    </div>
     {!! $box->html->contentBottom !!}
 @stop
 

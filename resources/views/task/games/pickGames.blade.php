@@ -32,6 +32,19 @@
     </div>
 @stop
 @section('contentBottom')
+    <div class="fly">
+        <a href="/Task">
+            <span>
+                回上页
+            </span>
+        </a>
+        <hr>
+        <a href="/">
+            <span>
+                首页
+            </span>
+        </a>
+    </div>
 @stop
 
 

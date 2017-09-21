@@ -2,7 +2,12 @@ var MouseX = 0, MouseY = 0;
 
 $(document).ready(function(){
 	$("#shopCarBall").hide();
-	$('#Banner').slick();
+	$('#Banner').slick({
+		arrows: false,
+		dots: true,
+		autoplay: true,
+  		autoplaySpeed: 6000,
+	});
     $("#ShopCarAdd").click(function(e){
         RaySys.AJAX.Send({ShopID: $('#ShopID').val()}, '/ajax/ShopCarAdd', 'SuFun', 'ErFun');
 		MouseX = e.pageX + document.documentElement.scrollTop - 50;

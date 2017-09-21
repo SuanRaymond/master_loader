@@ -6,7 +6,7 @@
 
 @section('jsImport')
 
-    <!-- <script type="text/javascript" src="js/shopCar.js"></script> -->
+    <script type="text/javascript" src="./js/shop/buy.js"></script>
 
 @stop
 

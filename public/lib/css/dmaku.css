@@ -11,6 +11,8 @@
     height:auto;cursor:crosshair;
     z-index: 1;
     position: absolute;
+    left: 50%;
+    margin-left: -150px;
 }
 #bridge{
     display:block;
@@ -23,6 +25,8 @@
     z-index: 3;
     position: absolute;
     top: 0;
+    left: 50%;
+    margin-left: -150px;
 }
 
 #openrebate{
@@ -32,6 +36,8 @@
     max-width:300px;
     z-index: 2;
     font-size: 14pt;
+    left: 50%;
+    margin-left: -150px;
 }
 .Awards{
     position: absolute;
@@ -68,43 +74,6 @@
     top: 175px;
     left: 130px;
 }
-
-.EggAwards{
-    position: absolute;
-}
-.EggAwards00{
-    top: 30px;
-    left: 25px;
-}
-.EggAwards01{
-    top: 60px;
-    left: 55px;
-}
-.EggAwards10{
-    top: 215px;
-    left: 105px;
-}
-.EggAwards11{
-    top: 120px;
-    left: 100px;
-}
-.EggAwards12{
-    top: 191px;
-    left: 170px;
-}
-.EggAwards13{
-    top: 130px;
-    left: 170px;
-}
-.EggAwards14{
-    top: 90px;
-    left: 150px;
-}
-.EggAwards15{
-    top: 165px;
-    left: 110px;
-}
-/*$(".openrebate").css({top: "50px", left: "50px"});*/
 
 
 

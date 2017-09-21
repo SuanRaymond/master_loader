@@ -19,13 +19,11 @@
 
 @section('content')
     <div class="span12" align="center">
-        <div style="margin: 0 auto; height: 300px; width: 100%; position: relative;" align="center">
-            <!-- 刮刮卡 -->
-            <canvas id="bridge1" width="800" height="800"></canvas>
-            {!! $box->html->OddsDetail !!}
-            <canvas id="bridge" width="800" height="800"></canvas>
-            <!-- 刮刮卡 -->
-        </div>
+        <!-- 刮刮卡 -->
+        <canvas id="bridge1" width="1000" height="1000"></canvas>
+        {!! $box->html->OddsDetail !!}
+        <canvas id="bridge" width="1000" height="1000"></canvas>
+        <!-- 刮刮卡 -->
     </div>
     <input type="hidden" name="MoneyBack" id="MoneyBack" value="{{ $box->GameAns[0]->MoneyBack }}">
     <input type="hidden" name="TaskOdds" id="TaskOdds" value="{{ $box->GameAns[0]->TaskOdds }}">

@@ -73,6 +73,11 @@
                 <form method="post" id="Registered_Form">
                     {{ csrf_field() }}
                     <div class="input-group">
+                        <span class="input-group-addon">{{ trans('view.registered.recommendL') }}</span>
+                        <input type="text" class="form-control" placeholder="{{ trans('view.registered.recommend') }}"
+                               name="upmemberID" id="upmemberID" value="{{ $box->params->upmemberID }}">
+                    </div><br>
+                    <div class="input-group">
                         <span class="input-group-addon glyphicon glyphicon-phone"></span>
                         <input type="text" class="form-control" placeholder="{{ trans('view.registered.phone') }}"
                                name="account" value="{{ $box->params->account }}">
@@ -97,11 +102,6 @@
                         <input type="password" class="form-control" placeholder="{{ trans('view.registered.passwordCheck') }}"
                                name="repassword">
                     </div><br>
-                    <div class="input-group">
-                        <span class="input-group-addon">{{ trans('view.registered.recommendL') }}</span>
-                        <input type="text" class="form-control" placeholder="{{ trans('view.registered.recommend') }}"
-                               name="upmemberID" id="upmemberID" value="{{ $box->params->upmemberID }}">
-                    </div><br>
 
                     <input type="hidden" class="form-control" name="groupID" value="210">
 
@@ -114,7 +114,7 @@
                    style="margin-bottom: 5px;">
                     {{ trans('view.registered.b.registered') }}
                 </a>
-                <a href="/Login" class="button button-flat-caution button-large  button-block">
+                <a href="/Login" class="button button-flat-caution button-large  button-block" style="margin-bottom: 50px;">
                     {{ trans('view.cancel') }}
                 </a>
             </div>

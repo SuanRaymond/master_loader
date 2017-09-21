@@ -24,8 +24,8 @@
 		'memberMenu' => [
 			'nickName' => '昵称：',
 			'share'    => '推荐码：',
-			'points'   => '点数：',
-			'integral' => '金蛋数：',
+			'points'   => 'PP：',
+			'integral' => '金蛋：',
 			'bonus'    => '赠送红利：',
 			'logout'   => '登出',
 			'login'    => '登入',
@@ -49,14 +49,14 @@
 
 		'registered' => [
 			'headerTitle' 	=> '注册',
-			'phone'         => '请输入手机号共X码',
+			'phone'         => '请输入手机号',
 			'nickName'      => '请输入昵称',
-			'mail'          => '请输入信箱',
+			'mail'          => '请输入信箱（非必填)',
 			'passowrd'      => '请输入密码',
 			'passwordCheck' => '请输入密码确认',
 			'recommendL'    => '推荐码',
-			'recommend'     => '请输入推荐码共X码数字',
-			'check'         => '请输入验证码',
+			'recommend'     => '请输入推荐码（数字)',
+			'check'         => '请输入上方图案内的文字',
 			'b' => [
 				'registered'  => '注&nbsp;&nbsp;&nbsp;&nbsp;册',
 			],
@@ -110,7 +110,7 @@
 				'productPoint'      => '点数',
 				'productQuantity'   => '数量',
 				'productStyle'      => '样式',
-				'productTotalPoint' => '可获得点数',
+				'productTotalPoint' => '可获得PP',
 			]
 		],
 		'shopBuy' =>[
@@ -131,25 +131,27 @@
 				'CMFile' => '修改资料',
 				'cancel' => '取消',
 				'CPwd'   => '修改密码',
+				'BuyList'=> '订单查询',
 			],
 			'th' => [
-				'memberid'   => '推荐码：',
-				'account'    => '帐号：',
-				'pwd'        => '密码：',
-				'points'     => '点数：',
-				'integral'   => '藏蛋数：',
-				'bonus'      => '赠送红利：',
-				'name'       => '昵称：',
-				'mail'       => '电子邮箱：',
-				'address'    => '地址：',
-				'birthday'   => '生日：',
+				'memberid'   => '推荐码',
+				'account'    => '帐号',
+				'pwd'        => '密码',
+				'points'     => 'PP',
+				'integral'   => '金蛋',
+				'bonus'      => '赠送红利',
+				'name'       => '昵称',
+				'mail'       => '电子邮箱',
+				'address'    => '地址',
+				'birthday'   => '生日',
 				'year'       => '西元',
 				'years'      => '年',
 				'month'      => '月',
 				'day'        =>'日',
-				'gender'     => '性别：',
-				'language'   => '语言：',
-				'cardnumber' => '银行卡号：'
+				'gender'     => '性别',
+				'language'   => '语言',
+				'cardnumber' => '银行卡号',
+				'upID'       => '上层会员码',
 			],
 			'cl' =>[
 				'man'    => '男',
@@ -168,17 +170,17 @@
 				'cancel' => '取消',
 			],
 			'th' => [
-				'name'       => '昵称：',
-				'mail'       => '电子邮箱：',
-				'address'    => '地址：',
-				'birthday'   => '生日：',
+				'name'       => '昵称',
+				'mail'       => '电子邮箱',
+				'address'    => '地址',
+				'birthday'   => '生日',
 				'year'       => '西元',
 				'years'      => '年',
 				'month'      => '月',
 				'day'        =>'日',
-				'gender'     => '性别：',
-				'language'   => '语言：',
-				'cardnumber' => '银行卡号：'
+				'gender'     => '性别',
+				'language'   => '语言',
+				'cardnumber' => '银行卡号'
 			],
 			'cl' =>[
 				'select' => '选择',
@@ -209,14 +211,28 @@
 				'Checkplaceholder' => '请输入验证码（不区分英文字母大小写）',
 			],
 		],
+		'BuyList' =>[
+			'BuyListTitle' => '购买清单',
+			'b' =>[
+				'back' => '返回',
+			],
+			'th' =>[
+				'shoporderID' => '单号 ',
+				'status0'     => '已下单',
+				'status1'     => '已付款',
+				'status2'     => '交易完成',
+				'bDate'       => '购买日期 ',
+			],
+
+		],
 		//===會員中心====會員中心====會員中心====會員中心====會員中心====會員中心====會員中心===
 
 		//===任務頁面====任務頁面====任務頁面====任務頁面====任務頁面====任務頁面====任務頁面===
 		'Task' =>[
 			'TitleListName'   => '套餐名称',
-			'TitleListPoints' => '所需积分',
-			'TitleListEgg'    => '获得金蛋',
-			'MemberPoints'    => '目前积分：',
+			'TitleListPoints' => '所需PP',
+			'TitleListEgg'    => '最高获得金蛋',
+			'MemberPoints'    => '目前PP：',
 			'th' =>[
 				'ListName1' => '藏蛋套餐A',
 				'ListName2' => '藏蛋套餐B',

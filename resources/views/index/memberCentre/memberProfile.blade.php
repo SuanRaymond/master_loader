@@ -46,79 +46,141 @@
                                 @endif
                             @endif
                         "></div>
-                <a href="/PUpload" class="button button-flat-primary button-lg" style="margin: 20px;">上傳頭像</a>
+                <a href="/PUpload" class="button button-flat-primary button-lg" style="margin: 20px;">上传头像</a>
             </div>
             <div class="span12">
-                <div class="list-group">
-                    <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">　{{ trans('view.MFile.th.memberid') }}</span>
-                        <span style="padding-left: 20px;">{{ $box->member->memberID }}</span>
-                    </div>
-                    <div class="list-group-item">
-                        <span style="text-align: right;">　　{{ trans('view.MFile.th.account') }}</span>
-                        <span style="padding-left: 20px;">{{ $box->member->account }}</span>
-                    </div>
-                    <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">　　{{ trans('view.MFile.th.pwd') }}</span>
-                        <span style="padding-left: 20px;">****************</span>
-                        <a href="/CPwd" class="button button-flat-primary button-lg">{{ trans('view.MFile.b.CPwd') }}</a>
-                    </div>
-                    <div class="list-group-item">
-                        <span style="text-align: right;">　　{{ trans('view.MFile.th.name') }}</span>
-                        <span style="padding-left: 20px;">{{ $box->member->name }}</span>
-                    </div>
-                    <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">　　{{ trans('view.MFile.th.points') }}</span>
-                        <span style="padding-left: 20px;">{{ $box->member->points }}</span>
-                    </div>
-                    <div class="list-group-item">
-                        <span style="text-align: right;">　{{ trans('view.MFile.th.integral') }}</span>
-                        <span style="padding-left: 20px;">{{ $box->member->integral }}</span>
-                    </div>
-                    <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">{{ trans('view.MFile.th.bonus') }}</span>
-                        <span style="padding-left: 20px;">{{ $box->member->bonus }}</span>
-                    </div>
-                    <div class="list-group-item">
-                        <span style="text-align: right;">{{ trans('view.MFile.th.mail') }}</span>
-                        <span style="padding-left: 20px;">{{ $box->member->mail }}</span>
-                    </div>
-                    <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">　　{{ trans('view.MFile.th.address') }}</span>
-                        <span style="padding-left: 20px;">{{ $box->member->address }}</span>
-                    </div>
-                    <div class="list-group-item">
-                        <span style="text-align: right;">　　{{ trans('view.MFile.th.birthday') }}</span>
-                        <span style="padding-left: 20px;">{{ $box->member->birthday }}</span>
-                    </div>
-                    <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">　　{{ trans('view.MFile.th.gender') }}</span>
-                        <span style="padding-left: 20px;">
-                            @if($box->member->gender == 0)
-                                {{ trans('view.MFile.cl.man') }}
-                            @else
-                                {{ trans('view.MFile.cl.woman') }}
-                            @endif
-                        </span>
-                    </div>
-                    <div class="list-group-item">
-                        <span style="text-align: right;">　　{{ trans('view.MFile.th.language') }}</span>
-                        <span style="padding-left: 20px;">
-                            @if($box->member->languageID==1)
-                                {{ trans('view.MFile.cl.ENUS') }}
-                            @elseif($box->member->languageID==2)
-                                {{ trans('view.MFile.cl.ZHCN') }}
-                            @elseif($box->member->languageID==3)
-                                {{ trans('view.MFile.cl.ZHTW') }}
-                            @else
-                            @endif
-                        </span>
-                    </div>
-                    <div class="list-group-item" style="background-color: #f0f0f0;">
-                        <span style="text-align: right;">{{ trans('view.MFile.th.cardnumber') }}</span>
-                        <span style="padding-left: 20px;">{{ $box->member->cardID }}</span>
-                    </div>
-                </div>
+                <table class=" table table-striped table-bordered table-condensed">
+                    <tbody>
+                        <tr>
+                            <td style="text-align: right; width: 30%;">
+                                {{ trans('view.MFile.th.memberid') }}
+                            </td>
+                            <td>
+                                {{ $box->member->memberID }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                {{ trans('view.MFile.th.account') }}
+                            </td>
+                            <td>
+                                {{ $box->member->account }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                {{ trans('view.MFile.th.pwd') }}
+                            </td>
+                            <td>
+                                ****************<br>
+                                <a href="/CPwd" class="button button-flat-primary button-lg">{{ trans('view.MFile.b.CPwd') }}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                {{ trans('view.MFile.th.name') }}
+                            </td>
+                            <td>
+                                {{ $box->member->name }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                {{ trans('view.MFile.th.points') }}
+                            </td>
+                            <td>
+                                {{ $box->member->points }}<br>
+                                <a href="/BuyList" class="button button-flat-primary button-lg">{{ trans('view.MFile.b.BuyList') }}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                {{ trans('view.MFile.th.integral') }}
+                            </td>
+                            <td>
+                                {{ $box->member->integral }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                {{ trans('view.MFile.th.bonus') }}
+                            </td>
+                            <td>
+                                {{ $box->member->bonus }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                {{ trans('view.MFile.th.mail') }}
+                            </td>
+                            <td>
+                                {{ $box->member->mail }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                {{ trans('view.MFile.th.address') }}
+                            </td>
+                            <td>
+                                {{ $box->member->address }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                {{ trans('view.MFile.th.birthday') }}
+                            </td>
+                            <td>
+                                {{ $box->member->birthday }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                {{ trans('view.MFile.th.gender') }}
+                            </td>
+                            <td>
+                                @if($box->member->gender == 1)
+                                    {{ trans('view.MFile.cl.man') }}
+                                @elseif($box->member->gender == 2)
+                                    {{ trans('view.MFile.cl.woman') }}
+                                @else
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                {{ trans('view.MFile.th.language') }}
+                            </td>
+                            <td>
+                                @if($box->member->languageID==1)
+                                    {{ trans('view.MFile.cl.ENUS') }}
+                                @elseif($box->member->languageID==2)
+                                    {{ trans('view.MFile.cl.ZHCN') }}
+                                @elseif($box->member->languageID==3)
+                                    {{ trans('view.MFile.cl.ZHTW') }}
+                                @else
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                {{ trans('view.MFile.th.cardnumber') }}
+                            </td>
+                            <td>
+                                {{ $box->member->cardID }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                {{ trans('view.MFile.th.upID') }}
+                            </td>
+                            <td>
+                                @if($box->member->upID != 0)
+                                    {{ $box->member->upID }}
+                                @endif
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="span6">
                 <a href="/CMFire" class="button button-flat-primary button-large  button-block">{{ trans('view.MFile.b.CMFile') }}</a>

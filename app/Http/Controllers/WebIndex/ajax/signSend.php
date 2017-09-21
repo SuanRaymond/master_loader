@@ -55,6 +55,7 @@ class signSend extends Controller
             echo json_encode(array(
                 'result' => 'ER',
                 'msg'    => request('ID'),
+                'error'  => '',
             ));
         }
         exit;

@@ -214,7 +214,7 @@
 		'BuyList' =>[
 			'BuyListTitle' => '购买清单',
 			'b' =>[
-				'back' => '返回',
+				'back' => '回首页',
 			],
 			'th' =>[
 				'shoporderID' => '单号 ',

@@ -74,7 +74,8 @@ class commodityOrderAdd extends Controller
         removeSessionJson('GetShopltemCar');
         setMesage([alert(trans('message.title.success'), trans('message.success.buyOK'), 1)]);
         $box = $this->box;
-        return redirect('/Shop');
+        // return redirect('/Shop');
+        return redirect('/BuyList');
     }
     public function search()
     {

@@ -79,7 +79,7 @@
                 </table>
             </div>
             <div class="span12" style="background-color: #f0f0f0; padding-bottom: 40px;">
-                <a href="MFire" class="button button-flat-primary button-large  button-block">{{ trans('view.BuyList.b.back') }}</a>
+                <a href="/" class="button button-flat-primary button-large  button-block">{{ trans('view.BuyList.b.back') }}</a>
             </div>
         </div>
     </body>

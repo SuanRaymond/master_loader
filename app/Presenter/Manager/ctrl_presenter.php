@@ -13,35 +13,25 @@ class ctrl_presenter{
 		$outData = (object) array();
 		foreach($_mode as $key => $mode){
             switch ($mode) {
+                //new
                 case 'ROW':
 					$outData->row = '<input id="row" name="row" type="hidden" value="'. $_default->row. '">';
                     break;
-				case 'MROW':
-					$outData->mrow = '<input id ="mrow" name ="mrow" type ="hidden" value ="'. $_default->mrow. '">';
-					break;
+                //new
                 case 'A':
-                    $outData->adminAccount =    '<div class="span6">
+                    $outData->account =    '<div class="span6">
                                                     <div class="control-group">
-                                                        <label class="control-label" for="adminAccount">'. trans('view.c.adminAccount') .' ：</label>
+                                                        <label class="control-label" for="account">'. trans('managerView.c.account') .' ：</label>
                                                         <div class="controls">
-                                                            <input type="text" class="m-wrap span10" name="adminAccount" id="adminAccount"
-                                                                    placeholder="'. trans('view.c.adminAccount'). '" value="'. $_default->adminAccount .'">
+                                                            <input type="text" class="m-wrap span10" name="account" id="account"
+                                                                placeholder="'. trans('managerView.c.account'). '" value="'. $_default->account .'">
                                                             <label class="checkbox">
-                                                                <input class="uniform_on" type="checkbox" id="adminDown" value="" '.
-                                                                    ($_default->adminDown ? 'checked="checked"' : ''). '/>'. trans('view.c.adminDown'). '
+                                                                <input class="uniform_on" type="checkbox" id="accountDown" value="" '.
+                                                                    ($_default->adminDown ? 'checked="checked"' : ''). '/>'.
+                                                                    trans('managerView.c.adminDown'). '
                                                             </label>
-                                                            <input type="hidden" id="adminDownInput" name="adminDown" value="'. $_default->adminDown. '">
-                                                        </div>
-                                                    </div>
-                                                </div>';
-                    break;
-                case 'M':
-                    $outData->memberAccount =   '<div class="span6">
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="memberAccount">'. trans('view.c.memberAccount') .' ：</label>
-                                                        <div class="controls">
-                                                            <input type="text" class="m-wrap span12" name="memberAccount" id="memberAccount"
-                                                                    placeholder="'. trans('view.c.memberAccount'). '" value="'. $_default->memberAccount .'">
+                                                            <input type="hidden" id="accountDownInput" name="accountDown"
+                                                                    value="'. $_default->adminDown. '">
                                                         </div>
                                                     </div>
                                                 </div>';
@@ -269,12 +259,15 @@ class ctrl_presenter{
                                         </div>
                                     </div>';
                     break;
+
+                //new
                 case 'BTN':
                     $outData->btn = '<div class="span12 pull-right">
                                         <button class="btn green pull-right" type="submit" id="searchBtn">
-                                            <i class="icon-search"></i> '. trans('view.manager.b.search') .'
+                                            <i class="icon-search"></i> '. trans('managerView.b.search') .'
                                         </button>
-                                        <button class="btn red pull-right" type="button" id="clearBtn"><i class="icon-trash"></i> '. trans('view.manager.b.clear') .'</button>
+                                        <button class="btn red pull-right" type="button" id="clearBtn">
+                                            <i class="icon-trash"></i> '. trans('managerView.b.clear') .'</button>
                                     </div>';
                     break;
                 case 'TU':
@@ -282,15 +275,15 @@ class ctrl_presenter{
                     foreach ($_data as $row) {
                         if($row->account != $_default){
                             $outData->treeUp .= '<li>
-                                                    <a href="#" type="button" class="btn green accountBtn"
-                                                       onclick="'. "$('#adminAccount').val('". $row->account. "');$('#searchForm').submit();". '">'.
+                                                    <a href="#" type="button" class="btn green"
+                                                       onclick="'. "$('#account').val('". $row->account. "');$('#searchForm').submit();". '">'.
                                                             $row->account.
                                                     ' <i class="icon-angle-right"></i>
                                                     </a>
                                                 </li>';
                         }
                         else{
-                            $outData->treeUp .= '<li><a href="#" type="button" class="btn green accountBtn disabled">'. $row->account. '</a></li>';
+                            $outData->treeUp .= '<li><a href="#" type="button" class="btn green disabled">'. $row->account. '</a></li>';
                         }
                     }
                     break;

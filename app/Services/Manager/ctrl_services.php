@@ -55,20 +55,26 @@ class ctrl_services{
 
 	public function getTreeUp($_mineAccount, $_account)
 	{
-		$postArray = [
-			'mineAdminAccount' => $_mineAccount,
-			'adminAccount'     => $_account,
-        ];
-        $postArray = http_build_query(
-            array(
-                'Params'  => Crypt::encrypt(json_encode($postArray))
-        ));
-        $result = $this->connection_services->sendAPI('TreeUp', $postArray);
+        //需呼叫的功能
+        $this->box->callFunction = 'TreeUp';
+        $this->box->sendApiUrl   = env('MANAGER_DOMAIN');
 
-        if($result->Result != 'SU' || is_null($result->Data)){
-        	return null;
+        //放入資料區塊
+        $this->box->sendParams                = [];
+        $this->box->sendParams['mineAccount'] = $_mineAccount;
+        $this->box->sendParams['account']     = $_account;
+
+        //送出資料
+        $this->box->result    = $this->connection_services->callApi($this->box);
+        $this->box->getResult = $this->box->result;
+
+        //檢查廠商回傳資訊
+        $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
+
+        if($this->box->status != 0){
+            return '';
         }
 
-        return $this->ctrl_presenter->combination($result->Data, ['TU'], $_account)->treeUp;
+        return $this->ctrl_presenter->combination($this->box->result->Data, ['TU'], $_account)->treeUp;
 	}
 }

@@ -13,6 +13,9 @@ Route::post('/login', 'login@check');
 //登出
 Route::get('/logout', 'logout@index');
 
+//帳號列表
+Route::get('/AccountList', 'account\accountList@index');
+
 //商品上傳 - 主頁
 Route::get('/InsertShop', 'shop\commodity@index');
 

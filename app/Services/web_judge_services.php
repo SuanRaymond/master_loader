@@ -83,7 +83,6 @@ class web_judge_services{
 					}
 					//確認回傳資料是不是 JSON
 					if(!isJson($this->box->result)){
-						dd($this->box->result);
 						return $this->respone(9);
 					}
 					//將資料轉換為 Object

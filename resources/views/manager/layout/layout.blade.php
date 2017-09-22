@@ -39,6 +39,9 @@
     <link href="./lib/css/manager/inbox.css" rel="stylesheet" type="text/css" />
 
     <style type="text/css">
+        #MasterBox{
+            min-height: 100vh;
+        }
         #toolsBar{
             cursor: pointer;
         }
@@ -257,7 +260,7 @@
 
         </div>
 
-        <div class="page-content">
+        <div id="MasterBox" class="page-content">
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span12">
@@ -289,7 +292,7 @@
     <div id="adminTreeDownDiv" class="modal hide fade" tabindex="-1" data-replace="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-            <h3>{{ trans('view.topBar.adminDownTree') }}</h3>
+            <h3>{{ trans('managerView.adminDownTree') }}</h3>
         </div>
         <div class="modal-body">
             <div id="adminDownTree">
@@ -297,7 +300,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" data-dismiss="modal" class="btn">{{ trans('view.b.close') }}</button>
+            <button type="button" data-dismiss="modal" class="btn">{{ trans('managerView.b.close') }}</button>
         </div>
     </div>
 </body>

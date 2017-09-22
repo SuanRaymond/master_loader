@@ -25,28 +25,28 @@
 	<div class="span12">
 		<div class="portlet box green">
 			<div class="portlet-title">
-				<div class="caption"><i class="icon-reorder"></i>{{ trans('view.manager.profile.t.title') }}</div>
+				<div class="caption"><i class="icon-reorder"></i>{{ trans('managerView.profile.t.title') }}</div>
 			</div>
 			<div class="portlet-body">
 				<div class="scroller" data-height="100%">
 					<div class="tab-pane profile-classic row-fluid">
 						<ul class="unstyled span12">
-							<li><span>{{ trans('view.manager.profile.t.group') }}</span>
+							<li><span>{{ trans('managerView.profile.t.group') }}</span>
 								{{ trans('group.'. $box->result->groupID) }}
 							</li>
-							<li><span>{{ trans('view.manager.profile.t.account') }}</span>
+							<li><span>{{ trans('managerView.profile.t.account') }}</span>
 								{{ $box->result->account }}
 							</li>
-							<li><span>{{ trans('view.manager.profile.t.nickName') }}</span>
+							<li><span>{{ trans('managerView.profile.t.nickName') }}</span>
 								<span id="A_nickName_{{ $box->result->account }}">{{ $box->result->name }}</span>
 							</li>
-							<li><span>{{ trans('view.manager.profile.t.points') }}</span>
+							<li><span>{{ trans('managerView.profile.t.points') }}</span>
 								{{ $box->result->points }}
 							</li>
-							<li><span>{{ trans('view.manager.profile.t.points') }}</span>
+							<li><span>{{ trans('managerView.profile.t.integral') }}</span>
 								{{ $box->result->integral }}
 							</li>
-							<li><span>{{ trans('view.manager.profile.t.points') }}</span>
+							<li><span>{{ trans('managerView.profile.t.bonus') }}</span>
 								{{ $box->result->bonus }}
 							</li>
 						</ul>

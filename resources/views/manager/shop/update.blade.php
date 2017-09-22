@@ -75,7 +75,7 @@
   <div class="span12">
     <div class="portlet box red">
       <div class="portlet-title" id="toolsBar">
-        <div class="caption"><i class="icon-search"></i>{{ trans('view.manager.c.title') }}</div>
+        <div class="caption"><i class="icon-search"></i>{{ trans('managerView.c.title') }}</div>
         <div class="tools">
           <a href="javascript:;" class="collapse" id="toolsClose"></a>
         </div>
@@ -85,10 +85,10 @@
           <div class="row-fluid">
             <div class="span12">
                             <div class="control-group">
-                                <label class="control-label" for="sShopID">{{ trans('view.manager.updateShop.s.shopID') }} ：</label>
+                                <label class="control-label" for="sShopID">{{ trans('managerView.updateShop.s.shopID') }} ：</label>
                                 <div class="controls">
                                   <input type="text" class="m-wrap span12" name="sShopID" id="sShopID"
-                                         placeholder="{{ trans('view.manager.updateShop.s.shopID') }}" value="">
+                                         placeholder="{{ trans('managerView.updateShop.s.shopID') }}" value="">
                                </div>
                             </div>
                         </div>
@@ -96,10 +96,10 @@
                   <div class="row-fluid">
             <div class="span12 pull-right">
                             <button class="btn green pull-right" type="button" id="searchBtn">
-                                <i class="icon-search"></i> {{ trans('view.manager.b.search') }}
+                                <i class="icon-search"></i> {{ trans('managerView.b.search') }}
                             </button>
                             <button class="btn red pull-right" type="button" id="clearBtn">
-                              <i class="icon-trash"></i> {{trans('view.manager.b.clear') }}
+                              <i class="icon-trash"></i> {{trans('managerView.b.clear') }}
                             </button>
                         </div>
           </div>
@@ -110,7 +110,7 @@
 
   <div class="portlet box green">
     <div class="portlet-title">
-      <div class="caption"><i class="icon-cogs"></i>{{ trans('view.manager.updateShop.searchImages') }}</div>
+      <div class="caption"><i class="icon-cogs"></i>{{ trans('managerView.updateShop.searchImages') }}</div>
       <div class="tools">
         <a href="javascript:;" class="collapse"></a>
       </div>
@@ -130,7 +130,7 @@
 
   <div class="portlet box blue">
     <div class="portlet-title">
-      <div class="caption"><i class="icon-cogs"></i>{{ trans('view.manager.updateShop.title') }}</div>
+      <div class="caption"><i class="icon-cogs"></i>{{ trans('managerView.updateShop.title') }}</div>
       <div class="tools">
         <a href="javascript:;" class="collapse"></a>
       </div>
@@ -141,10 +141,10 @@
         <div class="row-fluid">
           <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="shopID">{{ trans('view.manager.updateShop.s.shopID') }} ：</label>
+                            <label class="control-label" for="shopID">{{ trans('managerView.updateShop.s.shopID') }} ：</label>
                             <div class="controls">
                                 <input type="text" class="m-wrap span12" name="shopID" id="shopID"
-                                 placeholder="{{ trans('view.manager.updateShop.s.shopID') }}"
+                                 placeholder="{{ trans('managerView.updateShop.s.shopID') }}"
                                  value="{{ $box->params->shopID }}" readonly="true">
                            </div>
                         </div>
@@ -153,10 +153,10 @@
         <div class="row-fluid">
           <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="title">{{ trans('view.manager.updateShop.c.title') }} ：</label>
+                            <label class="control-label" for="title">{{ trans('managerView.updateShop.c.title') }} ：</label>
                             <div class="controls">
                                 <input type="text" class="m-wrap span12" name="title" id="title"
-                                       placeholder="{{ trans('view.manager.updateShop.p.title') }}"
+                                       placeholder="{{ trans('managerView.updateShop.p.title') }}"
                                        value="{{ $box->params->title }}">
                            </div>
                         </div>
@@ -165,10 +165,10 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="subTitle">{{ trans('view.manager.updateShop.c.subTitle') }} ：</label>
+                            <label class="control-label" for="subTitle">{{ trans('managerView.updateShop.c.subTitle') }} ：</label>
                             <div class="controls">
                                 <input type="text" class="m-wrap span12" name="subTitle" id="subTitle"
-                                       placeholder="{{ trans('view.manager.updateShop.p.subTitle') }}"
+                                       placeholder="{{ trans('managerView.updateShop.p.subTitle') }}"
                                        value="{{ $box->params->subTitle }}">
                            </div>
                         </div>
@@ -177,10 +177,10 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="imagesTitle">{{ trans('view.manager.updateShop.c.imagesTitle') }} ：</label>
+                            <label class="control-label" for="imagesTitle">{{ trans('managerView.updateShop.c.imagesTitle') }} ：</label>
                             <div class="controls">
                                 <input type="text" class="m-wrap span12" name="imagesTitle" id="imagesTitle"
-                                       placeholder="{{ trans('view.manager.updateShop.p.imagesTitle') }}"
+                                       placeholder="{{ trans('managerView.updateShop.p.imagesTitle') }}"
                                        value="{{ $box->params->imagesTitle }}">
                            </div>
                         </div>
@@ -189,10 +189,10 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="imagesShow">{{ trans('view.manager.updateShop.c.imagesShow') }} ：</label>
+                            <label class="control-label" for="imagesShow">{{ trans('managerView.updateShop.c.imagesShow') }} ：</label>
                             <div class="controls">
                                 <input type="text" class="m-wrap span12" name="imagesShow" id="imagesShow"
-                                       placeholder="{{ trans('view.manager.updateShop.p.imagesShow') }}"
+                                       placeholder="{{ trans('managerView.updateShop.p.imagesShow') }}"
                                        value="{{ $box->params->imagesShow }}">
                            </div>
                         </div>
@@ -201,10 +201,10 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="menuID">{{ trans('view.manager.updateShop.c.menuID') }} ：</label>
+                            <label class="control-label" for="menuID">{{ trans('managerView.updateShop.c.menuID') }} ：</label>
                             <div class="controls">
                                 <select class="m-wrap span12" name="menuID" id="menuID">
-                  <option value="">{{ trans('view.manager.s.0') }}</option>
+                  <option value="">{{ trans('managerView.s.0') }}</option>
                   <option value="1001" {!! $box->params->menuID == 1001 ? 'selected="true"' : '' !!}>
                     {{ trans('menu.menu.1001') }}
                   </option>
@@ -219,10 +219,10 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="price">{{ trans('view.manager.updateShop.c.price') }} ：</label>
+                            <label class="control-label" for="price">{{ trans('managerView.updateShop.c.price') }} ：</label>
                             <div class="controls">
                                 <input type="number" class="m-wrap span12" name="price" id="price"
-                                       placeholder="{{ trans('view.manager.updateShop.p.price') }}"
+                                       placeholder="{{ trans('managerView.updateShop.p.price') }}"
                                        value="{{ $box->params->price }}">
                            </div>
                         </div>
@@ -231,10 +231,10 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="points">{{ trans('view.manager.updateShop.c.points') }} ：</label>
+                            <label class="control-label" for="points">{{ trans('managerView.updateShop.c.points') }} ：</label>
                             <div class="controls">
                                 <input type="number" class="m-wrap span12" name="points" id="points"
-                                       placeholder="{{ trans('view.manager.updateShop.p.points') }}"
+                                       placeholder="{{ trans('managerView.updateShop.p.points') }}"
                                        value="{{ $box->params->points }}">
                            </div>
                         </div>
@@ -243,10 +243,10 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="transport">{{ trans('view.manager.updateShop.c.transport') }} ：</label>
+                            <label class="control-label" for="transport">{{ trans('managerView.updateShop.c.transport') }} ：</label>
                             <div class="controls">
                                 <input type="number" class="m-wrap span12" name="transport" id="transport"
-                                       placeholder="{{ trans('view.manager.updateShop.p.transport') }}"
+                                       placeholder="{{ trans('managerView.updateShop.p.transport') }}"
                                        value="{{ $box->params->transport }}">
                            </div>
                         </div>
@@ -255,10 +255,10 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="quantity">{{ trans('view.manager.updateShop.c.quantity') }} ：</label>
+                            <label class="control-label" for="quantity">{{ trans('managerView.updateShop.c.quantity') }} ：</label>
                             <div class="controls">
                                 <input type="number" class="m-wrap span12" name="quantity" id="quantity"
-                                       placeholder="{{ trans('view.manager.updateShop.p.quantity') }}"
+                                       placeholder="{{ trans('managerView.updateShop.p.quantity') }}"
                                        value="{{ $box->params->quantity }}">
                            </div>
                         </div>
@@ -267,10 +267,10 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="chstyle">{{ trans('view.manager.updateShop.c.chstyle') }} ：</label>
+                            <label class="control-label" for="chstyle">{{ trans('managerView.updateShop.c.chstyle') }} ：</label>
                             <div class="controls">
                                 <input type="text" class="m-wrap span12" name="chstyle" id="chstyle"
-                                       placeholder="{{ trans('view.manager.updateShop.p.chstyle') }}"
+                                       placeholder="{{ trans('managerView.updateShop.p.chstyle') }}"
                                        value="{{ $box->params->chstyle }}">
                            </div>
                         </div>
@@ -279,7 +279,7 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="InsertDetailArea">{{ trans('view.manager.updateShop.c.detail') }} ：</label>
+                            <label class="control-label" for="InsertDetailArea">{{ trans('managerView.updateShop.c.detail') }} ：</label>
                             <div class="controls">
                               <input type="hidden" name="detail" id="detail">
                                 <div id="InsertDetailArea"></div>
@@ -290,10 +290,10 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="norm">{{ trans('view.manager.updateShop.c.norm') }} ：</label>
+                            <label class="control-label" for="norm">{{ trans('managerView.updateShop.c.norm') }} ：</label>
                             <div class="controls">
                                 <input type="text" class="m-wrap span12" name="norm" id="norm"
-                                       placeholder="{{ trans('view.manager.updateShop.p.norm') }}"
+                                       placeholder="{{ trans('managerView.updateShop.p.norm') }}"
                                        value="{{ $box->params->norm }}">
                            </div>
                         </div>
@@ -302,7 +302,7 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="InsertMemoArea">{{ trans('view.manager.updateShop.c.memo') }} ：</label>
+                            <label class="control-label" for="InsertMemoArea">{{ trans('managerView.updateShop.c.memo') }} ：</label>
                             <div class="controls">
                               <input type="hidden" name="memo" id="memo">
                                 <div id="InsertMemoArea"></div>
@@ -313,7 +313,7 @@
                 <div class="row-fluid">
           <div class="span12 pull-right">
                         <button class="btn green pull-right" type="button" id="insertBtn">
-                            <i class="icon-upload-alt"></i> {{trans('view.confirm') }}
+                            <i class="icon-upload-alt"></i> {{trans('managerView.confirm') }}
                         </button>
                     </div>
         </div>

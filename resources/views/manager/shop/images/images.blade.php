@@ -93,7 +93,7 @@
 	<div class="span12">
 		<div class="portlet box red">
 			<div class="portlet-title" id="toolsBar">
-				<div class="caption"><i class="icon-search"></i>{{ trans('view.manager.c.title') }}</div>
+				<div class="caption"><i class="icon-search"></i>{{ trans('managerView.c.title') }}</div>
 				<div class="tools">
 					<a href="javascript:;" class="collapse" id="toolsClose"></a>
 				</div>
@@ -103,10 +103,10 @@
 					<div class="row-fluid">
 						<div class="span12">
                             <div class="control-group">
-                                <label class="control-label" for="FileName">{{ trans('view.manager.updateImages.c.FileName') }} ：</label>
+                                <label class="control-label" for="FileName">{{ trans('managerView.updateImages.c.FileName') }} ：</label>
                                 <div class="controls">
 	                                <input type="text" class="m-wrap span12" name="FileName" id="FileName"
-	                                       placeholder="{{ trans('view.manager.updateImages.c.FileName') }}" value="">
+	                                       placeholder="{{ trans('managerView.updateImages.c.FileName') }}" value="">
                                </div>
                             </div>
                         </div>
@@ -114,10 +114,10 @@
                		<div class="row-fluid">
 						<div class="span12 pull-right">
                             <button class="btn green pull-right" type="button" id="searchBtn">
-                                <i class="icon-search"></i> {{ trans('view.manager.b.search') }}
+                                <i class="icon-search"></i> {{ trans('managerView.b.search') }}
                             </button>
                             <button class="btn red pull-right" type="button" id="clearBtn">
-                            	<i class="icon-trash"></i> {{trans('view.manager.b.clear') }}
+                            	<i class="icon-trash"></i> {{trans('managerView.b.clear') }}
                             </button>
                         </div>
 					</div>
@@ -128,7 +128,7 @@
 
 	<div class="portlet box green">
 		<div class="portlet-title">
-			<div class="caption"><i class="icon-cogs"></i>{{ trans('view.manager.updateImages.searchImages') }}</div>
+			<div class="caption"><i class="icon-cogs"></i>{{ trans('managerView.updateImages.searchImages') }}</div>
 			<div class="tools">
 				<a href="javascript:;" class="collapse"></a>
 			</div>
@@ -147,7 +147,7 @@
 
 	<div class="portlet box blue">
 		<div class="portlet-title">
-			<div class="caption"><i class="icon-cogs"></i>{{ trans('view.manager.updateImages.updateImages') }}</div>
+			<div class="caption"><i class="icon-cogs"></i>{{ trans('managerView.updateImages.updateImages') }}</div>
 			<div class="tools">
 				<a href="javascript:;" class="collapse"></a>
 			</div>
@@ -158,11 +158,11 @@
 					<div class="span12">
 		                <div class="control-group">
 		                    <label class="control-label" for="ImagesUpdateFile">
-		                    	{{ trans('view.manager.updateImages.c.ImagesUpdateFile') }} ：
+		                    	{{ trans('managerView.updateImages.c.ImagesUpdateFile') }} ：
 		                    </label>
 		                    <div class="controls">
 		                        <input type="file" class="m-wrap span12" name="ImagesUpdateFile" id="ImagesUpdateFile"
-		                               placeholder="{{ trans('view.manager.updateImages.c.ImagesUpdateFile') }}">
+		                               placeholder="{{ trans('managerView.updateImages.c.ImagesUpdateFile') }}">
 		                   </div>
 		                </div>
 		            </div>
@@ -170,10 +170,10 @@
 		        <div class="row-fluid">
 		            <div class="span12">
                         <div class="control-group">
-                            <label class="control-label" for="UpdateFileName">{{ trans('view.manager.updateImages.c.FileName') }} ：</label>
+                            <label class="control-label" for="UpdateFileName">{{ trans('managerView.updateImages.c.FileName') }} ：</label>
                             <div class="controls">
                                 <input type="text" class="m-wrap span12" name="UpdateFileName" id="UpdateFileName"
-                                       placeholder="{{ trans('view.manager.updateImages.c.FileName') }}" value="">
+                                       placeholder="{{ trans('managerView.updateImages.c.FileName') }}" value="">
                            </div>
                         </div>
                     </div>
@@ -181,7 +181,7 @@
 		        <div class="row-fluid">
 		            <div class="span12 pull-right">
                         <button class="btn blue pull-right waitFrom" type="button" id="ImagesUpdateBtn">
-                        	<i class="icon-upload-alt"></i> {{trans('view.update') }}
+                        	<i class="icon-upload-alt"></i> {{trans('managerView.update') }}
                         </button>
                     </div>
 		        </div>

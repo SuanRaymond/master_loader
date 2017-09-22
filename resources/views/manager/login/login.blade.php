@@ -51,32 +51,32 @@
 	<div class="content">
 		<form class="form-vertical login-form" action="login" method="post">
 			{{ csrf_field() }}
-			<h3 class="form-title" align="center">{{ trans('menu.manager.title') }}<br>{{ trans('view.manager.login.t.title') }}</h3>
+			<h3 class="form-title" align="center">{{ trans('menu.manager.title') }}<br>{{ trans('managerView.login.t.title') }}</h3>
 			<div class="control-group">
-				<label class="control-label visible-ie8 visible-ie9">{{ trans('view.manager.login.c.account') }}</label>
+				<label class="control-label visible-ie8 visible-ie9">{{ trans('managerView.login.c.account') }}</label>
 				<div class="controls">
 					<div class="input-icon left">
 						<i class="icon-user"></i>
 						<input class="m-wrap placeholder-no-fix" type="text"
-							   placeholder="{{ trans('view.manager.login.c.account') }}" name="account"
+							   placeholder="{{ trans('managerView.login.c.account') }}" name="account"
 							   value="{{ session()->get('account', 13691641712) }}" />
 					</div>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label visible-ie8 visible-ie9">{{ trans('view.manager.login.c.password') }}</label>
+				<label class="control-label visible-ie8 visible-ie9">{{ trans('managerView.login.c.password') }}</label>
 				<div class="controls">
 					<div class="input-icon left">
 						<i class="icon-lock"></i>
 						<input class="m-wrap placeholder-no-fix" type="password"
-							   placeholder="{{ trans('view.manager.login.c.password') }}" name="password"
+							   placeholder="{{ trans('managerView.login.c.password') }}" name="password"
 							   value="123456"/>
 					</div>
 				</div>
 			</div>
 			<div class="form-actions">
 				<button type="submit" class="btn green pull-right">
-					{{ trans('view.manager.login.b.login') }} <i class="m-icon-swapright m-icon-white"></i>
+					{{ trans('managerView.login.b.login') }} <i class="m-icon-swapright m-icon-white"></i>
 				</button>
 			</div>
 		</form>

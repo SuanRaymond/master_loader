@@ -29,7 +29,7 @@ function doublecheck(Type){
         setTimeout(function(){
             swal({
                 title: "是否确认购买？",
-                text: "买了会扣积分",
+                text: "买了会扣PP",
                 type:"warning",
                 closeOnConfirm: false,
                 showCancelButton: true,
@@ -37,7 +37,7 @@ function doublecheck(Type){
             },
             function(){
                 if(parseInt($("#points").val())<parseInt($("#points"+Type).val())){
-                    swal.showInputError("点数不足无法购买");
+                    swal.showInputError("PP不足无法购买");
                     return false
                 }else{
                     RaySys.AJAX.Send({TypeID: Type}, '/ajax/Rebate', 'SuFun', 'ErFun');

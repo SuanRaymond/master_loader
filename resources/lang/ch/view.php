@@ -208,7 +208,7 @@
 				'CheckOK' => '认证',
 			],
 			'ca'     =>[
-				'Checkplaceholder' => '请输入验证码（不区分英文字母大小写）',
+				'Checkplaceholder' => '请输入验证码（6位皆为数字）',
 			],
 		],
 		'BuyList' =>[

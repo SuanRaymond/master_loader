@@ -65,4 +65,32 @@ class connection_services{
 		}
 		return $OutData;
 	}
+
+	/**
+     * 取得連線雜項資料
+     */
+    public function getInfo()
+    {
+		$tempIP        = ip();
+		$info          = (object) array();
+		$info->ip      = $tempIP;
+		$info->browser = browser();
+
+		//將多重IP取出
+		$tempIP = substr($tempIP, 0, strpos($tempIP, ',', 0));
+        if($tempIP == ''){
+            $tempIP = $info->ip;
+        }
+
+		$Post_Array    = http_build_query(array());
+		$result        = $this->sendHTTP(env('GET_POSITION'). $tempIP, $Post_Array, false);
+		$result        = json_decode($result);
+        if($result){
+            $info->position = '{"status":"SU","CY":"'. $result->country_name. '","CT":"'. $result->city. '","TZ":"'. $result->time_zone. '"}';
+        }
+        else{
+            $info->position = '{"status":"ER"}';
+        }
+        return $info;
+    }
 }

@@ -41,8 +41,6 @@ class ShopAuthenticate
             'ajax/VerificationReSend'
         ];
         $this->box->path                 = Request()->path();
-        $this->box->params->equipmentID  = browser();
-        $this->box->params->ip           = ip();
     }
 
     /**
@@ -76,6 +74,8 @@ class ShopAuthenticate
             $connection_services = new connection_services();
             $web_judge_services  = new web_judge_services($this->box);
 
+
+            $this->box->params->info = $connection_services->getInfo();
             //執行登入
             /*----------------------------------與廠商溝通----------------------------------*/
             //放入連線區塊
@@ -111,29 +111,27 @@ class ShopAuthenticate
             $this->box->params->languageID = $this->box->member->languageID;
 
             //執行寫入登入資訊
-            if($this->box->path == 'Login'){
-                /*----------------------------------與廠商溝通----------------------------------*/
-                //放入連線區塊
-                //需呼叫的功能
-                $this->box->callFunction = 'SetLoginInfo';
-                $this->box->sendApiUrl   = env('INDEX_DOMAIN');
-                //放入資料區塊
-                $this->box->sendParams                = [];
-                $this->box->sendParams['MemberID']    = $this->box->member->memberID;
-                $this->box->sendParams['LanguageID']  = $this->box->params->languageID;
-                $this->box->sendParams['EquipmentID'] = $this->box->params->equipmentID;
-                $this->box->sendParams['Ip']          = $this->box->params->ip;
-
-                //送出資料
-                $this->box->result    = $connection_services->callApi($this->box);
-                $this->box->getResult = $this->box->result;
-                //檢查廠商回傳資訊
-                $this->box = $web_judge_services($this->box)->check(['CAPI']);
-                if($this->box->status != 0){
-                    return $this->reRrror(trans('message.error.'.$this->box->status));
-                }
-                /*----------------------------------與廠商溝通----------------------------------*/
+            /*----------------------------------與廠商溝通----------------------------------*/
+            //放入連線區塊
+            //需呼叫的功能
+            $this->box->callFunction = 'SetLoginInfo';
+            $this->box->sendApiUrl   = env('INDEX_DOMAIN');
+            //放入資料區塊
+            $this->box->sendParams                = [];
+            $this->box->sendParams['MemberID']    = $this->box->member->memberID;
+            $this->box->sendParams['LanguageID']  = $this->box->params->languageID;
+            $this->box->sendParams['EquipmentID'] = $this->box->params->info->browser;
+            $this->box->sendParams['Ip']          = $this->box->params->info->ip;
+            $this->box->sendParams['Position']    = $this->box->params->info->position;
+            //送出資料
+            $this->box->result    = $connection_services->callApi($this->box);
+            $this->box->getResult = $this->box->result;
+            //檢查廠商回傳資訊
+            $this->box = $web_judge_services($this->box)->check(['CAPI']);
+            if($this->box->status != 0){
+                return $this->reRrror(trans('message.error.'.$this->box->status));
             }
+            /*----------------------------------與廠商溝通----------------------------------*/
             auth()->loginType = true;
             auth()->user      = $this->box->member;
 

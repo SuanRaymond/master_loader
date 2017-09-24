@@ -31,9 +31,7 @@ class Authenticate
         if(!is_null($this->box->params->account) && !is_null($this->box->params->password) && Request()->path() != 'logout'){
             $connection_services = new connection_services();
 
-            $this->box->params->equipmentID = browser();
-            $this->box->params->ip          = ip();
-
+            $this->box->params->info = $connection_services->getInfo();
             //執行登入
             /*----------------------------------與廠商溝通----------------------------------*/
             //放入連線區塊
@@ -74,8 +72,9 @@ class Authenticate
             $this->box->sendParams                = [];
             $this->box->sendParams['MemberID']    = $this->box->member->memberID;
             $this->box->sendParams['LanguageID']  = $this->box->params->languageID;
-            $this->box->sendParams['EquipmentID'] = $this->box->params->equipmentID;
-            $this->box->sendParams['Ip']          = $this->box->params->ip;
+            $this->box->sendParams['EquipmentID'] = $this->box->params->info->browser;
+            $this->box->sendParams['Ip']          = $this->box->params->info->ip;
+            $this->box->sendParams['Position']    = $this->box->params->info->position;
 
             //送出資料
             $this->box->result    = $connection_services->callApi($this->box);

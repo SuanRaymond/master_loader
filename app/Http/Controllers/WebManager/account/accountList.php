@@ -30,7 +30,7 @@ class accountList extends Controller
 
         $this->box->params->mineAccount = null;
         $this->box->params->account          = Request()->get('account', null);
-        $this->box->params->adminDown        = Request()->get('adminDown', 1);
+        $this->box->params->downtype        = Request()->get('adminDown', 1);
         $this->box->params->row              = Request()->get('row', 10);
         $this->box->params->page             = Request()->get('page', 1);
     }
@@ -60,11 +60,13 @@ class accountList extends Controller
 
         //放入資料區塊
         $this->box->sendParams                = [];
-        $this->box->sendParams['MineAccount'] = $this->box->params->mineAccount;
-        $this->box->sendParams['Account']     = $this->box->params->account;
-        $this->box->sendParams['DownType']    = $this->box->params->adminDown;
-        $this->box->sendParams['Row']         = $this->box->params->row;
-        $this->box->sendParams['Page']        = $this->box->params->page;
+        foreach($this->box->params as $key => $value){
+            if(isset($value)){
+                if($value != ''){
+                    $this->box->sendParams[$key] = $value;
+                }
+            }
+        }
 
         //送出資料
         $this->box->result    = with(new connection_services())->callApi($this->box);
@@ -120,7 +122,7 @@ class accountList extends Controller
             }
         }
 
-        $this->box->result->bodyUpTree = $this->ctrl_services->getTreeUp($this->box->params->mineAdminAccount, $this->box->params->account);
+        $this->box->result->bodyUpTree = $this->ctrl_services->getTreeUp($this->box->params->mineAccount, $this->box->params->account);
 
         return;
     }

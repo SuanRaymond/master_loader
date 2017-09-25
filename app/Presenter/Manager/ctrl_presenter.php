@@ -27,11 +27,11 @@ class ctrl_presenter{
                                                                 placeholder="'. trans('managerView.c.account'). '" value="'. $_default->account .'">
                                                             <label class="checkbox">
                                                                 <input class="uniform_on" type="checkbox" id="accountDown" value="" '.
-                                                                    ($_default->adminDown ? 'checked="checked"' : ''). '/>'.
+                                                                    ($_default->downtype ? 'checked="checked"' : ''). '/>'.
                                                                     trans('managerView.c.adminDown'). '
                                                             </label>
                                                             <input type="hidden" id="accountDownInput" name="accountDown"
-                                                                    value="'. $_default->adminDown. '">
+                                                                    value="'. $_default->downtype. '">
                                                         </div>
                                                     </div>
                                                 </div>';
@@ -230,19 +230,19 @@ class ctrl_presenter{
 											</div>';
 					break;
                 case 'DT':
-                    $outData->date= '<div class="span6">
+                    $outData->date= '<div class="span12">
                                         <div class="control-group">
-                                            <label class="control-label" for="dataMode">'. trans('view.date.title') .' ：</label>
+                                            <label class="control-label" for="dataMode">'. trans('managerView.date.title') .' ：</label>
                                             <div class="controls">
                                                 <div class="span3">
                                                     <select class="span12 m-wrap" name="dataMode" id="dataMode">
-                                                        <option value="0" selected="true">'. trans('view.date.dateMode') .'</option>
-                                                        <option value="today">'. trans('view.date.today') .'</option>
-                                                        <option value="lastDay">'. trans('view.date.lastDay') .'</option>
-                                                        <option value="thisWeek">'. trans('view.date.thisWeek') .'</option>
-                                                        <option value="lastWeek">'. trans('view.date.lastWeek') .'</option>
-                                                        <option value="thisMonth">'. trans('view.date.thisMonth') .'</option>
-                                                        <option value="lastMonth">'. trans('view.date.lastMonth') .'</option>
+                                                        <option value="0" selected="true">'. trans('managerView.date.dateMode') .'</option>
+                                                        <option value="today">'. trans('managerView.date.today') .'</option>
+                                                        <option value="lastDay">'. trans('managerView.date.lastDay') .'</option>
+                                                        <option value="thisWeek">'. trans('managerView.date.thisWeek') .'</option>
+                                                        <option value="lastWeek">'. trans('managerView.date.lastWeek') .'</option>
+                                                        <option value="thisMonth">'. trans('managerView.date.thisMonth') .'</option>
+                                                        <option value="lastMonth">'. trans('managerView.date.lastMonth') .'</option>
                                                     </select>
                                                 </div>
                                                 <div class="span9 control-group">

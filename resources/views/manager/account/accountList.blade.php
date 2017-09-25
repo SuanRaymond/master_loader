@@ -68,7 +68,7 @@
 		@if($box->result->bodyMine != '')
 			<div class="portlet box green">
 				<div class="portlet-title">
-					<div class="caption"><i class="icon-flag"></i>{{ trans('managerView.accountList.t.titleMine') }}</div>
+					<div class="caption"><i class="icon-flag"></i>{{ trans('managerView.accountList.t.title') }}</div>
 					<div class="tools">
 						<a href="javascript:;" class="collapse"></a>
 					</div>

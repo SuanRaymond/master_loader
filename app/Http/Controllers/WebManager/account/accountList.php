@@ -28,7 +28,7 @@ class accountList extends Controller
         $this->box->result->pagetop    = null;
         $this->box->result->pagebottom = null;
 
-        $this->box->params->mineAdminAccount = null;
+        $this->box->params->mineAccount = null;
         $this->box->params->account          = Request()->get('account', null);
         $this->box->params->adminDown        = Request()->get('adminDown', 1);
         $this->box->params->row              = Request()->get('row', 10);
@@ -37,7 +37,7 @@ class accountList extends Controller
 
 	public function index()
     {
-        $this->box->params->mineAdminAccount = auth()->user->account;
+        $this->box->params->mineAccount = auth()->user->account;
 
         if(is_null($this->box->params->account)){
             $this->box->params->account = auth()->user->account;
@@ -60,7 +60,7 @@ class accountList extends Controller
 
         //放入資料區塊
         $this->box->sendParams                = [];
-        $this->box->sendParams['MineAccount'] = $this->box->params->mineAdminAccount;
+        $this->box->sendParams['MineAccount'] = $this->box->params->mineAccount;
         $this->box->sendParams['Account']     = $this->box->params->account;
         $this->box->sendParams['DownType']    = $this->box->params->adminDown;
         $this->box->sendParams['Row']         = $this->box->params->row;

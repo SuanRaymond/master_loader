@@ -41,6 +41,7 @@
             'integral' => '金蛋',
             'bonus'    => '紅利',
             'useinfo'  => '启用状态',
+            'status'   => '狀態',
             'detail'   => '详细信息',
             'edit'     => '修改',
             'cDate'    => '修改时间',
@@ -49,6 +50,18 @@
 	    's' => [
 	    	'0' => '未選擇',
 	    ],
+	    'date'                      => [
+		    'title'                 => '选择时间',
+		    'dateMode'              => '选择区间',
+		    'start'                 => '开始时间',
+		    'end'                   => '结束时间',
+		    'today'                 => '今天',
+		    'lastDay'               => '昨天',
+		    'thisWeek'              => '这周',
+		    'lastWeek'              => '上周',
+		    'thisMonth'             => '这个月',
+		    'lastMonth'             => '上个月',
+		],
 		'login'                     => [
 	        't'                     => [
 	            'title'             => '请先登入',
@@ -98,6 +111,36 @@
     			'loginDate'          => '最後登入時間',
     			'cuser'              => '修改者',
 				'buser'              => '創建者',
+	    	],
+	    ],
+
+	    'shopOrderList' => [
+	    	't'                     => [
+	            'title'             => '購物清單',
+	            'detailMemberTitle' => '訂購會員資訊',
+	            'detailShopTitle'   => '訂購商品資訊',
+	        ],
+	        'tr' => [
+	        	'0'  => '未確認訂單',
+	        	'1'  => '已收款未出貨',
+	        	'2'  => '已出貨',
+	        	'3'  => '訂單結束',
+	        	'10' => '訂單失敗'
+	        ],
+	    	'th' => [
+	    		'phone'       => '電話',
+	    		'address'     => '地址',
+	    		'memo'        => '備註',
+	    		'cusername1'  => '第一次改變狀態者',
+	    		'cDate1'      => '第一次改變時間',
+	    		'cusername2'  => '第二次改變狀態者',
+	    		'cDate2'      => '第二次改變時間',
+	    		'cusername3'  => '第三次改變狀態者',
+	    		'cDate3'      => '第三次改變時間',
+	    		'shoporderID' => '購物編號',
+	    		'price'       => '售價',
+	    		'transport'   => '運費',
+	    		'quantity'    => '數量',
 	    	],
 	    ],
 

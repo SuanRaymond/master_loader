@@ -72,8 +72,6 @@ class ShopAuthenticate
 
         if(!is_null($this->box->params->account) && !is_null($this->box->params->password)){
             $connection_services = new connection_services();
-            $web_judge_services  = new web_judge_services($this->box);
-
 
             $this->box->params->info = $connection_services->getInfo();
             //執行登入
@@ -92,7 +90,7 @@ class ShopAuthenticate
             $this->box->result    = $connection_services->callApi($this->box);
             $this->box->getResult = $this->box->result;
             //檢查廠商回傳資訊
-            $this->box = $web_judge_services->check(['CAPI']);
+            $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
             if($this->box->status == 13){
                 session()->put('memberID', json_encode($this->box->result->Member->memberID));
             // dd($this->box);
@@ -127,7 +125,7 @@ class ShopAuthenticate
             $this->box->result    = $connection_services->callApi($this->box);
             $this->box->getResult = $this->box->result;
             //檢查廠商回傳資訊
-            $this->box = $web_judge_services($this->box)->check(['CAPI']);
+            $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
             if($this->box->status != 0){
                 return $this->reRrror(trans('message.error.'.$this->box->status));
             }

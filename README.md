@@ -12,6 +12,9 @@ INDEX_DOMAIN=api.powerrun.dev
 SHOP_DOMAIN=api.shop.dev
 MANAGER_DOMAIN=manager.member.dev
 
+# 取得IP
+GET_POSITION=freegeoip.net/json/
+
 APP_NAME=Laravel
 APP_ENV=local
 APP_KEY=base64:ltBjfB4BYYPZc2qBC89KlNTT2ZYcxJP8gyTHqnspJJU=

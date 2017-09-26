@@ -82,9 +82,9 @@ class changeMemberProfile extends Controller
         if(empty($this->box->params->name)){
             return $this->rewarning(trans('message.warn.nameNull'));
         }
-        if(empty($this->box->params->mail)){
-            return $this->rewarning(trans('message.warn.mailNull'));
-        }
+        // if(empty($this->box->params->mail)){
+        //     return $this->rewarning(trans('message.warn.mailNull'));
+        // }
         //----------------------------------與廠商溝通----------------------------------
         //放入連線區塊
         //需呼叫的功能

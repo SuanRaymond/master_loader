@@ -56,7 +56,7 @@
 			'passwordCheck' => '请输入密码确认',
 			'recommendL'    => '推荐码',
 			'recommend'     => '请输入推荐码（数字)',
-			'check'         => '请输入上方图案内的文字',
+			'check'         => '请输入上方图案内的数字',
 			'b' => [
 				'registered'  => '注&nbsp;&nbsp;&nbsp;&nbsp;册',
 			],
@@ -229,18 +229,18 @@
 
 		//===任務頁面====任務頁面====任務頁面====任務頁面====任務頁面====任務頁面====任務頁面===
 		'Task' =>[
-			'TitleListName'   => '套餐名称',
+			'TitleListName'   => '藏蛋名称',
 			'TitleListPoints' => '所需PP',
 			'TitleListEgg'    => '最高获得<br>金蛋',
 			'MemberPoints'    => '目前PP：',
 			'th' =>[
-				'ListName1' => '藏蛋套餐A',
-				'ListName2' => '藏蛋套餐B',
-				'ListName3' => '藏蛋套餐C',
-				'ListName4' => '藏蛋套餐D',
+				'ListName1' => '藏蛋A',
+				'ListName2' => '藏蛋B',
+				'ListName3' => '藏蛋C',
+				'ListName4' => '藏蛋D',
 			],
 			'b' =>[
-				'Buy'    => '购',
+				'Buy'    => '藏',
 				'GoShop' => '前往商城',
 			],
 			'cl' =>[

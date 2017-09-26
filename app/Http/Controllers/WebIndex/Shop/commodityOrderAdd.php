@@ -46,10 +46,13 @@ class commodityOrderAdd extends Controller
         $this->box->MemberBuyToabl['MemberID'] = auth()->user->memberID;
         foreach ($this->box->memberBuy as $rowID => $group) {
             foreach($group as $shopID => $row){
-                $this->box->MemberBuyToabl['Item'][$row->shopID] =  1;//$row->quantity;
+                foreach(getSessionJson("quantityNumber")[0] as $key => $value){
+                    if($shopID == $key){
+                        $this->box->MemberBuyToabl['Item'][$row->shopID] =  $value;//$row->quantity;
+                    }
+                }
             }
         }
-
         $Params = json_encode($this->box->MemberBuyToabl);
         $Sign   = $Params;
         if(!$this->box->deBugMode){
@@ -70,6 +73,11 @@ class commodityOrderAdd extends Controller
         if($this->box->status != 0){
             return $this->reRrror(trans('message.error.'.$this->box->status));
         }
+        removeSessionJson('quantityNumber');
+        removeSessionJson('totalprice');
+        removeSessionJson('totaltransport');
+        removeSessionJson('totalPoint');
+        removeSessionJson('totalMoney');
         removeSessionJson('SetShopID');
         removeSessionJson('GetShopltemCar');
         setMesage([alert(trans('message.title.success'), trans('message.success.buyOK'), 1)]);

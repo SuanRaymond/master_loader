@@ -18,7 +18,6 @@
 
         <!-- 價格 -->
         {!! $box->html->priceBox !!}
-
         <div style="margin-bottom: 40px;">&nbsp;</div>
 @stop
 

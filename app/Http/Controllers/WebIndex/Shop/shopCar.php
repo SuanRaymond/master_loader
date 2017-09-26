@@ -34,6 +34,11 @@ class shopCar extends Controller
         // dd(session()->get('BuyShopID'));
         session()->put('menu', Request()->path());
         $box = $this->box;
+        removeSessionJson('quantityNumber');
+        removeSessionJson('totalprice');
+        removeSessionJson('totaltransport');
+        removeSessionJson('totalPoint');
+        removeSessionJson('totalMoney');
         return mSView('shopCar.shopCar', compact('box'));
     }
     public function search()

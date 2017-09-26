@@ -18,7 +18,41 @@
         <!-- 內容 -->
         {!! $box->html->buydetailList !!}
         <!-- 價格 -->
-        {!! $box->html->priceBox !!}
+        <div class="span12 shopCarBlockTitle">
+            {{trans('view.shopCar.priceTitle')}}
+        </div>
+        <div class="span12 shopCarPriceBox">
+            <div class="row" style="width: 100%; margin: 0px;">
+                <div class="span6" style="padding: 0px;">
+                    {{trans('view.shopCar.th.productMoney')}}
+                </div>
+                <div class="span6" id="totalprice">
+                    {{ pFormat($box->price->totalprice) }}
+                </div>
+                <div class="span6" style="padding: 0px;">
+                    {{ trans('view.shopCar.th.productFare') }}
+                </div>
+                <div class="span6" id="totaltransport">
+                    {{ pFormat($box->price->totaltransport) }}
+                </div>
+            </div>
+        </div>
+        <div class="span12" style="padding-bottom: 10px; background-color: #FFFFFF; font-size: 4.5vw;">
+            <div class="span6" style="padding: 0px;">
+                {{trans('view.shopCar.totalMoney')}}
+            </div>
+            <div class="span6" id="totalMoney">
+                {{ pFormat($box->price->totalMoney) }}
+            </div>
+        </div>
+        <div class="span12 shopCarTotalPointBox">
+            <div class="span6" style="padding: 0px;">
+                {{trans('view.shopCar.th.productTotalPoint')}}
+            </div>
+            <div class="span6" id="totalPoint">
+                {{ pFormat($box->price->totalPoint) }}
+            </div>
+        </div>
         <!-- 其他資訊 -->
         <div class="span12 shopCarBlockTitle">
             {{ trans('view.shopBuy.memberTitle') }}
@@ -50,7 +84,7 @@
 
 
 @section('contentBottom')
-    @if(session()->get('menu')!='/')
+    <!-- @if(session()->get('menu')!='/')
         <div class="fly">
             <a href="javascript:history.back(1)">
                 <span>
@@ -64,8 +98,18 @@
                 </span>
             </a>
         </div>
-    @endif
-    {!! $box->html->buyNavbarBottom !!}
+    @endif -->
+    <nav class="navbar navbar-default navbar-fixed-bottom row" role="navigation">
+        <a class="span3 button button-flat shopCarNavbarBottom" href="/Shop">
+            <span class="glyphicon glyphicon-home"></span>
+        </a>
+        <div class="span5 shopCarNavbarBottom" style="text-align: right;">
+            {{ trans('view.shopCar.totalMoney') }}：{{ pFormat($box->price->totalMoney) }}
+        </div>
+        <a class="span4 button button-flat-caution shopCarNavbarBottom" role="button" id="buysend">
+            {{ trans('view.shopBuy.b.buy') }}
+        </a>
+    </nav>
 @stop
 
 

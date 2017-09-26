@@ -12,6 +12,8 @@ Route::post('/SignSend', 'signSend@index');
 Route::post('/GameSend', 'signSend@game');
 //大頭照上傳
 Route::post('/PhotoSend', 'photoSend@index');
+//購物車轉結算
+Route::post('/SCAS', 'shopCarAddSession@index');
 
 
 

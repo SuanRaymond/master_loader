@@ -1,6 +1,5 @@
 $(document).ready(function(){
     $("#buysend").click(function(){
-        // swal("签到失败1", "", "error");
         doublecheck();
     });
 });
@@ -28,21 +27,5 @@ function doublecheck(){
             });
         },1000)
     });
-}
-function SuFun(_obj){
-    // console.log(_obj);
-    swal({
-        title: "购买成功",
-        text: "",
-        type:"success",
-        closeOnConfirm: false,
-    },
-    function(){
-        document.location.href="/Task";
-    });
-}
-function ErFun(_obj){
-    // console.log(_obj);
-    swal("购买失败", "", "error");
 }
 

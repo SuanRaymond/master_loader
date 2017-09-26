@@ -18,7 +18,8 @@ class buy extends Controller
         $this->box         = (object) array();
         $this->box->result = (object) array();
         $this->box->params = (object) array();
-        $this->box->html       = (object) array();
+        $this->box->html   = (object) array();
+        $this->box->price  = (object) array();
 
         $this->box->html->buydetailList   ='';
         $this->box->html->priceBox        ='';
@@ -34,23 +35,28 @@ class buy extends Controller
         if(!$result){
             return mIView('login');
         }
-        // dd(session()->get('BuyShopID'));
-        // session()->put('menu', Request()->path());
         $box = $this->box;
         return mSView('shopCar.buy', compact('box'));
     }
     public function search()
     {
-        $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
-
-        $encrypt_services     = new encrypt_services(env('APP_KEY'));
+        foreach(getSessionJson('SetShopID') as $row){
+            foreach(getSessionJson("quantityNumber")[0] as $key => $value){
+                if($row == $key){
+                    $this->box->price->$row = $value;
+                }
+            }
+        }
+        $this->box->price->totalprice     = getSessionJson("totalprice")[0];
+        $this->box->price->totaltransport = getSessionJson("totaltransport")[0];
+        $this->box->price->totalPoint     = getSessionJson("totalPoint")[0];
+        $this->box->price->totalMoney     = getSessionJson("totalMoney")[0];
 
         //是否開啟開發模式
         $this->box->deBugMode = false;
         if(config('app.debug') == true && env('USETYPE') == 'LOCAL'){
             $this->box->deBugMode = true;
         }
-
         $this->box->postArray = [];
         $this->box->postArray = ['ShopID' => getSessionJson('SetShopID')];
         // dd($this->box);
@@ -79,8 +85,8 @@ class buy extends Controller
             createSessionJson('GetShopltemCar');
         }
         addSessionJson('GetShopltemCar',$this->box->result->GetShopltemCar);
-        $this->box->html->buydetailList   = with(new shopCar_presenter())->buydetailList($this->box->result->GetShopltemCar);
-        $this->box->html->priceBox        = with(new shopCar_presenter())->priceBox($this->box->result->GetShopltemCar);
+        $this->box->html->buydetailList   = with(new shopCar_presenter())->buydetailList($this->box->result->GetShopltemCar,$this->box->price);
+        // $this->box->html->priceBox        = with(new shopCar_presenter())->priceBox($this->box->result->GetShopltemCar);
         $this->box->html->buyNavbarBottom = with(new shopCar_presenter())->buyNavbarBottom($this->box->result->GetShopltemCar);
         //放入資料區塊
         $this->box->postArray = [];

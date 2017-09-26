@@ -29,6 +29,7 @@ class ShopAuthenticate
             'ajax/ShopCarAdd',
             'PUpload',
             'ajax/PhotoSend',
+            'ajax/SCAS',
 
             // 'Task',
             // 'Sign',

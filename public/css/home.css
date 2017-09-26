@@ -65,52 +65,10 @@ body{
 	color: #FFF;
 }
 
-#doSomethingBlockBanner{
-	width: 100vw;
-	height: 35vh;
+#ContentBody{
+	margin: 0 auto;
+	max-width: 700px;
 	position: relative;
-}
-
-#doSomethingBlockBannerBody{
-	width: 100vw;
-	height: 35vh;
-}
-
-#doSomethingBlockBannerBody img{
-    width:  100%;
-    height: 100%;
-    top:  0;
-    left: 0;
-}
-
-#doSomethingBlockBody{
-	margin: 20px auto;
-	margin-top: 5vh;
-	position: relative;
-	width: 100%;
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-}
-
-#doSomethingBlockBody div{
-	margin: 1%;
-	max-width: 500px;
-	max-height: 500px;
-	width: 48%;
-	float: left;
-	position: relative;
-}
-
-#doSomethingBlockBody div div{
-	width: 70%;
-	bottom: 20px;
-	left: 15%;
-	position: absolute;
-	color: #9b4949;
-	font-size: 3vh;
-  	background-color:rgba(255, 255, 255, 0.4);
-  	border:2px #ccc solid;
-  	border-radius: 10px;
 }
 
 /*Menu 內部 大頭照*/

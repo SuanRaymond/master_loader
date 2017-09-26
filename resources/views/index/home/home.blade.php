@@ -62,7 +62,7 @@
                 <img src="images/Welcome.jpg"/>
             </div>
         </div>
-        <div id="doSomethingBlockBody" align="center" class="row" style="margin: 0 auto; padding: 20px; font-size: 4.5vw;">
+        <div align="center" class="row" style="margin: 0 auto; padding: 20px; font-size: 4.5vw;">
             <h3 class="text-justify">
                 <blockquote class="text-center">
                     <p>

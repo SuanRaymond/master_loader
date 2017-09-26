@@ -19,8 +19,8 @@
                 <img src="images/shop/ad2.jpg" width="100%">
                 <img src="images/shop/ad3.jpg" width="100%">
                 <img src="images/shop/ad4.jpg" width="100%"> -->
-                <img src="images/shop/ad5.jpg" width="100%">
-                <img src="images/shop/ad6.jpg" width="100%">
+                <img src="{{ $box->itemImg['da1'] }}" width="100%">
+                <img src="{{ $box->itemImg['da2'] }}" width="100%">
             </div>
         </div>
     </div>

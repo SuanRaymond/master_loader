@@ -35,6 +35,10 @@ class registered extends Controller
 
     public function index()
     {
+        if(auth()->loginType){
+            setMesage([alert(trans('message.title.error'), trans('message.registered.pzLogoutRegistered'), 2)]);
+            return redirect('/');
+        }
         $box = $this->box;
         return mIView('registered', compact('box'));
     }

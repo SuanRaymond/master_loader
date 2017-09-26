@@ -41,6 +41,8 @@
     <script type="text/javascript" src="./lib/js/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="./lib/js/jquery.scrollTo.min.js"></script>
     <script type="text/javascript" src="./lib/js/jquery.sidr.min.js"></script>
+    <script type="text/javascript" src="./lib/js/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="./lib/js/clipboard.min.js"></script>
     <script type="text/javascript" src="./lib/js/sweetalert.js"></script>
     <script type="text/javascript" src="./lib/js/base.js"></script>
 
@@ -51,6 +53,13 @@
     @yield('jsImport')
 
     <script type="text/javascript">
+        var QRCodeStr       = "";
+        var lanPack         = {};
+        lanPack.copySuccess = "{{ trans('message.registered.copySuccess') }}";
+        lanPack.copyError   = "{{ trans('message.registered.copyError') }}";
+        @if(auth()->loginType)
+            QRCodeStr = "{{ url('Registered') }}?upmemberID={{ auth()->user->memberID }}";
+        @endif
         $(document).ready(function(){
             /** Alert **/
             {!! session()->get('msg', '') !!}
@@ -85,7 +94,9 @@
 
         </header>
 
-        @yield('content')
+        <div id="ContentBody" align="center">
+            @yield('content')
+        </div>
 
     </div>
 
@@ -120,8 +131,18 @@
                         @endif
                     "></div>
                     @if(auth()->loginType)
-                        <span>{{ trans('view.memberMenu.nickName') }}   {{ auth()->user->name }}</span>
+                        <span>{{ trans('view.memberMenu.shareInfo') }}</span>
+                        <div align="center"><div id="qrcode"></div></div>
                         <span>{{ trans('view.memberMenu.share') }}      {{ auth()->user->memberID }}</span>
+                        <span>{{ trans('view.memberMenu.shareUrl') }}
+                            <div style="overflow-x: scroll; white-space:nowrap;">{{ url('Registered') }}?upmemberID={{ auth()->user->memberID }}</div>
+                        </span>
+                        <a href="javascript:;" id="SharCopyBtn" data-clipboard-text="{{ url('Registered') }}?upmemberID={{ auth()->user->memberID }}">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            {{ trans('view.memberMenu.sharCopy') }}
+                        </a>
+                        <hr>
+                        <span>{{ trans('view.memberMenu.nickName') }}   {{ auth()->user->name }}</span>
                         <span>{{ trans('view.memberMenu.points') }}     {{ auth()->user->points }}</span>
                         <span>{{ trans('view.memberMenu.integral') }}   {{ auth()->user->integral }}</span>
                         <span>{{ trans('view.memberMenu.bonus') }}      {{ auth()->user->bonus }}</span>

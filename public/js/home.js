@@ -1,4 +1,4 @@
-
+var clipboard;
 $(document).ready(function(){
 	$.scrollTo(0);
 
@@ -18,6 +18,21 @@ $(document).ready(function(){
 		}
   	});
 
+  	$("#qrcode").qrcode({
+		width:  100,
+		height: 100,
+		text: QRCodeStr
+	});
+
+	clipboard = new Clipboard('#SharCopyBtn');
+	clipboard.on('success', function(e){
+	    alert(lanPack.copySuccess);
+	});
+	clipboard.on('error', function(e){
+	    alert(lanPack.copyError);
+	});
+
+
   	$(window).resize(function(){
 		reSize();
 	});
@@ -29,34 +44,7 @@ $(document).ready(function(){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-
-    // RaySys.AJAX.Send({ShopID: 101}, '/ajax/ShopCarAdd', 'SuFun', 'ErFun');
-    $("#second").hide();
-    $("#third").hide();
-    $("#openSecond").click(function(){
-        $("#first").hide();
-        $("#second").show();
-    });
-    $("#openThird").click(function(){
-        $("#first").hide();
-        $("#third").show();
-    });
-    $("#second").click(function(){
-        $("#first").show();
-        $("#second").hide();
-    });
-    $("#third").click(function(){
-        $("#first").show();
-        $("#third").hide();
-    });
 });
-
-function SuFun(_obj){
-	console.log(_obj);
-}
-function ErFun(_obj){
-	console.log(_obj);
-}
 
 function reSize(){
 	var MenuButtonHeight 	= 25;
@@ -92,13 +80,6 @@ function reSize(){
   	$("#doSomethingBlock header div h1").css("margin-top",
 		($("#doSomethingBlock header").height() - $("#doSomethingBlock header div h1").height()) / 2
 	);
-
-	if($("html").height() > document.documentElement.clientHeight){
-		$("#doSomethingBlockBanner").hide();
-	}
-	else{
-		$("#doSomethingBlockBanner").show();
-	}
 }
 
 

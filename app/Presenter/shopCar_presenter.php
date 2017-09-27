@@ -52,11 +52,11 @@ class shopCar_presenter{
                                         '.trans('view.shopCar.th.productQuantity').'
                                     </div>
                                     <div class="span9">
-                                            <button type="button" class=" span3 btn btn-default" name="minus" id="minus'.$shopID.'"><span class="glyphicon glyphicon-minus"></span></button>
+                                            <button type="button" class="span3 btn btn-default" style="padding-left: 0px; padding-right:0px; padding-bottom: 10px; padding-top:10px;" name="minus" id="minus'.$shopID.'"><span class="glyphicon glyphicon-minus"></span></button>
 
                                             <input type="number" class="span6 quantity" id="quantity'.$shopID.'" value="1" pattern="[0-9]">
 
-                                            <button type="button" class="span3 btn btn-default" name="plus" id="plus'.$shopID.'"><span class="glyphicon glyphicon-plus"></span></button>
+                                            <button type="button" class="span3 btn btn-default" style="padding-left: 0px; padding-right:0px; padding-bottom: 10px; padding-top:10px;" name="plus" id="plus'.$shopID.'"><span class="glyphicon glyphicon-plus"></span></button>
 
                                     </div>
                                     <!-- <div class="span3 shopCarListTitle" style="text-align: right;">

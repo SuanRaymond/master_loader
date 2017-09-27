@@ -175,7 +175,13 @@ class addressManagement extends Controller
     {
         //資料是否空白
         if(empty($this->box->params->addressee)){
-            return $this->rewarning(trans('message.warn.nameNull'));
+            return $this->rewarning(trans('message.warn.addresseeNull'));
+        }
+        if(empty($this->box->params->phone)){
+            return $this->rewarning(trans('message.warn.phoneNull'));
+        }
+        if(empty($this->box->params->address)){
+            return $this->rewarning(trans('message.warn.addressNull'));
         }
         //----------------------------------與廠商溝通----------------------------------
         //放入連線區塊

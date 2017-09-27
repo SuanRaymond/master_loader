@@ -24,9 +24,11 @@ class selectAddrSession extends Controller
 
     public function index()
     {
-        // dd($this->box->params);
         if(!is_null($this->box->params->index)){
             //判斷是否建立session
+            if(empty(getSessionJson('index'))){
+                createSessionJson('index');
+            }
             if(empty(getSessionJson('addressee'))){
                 createSessionJson('addressee');
             }
@@ -37,10 +39,12 @@ class selectAddrSession extends Controller
                 createSessionJson('address');
             }
             //判斷是否存入session
+            addSessionJson('index', $this->box->params->index);
             addSessionJson('addressee', $this->box->params->addressee);
             addSessionJson('phone', $this->box->params->phone);
             addSessionJson('address', $this->box->params->address);
             session()->save();
+            // dd(getSessionJson('index'));
             echo json_encode(array(
                 'result' => 'SU',
                 'msg'    => request('ID'),

@@ -38,14 +38,14 @@ class commodity_presenter{
 			    			<div class="row">
 			                    <div class="span6">
 			                    	<a id="ShopCarAdd"
-			                    	   class="button button-rounded button-flat-highlight span12">
+			                    	   class="button button-rounded button-flat-highlight span12" style="padding-left: 5px; padding-right: 5px;">
 			                    		<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
 			                    		'. trans('view.ShopDetail.b.addCar'). '
 			                    	</a>
 			                    </div>
 			                    <div class="span6">
 			                    	<a href="/PassBuy?ShopID='. $_object->shopID.'"
-			                    	   class="button button-rounded button-flat-caution span12">
+			                    	   class="button button-rounded button-flat-caution span12" style="padding-left: 5px; padding-right: 5px;">
 			                    		'. trans('view.ShopDetail.b.buyNow'). '
 			                    		<span class="glyphicon glyphicon-save" aria-hidden="true"></span>
 			                    	</a>

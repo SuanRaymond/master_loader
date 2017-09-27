@@ -135,6 +135,7 @@
 				'cancel' => '取消',
 				'CPwd'   => '修改密码',
 				'BuyList'=> '订单查询',
+				'AddressList'=> '我的收货地址',
 			],
 			'th' => [
 				'memberid'   => '推荐码',
@@ -224,6 +225,10 @@
 				'status0'     => '已下单',
 				'status1'     => '已付款',
 				'status2'     => '交易完成',
+				'price'       => '单价 ',
+				'quantity'    => '数量 ',
+				'totalprice'  => '总价 ',
+				'totalpoints' => '总PP ',
 				'bDate'       => '购买日期 ',
 			],
 

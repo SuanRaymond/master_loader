@@ -102,7 +102,7 @@ class buy extends Controller
         $this->box->html->buydetailList   = with(new shopCar_presenter())->buydetailList($this->box->result->GetShopltemCar,$this->box->price);
         // $this->box->html->priceBox        = with(new shopCar_presenter())->priceBox($this->box->result->GetShopltemCar);
         $this->box->html->buyNavbarBottom = with(new shopCar_presenter())->buyNavbarBottom($this->box->result->GetShopltemCar);
-
+        // dd(getSessionJson('index'));
         if(empty(getSessionJson('index'))){
             //放入資料區塊
             $this->box->postArray = [];

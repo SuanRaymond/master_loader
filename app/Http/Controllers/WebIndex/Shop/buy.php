@@ -66,35 +66,27 @@ class buy extends Controller
             $this->box->price->totalMoney = $row;
         }
 
-        //是否開啟開發模式
-        $this->box->deBugMode = false;
-        if(config('app.debug') == true && env('USETYPE') == 'LOCAL'){
-            $this->box->deBugMode = true;
-        }
-        $this->box->postArray = [];
-        $this->box->postArray = ['ShopID' => getSessionJson('SetShopID')];
-        // dd($this->box);
+        /*----------------------------------與廠商溝通----------------------------------*/
+        //放入連線區塊
+        //需呼叫的功能
+        $this->box->callFunction = 'GetShopltemCar';
+        $this->box->sendApiUrl   = env('SHOP_DOMAIN');
 
-        $Params = json_encode($this->box->postArray);
-        $Sign   = $Params;
-        if(!$this->box->deBugMode){
-            $Params = $encrypt_services->LaravelEncode($Params);
-            $Sign   = $encrypt_services->EnSign($Sign);
-        }
-        //資料加密與打包
-        $this->box->postArray   = http_build_query(
-            array(
-                'Params' => $Params,
-                'Sign'   => $Sign
-        ));
+        //放入資料區塊
+        $this->box->sendParams             = [];
+        $this->box->sendParams['ShopID'] = getSessionJson('SetShopID');
 
-        //取得類別選單
-        $this->box->result = with(new connection_services())
-                                ->sendHTTP(env('SHOP_DOMAIN'). '/GetShopltemCar', $this->box->postArray);
+        //送出資料
+        $this->box->result    = with(new connection_services())->callApi($this->box);
+        $this->box->getResult = $this->box->result;
+        //檢查廠商回傳資訊
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
+
         if($this->box->status != 0){
             return $this->reRrror(trans('message.error.'.$this->box->status));
         }
+        /*----------------------------------與廠商溝通----------------------------------*/
+
         if(empty(getSessionJson('GetShopltemCar'))){
             createSessionJson('GetShopltemCar');
         }
@@ -104,27 +96,26 @@ class buy extends Controller
         $this->box->html->buyNavbarBottom = with(new shopCar_presenter())->buyNavbarBottom($this->box->result->GetShopltemCar);
         // dd(getSessionJson('index'));
         if(empty(getSessionJson('index'))){
+            /*----------------------------------與廠商溝通----------------------------------*/
+            //放入連線區塊
+            //需呼叫的功能
+            $this->box->callFunction = 'DetailSimple';
+            $this->box->sendApiUrl   = env('SHOP_DOMAIN');
+
             //放入資料區塊
-            $this->box->postArray = [];
-            $this->box->postArray['MemberID'] = auth()->user->memberID;
+            $this->box->sendParams             = [];
+            $this->box->sendParams['MemberID'] = auth()->user->memberID;
 
-            $Params = json_encode($this->box->postArray);
-            $Sign   = $Params;
-            if(!$this->box->deBugMode){
-                $Params = $encrypt_services->LaravelEncode($Params);
-                $Sign   = $encrypt_services->EnSign($Sign);
-            }
-            //資料加密與打包
-            $this->box->postArray   = http_build_query(
-                array(
-                    'Params' => $Params,
-                    'Sign'   => $Sign
-            ));
-
-            //取得類別選單
-            $this->box->result = with(new connection_services())
-                                    ->sendHTTP(env('SHOP_DOMAIN'). '/DetailSimple', $this->box->postArray);
+            //送出資料
+            $this->box->result    = with(new connection_services())->callApi($this->box);
+            $this->box->getResult = $this->box->result;
+            //檢查廠商回傳資訊
             $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
+
+            if($this->box->status != 0){
+                return $this->reRrror(trans('message.error.'.$this->box->status));
+            }
+            /*----------------------------------與廠商溝通----------------------------------*/
             // dd($this->box);
             if(empty(getSessionJson('addressee'))){
                 createSessionJson('addressee');
@@ -138,9 +129,6 @@ class buy extends Controller
             addSessionJson('addressee', $this->box->result->Member->addressee);
             addSessionJson('phone', $this->box->result->Member->phone);
             addSessionJson('address', $this->box->result->Member->address);
-            if($this->box->status != 0){
-                return $this->reRrror(trans('message.error.'.$this->box->status));
-            }
         }else{
             $this->box->result->Member = (object) array();
             foreach(getSessionJson('addressee') as $row){

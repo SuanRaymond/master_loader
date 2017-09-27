@@ -82,16 +82,26 @@ class registered extends Controller
         $this->box->sendParams['Account']    = $this->box->params->account;
         $this->box->sendParams['Password']   = $this->box->params->password;
         $this->box->sendParams['Name']       = $this->box->params->name;
-        $this->box->sendParams['Mail']       = $this->box->params->mail;
+        // $this->box->sendParams['Mail']       = $this->box->params->mail;
+        if(!empty($this->box->params->mail)){
+            $this->box->sendParams['mail']  = $this->box->params->mail;
+        }else{
+            $this->box->sendParams['mail']  = '';
+        }
         $this->box->sendParams['GroupID']    = $this->box->params->groupID;
-        $this->box->sendParams['UpMemberID'] = $this->box->params->upmemberID;
-
+        // $this->box->sendParams['UpMemberID'] = $this->box->params->upmemberID;
+        if(!empty($this->box->params->upmemberID)){
+            $this->box->sendParams['UpMemberID']  = $this->box->params->upmemberID;
+        }else{
+            $this->box->sendParams['UpMemberID']  = '';
+        }
         //送出資料
         $this->box->result    = with(new connection_services())->callApi($this->box);
         $this->box->getResult = $this->box->result;
 
         //檢查廠商回傳資訊
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
+        dd($this->box);
         if($this->box->status != 0){
             return $this->reRrror(trans('message.error.'.$this->box->status));
             // return $this->reRrror($this->box->status);

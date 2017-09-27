@@ -27,67 +27,52 @@ class commodityOrderAdd extends Controller
 
     public function index()
     {
-        $result = $this->search();
-        if(!$result){
-            return mIView('login');
-        }
+        //----------------------------------與廠商溝通----------------------------------
+        //放入連線區塊
+        //需呼叫的功能
+        $this->box->callFunction = 'CommodityOrderAdd';
+        $this->box->sendApiUrl = env('SHOP_DOMAIN');
 
-        $encrypt_services     = new encrypt_services(env('APP_KEY'));
-
-        //是否開啟開發模式
-        $this->box->deBugMode = false;
-        if(config('app.debug') == true && env('USETYPE') == 'LOCAL'){
-            $this->box->deBugMode = true;
-        }
-
-        $this->box->MemberBuyToabl=[];
+        $this->box->sessionmember = with(new web_judge_services($this->box))->check(['CMSS']);
+        //放入資料區塊
+        $this->box->sendParams=[];
         $this->box->memberBuy = (object) array();
         $this->box->memberBuy = reSetKey(getSessionJson('GetShopltemCar'));
-        $this->box->MemberBuyToabl['MemberID'] = auth()->user->memberID;
+        $this->box->sendParams['MemberID'] = auth()->user->memberID;
         foreach ($this->box->memberBuy as $rowID => $group) {
             foreach($group as $shopID => $row){
                 foreach(getSessionJson("quantityNumber") as $group){
                     if(!is_null($group)){
                         foreach ($group as $key => $value) {
                             if($shopID == $key){
-                                $this->box->MemberBuyToabl['Item'][$row->shopID] = $value;
+                                $this->box->sendParams['Item'][$row->shopID] = $value;
                             }
                         }
                     }else{
-                        $this->box->MemberBuyToabl['Item'][$row->shopID] = 1;
+                        $this->box->sendParams['Item'][$row->shopID] = 1;
                     }
                 }
             }
         }
         foreach(getSessionJson('addressee') as $row){
-            $this->box->MemberBuyToabl['Addressee'] = $row;
+            $this->box->sendParams['Addressee'] = $row;
         }
         foreach(getSessionJson('phone') as $row){
-            $this->box->MemberBuyToabl['phone'] = $row;
+            $this->box->sendParams['phone'] = $row;
         }
         foreach(getSessionJson('address') as $row){
-            $this->box->MemberBuyToabl['address'] = $row;
+            $this->box->sendParams['address'] = $row;
         }
-        $Params = json_encode($this->box->MemberBuyToabl);
-        $Sign   = $Params;
-        if(!$this->box->deBugMode){
-            $Params = $encrypt_services->LaravelEncode($Params);
-            $Sign   = $encrypt_services->EnSign($Sign);
-        }
-        //資料加密與打包
-        $this->box->MemberBuyToabl   = http_build_query(
-            array(
-                'Params' => $Params,
-                'Sign'   => $Sign
-        ));
 
-        //取得類別選單
-        $this->box->result = with(new connection_services())
-                                ->sendHTTP(env('SHOP_DOMAIN'). '/CommodityOrderAdd', $this->box->MemberBuyToabl);
+        //送出資料
+        $this->box->result    = with(new connection_services())->callApi($this->box);
+        $this->box->getResult = $this->box->result;
+        //檢查廠商回傳資訊
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
         if($this->box->status != 0){
             return $this->reRrror(trans('message.error.'.$this->box->status));
         }
+
         // 金額數量參數
         removeSessionJson('quantityNumber');
         removeSessionJson('totalprice');
@@ -107,12 +92,6 @@ class commodityOrderAdd extends Controller
         $box = $this->box;
         // return redirect('/Shop');
         return redirect('/BuyList');
-    }
-    public function search()
-    {
-        $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
-
-        return true;
     }
     public function reRrror($_msg)
     {

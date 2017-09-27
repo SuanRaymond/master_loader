@@ -96,7 +96,12 @@ class changeMemberProfile extends Controller
         $this->box->sendParams             = [];
         $this->box->sendParams['memberID'] = auth()->user->memberID;
         $this->box->sendParams['name']     = $this->box->params->name;
-        $this->box->sendParams['mail']     = $this->box->params->mail;
+        // $this->box->sendParams['mail']     = $this->box->params->mail;
+        if(!empty($this->box->params->mail)){
+            $this->box->sendParams['mail']  = $this->box->params->mail;
+        }else{
+            $this->box->sendParams['mail']  = '';
+        }
         if(!empty($this->box->params->address)){
             $this->box->sendParams['address']  = $this->box->params->address;
         }else{

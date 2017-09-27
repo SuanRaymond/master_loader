@@ -53,10 +53,10 @@
                         <br>
                     </form>
                     <div class="span6">
-                        <a id="reverification_Submit" class="button button-flat-primary button-large  button-block">{{ trans('view.CheckCode.b.resend') }}</a>
+                        <a id="reverification_Submit" class="button button-flat-primary button-large  button-block" style="padding-left: 5px;padding-right: 5px;">{{ trans('view.CheckCode.b.resend') }}</a>
                     </div>
                     <div class="span6">
-                        <a id="verification_Submit" class="button button-flat-primary button-large  button-block">{{ trans('view.CheckCode.b.CheckOK') }}</a>
+                        <a id="verification_Submit" class="button button-flat-primary button-large  button-block" style="padding-left: 5px;padding-right: 5px;">{{ trans('view.CheckCode.b.CheckOK') }}</a>
                     </div>
                 </div>
             </div>

@@ -94,7 +94,7 @@
 
         </header>
 
-        <div id="ContentBody" align="center">
+        <div id="ContentBody">
             @yield('content')
         </div>
 

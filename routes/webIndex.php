@@ -42,8 +42,20 @@ Route::get('/Check', 'verificationCheck@index');
 Route::post('/Check', 'verificationCheck@check');
 //上傳頭像 頁面
 Route::get('/PUpload', 'photoUpload@index');
-//上傳頭像 頁面
+//訂單查詢 頁面
 Route::get('/BuyList', 'memberBuyList@index');
+//收貨地址管理 頁面
+Route::get('/AddressList', 'addressManagement@index');
+//收貨地址新增 頁面
+Route::get('/NAddress', 'addressManagement@newdata');
+//收貨地址修改 頁面
+Route::get('/CAddress', 'addressManagement@change');
+//收貨地址新增 驗證
+Route::post('/NAddress', 'addressManagement@Ncheck');
+//收貨地址修改 驗證
+Route::post('/CAddress', 'addressManagement@Ccheck');
+//收貨地址選擇 頁面
+Route::get('/SAddress', 'addressManagement@select');
 
 
 

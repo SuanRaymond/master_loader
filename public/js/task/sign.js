@@ -13,7 +13,7 @@ function SuFun(_obj){
         closeOnConfirm: false,
         showLoaderOnConfirm: true,
         timer: 5000,
-        confirmButtonText: "確認",
+        confirmButtonText: "确认",
     },
     function(){
         document.location.href="/Task";
@@ -21,14 +21,14 @@ function SuFun(_obj){
 }
 function ErFun(_obj){
     // console.log(_obj);
-    swal("签到失败", _obj.ResultJSON.error, "error");
+    // swal("签到失败", _obj.ResultJSON.error, "error");
     swal({
         title: "签到失败",
         text: _obj.ResultJSON.error,
         type:"error",
         closeOnConfirm: false,
         showLoaderOnConfirm: true,
-        confirmButtonText: "確認",
+        confirmButtonText: "确认",
     },
     function(){
         document.location.href="/Task";

@@ -55,21 +55,20 @@
                             </tr>
                             <tr>
                                 <td style="text-align: right;">
-                                    <span style="color: red;">*</span>{{ trans('view.CMFile.th.mail') }}
+                                    {{ trans('view.CMFile.th.mail') }}
                                 </td>
                                 <td>
                                     <input type="text" name="mail" value={{ $box->member->mail }}>
                                 </td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td style="text-align: right;">
                                     {{ trans('view.CMFile.th.address') }}
                                 </td>
                                 <td>
-                                    <!-- <input type="text" name="address" value={{ $box->member->address }}> -->
                                     <textarea rows="4" cols="20" name="address">{{ $box->member->address }}</textarea>
                                 </td>
-                            </tr>
+                            </tr> -->
                             <tr>
                                 <td style="text-align: right;">
                                     {{ trans('view.CMFile.th.birthday') }}

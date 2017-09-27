@@ -13,6 +13,7 @@ function SuFun(){
         title: "获得加速"+$("#TaskOdds").val()+"%",
         text: "获得"+$("#MoneyBack").val()+"金蛋",
         type:"success",
+        confirmButtonText: "确认",
         closeOnConfirm: false,
         showLoaderOnConfirm: true,
     },

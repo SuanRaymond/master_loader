@@ -57,28 +57,31 @@
         <div class="span12 shopCarBlockTitle">
             {{ trans('view.shopBuy.memberTitle') }}
         </div>
-        <div class="span12 shopCarItemBox">
-            <div class="row shopCarItemTextBox">
-                <div class="span4 shopCarListTitle">
-                    {{ trans('view.shopBuy.memberName') }}
-                </div>
-                <div class="span8">
-                    {{ $box->result->Member->name }}
-                </div>
-                <div class="span4 shopCarListTitle">
-                    {{ trans('view.shopBuy.memberPhone') }}
-                </div>
-                <div class="span8">
-                    {{ $box->result->Member->account }}
-                </div>
-                <div class="span4 shopCarListTitle">
-                    {{ trans('view.shopBuy.memberAddress') }}
-                </div>
-                <div class="span8">
-                    {{ $box->result->Member->address }}
+        <a href="/SAddress">
+            <div class="span12 shopCarItemBox">
+                <div class="row shopCarItemTextBox">
+                    <div class="span12" align="right"><span style="color: blue;text-decoration: underline;">更改</span></div>
+                    <div class="span4 shopCarListTitle">
+                        {{ trans('view.shopBuy.memberName') }}
+                    </div>
+                    <div class="span8" id="addressee">
+                        {{ $box->result->Member->addressee }}
+                    </div>
+                    <div class="span4 shopCarListTitle">
+                        {{ trans('view.shopBuy.memberPhone') }}
+                    </div>
+                    <div class="span8" id="phone">
+                        {{ $box->result->Member->phone }}
+                    </div>
+                    <div class="span4 shopCarListTitle">
+                        {{ trans('view.shopBuy.memberAddress') }}
+                    </div>
+                    <div class="span8" id="address">
+                        {{ $box->result->Member->address }}
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
         <div style="margin-bottom: 40px;">&nbsp;</div>
 @stop
 

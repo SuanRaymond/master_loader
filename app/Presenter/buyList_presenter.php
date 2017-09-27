@@ -12,9 +12,9 @@ class buylist_presenter{
         $html = '';
 
         foreach($_object as $row){
-            // dd($row->bDate);
+            // dd($row);
             $html .= '
-            <tbody style="border-top: 10px solid #f0f0f0; font-size: 4.5vw;">
+            <tbody style="border-top: 10px solid #f0f0f0; font-size: 3.5vw;">
                 <tr>
                     <tr>
                         <td colspan="3" style="font-size: 6vw;">
@@ -22,7 +22,7 @@ class buylist_presenter{
                         </td>
                     </tr>
                     <tr>
-                        <td style="text-align: right; width: 30%;" rowspan="3">
+                        <td style="text-align: right; width: 30%; text-align: center;vertical-align: middle;" rowspan="4">
                             <div class="span12" style="padding: 0;">
                                 <img src="'.$row->images.'" width="100%" alt="">
                             </div>
@@ -36,10 +36,18 @@ class buylist_presenter{
                     </tr>
                     <tr>
                         <td>
-                            $'.pFormat($row->price).'
+                            '.trans('view.BuyList.th.price').pFormat($row->price).'
                         </td>
                         <td>
-                            PP '.pFormat($row->points).'
+                            '.trans('view.BuyList.th.quantity').pFormat($row->quantity).'
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            '.trans('view.BuyList.th.totalprice').pFormat($row->totalprice).'
+                        </td>
+                        <td>
+                            '.trans('view.BuyList.th.totalpoints').pFormat($row->totalpoints).'
                         </td>
                     </tr>
                     <tr>

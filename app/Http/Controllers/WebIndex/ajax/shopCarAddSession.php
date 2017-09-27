@@ -48,17 +48,17 @@ class shopCarAddSession extends Controller
             if(!searchSessionJson('quantityNumber',$this->box->params->quantityNumber)){
                 addSessionJson('quantityNumber', $this->box->params->quantityNumber);
             }
-            if(!searchSessionJson('totalprice',$this->box->params->totalprice)){
-                addSessionJson('totalprice', $this->box->params->totalprice);
+            if(!searchSessionJson('totalprice',pRFormat($this->box->params->totalprice))){
+                addSessionJson('totalprice', pRFormat($this->box->params->totalprice));
             }
-            if(!searchSessionJson('totaltransport',$this->box->params->totaltransport)){
-                addSessionJson('totaltransport', $this->box->params->totaltransport);
+            if(!searchSessionJson('totaltransport',pRFormat($this->box->params->totaltransport))){
+                addSessionJson('totaltransport', pRFormat($this->box->params->totaltransport));
             }
-            if(!searchSessionJson('totalPoint',$this->box->params->totalPoint)){
-                addSessionJson('totalPoint', $this->box->params->totalPoint);
+            if(!searchSessionJson('totalPoint',pRFormat($this->box->params->totalPoint))){
+                addSessionJson('totalPoint', pRFormat($this->box->params->totalPoint));
             }
-            if(!searchSessionJson('totalMoney',$this->box->params->totalMoney)){
-                addSessionJson('totalMoney', $this->box->params->totalMoney);
+            if(!searchSessionJson('totalMoney',pRFormat($this->box->params->totalMoney))){
+                addSessionJson('totalMoney', pRFormat($this->box->params->totalMoney));
             }
             session()->save();
             echo json_encode(array(

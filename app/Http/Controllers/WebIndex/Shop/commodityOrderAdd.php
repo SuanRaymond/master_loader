@@ -53,6 +53,15 @@ class commodityOrderAdd extends Controller
                 }
             }
         }
+        foreach(getSessionJson('addressee') as $row){
+            $this->box->MemberBuyToabl['Addressee'] = $row;
+        }
+        foreach(getSessionJson('phone') as $row){
+            $this->box->MemberBuyToabl['phone'] = $row;
+        }
+        foreach(getSessionJson('address') as $row){
+            $this->box->MemberBuyToabl['address'] = $row;
+        }
         $Params = json_encode($this->box->MemberBuyToabl);
         $Sign   = $Params;
         if(!$this->box->deBugMode){
@@ -73,13 +82,21 @@ class commodityOrderAdd extends Controller
         if($this->box->status != 0){
             return $this->reRrror(trans('message.error.'.$this->box->status));
         }
+        // 金額數量參數
         removeSessionJson('quantityNumber');
         removeSessionJson('totalprice');
         removeSessionJson('totaltransport');
         removeSessionJson('totalPoint');
         removeSessionJson('totalMoney');
+        // 產品資料參數
         removeSessionJson('SetShopID');
         removeSessionJson('GetShopltemCar');
+        // 收件人參數
+        removeSessionJson('index');
+        removeSessionJson('addressee');
+        removeSessionJson('phone');
+        removeSessionJson('address');
+        removeSessionJson('defaule');
         setMesage([alert(trans('message.title.success'), trans('message.success.buyOK'), 1)]);
         $box = $this->box;
         // return redirect('/Shop');

@@ -33,13 +33,13 @@
         </script>
 
     </head>
-    <body>
+    <body style="background-color: #f0f0f0;">
         <div>
-            <div class="span12" style="text-align: center; background-color: #f0f0f0;"><h1>{{ trans('view.BuyList.BuyListTitle') }}</h1></div>
-            <div class="span12" style="background-color: #f0f0f0; padding: 5px;">
+            <div class="span12" style="text-align: center;"><h1>{{ trans('view.BuyList.BuyListTitle') }}</h1></div>
+            <div class="span12" style=" padding: 5px;">
                 <table class="table table-bordered table-condensed" style="background-color: #ffffff;">
                     {!! $box->html->BuyList !!}
-                    <!-- <tbody style="border-top: 10px solid #f0f0f0;">
+                    <!-- <tbody style="border-top: 10px solid #f0f0f0; font-size: 3.5vw;">
                         <tr>
                             <tr>
 
@@ -48,7 +48,7 @@
                                 </td>
                             </tr>
                             <tr>
-                            <td style="text-align: right; width: 30%;" rowspan="3">
+                            <td style="text-align: right; width: 30%;" rowspan="4">
                                     圖片
                                     <div class="span12" style="padding: 0;">
                                         <img src="" alt="">
@@ -63,7 +63,15 @@
                             </tr>
                             <tr>
                                 <td>
-                                    價格
+                                    單價
+                                </td>
+                                <td>
+                                    數量
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    總價
                                 </td>
                                 <td>
                                     PP

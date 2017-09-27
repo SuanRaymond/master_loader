@@ -14,7 +14,12 @@ Route::post('/GameSend', 'signSend@game');
 Route::post('/PhotoSend', 'photoSend@index');
 //購物車轉結算
 Route::post('/SCAS', 'shopCarAddSession@index');
-
+//地址暫存
+Route::post('/CAddressS', 'addressSession@index');
+//地址刪除
+Route::post('/CAddressD', 'addressSession@deleteA');
+//地址暫存 選擇
+Route::post('/SAddress', 'selectAddrSession@index');
 
 
 

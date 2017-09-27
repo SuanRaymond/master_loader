@@ -68,7 +68,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="text-align: right;">
+                            <td style="text-align: right; vertical-align: middle;">
                                 {{ trans('view.MFile.th.pwd') }}
                             </td>
                             <td>
@@ -85,7 +85,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="text-align: right;">
+                            <td style="text-align: right; vertical-align: middle;">
                                 {{ trans('view.MFile.th.points') }}
                             </td>
                             <td>
@@ -118,11 +118,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="text-align: right;">
+                            <td style="text-align: right; vertical-align: middle;">
                                 {{ trans('view.MFile.th.address') }}
                             </td>
                             <td>
-                                {{ $box->member->address }}
+                                <!-- {{ $box->member->address }} -->
+                                <a href="/AddressList" class="button button-flat-primary button-lg">{{ trans('view.MFile.b.AddressList') }}</a>
                             </td>
                         </tr>
                         <tr>

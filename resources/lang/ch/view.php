@@ -228,6 +228,35 @@
 			],
 
 		],
+		'AddressList' =>[
+            'AddressListTitle'   => '管理收货地址',
+            'NewAddressTitle'    => '新增收货地址',
+            'UpdateAddressTitle' => '编辑收货地址',
+            'SelectAddressTitle' => '选择收货地址',
+            'b' =>[
+                'cancel'     => '取消',
+                'update'     => '编辑',
+                'delete'     => '删除',
+                'confirm'    => '确认',
+                'back'       => '返回',
+                'select'     => '选择',
+                'goaddress'  => '我的收货地址',
+                'newaddress' => '新增地址',
+            ],
+            'th' =>[
+                'Prompt'    => '全部字段皆必填',
+                'addressee' => '收货人',
+                'phone'     => '联系电话',
+                'address'   => '送货地址',
+                'main'      => '设为主要',
+                'yes'       => '是',
+                'no'        => '否',
+                'showmain'  => '默认地址',
+                'phonebr'   => '联系<br>电话',
+                'addressbr' => '送货<br>地址',
+            ],
+
+        ],
 		//===會員中心====會員中心====會員中心====會員中心====會員中心====會員中心====會員中心===
 
 		//===任務頁面====任務頁面====任務頁面====任務頁面====任務頁面====任務頁面====任務頁面===

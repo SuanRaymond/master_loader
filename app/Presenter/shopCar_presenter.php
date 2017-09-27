@@ -203,8 +203,8 @@ class shopCar_presenter{
                     <a class="span3 button button-flat shopCarNavbarBottom" href="/Shop">
                         <span class="glyphicon glyphicon-home"></span>
                     </a>
-                    <div class="span5 shopCarNavbarBottom" style="text-align: right;" id="BottomMoney">
-                        '. trans('view.shopCar.totalMoney') .'：'. pFormat($totalMoney) .'
+                    <div class="span5 shopCarNavbarBottom" style="text-align: right;">
+                        '. trans('view.shopCar.totalMoney') .'：<span id="BottomMoney">'. pFormat($totalMoney) .'</span>
                     </div>
                     <a class="span4 button button-flat-caution shopCarNavbarBottom" role="button" id="Buy">
                         '. trans('view.shopCar.b.Checkout') .'

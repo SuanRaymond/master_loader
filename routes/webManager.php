@@ -16,13 +16,14 @@ Route::get('/logout', 'logout@index');
 //帳號列表
 Route::get('/AccountList', 'account\accountList@index');
 
-
-
 //取得購物報表
 Route::get('/ShopList', 'report\shopOrderList@index');
 
+//取得藏蛋報表
+Route::get('/RebateList', 'report\rebateList@index');
 
-
+//取得返利報表
+Route::get('/BackList', 'report\backList@index');
 
 //商品上傳 - 主頁
 Route::get('/InsertShop', 'shop\commodity@index');

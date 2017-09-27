@@ -144,6 +144,52 @@
 	    	],
 	    ],
 
+	    'rebateList' => [
+	    	't'                     => [
+	            'title'             => '藏蛋清單',
+	            'detailRebateTitle' => '藏蛋加速資訊',
+	        ],
+	        'tr' => [
+	        	'0'  => '停用',
+	        	'1'  => '啟用',
+	        ],
+	    	'th' => [
+	    		'rebateID' 	  	=> '藏蛋編號',
+	    		'moneyBack'   	=> '預計返利',
+	    		'back'   	  	=> '目前返利',
+	    		'baseOdds'    	=> '返利速度',
+	    		'checkinCount'	=> '連續簽到天數',
+	    		'lowerCount'  	=> '下線人數',
+	    		'payCountType1'	=> '下線購買藏蛋套餐1人數',
+	    		'payCountType2' => '下線購買藏蛋套餐2人數',
+	    		'payCountType3' => '下線購買藏蛋套餐3人數',
+	    		'payCountType4' => '下線購買藏蛋套餐4人數',
+	    	],
+	    ],
+
+	    'backList' => [
+	    	't'                     => [
+	            'title'             => '返利清單',
+	            'detailBackTitle' => '任務小遊戲',
+	        ],
+	        'tt' => [
+	        	'0'  => '神秘寶箱',
+	        	'1'  => '敲金蛋',
+	        ],
+	    	'th' => [
+	    		'backID' 	  	=> '返利編號',
+	    		'rebateID'   	=> '藏蛋編號',
+	    		'before'   	  	=> '返利前',
+	    		'after'    		=> '返利後',
+	    		'baseOdds'		=> '返利速度',
+	    		'taskOdds'		=> '任務加速',
+	    		'back'  		=> '返利金蛋',
+	    		'scratchID'		=> '編號',
+	    		'type' 			=> '種類',
+	    		'result' 		=> '賽果',
+	    	],
+	    ],
+
 	    'insertShop' => [
 	    	'title' => '新增商品',
 	    	'c' => [

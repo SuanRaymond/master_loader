@@ -19,7 +19,7 @@ $(document).ready(function(){
 function doublecheck(Type){
     swal({
         title: "提醒！",
-        text: "买了无法退换货",
+        text: "藏蛋后无法取消",
         type:"info",
         confirmButtonText: "好",
         cancelButtonText: "取消",
@@ -30,8 +30,8 @@ function doublecheck(Type){
     function(){
         setTimeout(function(){
             swal({
-                title: "是否确认购买？",
-                text: "买了会扣PP",
+                title: "是否确认藏蛋？",
+                text: "藏蛋后会扣PP",
                 type:"warning",
                 confirmButtonText: "确认",
                 cancelButtonText: "取消",
@@ -41,7 +41,7 @@ function doublecheck(Type){
             },
             function(){
                 if(parseInt($("#points").val())<parseInt($("#points"+Type).val())){
-                    swal.showInputError("PP不足无法购买");
+                    swal.showInputError("PP不足无法藏蛋");
                     return false
                 }else{
                     RaySys.AJAX.Send({TypeID: Type}, '/ajax/Rebate', 'SuFun', 'ErFun');
@@ -53,7 +53,7 @@ function doublecheck(Type){
 function SuFun(_obj){
     // console.log(_obj);
     swal({
-        title: "购买成功",
+        title: "藏蛋成功",
         text: "",
         type:"success",
         closeOnConfirm: false,
@@ -64,6 +64,6 @@ function SuFun(_obj){
 }
 function ErFun(_obj){
     // console.log(_obj);
-    swal("购买失败", "", "error");
+    swal("藏蛋失败", "", "error");
 }
 

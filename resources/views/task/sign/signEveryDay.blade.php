@@ -19,14 +19,14 @@
 
 @section('content')
 
-    <div class="span12 text-justify" style="margin-top: 9vh; font-size: 4.5vw;">
+    <div class="span12 text-justify" style="margin-top: 15vh; font-size: 4.5vw;">
         <div class="text-center" style="margin-bottom: 10px;">
             按下下方藍色  <strong style="font-size: 8vw;">簽</strong>  按鈕，可以每日簽到。
         </div>
         <ins>連續簽到每達200日</ins>
         可獲得額外加速，此加速可累積到此套餐結束後歸0，新套餐需重新累積。
     </div>
-    <div style="text-align: center; margin-top: 30vh;">
+    <div class="span12" style="text-align: center;>
         <span class="button-wrap">
             <a class="button button-circle button-primary" id="sign">
                 {{ trans('view.sign.b.send') }}
@@ -34,7 +34,7 @@
         </span>
     </div>
     <br>
-    <div class="text-center">
+    <div class="span12 text-center">
         <h3 style="font-size: 7vw;">
             連續簽到&nbsp;
             <span class="fontred" style="font-size: 9vw;"><ins>{{ $box->params->Count }}</ins></span>&nbsp;

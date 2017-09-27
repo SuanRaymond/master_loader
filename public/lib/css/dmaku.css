@@ -24,7 +24,7 @@
     cursor:crosshair;
     z-index: 3;
     position: absolute;
-    top: 0;
+    /*top: 0;*/
     left: 50%;
     margin-left: -150px;
 }

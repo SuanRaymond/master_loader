@@ -58,12 +58,12 @@ class bateList_presenter{
         $html = '
                 <div class="panel-body">
                     <div class="list-group">
-                        <a href="/Sign?Count='.$_object->CheckinCount.'" class="list-group-item">
+                        <a href="/Sign?Count='.$_object->CheckinCount.'" class="list-group-item" style="text-align: left;">
                             '. trans('view.Task.cl.SignName') .'
                             <span class="label label-info">'. trans('view.Task.cl.SignDay') .$_object->CheckinCount.'</span>
                             <span class="badge badge'.$_object->Checkin.'">'. trans('view.Task.cl.badge'.$_object->Checkin) .'</span>
                         </a>
-                        <a href="/PGame" class="list-group-item">
+                        <a href="/PGame" class="list-group-item" style="text-align: left;">
                             '. trans('view.Task.cl.GameName') .'
                             <span class="badge badge'.$_object->ScratchCard.'">'. trans('view.Task.cl.badge'.$_object->ScratchCard) .'</span>
                         </a>

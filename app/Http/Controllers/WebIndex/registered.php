@@ -101,7 +101,7 @@ class registered extends Controller
 
         //檢查廠商回傳資訊
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
-        dd($this->box);
+        // dd($this->box);
         if($this->box->status != 0){
             return $this->reRrror(trans('message.error.'.$this->box->status));
             // return $this->reRrror($this->box->status);

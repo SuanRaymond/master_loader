@@ -46,9 +46,15 @@ class commodityOrderAdd extends Controller
         $this->box->MemberBuyToabl['MemberID'] = auth()->user->memberID;
         foreach ($this->box->memberBuy as $rowID => $group) {
             foreach($group as $shopID => $row){
-                foreach(getSessionJson("quantityNumber")[0] as $key => $value){
-                    if($shopID == $key){
-                        $this->box->MemberBuyToabl['Item'][$row->shopID] =  $value;//$row->quantity;
+                foreach(getSessionJson("quantityNumber") as $group){
+                    if(!is_null($group)){
+                        foreach ($group as $key => $value) {
+                            if($shopID == $key){
+                                $this->box->MemberBuyToabl['Item'][$row->shopID] = $value;
+                            }
+                        }
+                    }else{
+                        $this->box->MemberBuyToabl['Item'][$row->shopID] = 1;
                     }
                 }
             }

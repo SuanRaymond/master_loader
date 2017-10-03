@@ -13,6 +13,10 @@
                 RaySys.Alert.Fixet("{{ trans('message.onWaiting') }}","", 0);
                 RaySys.AJAX.Send({memberID: 0}, '/ajax/SignSend', 'SuFun', 'ErFun');
             });
+            $("#testsign").click(function(){
+                RaySys.Alert.Fixet("{{ trans('message.onWaiting') }}","", 0);
+                RaySys.AJAX.Send({memberID: 0}, '/ajax/SignSend', 'SuFuntest', 'ErFuntest');
+            });
         });
     </script>
 @stop
@@ -37,7 +41,7 @@
     <div class="span12 text-center">
         <h3 style="font-size: 7vw;">
             連續簽到&nbsp;
-            <span class="fontred" style="font-size: 9vw;"><ins>{{ $box->params->Count }}</ins></span>&nbsp;
+            <span class="fontred" style="font-size: 9vw;" id="testsign"><ins>{{ $box->params->Count }}</ins></span>&nbsp;
             天
         </h3>
     </div>

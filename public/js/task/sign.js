@@ -16,8 +16,7 @@ function SuFun(_obj){
         confirmButtonText: "确认",
     },
     function(){
-        // document.location.href="/Task";
-        RaySys.AJAX.Send({TypeID: 1}, '/ajax/GameSend', 'SuFunGame', 'ErFunGame');
+        document.location.href="/Task";
     });
 }
 function ErFun(_obj){
@@ -33,7 +32,37 @@ function ErFun(_obj){
     },
     function(){
         document.location.href="/Task";
-        // RaySys.AJAX.Send({TypeID: 2}, '/ajax/GameSend', 'SuFunGame', 'ErFunGame');
+    });
+}
+function SuFuntest(_obj){
+    // console.log(_obj);
+    swal({
+        title: "签到完毕",
+        text: "连续签到天数：＋１",
+        type:"success",
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true,
+        timer: 4000,
+        confirmButtonText: "确认",
+    },
+    function(){
+        // document.location.href="/Task";
+        RaySys.AJAX.Send({TypeID: 1}, '/ajax/GameSend', 'SuFunGame', 'ErFunGame');
+    });
+}
+function ErFuntest(_obj){
+    // console.log(_obj);
+    // swal("签到失败", _obj.ResultJSON.error, "error");
+    swal({
+        title: "签到失败",
+        text: _obj.ResultJSON.error,
+        type:"error",
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true,
+        confirmButtonText: "确认",
+    },
+    function(){
+        document.location.href="/Task";
     });
 }
 function SuFunGame(_obj){
@@ -44,12 +73,12 @@ function SuFunGame(_obj){
         type:"success",
         closeOnConfirm: false,
         showLoaderOnConfirm: true,
-        timer: 5000,
+        timer: 4000,
         confirmButtonText: "确认",
     },
     function(){
         // document.location.href="/Task";
-        RaySys.AJAX.Send({memberID: 0}, '/ajax/SignSend', 'SuFun', 'ErFun');
+        RaySys.AJAX.Send({memberID: 0}, '/ajax/SignSend', 'SuFuntest', 'ErFuntest');
     });
 }
 function ErFunGame(_obj){

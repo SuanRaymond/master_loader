@@ -61,6 +61,14 @@
             QRCodeStr = "{{ url('Registered') }}?upmemberID={{ auth()->user->memberID }}";
         @endif
         $(document).ready(function(){
+            $("#shareInfoBlock").hide();
+            $("#shareInfoClick").click(function(){
+                if($("#shareInfoBlock").css('display') == 'none'){
+                    $("#shareInfoBlock").show();
+                }else{
+                    $("#shareInfoBlock").hide();
+                }
+            });
             /** Alert **/
             {!! session()->get('msg', '') !!}
             {{ setMesage(null) }}
@@ -131,16 +139,18 @@
                         @endif
                     "></div>
                     @if(auth()->loginType)
-                        <span>{{ trans('view.memberMenu.shareInfo') }}</span>
-                        <div align="center"><div id="qrcode"></div></div>
-                        <span>{{ trans('view.memberMenu.share') }}      {{ auth()->user->memberID }}</span>
-                        <span>{{ trans('view.memberMenu.shareUrl') }}
-                            <div style="overflow-x: scroll; white-space:nowrap;">{{ url('Registered') }}?upmemberID={{ auth()->user->memberID }}</div>
-                        </span>
-                        <a href="javascript:;" id="SharCopyBtn" data-clipboard-text="{{ url('Registered') }}?upmemberID={{ auth()->user->memberID }}">
-                            <i class="fa fa-sign-out" aria-hidden="true"></i>
-                            {{ trans('view.memberMenu.sharCopy') }}
-                        </a>
+                        <span align="center" id="shareInfoClick">{{ trans('view.memberMenu.shareInfo') }}</span>
+                        <div id="shareInfoBlock">
+                            <div align="center"><div id="qrcode"></div></div>
+                            <span>{{ trans('view.memberMenu.share') }}      {{ auth()->user->memberID }}</span>
+                            <span>{{ trans('view.memberMenu.shareUrl') }}
+                                <div style="overflow-x: scroll; white-space:nowrap;">{{ url('Registered') }}?upmemberID={{ auth()->user->memberID }}</div>
+                            </span>
+                            <a href="javascript:;" id="SharCopyBtn" data-clipboard-text="{{ url('Registered') }}?upmemberID={{ auth()->user->memberID }}">
+                                <i class="glyphicon glyphicon-share" aria-hidden="true"></i>
+                                {{ trans('view.memberMenu.sharCopy') }}
+                            </a>
+                        </div>
                         <hr>
                         <span>{{ trans('view.memberMenu.nickName') }}   {{ auth()->user->name }}</span>
                         <span>{{ trans('view.memberMenu.points') }}     {{ auth()->user->points }}</span>

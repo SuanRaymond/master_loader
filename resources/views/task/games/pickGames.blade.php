@@ -17,6 +17,7 @@
                     <img class="span12 sortImg" src="./images/games/Awards1.jpg">
                     <div class="span12 sortListTextBox">
                         <div class="span12 TextTitle">神秘宝箱</div>
+                        <div class="span12 TextDetali">8个数字3个相同，<br>即得该奖项</div>
                     </div>
                 </div>
             </a>
@@ -25,6 +26,23 @@
                     <img class="span12 sortImg" src="./images/games/EggAwards1.jpg">
                     <div class="span12 sortListTextBox">
                         <div class="span12 TextTitle">敲金蛋</div>
+                        <div class="span12 TextDetali">锤子与金蛋数字相同，<br>即得该奖项</div>
+                    </div>
+                </div>
+            </a>
+            <a>
+                <div class="span5 sortListBox">
+                    <img class="span12 sortImg" src="./images/games/soon.jpg">
+                    <div class="span12 sortListTextBox">
+                        <div class="span12 TextTitle">Comming Soon</div>
+                    </div>
+                </div>
+            </a>
+            <a>
+                <div class="span5 sortListBox">
+                    <img class="span12 sortImg" src="./images/games/soon.jpg">
+                    <div class="span12 sortListTextBox">
+                        <div class="span12 TextTitle">Comming Soon</div>
                     </div>
                 </div>
             </a>

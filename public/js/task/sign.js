@@ -16,7 +16,8 @@ function SuFun(_obj){
         confirmButtonText: "确认",
     },
     function(){
-        document.location.href="/Task";
+        // document.location.href="/Task";
+        RaySys.AJAX.Send({TypeID: 1}, '/ajax/GameSend', 'SuFunGame', 'ErFunGame');
     });
 }
 function ErFun(_obj){
@@ -32,5 +33,26 @@ function ErFun(_obj){
     },
     function(){
         document.location.href="/Task";
+        // RaySys.AJAX.Send({TypeID: 2}, '/ajax/GameSend', 'SuFunGame', 'ErFunGame');
     });
+}
+function SuFunGame(_obj){
+    // document.location.href="/SGame";
+    swal({
+        title: "刮刮卡測試成功",
+        text: "",
+        type:"success",
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true,
+        timer: 5000,
+        confirmButtonText: "确认",
+    },
+    function(){
+        // document.location.href="/Task";
+        RaySys.AJAX.Send({memberID: 0}, '/ajax/SignSend', 'SuFun', 'ErFun');
+    });
+}
+function ErFunGame(_obj){
+    // console.log(_obj);
+    swal("刮刮卡失败", "", "error");
 }

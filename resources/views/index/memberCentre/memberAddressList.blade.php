@@ -140,8 +140,8 @@
             </div>
             <div class="span12" style="background-color: #f0f0f0; padding-bottom: 40px;">
                 <a href="
-                    @if(session()->get('menu')!='/')
-                        /{{ session()->get('menu') }}
+                    @if(session()->get('menu')=='SAddress')
+                        /SAddress
                     @else
                         /MFire
                     @endif" class="button button-flat-primary button-large  button-block">{{ trans('view.AddressList.b.cancel') }}</a>

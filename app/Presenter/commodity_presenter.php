@@ -14,25 +14,38 @@ class commodity_presenter{
                 	}
 
     	$html .= 	'</div>
-			    </div>
-                <h4>'. $_object->title. '</h4>
+			         <br><h4>'. $_object->title. '</h4>
+                </div>
 			</div>
 			<div class="panel panel-default">
 			    <div class="panel-body">
-			        <div class="" style="display: inline-block;">
-			            <span id="DetailPrice">
+			        <div class="" style="display: inline-block; width: 100%; max-width: 100%;">
+                        <div class="span12" style="padding: 0;">
+                            <table style="width:100%;max-width:100%;">
+                                <tr>
+                                    <td>'. trans('view.ShopDetail.price'). '：<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>'. pFormat($_object->price). '</td>
+                                    <td rowspan="2" style="font-size:18pt; text-align: right; vertical-align: middle; color: red;">
+                                        PP：<u><strong>'. pFormat($_object->points). '</strong></u>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>'. trans('view.ShopDetail.transport'). '：<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>'. pFormat($_object->transport). '</td>
+                                </tr>
+                            </table>
+                        </div>
+			            <!-- <span id="DetailPrice">
 			                '. trans('view.ShopDetail.price'). '：
 			                <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
 			                '. pFormat($_object->price). '</span><br>
 			            <span id="DetailTransport">
 			                '. trans('view.ShopDetail.transport'). '：
 			                <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-			                '. pFormat($_object->transport). '</span>
+			                '. pFormat($_object->transport). '</span> --!>
 			        </div>
-			        <div class="pull-right" style="display: inline-block;">
+			        <!--<div class="pull-right" style="display: inline-block;">
 			            <span id="DetailPoints">PP：<u><strong>
 			            '. pFormat($_object->points). '</strong></u></span>
-			        </div>
+			        </div>--!>
 		        	<div class="panel panel-default">
 			    		<div class="panel-body">
 			    			<div class="row">

@@ -16,6 +16,9 @@ Route::get('/logout', 'logout@index');
 //帳號列表
 Route::get('/AccountList', 'account\accountList@index');
 
+//帳號交易列表
+Route::get('/TransactionList', 'account\transactionList@index');
+
 //取得購物報表
 Route::get('/ShopList', 'report\shopOrderList@index');
 
@@ -24,6 +27,9 @@ Route::get('/RebateList', 'report\rebateList@index');
 
 //取得返利報表
 Route::get('/BackList', 'report\backList@index');
+
+//取得點數報表
+Route::get('/TradeList', 'report\tradeList@index');
 
 //商品上傳 - 主頁
 Route::get('/InsertShop', 'shop\commodity@index');

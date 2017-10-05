@@ -114,6 +114,23 @@
 	    	],
 	    ],
 
+	   	'transactionList' => [
+	    	't'                     => [
+	            'title'             => '账户列表',
+	            'titleMine'         => '搜寻账户',
+	            'titleDown'         => '下线',
+	        ],
+	    	'th' => [
+	    		'ip'                 => 'IP位置',
+	    		'position'           => '所在位置',
+	    		'equipment'          => '使用裝置',
+    			'passworderrorcount' => '密碼錯誤次數',
+    			'loginDate'          => '最後登入時間',
+    			'cuser'              => '修改者',
+				'buser'              => '創建者',
+	    	],
+	    ],
+
 	    'shopOrderList' => [
 	    	't'                     => [
 	            'title'             => '購物清單',
@@ -187,6 +204,29 @@
 	    		'scratchID'		=> '編號',
 	    		'type' 			=> '種類',
 	    		'result' 		=> '賽果',
+	    	],
+	    ],
+
+	   	'tradeList' => [
+	    	't'                 => [
+	            'title'         => '點數轉換',
+	        ],
+	        'ts' => [
+	    		'1' 	  	=> 'PP轉換',
+	    		'2' 	  	=> '金蛋轉換',
+	    		'3' 	  	=> '紅利轉換',
+	    	],
+	       	'tp' => [
+	    		'0' 	  	=> '轉出',
+	    		'1' 	  	=> '轉入',
+	    	],
+	    	'th' => [
+	    		'tradeID' 	  	=> '轉點編號',
+	    		'trader' 	  	=> '對象',
+	    		'status' 		=> '種類',
+	    		'path' 			=> '方向',
+	    		'before'   	  	=> '轉點前',
+	    		'after'    		=> '轉點後',
 	    	],
 	    ],
 

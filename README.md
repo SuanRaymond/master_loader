@@ -15,6 +15,11 @@ MANAGER_DOMAIN=manager.member.dev
 # 取得IP
 GET_POSITION=freegeoip.net/json/
 
+# 刷卡機制
+SEND_CARD_URL=https://www.esafe.com.tw/Service/Etopm.aspx
+SEND_CARD_KEY=S1710030352
+SEND_CARD_PAS=RyB5478rYb
+
 APP_NAME=Laravel
 APP_ENV=local
 APP_KEY=base64:ltBjfB4BYYPZc2qBC89KlNTT2ZYcxJP8gyTHqnspJJU=

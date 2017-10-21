@@ -89,9 +89,20 @@ class commodityOrderAdd extends Controller
         removeSessionJson('address');
         removeSessionJson('defaule');
         setMesage([alert(trans('message.title.success'), trans('message.success.buyOK'), 1)]);
+
+        //信用卡交易轉送－資料整理
+
+
+
+
+
         $box = $this->box;
+
+        //進入購物轉跳頁面
+        return mSView('shopCar.commodityOrderAdd', compact('box'));
+
         // return redirect('/Shop');
-        return redirect('/BuyList');
+        // return redirect('/BuyList');
     }
     public function reRrror($_msg)
     {

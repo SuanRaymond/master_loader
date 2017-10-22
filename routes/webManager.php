@@ -18,6 +18,8 @@ Route::get('/AccountList', 'account\accountList@index');
 
 //帳號交易列表
 Route::get('/TransactionList', 'account\transactionList@index');
+//帳號交易列表 － 轉帳
+Route::post('/TransactionList', 'account\transactionList@change');
 
 //取得購物報表
 Route::get('/ShopList', 'report\shopOrderList@index');

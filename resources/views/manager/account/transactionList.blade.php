@@ -13,7 +13,7 @@
 				$("#adminDown").prop('checked', true).change();
 			});
 
-			@if(isset($box->result->bodyMine))
+			@if(isset($box->result->bodyMineBody))
                 $("#toolsClose").click();
             @endif
 
@@ -64,8 +64,8 @@
 		</div>
 	@endif
 
-	@if(isset($box->result->bodyMine))
-		@if($box->result->bodyMine != '')
+	@if(isset($box->result->bodyMineBody))
+		@if($box->result->bodyMineBody != '')
 			<div class="portlet box green">
 				<div class="portlet-title">
 					<div class="caption"><i class="icon-flag"></i>{{ trans('managerView.transactionList.t.title') }}</div>
@@ -74,7 +74,7 @@
 					</div>
 				</div>
 				<div class="portlet-body flip-scroll">
-					@if($box->result->bodyMine != '')
+					@if($box->result->bodyMineBody != '')
 						<table class="table-bordered table-striped table-condensed flip-content" id="dataTableMine">
 							<thead class="flip-content">
 								<tr class="tableRowB">
@@ -86,9 +86,13 @@
 								</tr>
 							</thead>
 							<tbody>
-		                    	{!! $box->result->bodyMine !!}
+		                    	{!! $box->result->bodyMineBody !!}
 							</tbody>
 						</table>
+
+						@if(!is_null($box->result->bodyMineMode))
+		                    {!!$box->result->bodyMineMode!!}
+		                @endif
 					@else
 						<div class="alert" style="text-align: center;">
 							<strong>{{ trans('managerView.nodata') }}</strong>
@@ -99,8 +103,8 @@
 		@endif
 	@endif
 
-	@if(isset($box->result->bodyDown))
-		@if($box->result->bodyDown != '')
+	@if(isset($box->result->bodyDownBody))
+		@if($box->result->bodyDownBody != '')
 			<div class="portlet box blue">
 				<div class="portlet-title">
 					<div class="caption"><i class="icon-group"></i>{{ trans('managerView.transactionList.t.titleDown') }}</div>
@@ -109,7 +113,7 @@
 					</div>
 				</div>
 				<div class="portlet-body flip-scroll">
-					@if($box->result->bodyDown != '')
+					@if($box->result->bodyDownBody != '')
 						@if(!is_null($box->result->pageTop))
 	                        {!! $box->result->pageTop !!}
 	                    @endif
@@ -124,11 +128,15 @@
 								</tr>
 							</thead>
 							<tbody>
-		                    	{!! $box->result->bodyDown !!}
+		                    	{!! $box->result->bodyDownBody !!}
 							</tbody>
 						</table>
 						@if(!is_null($box->result->pageBottom))
 		                    {!!$box->result->pageBottom!!}
+		                @endif
+
+		                @if(!is_null($box->result->bodyDownMode))
+		                    {!!$box->result->bodyDownMode!!}
 		                @endif
 					@else
 						<div class="alert" style="text-align: center;">

@@ -24,6 +24,7 @@
 	    'b'                         => [
 	        'send'                  => '送出',
 	        'edit'                  => '编辑',
+	        'change'				=> '更動',
 	        'search'                => '搜寻',
 	        'clear'                 => '清除',
 	        'enabled'               => '已启用',
@@ -42,6 +43,7 @@
             'bonus'    => '紅利',
             'useinfo'  => '启用状态',
             'status'   => '狀態',
+            'note'	   => '備註',
             'detail'   => '详细信息',
             'edit'     => '修改',
             'cDate'    => '修改时间',

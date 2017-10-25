@@ -44,8 +44,8 @@
 				        },
 				        function(isConfirm){
 							if (isConfirm) {
-								// $("#sendForm").submit();
-								swal("送出", "執行信用卡流程","success");
+								$("#sendForm").submit();
+								// swal("送出", "執行信用卡流程","success");
 							}
 							else {
 								swal({

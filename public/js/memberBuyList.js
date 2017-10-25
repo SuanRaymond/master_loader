@@ -169,20 +169,20 @@ function SuFun(_obj){
     $('input[name="note2"]').val(_obj.ResultJSON.note2);
     $('input[name="Card_Type"]').val(_obj.ResultJSON.Card_Type);
     $('input[name="ChkValue"]').val(_obj.ResultJSON.ChkValue);
-    swal("送出", "執行信用卡流程","success");
-    // swal({
-    //     title: "請稍候．．．",
-    //     text: "轉跳頁面中．．．",
-    //     type:"success",
-    //     closeOnConfirm: false,
-    //     showConfirmButton: false,
-    //     showLoaderOnConfirm: true,
-    //     timer: 100,
-    // },
-    // function(){
-    //     $("#sendForm").submit();
+    // swal("送出", "執行信用卡流程","success");
+    swal({
+        title: "請稍候．．．",
+        text: "轉跳頁面中．．．",
+        type:"success",
+        closeOnConfirm: false,
+        showConfirmButton: false,
+        showLoaderOnConfirm: true,
+        timer: 100,
+    },
+    function(){
+        $("#sendForm").submit();
 
-    // });
+    });
 }
 function ErFun(_obj){
     // console.log(_obj);

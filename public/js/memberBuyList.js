@@ -73,7 +73,7 @@ $(document).ready(function(){
                             $memberPayList[this.id] = this.id;
                         });
                         if(Object.keys($memberPayList).length>0){
-                            RaySys.AJAX.Send({ShopOrderID: $memberPayList}, '/ajax/PayCardList', 'SuFun', 'ErFun');
+                            RaySys.AJAX.Send({ShopOrderID: $memberPayList, CardType: 0}, '/ajax/PayCardList', 'SuFun', 'ErFun');
                         }else{
                             swal({
                                 title: "付款失敗",
@@ -85,11 +85,11 @@ $(document).ready(function(){
                         }
                     }
                     else {
-                        swal("成功", "請繳納現金後通知客服人員","success");
+                        // swal("成功", "請繳納現金後通知客服人員","success");
                         $('input[name="check"]:checked').each(function() {
                             $memberPayList[this.id] = this.id;
                         });
-                        // RaySys.AJAX.Send({ShopOrderID: $memberPayList}, '/ajax/GameSend', 'SuFun', 'ErFun');
+                        RaySys.AJAX.Send({ShopOrderID: $memberPayList, CardType: 1}, '/ajax/PayCardList', 'SuFun', 'ErFun');
                     }
                 });
             },1000);
@@ -126,7 +126,7 @@ $(document).ready(function(){
                     if (isConfirm) {
                         $memberPayList[$singlePay] = $singlePay;
                         if(Object.keys($memberPayList).length>0){
-                            RaySys.AJAX.Send({ShopOrderID: $memberPayList}, '/ajax/PayCardList', 'SuFun', 'ErFun');
+                            RaySys.AJAX.Send({ShopOrderID: $memberPayList, CardType: 0}, '/ajax/PayCardList', 'SuFun', 'ErFun');
                         }else{
                             swal({
                                 title: "付款失敗",
@@ -138,9 +138,9 @@ $(document).ready(function(){
                         }
                     }
                     else {
-                        swal("成功", "請繳納現金後通知客服人員","success");
+                        // swal("成功", "請繳納現金後通知客服人員","success");
                         $memberPayList[$singlePay] = $singlePay;
-                        // RaySys.AJAX.Send({ShopOrderID: $memberPayList}, '/ajax/GameSend', 'SuFun', 'ErFun');
+                        RaySys.AJAX.Send({ShopOrderID: $memberPayList, CardType: 1}, '/ajax/PayCardList', 'SuFun', 'ErFun');
                     }
                 });
             },1000);

@@ -12,11 +12,11 @@ class payCardList extends Controller
     public $box;
 
     public function __construct(){
-        $this->box                 = (object) array();
-        $this->box->result         = (object) array();
-        $this->box->params         = (object) array();
+        $this->box                      = (object) array();
+        $this->box->result              = (object) array();
+        $this->box->params              = (object) array();
         $this->box->params->ShopOrderID = Request()->get('ShopOrderID', null);
-
+        $this->box->params->CardType    = Request()->get('CardType', null);
     }
     // 取得信用卡交易單號
     public function index()
@@ -30,6 +30,7 @@ class payCardList extends Controller
             $this->box->sendParams                = [];
             $this->box->sendParams['MemberID']    = auth()->user->memberID;
             $this->box->sendParams['ShopOrderID'] = $this->box->params->ShopOrderID;
+            $this->box->sendParams['CardType'] = $this->box->params->CardType;
 
             //送出資料
             $this->box->result    = with(new connection_services())->callApi($this->box);

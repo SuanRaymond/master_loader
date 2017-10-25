@@ -44,14 +44,25 @@
 				        },
 				        function(isConfirm){
 							if (isConfirm) {
-								$("#sendForm").submit();
-								// swal("送出", "執行信用卡流程","success");
-							}
-							else {
 								swal({
 							        title: "請稍候．．．",
 							        text: "頁面轉跳中．．．",
 							        type:"",
+							        closeOnConfirm: false,
+							        showConfirmButton: false,
+							        showLoaderOnConfirm: true,
+							        timer: 500,
+							    },
+							    function(){
+							        $("#sendForm").submit();
+							    });
+								// swal("送出", "執行信用卡流程","success");
+							}
+							else {
+								swal({
+							        title: "提示",
+							        text: "請繳納現金後通知客服人員",
+							        type:"info",
 							        closeOnConfirm: false,
 							        showConfirmButton: false,
 							        showLoaderOnConfirm: true,

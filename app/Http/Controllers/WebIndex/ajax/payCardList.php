@@ -58,6 +58,7 @@ class payCardList extends Controller
                 'note1'     => $this->box->result->PayDetail->note1,
                 'note2'     => $this->box->result->PayDetail->note2,
                 'Card_Type' => $this->box->result->PayDetail->Card_Type,
+                'ChkValue' => strtoupper(sha1(env('SEND_CARD_KEY'). env('SEND_CARD_PAS'). $this->box->result->PayDetail->MN. ''))
             ));
         }
         else{

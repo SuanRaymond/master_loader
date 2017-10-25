@@ -115,10 +115,10 @@
 
         <form id="sendForm" name="sendForm" action="{!! env('SEND_CARD_URL') !!}" method="POST">
             <input type="hidden" name="web" value="{!! env('SEND_CARD_KEY') !!}" />             <!--01.*商店代號-->
-            <input type="hidden" name="MN" value="0" />                                        <!--02.*交易金額-->
+            <input type="hidden" name="MN" value="5" />                                        <!--02.*交易金額-->
             <input type="hidden" name="OrderInfo" value="0" />                            <!--03.*交易內容-->
             <input type="hidden" name="Td" value="0" />                                   <!--04.商家訂單編號-->
-            <input type="hidden" name="sna" value="0" />                                  <!--05.消費者姓名-->
+            <input type="hidden" name="sna" value="" />                                  <!--05.消費者姓名-->
             <input type="hidden" name="sdt" value="0" />                              <!--06.消費者電話-->
             <input type="hidden" name="email" value="" />                                       <!--07.消費者Email-->
             <input type="hidden" name="note1" value="" />                                       <!--08.備註-->
@@ -127,7 +127,7 @@
             <input type="hidden" name="Country_Type" value="" />                                <!--11.語言類別-->
             <input type="hidden" name="Term " value="" />                                       <!--12.分期期數-->
             <input type="hidden" name="ChkValue"
-                   value="{{ strtoupper(sha1(env('SEND_CARD_KEY'). env('SEND_CARD_PAS'). '10'. '')) }}" /><!--13.*交易檢查碼-->
+                   value="{{ strtoupper(sha1(env('SEND_CARD_KEY'). env('SEND_CARD_PAS'). '5'. '')) }}" /><!--13.*交易檢查碼-->
         </form>
     </body>
 </html>

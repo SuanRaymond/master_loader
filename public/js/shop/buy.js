@@ -1,5 +1,7 @@
 $(document).ready(function(){
+    console.log("aaa");
     $("#buysend").click(function(){
+        console.log("bbb");
         if($.trim($("#addressee").html()).length==0||
            $.trim($("#phone").html()).length==0||
            $.trim($("#address").html()).length==0){
@@ -11,11 +13,13 @@ $(document).ready(function(){
             });
         }
         else{
+            console.log("ccc");
             doublecheck();
         }
     });
 });
 function doublecheck(){
+    console.log("ddd");
     swal({
         title: "提醒！",
         text: "确认购买？",
@@ -27,6 +31,7 @@ function doublecheck(){
         showLoaderOnConfirm: true,
     },
     function(){
+        console.log("eee");
         setTimeout(function(){
             swal({
                 title: "是否确认购买？",

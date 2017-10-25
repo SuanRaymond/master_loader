@@ -144,7 +144,7 @@
                 </h4>
             </div>
             <div class="span4">
-                <a class="btn btn-danger navbar-brand WaitingBtn span12" role="button" id="buysend"
+                <a class="btn btn-danger navbar-brand span12" role="button" id="buysend"
                    style="padding-left: 0px; padding-right: 0px; color: white;">
                     {{ trans('view.shopBuy.b.buy') }}
                     <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>

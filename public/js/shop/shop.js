@@ -14,4 +14,6 @@ $(document).ready(function(){
 		delay: -5000,
 		easing: 'easeInOutBack'
 	});
+
+	$("#LoadingPage").hide();
 });

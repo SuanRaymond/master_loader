@@ -87,7 +87,7 @@
 @section('contentBottom')
     @if(session()->get('menu')!='/')
         <div class="fly">
-            <a href="javascript:history.back(1)">
+            <a class="WaitingBtn" href="javascript:history.back(1)">
                 <span>
                     回上页
                 </span>
@@ -109,7 +109,7 @@
     <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
         <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
             <div class="span3">
-                <a class="btn navbar-brand span12" role="button" href="/Shop" style="padding-left: 0px; padding-right: 0px;">
+                <a class="btn navbar-brand WaitingBtn span12" role="button" href="/Shop" style="padding-left: 0px; padding-right: 0px;">
                     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                     {{ trans('view.shophome') }}
                 </a>
@@ -121,7 +121,7 @@
                 </h4>
             </div>
             <div class="span4">
-                <a class="btn btn-danger navbar-brand span12 WaitingBtn" role="button" id="sendBuy"
+                <a class="btn btn-danger navbar-brand WaitingBtn span12" role="button" id="sendBuy"
                    tyle="padding-left: 0px; padding-right: 0px; color: white;">
                     {{ trans('view.shopCar.b.Checkout') }}
                     <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>

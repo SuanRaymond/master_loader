@@ -29,7 +29,7 @@
             </ul>
 
             <div class="tab-content">
-                <div class="tab-pane fade in active" id="DetailDetail">
+                <div class="tab-pane fade in active" id="DetailDetail" style="word-break:break-all;">
                     @if($box->html->commodityDetail != '')
                         {!! $box->html->commodityDetail !!}
                     @else

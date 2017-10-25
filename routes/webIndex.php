@@ -56,7 +56,8 @@ Route::post('/NAddress', 'addressManagement@Ncheck');
 Route::post('/CAddress', 'addressManagement@Ccheck');
 //收貨地址選擇 頁面
 Route::get('/SAddress', 'addressManagement@select');
-
+//信用卡
+Route::get('/creditCard', 'Shop\sendCreditCard@index');
 
 
 

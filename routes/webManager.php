@@ -13,6 +13,9 @@ Route::post('/login', 'login@check');
 //登出
 Route::get('/logout', 'logout@index');
 
+//新建帳號
+Route::get('/CreateAccount', 'account\createAccount@index');
+
 //帳號列表
 Route::get('/AccountList', 'account\accountList@index');
 

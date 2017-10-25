@@ -14,11 +14,15 @@ class buylist_presenter{
         foreach($_object as $row){
             // dd($row);
             $html .= '
-            <tbody style="border-top: 10px solid #f0f0f0; font-size: 3.5vw;">
+            <tbody style="border-top: 10px solid #f0f0f0; font-size: 3.5vw;" class="List List'.$row->status.'">
                 <tr>
                     <tr>
                         <td colspan="3" style="font-size: 6vw;">
+                            <input class="Check'.$row->status.'" style="display: none;" type="checkbox" name="check" value="'.$row->totalprice.'"  id="'.$row->shoporderID.'">
                             <strong>'.$row->title.'</strong>
+                            <span class="Btn'.$row->status.'" style="float: right; display: none;">
+                                <a class="button button-flat-primary singlePay" id="'.$row->shoporderID.'" style="padding-left: 10px;padding-right: 10px;">付款</a>
+                            </span>
                         </td>
                     </tr>
                     <tr>

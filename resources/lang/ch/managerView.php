@@ -98,7 +98,21 @@
 	            'edit'     => '修改',
 	        ],
 	    ],
-
+	    'createAccount' =>[
+            'title' => '新建會員',
+            'c' => [
+                'title'       => '推薦碼',
+                'subTitle'    => '帳號',
+                'imagesTitle' => '密碼',
+                'imagesShow'  => '密碼確認',
+            ],
+            'p' => [
+                'title'       => '請輸入推薦碼（數字）',
+                'subTitle'    => '請輸入手機號碼',
+                'imagesTitle' => '請輸入密碼',
+                'imagesShow'  => '再次輸入密碼',
+            ],
+        ],
 	    'accountList' => [
 	    	't'                     => [
 	            'title'             => '账户列表',

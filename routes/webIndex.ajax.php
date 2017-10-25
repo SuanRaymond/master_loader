@@ -24,6 +24,8 @@ Route::post('/CAddressS', 'addressSession@index');
 Route::post('/CAddressD', 'addressSession@deleteA');
 //地址暫存 選擇
 Route::post('/SAddress', 'selectAddrSession@index');
+//取得金流單
+Route::post('/PayCardList', 'payCardList@index');
 
 
 

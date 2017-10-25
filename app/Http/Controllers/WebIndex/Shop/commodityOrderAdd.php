@@ -94,8 +94,6 @@ class commodityOrderAdd extends Controller
 
 
 
-
-
         $box = $this->box;
 
         //進入購物轉跳頁面

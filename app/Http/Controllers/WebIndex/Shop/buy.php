@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 
 use App\Presenter\shopCar_presenter;
 
-use App\Services\encrypt_services;
 use App\Services\connection_services;
 use App\Services\web_judge_services;
 class buy extends Controller
@@ -15,55 +14,50 @@ class buy extends Controller
     public $box;
 
     public function __construct(){
-        $this->box         = (object) array();
-        $this->box->result = (object) array();
-        $this->box->params = (object) array();
-        $this->box->html   = (object) array();
-        $this->box->price  = (object) array();
-
-        $this->box->html->buydetailList   ='';
-        $this->box->html->priceBox        ='';
-        $this->box->html->buyNavbarBottom ='';
+        $this->box             = (object) array();
+        $this->box->result     = (object) array();
+        $this->box->params     = (object) array();
+        $this->box->html       = (object) array();
     }
 
     public function index()
     {
         session()->put('menu', Request()->path());
-        if(empty(getSessionJson('SetShopID'))){
+
+        $this->box->params->shopCarList = Request()->get('sendData', json_encode(getSessionJson('SetBuyList')));
+        if(!isJson($this->box->params->shopCarList)){
             return $this->rewarning(trans('message.warn.projectNull'));
         }
+        $this->box->params->shopCarList = json_decode($this->box->params->shopCarList);
         $result = $this->search();
         if(!$result){
-            return mIView('login');
+            return redirect('/Login');
         }
         $box = $this->box;
         return mSView('shopCar.buy', compact('box'));
     }
+
     public function search()
     {
-        foreach(getSessionJson('SetShopID') as $row){
-            $this->box->price->$row = 1;
-            foreach(getSessionJson("quantityNumber") as $group){
-                if(!is_null($group)){
-                    foreach ($group as $key => $value) {
-                        if($row == $key){
-                            $this->box->price->$row = $value;
-                        }
-                    }
-                }
-            }
+        /*----------------------------------購物確認單放入 Session----------------------------------*/
+        if(empty(getSessionJson('SetBuyList'))){
+            createSessionJson('SetBuyList');
         }
-        foreach(getSessionJson('totalprice') as $row){
-            $this->box->price->totalprice = $row;
+        else{
+            removeSessionJson('SetBuyList');
         }
-        foreach(getSessionJson('totaltransport') as $row){
-            $this->box->price->totaltransport = $row;
-        }
-        foreach(getSessionJson('totalPoint') as $row){
-            $this->box->price->totalPoint = $row;
-        }
-        foreach(getSessionJson('totalMoney') as $row){
-            $this->box->price->totalMoney = $row;
+        session()->put('SetBuyList', json_encode($this->box->params->shopCarList));
+        session()->save();
+        /*----------------------------------購物確認單放入 Session----------------------------------*/
+
+        /*----------------------------------組成購物確認單----------------------------------*/
+        $shopCar_presenter = new shopCar_presenter();
+
+        $this->box->itemID = [];
+        $this->box->itemNU = [];
+        foreach($this->box->params->shopCarList as $shopID => $count){
+            $this->box->itemID[] = $shopID;
+            $this->box->itemNU[] = $count;
         }
 
         /*----------------------------------與廠商溝通----------------------------------*/
@@ -73,29 +67,43 @@ class buy extends Controller
         $this->box->sendApiUrl   = env('SHOP_DOMAIN');
 
         //放入資料區塊
-        $this->box->sendParams             = [];
-        $this->box->sendParams['ShopID'] = getSessionJson('SetShopID');
+        $this->box->sendParams           = [];
+        $this->box->sendParams['ShopID'] = $this->box->itemID;
 
         //送出資料
         $this->box->result    = with(new connection_services())->callApi($this->box);
         $this->box->getResult = $this->box->result;
         //檢查廠商回傳資訊
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
-
         if($this->box->status != 0){
-            return $this->reRrror(trans('message.error.'.$this->box->status));
+            return $this->reError(trans('message.error.'.$this->box->status));
         }
         /*----------------------------------與廠商溝通----------------------------------*/
-
-        if(empty(getSessionJson('GetShopltemCar'))){
-            createSessionJson('GetShopltemCar');
+        foreach($this->box->itemID as $key => $shopID){
+            $this->box->result->GetShopltemCar->$shopID->count = $this->box->itemNU[$key];
         }
-        addSessionJson('GetShopltemCar',$this->box->result->GetShopltemCar);
-        $this->box->html->buydetailList   = with(new shopCar_presenter())->buydetailList($this->box->result->GetShopltemCar,$this->box->price);
-        // $this->box->html->priceBox        = with(new shopCar_presenter())->priceBox($this->box->result->GetShopltemCar);
-        $this->box->html->buyNavbarBottom = with(new shopCar_presenter())->buyNavbarBottom($this->box->result->GetShopltemCar);
-        // dd(getSessionJson('index'));
+
+        $this->box->html->detailList   = with(new shopCar_presenter())->detailList($this->box->result->GetShopltemCar, false);
+
+        $this->box->totalPoint     = 0;
+        $this->box->totalPrice     = 0;
+        $this->box->totalTransport = 0;
+        $this->box->totalMoney     = 0;
+        foreach($this->box->result->GetShopltemCar as $row){
+            $this->box->totalPoint     += $row->points * $row->count;
+            $this->box->totalPrice     += $row->price * $row->count;
+            $this->box->totalTransport += $row->transport * $row->count;
+        }
+        $this->box->totalMoney     = pFormat($this->box->totalPrice + $this->box->totalTransport);
+        $this->box->totalPoint     = pFormat($this->box->totalPoint);
+        $this->box->totalPrice     = pFormat($this->box->totalPrice);
+        $this->box->totalTransport = pFormat($this->box->totalTransport);
+        /*----------------------------------組成購物確認單----------------------------------*/
+
+
+        /*----------------------------------組成個人資料確認單----------------------------------*/
         if(empty(getSessionJson('index'))){
+
             /*----------------------------------與廠商溝通----------------------------------*/
             //放入連線區塊
             //需呼叫的功能
@@ -103,7 +111,7 @@ class buy extends Controller
             $this->box->sendApiUrl   = env('SHOP_DOMAIN');
 
             //放入資料區塊
-            $this->box->sendParams             = [];
+            $this->box->sendParams           = [];
             $this->box->sendParams['MemberID'] = auth()->user->memberID;
 
             //送出資料
@@ -111,12 +119,13 @@ class buy extends Controller
             $this->box->getResult = $this->box->result;
             //檢查廠商回傳資訊
             $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
-
             if($this->box->status != 0){
-                return $this->reRrror(trans('message.error.'.$this->box->status));
+                return $this->reError(trans('message.error.'.$this->box->status));
             }
             /*----------------------------------與廠商溝通----------------------------------*/
-            // dd($this->box);
+
+            $this->box->member = $this->box->result->Member;
+
             if(empty(getSessionJson('addressee'))){
                 createSessionJson('addressee');
             }
@@ -126,21 +135,21 @@ class buy extends Controller
             if(empty(getSessionJson('address'))){
                 createSessionJson('address');
             }
-            addSessionJson('addressee', $this->box->result->Member->addressee);
-            addSessionJson('phone', $this->box->result->Member->phone);
-            addSessionJson('address', $this->box->result->Member->address);
-        }else{
-            $this->box->result->Member = (object) array();
+            addSessionJson('addressee', $this->box->member->addressee);
+            addSessionJson('phone', $this->box->member->phone);
+            addSessionJson('address', $this->box->member->address);
+        }
+        else{
+            $this->box->member = (object) array();
             foreach(getSessionJson('addressee') as $row){
-                $this->box->result->Member->addressee = $row;
+                $this->box->member->addressee = $row;
             }
             foreach(getSessionJson('phone') as $row){
-                $this->box->result->Member->phone = $row;
+                $this->box->member->phone = $row;
             }
             foreach(getSessionJson('address') as $row){
-                $this->box->result->Member->address = $row;
+                $this->box->member->address = $row;
             }
-            // dd($this->box->result);
         }
 
         return true;
@@ -150,7 +159,7 @@ class buy extends Controller
         setMesage([alert(trans('message.title.error'), $_msg, 2)]);
         return back();
     }
-    public function rewarning($_msg)
+    public function reWarning($_msg)
     {
         setMesage([alert(trans('message.title.warning'), $_msg, 3)]);
         return back();

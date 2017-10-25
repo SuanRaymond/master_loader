@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 
 use App\Presenter\shopCar_presenter;
 
-use App\Services\encrypt_services;
 use App\Services\connection_services;
 use App\Services\web_judge_services;
 class shopCar extends Controller
@@ -19,70 +18,80 @@ class shopCar extends Controller
         $this->box->result     = (object) array();
         $this->box->params     = (object) array();
         $this->box->html       = (object) array();
-
-        $this->box->html->detailList   ='';
-        $this->box->html->priceBox     ='';
-        $this->box->html->NavbarBottom ='';
     }
 
     public function index()
     {
-        $result = $this->search();
-        if(!$result){
-            return mIView('login');
-        }
-        // dd(session()->get('BuyShopID'));
+        $this->search();
+
+        //放置目前位置
         session()->put('menu', Request()->path());
-        $box = $this->box;
+
         removeSessionJson('quantityNumber');
         removeSessionJson('totalprice');
         removeSessionJson('totaltransport');
         removeSessionJson('totalPoint');
         removeSessionJson('totalMoney');
+
+        removeSessionJson('SetBuyList');
+
+        $box = $this->box;
         return mSView('shopCar.shopCar', compact('box'));
     }
+
     public function search()
     {
-        $this->box = with(new web_judge_services($this->box))->check(['CMSS']);
+        $shopCar_presenter = new shopCar_presenter();
 
-        $encrypt_services     = new encrypt_services(env('APP_KEY'));
+        $this->box->itemID = getSessionJson('SetShopID');
+        $this->box->itemNU = getSessionJson('SetShopNum');
 
-        //是否開啟開發模式
-        $this->box->deBugMode = false;
-        if(config('app.debug') == true && env('USETYPE') == 'LOCAL'){
-            $this->box->deBugMode = true;
-        }
-        // dd(getSessionJson('SetShopID'));
-        $this->box->postArray = [];
-        $this->box->postArray = ['ShopID' => getSessionJson('SetShopID')];
-        // dd($this->box);
+        /*----------------------------------與廠商溝通----------------------------------*/
+        //放入連線區塊
+        //需呼叫的功能
+        $this->box->callFunction = 'GetShopltemCar';
+        $this->box->sendApiUrl   = env('SHOP_DOMAIN');
 
-        $Params = json_encode($this->box->postArray);
-        $Sign   = $Params;
-        if(!$this->box->deBugMode){
-            $Params = $encrypt_services->LaravelEncode($Params);
-            $Sign   = $encrypt_services->EnSign($Sign);
-        }
-        //資料加密與打包
-        $this->box->postArray   = http_build_query(
-            array(
-                'Params' => $Params,
-                'Sign'   => $Sign
-        ));
+        //放入資料區塊
+        $this->box->sendParams           = [];
+        $this->box->sendParams['ShopID'] = $this->box->itemID;
 
-        //取得類別選單
-        $this->box->result = with(new connection_services())
-                                ->sendHTTP(env('SHOP_DOMAIN'). '/GetShopltemCar', $this->box->postArray);
+        //送出資料
+        $this->box->result    = with(new connection_services())->callApi($this->box);
+        $this->box->getResult = $this->box->result;
+        //檢查廠商回傳資訊
         $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
-        // dd($this->box->result->GetShopltemCar);
         if($this->box->status != 0){
-            return $this->reRrror(trans('message.error.'.$this->box->status));
+            return $this->reError(trans('message.error.'.$this->box->status));
+        }
+        /*----------------------------------與廠商溝通----------------------------------*/
+        foreach($this->box->itemID as $key => $shopID){
+            $this->box->result->GetShopltemCar->$shopID->count = $this->box->itemNU[$key];
         }
 
         $this->box->html->detailList   = with(new shopCar_presenter())->detailList($this->box->result->GetShopltemCar);
-        $this->box->html->priceBox     = with(new shopCar_presenter())->priceBox($this->box->result->GetShopltemCar);
-        $this->box->html->NavbarBottom = with(new shopCar_presenter())->NavbarBottom($this->box->result->GetShopltemCar);
+        // $this->box->html->priceBox     = with(new shopCar_presenter())->priceBox($this->box->result->GetShopltemCar);
+        // $this->box->html->NavbarBottom = with(new shopCar_presenter())->NavbarBottom($this->box->result->GetShopltemCar);
 
+        $this->box->totalPoint     = 0;
+        $this->box->totalPrice     = 0;
+        $this->box->totalTransport = 0;
+        $this->box->totalMoney     = 0;
+        foreach($this->box->result->GetShopltemCar as $row){
+            $this->box->totalPoint     += $row->points * $row->count;
+            $this->box->totalPrice     += $row->price * $row->count;
+            $this->box->totalTransport += $row->transport * $row->count;
+        }
+        $this->box->totalMoney     = pFormat($this->box->totalPrice + $this->box->totalTransport);
+        $this->box->totalPoint     = pFormat($this->box->totalPoint);
+        $this->box->totalPrice     = pFormat($this->box->totalPrice);
+        $this->box->totalTransport = pFormat($this->box->totalTransport);
         return true;
+    }
+
+    public function reError($_msg)
+    {
+        setMesage([alert(trans('message.title.error'), $_msg, 2)]);
+        return back();
     }
 }

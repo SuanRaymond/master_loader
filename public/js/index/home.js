@@ -15,8 +15,13 @@ $(document).ready(function(){
         easing: 'easeInOutBack'
     });
 
+    $("#doSomethingBlockBodyStory").hide();
     $("#second").hide();
     $("#third").hide();
+    $("#turnText").click(function(){
+        $("#doSomethingBlockBody").hide();
+        $("#doSomethingBlockBodyStory").show();
+    });
     $("#openSecond").click(function(){
         $("#first").hide();
         $("#second").show();
@@ -24,6 +29,10 @@ $(document).ready(function(){
     $("#openThird").click(function(){
         $("#first").hide();
         $("#third").show();
+    });
+    $("#turnBack").click(function(){
+        $("#doSomethingBlockBody").show();
+        $("#doSomethingBlockBodyStory").hide();
     });
     $("#second").click(function(){
         $("#first").show();
@@ -33,5 +42,4 @@ $(document).ready(function(){
         $("#first").show();
         $("#third").hide();
     });
-
 });

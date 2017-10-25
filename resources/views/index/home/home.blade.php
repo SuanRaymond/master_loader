@@ -2,13 +2,9 @@
 
 @section('cssImport')
 <link type="text/css" rel="stylesheet" href="./lib/css/slick.css"/>
-    <link type="text/css" rel="stylesheet" href="./lib/css/slick-theme.css"/>
+<link type="text/css" rel="stylesheet" href="./lib/css/slick-theme.css"/>
 <link type="text/css" rel="stylesheet" href="./css/index/home.css"/>
-    <style type="text/css" media="screen">
-        body{
-            overflow-y: hidden;
-        }
-    </style>
+
 @stop
 
 @section('jsImport')
@@ -29,29 +25,49 @@
             </div>
         </div>
 
-        <div id="doSomethingBlockBody" align="center" class="row">
-            <div class="animated bounceInUp span6" id="openSecond">
+        <div id="doSomethingBlockBody" align="center" class="row IconBody">
+            <div class="animated bounceInUp IconItem span6" id="turnText">
                 <a>
-                    <img src="./images/resume.png" width="100%">
-                    <div align="center">{{ trans('view.home.b.quickresume') }}</div>
+                    <img src="./images/text.png" width="100%">
+                    <div class="IconItemText" align="center">{{ trans('view.home.b.quickText') }}</div>
                 </a>
             </div>
-            <div class="animated bounceInLeft span6" id="openThird">
-                <a>
-                    <img src="./images/story.png" width="100%">
-                    <div align="center">{{ trans('view.home.b.quickstory') }}</div>
-                </a>
-            </div>
-            <div class="animated bounceInRight span6">
+            <div class="animated bounceInLeft IconItem span6">
                 <a href="/Task">
                     <img src="./images/Gift.png" width="100%">
-                    <div align="center">{{ trans('view.home.b.quickTask') }}</div>
+                    <div class="IconItemText" align="center">{{ trans('view.home.b.quickTask') }}</div>
                 </a>
             </div>
-            <div class="animated bounceInDown span6">
+            <div class="animated bounceInRight IconItem span6">
                 <a href="/Shop">
                     <img src="./images/shop.png" width="100%">
-                    <div align="center">{{ trans('view.home.b.quickShop') }}</div>
+                    <div class="IconItemText" align="center">{{ trans('view.home.b.quickShop') }}</div>
+                </a>
+            </div>
+            <div class="animated bounceInDown IconItem span6">
+                <a href="/Game">
+                    <img src="./images/game.png" width="100%">
+                    <div class="IconItemText" align="center">{{ trans('view.home.b.quickGame') }}</div>
+                </a>
+            </div>
+        </div>
+        <div id="doSomethingBlockBodyStory" align="center" class="row IconBody">
+            <div class="animated bounceInUp IconItem span6" id="openSecond">
+                <a>
+                    <img src="./images/comment.png" width="100%">
+                    <div class="IconItemText" align="center">{{ trans('view.home.b.quickResume') }}</div>
+                </a>
+            </div>
+            <div class="animated bounceInLeft IconItem span6" id="openThird">
+                <a>
+                    <img src="./images/story.png" width="100%">
+                    <div class="IconItemText" align="center">{{ trans('view.home.b.quickStory') }}</div>
+                </a>
+            </div>
+            <div class="animated bounceInRight IconItem span6" id="turnBack">
+                <a>
+                    <img src="./images/back.png" width="100%">
+                    <div class="IconItemText" align="center">{{ trans('view.home.b.quickBack') }}</div>
                 </a>
             </div>
         </div>
@@ -62,11 +78,11 @@
                 <img src="images/Welcome.jpg"/>
             </div>
         </div>
-        <div align="center" class="row" style="margin: 0 auto; padding: 20px; font-size: 4.5vw;">
+        <div align="center" class="row" style="margin: 0 auto; padding: 20px; font-size: 145%;">
             <h3 class="text-justify">
                 <blockquote class="text-center">
                     <p>
-                        <strong style="font-size: 6vw;">
+                        <strong style="font-size: 160%;">
                             或许你从不关心时事<br>
                             但你总该给你孩子一些什么...
                         </strong>
@@ -96,11 +112,11 @@
                 <img src="images/Welcome.jpg"/>
             </div>
         </div>
-        <div id="doSomethingBlockBody" align="center" class="row" style="margin: 0 auto; padding: 20px; font-size: 4.5vw;">
-            <h3 style="font-size: 6vw;">FUNMUGLE 品牌的由来</h3>
+        <div id="doSomethingBlockBody" align="center" class="row" style="margin: 0 auto; padding: 20px; font-size: 145%;">
+            <h3 style="font-size: 160%;">FUNMUGLE 品牌的由来</h3>
             <blockquote class="text-center">
                 <p>
-                    <strong style="font-size: 5vw;">
+                    <strong style="font-size: 150%;">
                         打造一个华人音乐创作平台<br>
                         为大中华国学文化尽份心力
                     </strong>
@@ -121,7 +137,7 @@
                 只要所有好友们动一下【手指】、我们一起把<u>『中华的爱、爱中华』</u>
                 分享到世界各地，我们会给你一分回馈的献礼，也欢迎你将献礼赠送给贫困及弱势家庭。
             </p>
-            <h4 style="font-size: 5vw;">一起为中华承担责任  分享爱</h4>
+            <h4 style="font-size: 150%;">一起为中华承担责任  分享爱</h4>
             <span style="color: blue;text-decoration: underline;">回上页</span>
         </div>
     </div>

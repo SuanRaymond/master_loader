@@ -29,10 +29,10 @@ class accountList extends Controller
         $this->box->result->pagebottom = null;
 
         $this->box->params->mineAccount = null;
-        $this->box->params->account          = Request()->get('account', null);
-        $this->box->params->downtype        = Request()->get('adminDown', 1);
-        $this->box->params->row              = Request()->get('row', 10);
-        $this->box->params->page             = Request()->get('page', 1);
+        $this->box->params->account     = Request()->get('account', null);
+        $this->box->params->downtype    = Request()->get('adminDown', 1);
+        $this->box->params->row         = Request()->get('row', 10);
+        $this->box->params->page        = Request()->get('page', 1);
     }
 
 	public function index()

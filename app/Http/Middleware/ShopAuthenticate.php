@@ -27,6 +27,8 @@ class ShopAuthenticate
             'ShopDetail',
             'PassBuy',
             'ajax/ShopCarAdd',
+            'ajax/ShopCarRem',
+            'ajax/ShopCarDel',
             'PUpload',
             'ajax/PhotoSend',
             'ajax/SCAS',

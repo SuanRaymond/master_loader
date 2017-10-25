@@ -67,9 +67,11 @@ Route::get('/ShopDetail', 'Shop\detail@index');
 //購物車
 Route::get('/ShopCar', 'Shop\shopCar@index');
 //清除購物車
+//??
 Route::get('/ClearBuy', 'Shop\clearShopCarList@index');
 //結算
-Route::get('/Buy', 'Shop\buy@index');
+Route::any('/Buy', 'Shop\buy@index');
+// Route::get('/Buy', 'Shop\buy@index');
 Route::get('/PassBuy', 'Shop\passBuy@index');
 //分類頁
 Route::get('/Sort', 'Shop\sortPage@index');

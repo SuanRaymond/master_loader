@@ -69,10 +69,17 @@
                     $("#shareInfoBlock").hide();
                 }
             });
+            $(".WaitingBtn").click(function(){
+                WaitFrom();
+            });
             /** Alert **/
             {!! session()->get('msg', '') !!}
             {{ setMesage(null) }}
         });
+
+        function WaitFrom(){
+            RaySys.Alert.Fixet("{{ trans('message.onWaiting') }}", "", 0);
+        }
     </script>
 
 </head>

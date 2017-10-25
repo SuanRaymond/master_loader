@@ -1,7 +1,11 @@
 <?php
 
 //放入購物車
-Route::post('/ShopCarAdd', 'shopCarAdd@index');
+Route::post('/ShopCarAdd', 'shopCar@add');
+//拿出購物車
+Route::post('/ShopCarRem', 'shopCar@rem');
+//刪除購物車
+Route::post('/ShopCarDel', 'shopCar@del');
 //重發驗證碼
 Route::post('/VerificationReSend', 'verificationReSend@index');
 //購買藏蛋

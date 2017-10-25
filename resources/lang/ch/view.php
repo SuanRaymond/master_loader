@@ -69,10 +69,13 @@
 		'home' => [
 			'headerTitle' => 'FunMugle',
 			'b' => [
-				'quickTask' => '每日任务',
-				'quickShop' => '购物',
-				'quickresume' => '公司简介',
-				'quickstory' => '品牌故事',
+				'quickText'	  => '简介',
+				'quickTask'   => '每日任务',
+				'quickShop'   => '购物',
+				'quickResume' => '公司简介',
+				'quickStory'  => '品牌故事',
+				'quickGame'	  => '娛樂遊戲',
+				'quickBack'	  => '回到上頁',
 			],
 		],
 		//===入口網站====入口網站====入口網站====入口網站====入口網站====入口網站====入口網站===
@@ -105,6 +108,9 @@
 			'totalMoney'   => '总金额',
 			'priceTitle'   => '价格',
 			'b' => [
+				'check'	   => '選定',
+				'uncheck'  => '不選定',
+				'delete'   => '刪除',
 				'Checkout' => '结帐'
 			],
 			'th' => [
@@ -117,11 +123,12 @@
 			]
 		],
 		'shopBuy' =>[
-			'memberTitle'   => '买家资讯',
+			'memberTitle'   => '收货资讯',
 			'memberName'    => '收货人',
 			'memberPhone'   => '联络电话',
-			'memberAddress' => '地址',
+			'memberAddress' => '收货地址',
 			'b' => [
+				'changeAddress' => '改變收货资讯',
 				'buy' => '付款'
 			],
 		],

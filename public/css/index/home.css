@@ -1,3 +1,8 @@
+/*
+body{
+    overflow-y: hidden;
+}
+*/
 .panel{
     margin-bottom: 10px;
 }
@@ -32,7 +37,8 @@
     left: 0;
 }
 
-#doSomethingBlockBody{
+
+.IconBody{
     margin: 20px auto;
     margin-top: 5vh;
     position: relative;
@@ -41,16 +47,17 @@
     background-size: 100% 100%;
 }
 
-#doSomethingBlockBody div{
+.IconItem{
     margin: 1%;
     max-width: 500px;
     max-height: 500px;
     width: 48%;
     float: left;
     position: relative;
+    cursor: pointer;
 }
 
-#doSomethingBlockBody div div{
+.IconItemText{
     width: 70%;
     bottom: 20px;
     left: 15%;

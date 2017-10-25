@@ -34,6 +34,9 @@
 			'copyError'          => '複製失敗',
 			'pzLogoutRegistered' => '請先登出後再進行註冊',
 		],
+		'shopCar' => [
+			'noSelect' => '購物車內沒有任何東西',
+		],
 		'error' => [
 			'3'   => '封包params為null',
 			'4'   => '封包sign為null',

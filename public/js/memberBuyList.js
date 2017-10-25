@@ -115,7 +115,7 @@ $(document).ready(function(){
                     text: "",
                     type: "success",
                     confirmButtonText: "信用卡",
-                    cancelButtonText: "現金",
+                    cancelButtonText: "銀聯卡",
                     closeOnConfirm: false,
                     closeOnCancel: false,
                     showCancelButton: true,

@@ -90,37 +90,42 @@ class commodityOrderAdd extends Controller
         removeSessionJson('defaule');
         // setMesage([alert(trans('message.title.success'), trans('message.success.buyOK'), 1)]);
 
-        //信用卡交易轉送－資料整理
-        $this->box->callFunction = 'PayCard';
-        $this->box->sendApiUrl = env('SHOP_DOMAIN');
-
-        $this->box->sessionmember = with(new web_judge_services($this->box))->check(['CMSS']);
-        //放入資料區塊
-        $this->box->sendParams                = [];
-        $this->box->sendParams['MemberID']    = auth()->user->memberID;
-        $this->box->sendParams['ShopOrderID'] = $this->box->ShoporderID;
-
-        //送出資料
-        $this->box->result    = with(new connection_services())->callApi($this->box);
-        $this->box->getResult = $this->box->result;
-        //檢查廠商回傳資訊
-        $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
-
-        if($this->box->status != 0){
-            return $this->reRrror(trans('message.error.'.$this->box->status));
+        if(empty(getSessionJson('ShoporderID'))){
+            removeSessionJson('ShoporderID');
+            createSessionJson('ShoporderID');
         }
+        addSessionJson('ShoporderID',$this->box->result->ShoporderID);
+        //信用卡交易轉送－資料整理
+        // $this->box->callFunction = 'PayCard';
+        // $this->box->sendApiUrl = env('SHOP_DOMAIN');
 
-        $this->box->PayCard            = (object) array();
-        $this->box->PayCard->MN        = $this->box->result->PayDetail->MN;
-        $this->box->PayCard->OrderInfo = $this->box->result->PayDetail->OrderInfo;
-        $this->box->PayCard->Td        = $this->box->result->PayDetail->Td;
-        $this->box->PayCard->sna       = $this->box->result->PayDetail->sna;
-        $this->box->PayCard->sdt       = $this->box->result->PayDetail->sdt;
-        $this->box->PayCard->email     = $this->box->result->PayDetail->email;
-        $this->box->PayCard->note1     = $this->box->result->PayDetail->note1;
-        $this->box->PayCard->note2     = $this->box->result->PayDetail->note2;
-        $this->box->PayCard->Card_Type = $this->box->result->PayDetail->Card_Type;
-        $this->box->PayCard->ChkValue  =  strtoupper(sha1(env('SEND_CARD_KEY'). env('SEND_CARD_PAS'). $this->box->result->PayDetail->MN. ''));
+        // $this->box->sessionmember = with(new web_judge_services($this->box))->check(['CMSS']);
+        // //放入資料區塊
+        // $this->box->sendParams                = [];
+        // $this->box->sendParams['MemberID']    = auth()->user->memberID;
+        // $this->box->sendParams['ShopOrderID'] = $this->box->ShoporderID;
+
+        // //送出資料
+        // $this->box->result    = with(new connection_services())->callApi($this->box);
+        // $this->box->getResult = $this->box->result;
+        // //檢查廠商回傳資訊
+        // $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
+
+        // if($this->box->status != 0){
+        //     return $this->reRrror(trans('message.error.'.$this->box->status));
+        // }
+
+        // $this->box->PayCard            = (object) array();
+        // $this->box->PayCard->MN        = $this->box->result->PayDetail->MN;
+        // $this->box->PayCard->OrderInfo = $this->box->result->PayDetail->OrderInfo;
+        // $this->box->PayCard->Td        = $this->box->result->PayDetail->Td;
+        // $this->box->PayCard->sna       = $this->box->result->PayDetail->sna;
+        // $this->box->PayCard->sdt       = $this->box->result->PayDetail->sdt;
+        // $this->box->PayCard->email     = $this->box->result->PayDetail->email;
+        // $this->box->PayCard->note1     = $this->box->result->PayDetail->note1;
+        // $this->box->PayCard->note2     = $this->box->result->PayDetail->note2;
+        // $this->box->PayCard->Card_Type = $this->box->result->PayDetail->Card_Type;
+        // $this->box->PayCard->ChkValue  =  strtoupper(sha1(env('SEND_CARD_KEY'). env('SEND_CARD_PAS'). $this->box->result->PayDetail->MN. ''));
         $box = $this->box;
 
         //進入購物轉跳頁面

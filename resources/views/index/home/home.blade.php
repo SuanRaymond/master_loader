@@ -33,13 +33,13 @@
                 </a>
             </div>
             <div class="animated bounceInLeft IconItem span6">
-                <a href="/Task">
-                    <img src="./images/Gift.png" width="100%">
+                <a class="WaitingBtn" href="/Task">
+                    <img src="./images/task.png" width="100%">
                     <div class="IconItemText" align="center">{{ trans('view.home.b.quickTask') }}</div>
                 </a>
             </div>
             <div class="animated bounceInRight IconItem span6">
-                <a href="/Shop">
+                <a class="WaitingBtn" href="/Shop">
                     <img src="./images/shop.png" width="100%">
                     <div class="IconItemText" align="center">{{ trans('view.home.b.quickShop') }}</div>
                 </a>

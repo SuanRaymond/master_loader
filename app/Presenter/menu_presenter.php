@@ -13,7 +13,7 @@ class menu_presenter{
 
         foreach($_object as $row){
         	foreach($row as $value){
-        		$html .= '<li><a href="/Sort?menuID='. $value. '">'. trans('menu.menu.'. $value). '</a></li>';
+        		$html .= '<li><a class="WaitingBtn" href="/Sort?menuID='. $value. '">'. trans('menu.menu.'. $value). '</a></li>';
         	}
         }
 
@@ -34,14 +34,18 @@ class menu_presenter{
 						    <div class="panel-body">
 						        <div class="popular-search-div">
 						            <span class="popular">'. trans('menu.menu.'. $menuID). '</span>
-						            <span class="see-more"><a href="/Sort?menuID='. $menuID. '">'. trans('view.Shop.b.more'). '</a></span>
+						            <span class="see-more">
+                                        <a class="WaitingBtn" href="/Sort?menuID='. $menuID. '">
+                                            '. trans('view.Shop.b.more'). '
+                                        </a>
+                                    </span>
 						        </div>
 						        <div class="popular-search">';
         	foreach($group as $shopID => $row){
         		if(strlen($row->title) > 20){
         			$row->title = mb_substr($row->title, 0, 20). '...';
         		}
-        		$html .= 	'<a href="/ShopDetail?ShopID='. $shopID. '" class="thumbnail">
+        		$html .= 	'<a href="/ShopDetail?ShopID='. $shopID. '" class="thumbnail WaitingBtn">
                 				<img src="'. $row->images. '" height="100%" alt="" >
                 				<div class="CommodityTitle">'. $row->title. '</div>
                 				<span class="label label-success">$ '. pFormat($row->price). '</span>
@@ -71,7 +75,7 @@ class menu_presenter{
                     $row->title = mb_substr($row->title, 0, 7). '...';
                 }
                 $html .= '
-                        <a href="/ShopDetail?ShopID='.$ShopID.'">
+                        <a class="WaitingBtn" href="/ShopDetail?ShopID='.$ShopID.'">
                             <div class="span5 sortListBox">
                                 <img class="span12 sortImg" src="'. $row->images. '">
                                 <div class="span12 sortListTextBox">

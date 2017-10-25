@@ -163,7 +163,7 @@
                         <span>{{ trans('view.memberMenu.points') }}     {{ auth()->user->points }}</span>
                         <span>{{ trans('view.memberMenu.integral') }}   {{ auth()->user->integral }}</span>
                         <span>{{ trans('view.memberMenu.bonus') }}      {{ auth()->user->bonus }}</span>
-                        <a href="/Logout">
+                        <a class="WaitingBtn" href="/Logout">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>
                             {{ trans('view.memberMenu.logout') }}
                         </a>
@@ -171,13 +171,13 @@
                     @endif
                 </div>
             </li>
-            <li><a href="/MFire">{{ trans('view.homemenu.MFile') }}</a></li>
-            <li><a href="/Shop">{{ trans('view.home.b.quickShop') }}</a></li>
+            <li><a class="WaitingBtn" href="/MFire">{{ trans('view.homemenu.MFile') }}</a></li>
+            <li><a class="WaitingBtn" href="/Shop">{{ trans('view.home.b.quickShop') }}</a></li>
             {{-- <li><a>音樂</a></li>
             <li><a>教育</a></li>
             <li><a>遊戲</a></li>
             <li><a>直播</a></li> --}}
-            <li><a href="/">{{ trans('view.homemenu.returnhome') }}</a></li>
+            <li><a class="WaitingBtn" href="/">{{ trans('view.homemenu.returnhome') }}</a></li>
             <li><a id="closeMenu">{{ trans('view.homemenu.closemenu') }}</a></li>
         </ul>
     </div>

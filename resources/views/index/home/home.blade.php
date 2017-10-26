@@ -33,21 +33,21 @@
                 </a>
             </div>
             <div class="animated bounceInLeft IconItem span6">
-                <a class="WaitingBtn" href="/Task">
-                    <img src="./images/task.png" width="100%">
-                    <div class="IconItemText" align="center">{{ trans('view.home.b.quickTask') }}</div>
-                </a>
-            </div>
-            <div class="animated bounceInRight IconItem span6">
                 <a class="WaitingBtn" href="/Shop">
                     <img src="./images/shop.png" width="100%">
                     <div class="IconItemText" align="center">{{ trans('view.home.b.quickShop') }}</div>
                 </a>
             </div>
-            <div class="animated bounceInDown IconItem span6">
-                <a href="/Game">
-                    <img src="./images/game.png" width="100%">
-                    <div class="IconItemText" align="center">{{ trans('view.home.b.quickGame') }}</div>
+            <div class="animated bounceInRight IconItem span6" id="turnResort">
+                <a>
+                    <img src="./images/resort.png" width="100%">
+                    <div class="IconItemText" align="center">{{ trans('view.home.b.quickResort') }}</div>
+                </a>
+            </div>
+            <div class="animated bounceInDown IconItem span6" id="commingSoon">
+                <a>
+                    <img src="./images/teach.png" width="100%">
+                    <div class="IconItemText" align="center">{{ trans('view.home.b.quickTeach') }}</div>
                 </a>
             </div>
         </div>
@@ -65,6 +65,26 @@
                 </a>
             </div>
             <div class="animated bounceInRight IconItem span6" id="turnBack">
+                <a>
+                    <img src="./images/back.png" width="100%">
+                    <div class="IconItemText" align="center">{{ trans('view.home.b.quickBack') }}</div>
+                </a>
+            </div>
+        </div>
+        <div id="doSomethingBlockBodyResort" align="center" class="row IconBody">
+            <div class="animated bounceInDown IconItem span6">
+                <a class="WaitingBtn" href="/Task">
+                    <img src="./images/task.png" width="100%">
+                    <div class="IconItemText" align="center">{{ trans('view.home.b.quickTask') }}</div>
+                </a>
+            </div>
+            <div class="animated bounceInRight IconItem span6" id="commingSoon2">
+                <a>
+                    <img src="./images/game.png" width="100%">
+                    <div class="IconItemText" align="center">{{ trans('view.home.b.quickGame') }}</div>
+                </a>
+            </div>
+            <div class="animated bounceInRight IconItem span6" id="turnBack2">
                 <a>
                     <img src="./images/back.png" width="100%">
                     <div class="IconItemText" align="center">{{ trans('view.home.b.quickBack') }}</div>

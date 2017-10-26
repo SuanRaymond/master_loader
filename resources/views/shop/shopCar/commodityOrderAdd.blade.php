@@ -60,10 +60,8 @@
 							        timer: 500,
 							    },
 							    function(){
-							        // $("#sendForm").submit();
 							        RaySys.AJAX.Send({CardType: 0}, '/ajax/PayCardListSession', 'SuFun', 'ErFun');
 							    });
-								// swal("送出", "執行信用卡流程","success");
 							}
 							else {
 								swal({
@@ -76,7 +74,6 @@
 							        timer: 500,
 							    },
 							    function(){
-							        // document.location.href="/BuyList";
 							        RaySys.AJAX.Send({CardType: 1}, '/ajax/PayCardListSession', 'SuFun', 'ErFun');
 							    });
 							}

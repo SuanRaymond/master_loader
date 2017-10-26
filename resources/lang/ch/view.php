@@ -71,11 +71,13 @@
 			'b' => [
 				'quickText'	  => '简介',
 				'quickTask'   => '每日任务',
-				'quickShop'   => '购物',
+				'quickShop'   => '跨境电商',
 				'quickResume' => '公司简介',
 				'quickStory'  => '品牌故事',
-				'quickGame'	  => '娛樂遊戲',
-				'quickBack'	  => '回到上頁',
+				'quickResort' => '娱乐游戏',
+				'quickBack'	  => '回到上页',
+				'quickTeach'  => '教育',
+				'quickGame'	  => '游戏',
 			],
 		],
 		//===入口網站====入口網站====入口網站====入口網站====入口網站====入口網站====入口網站===

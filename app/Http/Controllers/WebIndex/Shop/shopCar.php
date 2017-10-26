@@ -27,11 +27,6 @@ class shopCar extends Controller
         //放置目前位置
         session()->put('menu', Request()->path());
 
-        removeSessionJson('quantityNumber');
-        removeSessionJson('totalprice');
-        removeSessionJson('totaltransport');
-        removeSessionJson('totalPoint');
-        removeSessionJson('totalMoney');
 
         removeSessionJson('SetBuyList');
 

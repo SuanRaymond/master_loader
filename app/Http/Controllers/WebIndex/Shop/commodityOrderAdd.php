@@ -36,24 +36,8 @@ class commodityOrderAdd extends Controller
         $this->box->sessionmember = with(new web_judge_services($this->box))->check(['CMSS']);
         //放入資料區塊
         $this->box->sendParams=[];
-        // $this->box->memberBuy = (object) array();
-        // $this->box->memberBuy = reSetKey(getSessionJson('GetShopltemCar'));
         $this->box->sendParams['MemberID'] = auth()->user->memberID;
-        // foreach ($this->box->memberBuy as $rowID => $group) {
-        //     foreach($group as $shopID => $row){
-        //         foreach(getSessionJson("quantityNumber") as $group){
-        //             if(!is_null($group)){
-        //                 foreach ($group as $key => $value) {
-        //                     if($shopID == $key){
-        //                         $this->box->sendParams['Item'][$row->shopID] = $value;
-        //                     }
-        //                 }
-        //             }else{
-        //                 $this->box->sendParams['Item'][$row->shopID] = 1;
-        //             }
-        //         }
-        //     }
-        // }
+
         $this->box->sendParams['Item'] = getSessionJson('SetBuyList');
         foreach(getSessionJson('addressee') as $row){
             $this->box->sendParams['Addressee'] = $row;
@@ -73,59 +57,24 @@ class commodityOrderAdd extends Controller
             return $this->reRrror(trans('message.error.'.$this->box->status));
         }
         $this->box->ShoporderID = $this->box->result->ShoporderID;
-        // 金額數量參數
-        removeSessionJson('quantityNumber');
-        removeSessionJson('totalprice');
-        removeSessionJson('totaltransport');
-        removeSessionJson('totalPoint');
-        removeSessionJson('totalMoney');
-        // 產品資料參數
-        removeSessionJson('SetShopID');
-        removeSessionJson('GetShopltemCar');
         // 收件人參數
         removeSessionJson('index');
         removeSessionJson('addressee');
         removeSessionJson('phone');
         removeSessionJson('address');
         removeSessionJson('defaule');
-        // setMesage([alert(trans('message.title.success'), trans('message.success.buyOK'), 1)]);
+        // 產品資料參數
+        removeSessionJson('SetBuyList');
+        removeSessionJson('SetShopID');
+        removeSessionJson('SetShopNum');
 
         if(empty(getSessionJson('ShoporderID'))){
             removeSessionJson('ShoporderID');
             createSessionJson('ShoporderID');
         }
-        addSessionJson('ShoporderID',$this->box->result->ShoporderID);
         //信用卡交易轉送－資料整理
-        // $this->box->callFunction = 'PayCard';
-        // $this->box->sendApiUrl = env('SHOP_DOMAIN');
+        addSessionJson('ShoporderID',$this->box->result->ShoporderID);
 
-        // $this->box->sessionmember = with(new web_judge_services($this->box))->check(['CMSS']);
-        // //放入資料區塊
-        // $this->box->sendParams                = [];
-        // $this->box->sendParams['MemberID']    = auth()->user->memberID;
-        // $this->box->sendParams['ShopOrderID'] = $this->box->ShoporderID;
-
-        // //送出資料
-        // $this->box->result    = with(new connection_services())->callApi($this->box);
-        // $this->box->getResult = $this->box->result;
-        // //檢查廠商回傳資訊
-        // $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
-
-        // if($this->box->status != 0){
-        //     return $this->reRrror(trans('message.error.'.$this->box->status));
-        // }
-
-        // $this->box->PayCard            = (object) array();
-        // $this->box->PayCard->MN        = $this->box->result->PayDetail->MN;
-        // $this->box->PayCard->OrderInfo = $this->box->result->PayDetail->OrderInfo;
-        // $this->box->PayCard->Td        = $this->box->result->PayDetail->Td;
-        // $this->box->PayCard->sna       = $this->box->result->PayDetail->sna;
-        // $this->box->PayCard->sdt       = $this->box->result->PayDetail->sdt;
-        // $this->box->PayCard->email     = $this->box->result->PayDetail->email;
-        // $this->box->PayCard->note1     = $this->box->result->PayDetail->note1;
-        // $this->box->PayCard->note2     = $this->box->result->PayDetail->note2;
-        // $this->box->PayCard->Card_Type = $this->box->result->PayDetail->Card_Type;
-        // $this->box->PayCard->ChkValue  =  strtoupper(sha1(env('SEND_CARD_KEY'). env('SEND_CARD_PAS'). $this->box->result->PayDetail->MN. ''));
         $box = $this->box;
 
         //進入購物轉跳頁面

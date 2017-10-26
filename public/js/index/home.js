@@ -16,11 +16,16 @@ $(document).ready(function(){
     });
 
     $("#doSomethingBlockBodyStory").hide();
+    $("#doSomethingBlockBodyResort").hide();
     $("#second").hide();
     $("#third").hide();
     $("#turnText").click(function(){
         $("#doSomethingBlockBody").hide();
         $("#doSomethingBlockBodyStory").show();
+    });
+    $("#turnResort").click(function(){
+        $("#doSomethingBlockBody").hide();
+        $("#doSomethingBlockBodyResort").show();
     });
     $("#openSecond").click(function(){
         $("#first").hide();
@@ -34,6 +39,10 @@ $(document).ready(function(){
         $("#doSomethingBlockBody").show();
         $("#doSomethingBlockBodyStory").hide();
     });
+    $("#turnBack2").click(function(){
+        $("#doSomethingBlockBody").show();
+        $("#doSomethingBlockBodyResort").hide();
+    });
     $("#second").click(function(){
         $("#first").show();
         $("#second").hide();
@@ -41,5 +50,25 @@ $(document).ready(function(){
     $("#third").click(function(){
         $("#first").show();
         $("#third").hide();
+    });
+    $("#commingSoon").click(function(){
+        swal({
+            imageUrl: "./images/soon.png",
+            title: "尚未开放",
+            text: "敬请期待．．．",
+            type: "",
+            timer: 3000,
+            showConfirmButton: false
+        });
+    });
+    $("#commingSoon2").click(function(){
+        swal({
+            imageUrl: "./images/soon.png",
+            title: "尚未开放",
+            text: "敬请期待．．．",
+            type: "",
+            timer: 3000,
+            showConfirmButton: false
+        });
     });
 });

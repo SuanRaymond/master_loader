@@ -103,7 +103,7 @@
                                name="repassword">
                     </div><br>
 
-                    <input type="hidden" class="form-control" name="groupID" value="210">
+                    <input type="hidden" class="form-control" name="groupID" value="200">
 
                     <div class="input-group" style="margin: 0 auto;">
                         <div id="v_container" style="width: 200px;height: 50px;"></div><br>

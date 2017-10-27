@@ -100,9 +100,8 @@ class buy extends Controller
         $this->box->totalTransport = pFormat($this->box->totalTransport);
         /*----------------------------------組成購物確認單----------------------------------*/
 
-
         /*----------------------------------組成個人資料確認單----------------------------------*/
-        if(empty(getSessionJson('index'))){
+        if(empty(getSessionJson('address'))){
 
             /*----------------------------------與廠商溝通----------------------------------*/
             //放入連線區塊
@@ -123,38 +122,40 @@ class buy extends Controller
                 return $this->reError(trans('message.error.'.$this->box->status));
             }
             /*----------------------------------與廠商溝通----------------------------------*/
-
-            $this->box->member = $this->box->result->Member;
-
-            if(empty(getSessionJson('addressee'))){
-                createSessionJson('addressee');
-            }
-            if(empty(getSessionJson('phone'))){
-                createSessionJson('phone');
-            }
+            //將資料存入 Session
             if(empty(getSessionJson('address'))){
                 createSessionJson('address');
             }
-            addSessionJson('addressee', $this->box->member->addressee);
-            addSessionJson('phone', $this->box->member->phone);
-            addSessionJson('address', $this->box->member->address);
+            else{
+                removeSessionJson('address');
+            }
+            session()->save();
+            $this->box->member             = $this->box->result->Member;
+            $this->box->address            = (object) array();
+            $this->box->address->addressee = $this->box->member->addressee;
+            $this->box->address->phone     = $this->box->member->phone;
+            $this->box->address->address   = $this->box->member->address;
+
+            session()->put('address', json_encode($this->box->address));
+            session()->save();
         }
         else{
-            $this->box->member = (object) array();
-            foreach(getSessionJson('addressee') as $row){
-                $this->box->member->addressee = $row;
+            $this->box->member = getSessionJson('address');
+            //將資料存入 Session
+            if(empty(getSessionJson('address'))){
+                createSessionJson('address');
             }
-            foreach(getSessionJson('phone') as $row){
-                $this->box->member->phone = $row;
+            else{
+                removeSessionJson('address');
             }
-            foreach(getSessionJson('address') as $row){
-                $this->box->member->address = $row;
-            }
+            session()->save();
+            session()->put('address', json_encode($this->box->member));
+            session()->save();
         }
 
         return true;
     }
-    public function reRrror($_msg)
+    public function reError($_msg)
     {
         setMesage([alert(trans('message.title.error'), $_msg, 2)]);
         return back();

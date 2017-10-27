@@ -2,100 +2,87 @@
 namespace App\Presenter;
 
 class address_presenter{
+
     /**
      * 地址清單
      * @param object $_object 資料物件
      */
-    public function addressList($_object,$_DefaultID)
+    public function addressList($_object, $_defaultID, $_notPick=true)
     {
-        $DefaultID='';
-        $Default='';
-        $datalength=0;
         //輸出物件
-        $html = '<table class="table table-bordered table-condensed" style="background-color: #ffffff;">';
-        $_object = reSetKey($_object);
-        // dd($_object);
-        foreach($_object as $typeID => $row){
-            if($row->addressee != ''){
-                $datalength++;
-                if($_DefaultID==$typeID){$Default= trans('view.AddressList.th.showmain');$DefaultID='1';}else{$Default="";$DefaultID='0';}
-                $html .='
-                        <tbody style="border-top: 10px solid #f0f0f0; font-size: 4.5vw;">
-                            <tr>
-                                <td style="width: 20%;text-align: right;vertical-align: middle;">
-                                    '. trans('view.AddressList.th.addressee') .'<span style="display:none" id="typeID'.$typeID.'">'.$typeID.'</span>
-                                </td>
-                                <td style="width: 25%;text-align: left;vertical-align: middle;" id="addressee'.$typeID.'">
-                                    '.$row->addressee.'
-                                </td>
-                                <td style="width: 20%;text-align: center;vertical-align: middle;">
-                                    '. trans('view.AddressList.th.phonebr') .'
-                                </td>
-                                <td style="text-align: left;vertical-align: middle;" id="phone'.$typeID.'">
-                                    '.$row->phone.'
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: right;vertical-align: middle;">
-                                    '. trans('view.AddressList.th.addressbr') .'
-                                </td>
-                                <td  style="text-align: left;vertical-align: middle;" colspan="3" id="address'.$typeID.'">'.$row->address.'</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" class="fontred" style="font-size: 6vw; text-align: center; vertical-align: middle;">'.$Default.'<span style="display:none" id="Default'.$typeID.'">'.$DefaultID.'</span></td>
-                                <td><a id="index'.$typeID.'" name="changeA" class="button button-flat-primary button-large  button-block" style="padding: 0; font-size: 4vw;"><span class="glyphicon glyphicon-pencil"></span>'. trans('view.AddressList.b.update') .'</a></td>
-                                <td><a id="delete'.$typeID.'" name="delete" class="button button-flat-primary button-large  button-block" style="padding: 0px; font-size: 4vw;"><span class="glyphicon glyphicon-trash"></span>'. trans('view.AddressList.b.delete') .'</a></td>
-                            </tr>
-                        </tbody>
-                    ';
-            }
+        $html = '';
+        foreach($_object as $key => $row){
+            if($row->addressee != '' && $row->address != '' && $row->phone != ''){
+                $html .= '  <div class="panel panel-success">';
+
+                //是否為預設
+                if($key == $_defaultID){
+                    $html .= '  <div class="panel-heading">
+                                    <h2 class="panel-title" align="center" style="font-size: 110%;">
+                                        '. trans('view.addressList.cl.master'). '
+                                    </h2>
+                                </div>';
+                }
+                $html .= '      <div class="panel-body">
+                                    <div class="row">
+                                        <div class="span4">
+                                            '. trans('view.addressList.cl.name'). '
+                                        </div>
+                                        <div class="span8">
+                                            '. $row->addressee. '
+                                        </div>
+                                        <div class="span4">
+                                            '. trans('view.addressList.cl.address'). '
+                                        </div>
+                                        <div class="span8">
+                                            '. $row->address. '
+                                        </div>
+                                        <div class="span4">
+                                            '. trans('view.addressList.cl.phone'). '
+                                        </div>
+                                        <div class="span8">
+                                            '. $row->phone. '
+                                        </div>
+                                    </div>
+                                </div>';
+                $html .= '      <div class="panel-footer">
+                                    <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">';
+
+                //是否為選取
+                if($_notPick){
+                    $html .= '              <a href="/AddressListDel?addressID='. $key. '"
+                                               class="button button-flat-caution btn-group btn-group-xs WaitingBtn" role="button">
+                                                '. trans('view.b.delete'). '
+                                            </a>';
+
+                    ////是否為預設、不是才能修改預設
+                    if($key != $_defaultID){
+                        $html .= '          <a href="/AddressListMas?addressID='. $key. '"
+                                               class="button button-flat-action btn-group btn-group-xs WaitingBtn" role="button">
+                                                '. trans('view.addressList.b.master'). '
+                                            </a>';
+                    }
+
+                    $html .= '              <a href="/AddressListCha?addressID='. $key. '"
+                                               class="button button-flat-primary btn-group btn-group-xs WaitingBtn" role="button">
+                                                '. trans('view.b.edit'). '
+                                            </a>';
+                }
+                else{
+                    $html .= '              <a href="/AddressListPic?addressID='. $key.
+                                                                    '&name='. $row->addressee. '&phone='. $row->phone.
+                                                                    '&address='. $row->address. '"
+                                               class="button button-flat-primary btn-group btn-group-xs WaitingBtn" role="button">
+                                                '. trans('view.b.redio'). '
+                                            </a>';
+                }
+
+                $html .= '          </div>
+                                </div>
+                            </div>';
+            }//
         }
-        $html .= '</table>';
-        $html .= '<span style="display:none" id="datalength">'.$datalength.'</span>';
-        return $html;
-    }
-        public function selectaddress($_object,$_DefaultID)
-    {
-        $DefaultID='';
-        $Default='';
-        //輸出物件
-        $html = '<table class="table table-bordered table-condensed" style="background-color: #ffffff;">';
-        $_object = reSetKey($_object);
-        // dd($_object);
-        foreach($_object as $typeID => $row){
-            if($row->addressee != ''){
-                if($_DefaultID==$typeID){$Default=trans('view.AddressList.th.showmain');$DefaultID='1';}else{$Default="";$DefaultID='0';}
-                $html .='
-                        <tbody style="border-top: 10px solid #f0f0f0; font-size: 4.5vw;">
-                            <tr>
-                                <td style="width: 20%;text-align: right;vertical-align: middle;">
-                                    '. trans('view.AddressList.th.addressee') .'<span style="display:none" id="typeID'.$typeID.'">'.$typeID.'</span>
-                                </td>
-                                <td style="width: 25%;text-align: left;vertical-align: middle;" id="addressee'.$typeID.'">
-                                    '.$row->addressee.'
-                                </td>
-                                <td style="width: 20%;text-align: center;vertical-align: middle;">
-                                    '. trans('view.AddressList.th.phonebr') .'
-                                </td>
-                                <td style="text-align: left;vertical-align: middle;" id="phone'.$typeID.'">
-                                    '.$row->phone.'
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: right;vertical-align: middle;">
-                                    '. trans('view.AddressList.th.addressbr') .'
-                                </td>
-                                <td  style="text-align: left;vertical-align: middle;" colspan="3" id="address'.$typeID.'">'.$row->address.'</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" class="fontred" style="font-size: 6vw; text-align: center; vertical-align: middle;">'.$Default.'<span style="display:none" id="Default'.$typeID.'">'.$DefaultID.'</span></td>
-                                <td colspan="2"><a  id="select'.$typeID.'" name="select" class="button button-flat-primary button-large  button-block" style="padding-left: 15px;padding-right: 15px;"><span class="glyphicon glyphicon-ok"></span>'. trans('view.AddressList.b.select') .'</a></td>
-                            </tr>
-                        </tbody>
-                    ';
-            }
-        }
-        $html .= '</table>';
+
         return $html;
     }
 }

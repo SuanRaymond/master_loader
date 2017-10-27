@@ -108,28 +108,21 @@
 
     <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
         <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-            <div class="span3">
-                <a class="btn navbar-brand WaitingBtn span12" role="button" href="/Shop" style="padding-left: 0px; padding-right: 0px;">
-                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    {{ trans('view.shophome') }}
-                </a>
-            </div>
-            <div class="span5">
-                <h4 class="navbar-text span12 text-center" style="padding-left: 0px; padding-right: 0px; font-size: 100%;">
-                    {{ trans('view.shopCar.totalMoney') }}：
-                    <span id="BottomMoney"> {{ $box->totalMoney }}</span>
-                </h4>
-            </div>
-            <div class="span4">
-                <a class="btn btn-danger navbar-brand WaitingBtn span12" role="button" id="sendBuy"
-                   tyle="padding-left: 0px; padding-right: 0px; color: white;">
-                    {{ trans('view.shopCar.b.Checkout') }}
-                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
-                </a>
-            </div>
+            <a href="/Shop" class="btn button button-flat-caution button-large button-block btn-group btn-group-xs WaitingBtn span12">
+                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                {{ trans('view.b.back') }}
+            </a>
+            <a class="btn button button-flat button-large button-block btn-group btn-group-xs WaitingBtn span12">
+                {{ trans('view.shopCar.totalMoney') }}：
+                <span id="BottomMoney"> {{ $box->totalMoney }}</span>
+            </a>
+            <a href="javascript:;" id="sendBuy"
+               class="btn button button-flat-action button-large button-block btn-group btn-group-xs WaitingBtn span12">
+                {{ trans('view.shopCar.b.Checkout') }}
+                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+            </a>
         </div>
     </nav>
-
 @stop
 
 

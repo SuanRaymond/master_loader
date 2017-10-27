@@ -2,7 +2,7 @@ var clipboard;
 $(document).ready(function(){
 	$.scrollTo(0);
 
-	$("#backGatePage, #closeMenu").click(function(){
+	$("#backGatePage, #closeMenu, .MenuWaitingBtn").click(function(){
   		$("#backGatePage").fadeOut();
   		$("#doSomethingBlockMenuButton").click();
   	});

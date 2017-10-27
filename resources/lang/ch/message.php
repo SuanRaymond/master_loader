@@ -1,11 +1,25 @@
 <?php
 	return [
 		'onWaiting'  => '請稍等',
+
 		'onLoading'  => '讀取中...',
 		'onWaited'   => '讀取完畢',
 		'onLoadSuc'  => '讀取成功',
 		'onLoadErr'  => '讀取失敗',
 		'onLoadPage' => '載入網頁中...',
+
+		'onInserting'  => '寫入中...',
+		'onInserted'   => '寫入完畢',
+		'onInsertSuc'  => '寫入成功',
+		'onInsertErr'  => '寫入失敗',
+		'onInsertPage' => '寫入網頁中...',
+
+		'onChangeing'  => '修改中...',
+		'onChangeed'   => '修改完畢',
+		'onChangeSuc'  => '修改成功',
+		'onChangeErr'  => '修改失敗',
+		'onChangePage' => '修改網頁中...',
+
 		'browserLow' => '抱歉，你的浏覽器不支持',
 		'title'             => [
 	        'debug'         => '除错',

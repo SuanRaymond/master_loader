@@ -20,6 +20,33 @@
 		'shopcar'  => '购物车',
 		'mfile'    => '我的',
 
+		'c' => [
+	    ],
+	    'b' => [
+	    	'yes'	   => '是',
+	    	'no'	   => '否',
+	        'send'     => '送出',
+	        'edit'     => '编辑',
+	        'delete'   => '刪除',
+	        'change'   => '更動',
+	        'search'   => '搜寻',
+	        'clear'    => '清除',
+	        'enabled'  => '已启用',
+	        'disabled' => '未启用',
+	        'close'    => '关闭',
+	        'cancel'   => '取消',
+	        'confirm'  => '确认',
+	        'back'	   => '返回',
+	        'view'     => '查看',
+	        'redio'	   => '選取',
+	        'home' 	   => '首页',
+	    ],
+	    'th' => [
+        ],
+	    's' => [
+	    	'0' => '未選擇',
+	    ],
+
 		//===入口網站====入口網站====入口網站====入口網站====入口網站====入口網站====入口網站===
 		'memberMenu' => [
 			'shareInfo'=> '推荐資訊（点我）',
@@ -242,32 +269,26 @@
 			],
 
 		],
-		'AddressList' =>[
-            'AddressListTitle'   => '管理收货地址',
-            'NewAddressTitle'    => '新增收货地址',
-            'UpdateAddressTitle' => '编辑收货地址',
-            'SelectAddressTitle' => '选择收货地址',
+
+
+		'addressList' =>[
+            'listTitle'   => '管理收货地址',
+            'addTitle'    => '新增收货地址',
+            'changeTitle' => '编辑收货地址',
+            'redioTitle'    => '选择收货地址',
             'b' =>[
-                'cancel'     => '取消',
-                'update'     => '编辑',
-                'delete'     => '删除',
-                'confirm'    => '确认',
-                'back'       => '返回',
-                'select'     => '选择',
-                'goaddress'  => '我的收货地址',
-                'newaddress' => '新增地址',
+                'add'    => '新增地址',
+                'change' => '修改地址',
+                'master' => '默认',
             ],
-            'th' =>[
-                'Prompt'    => '全部字段皆必填',
-                'addressee' => '收货人',
-                'phone'     => '联系电话',
-                'address'   => '送货地址',
-                'main'      => '设为默认',
-                'yes'       => '是',
-                'no'        => '否',
-                'showmain'  => '默认地址',
-                'phonebr'   => '联系<br>电话',
-                'addressbr' => '送货<br>地址',
+
+            'cl' => [
+            	'master'  => '默认地址',
+            	'name'    => '收货人',
+            	'address' => '收货地址',
+            	'phone'   => '联系电话',
+            	'prompt'  => '*全部字段皆必填',
+            	'max'	  => '收货地址最大上限為 5筆',
             ],
 
         ],

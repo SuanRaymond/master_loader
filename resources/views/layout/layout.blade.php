@@ -171,14 +171,14 @@
                     @endif
                 </div>
             </li>
-            <li><a class="WaitingBtn" href="/MFire">{{ trans('view.homemenu.MFile') }}</a></li>
-            <li><a class="WaitingBtn" href="/Shop">{{ trans('view.home.b.quickShop') }}</a></li>
+            <li><a class="WaitingBtn MenuWaitingBtn" href="/MFire">{{ trans('view.homemenu.MFile') }}</a></li>
+            <li><a class="WaitingBtn MenuWaitingBtn" href="/Shop">{{ trans('view.home.b.quickShop') }}</a></li>
             {{-- <li><a>音樂</a></li>
             <li><a>教育</a></li>
             <li><a>遊戲</a></li>
             <li><a>直播</a></li> --}}
-            <li><a class="WaitingBtn" href="/">{{ trans('view.homemenu.returnhome') }}</a></li>
-            <li><a id="closeMenu">{{ trans('view.homemenu.closemenu') }}</a></li>
+            <li><a class="WaitingBtn MenuWaitingBtn" href="/">{{ trans('view.homemenu.returnhome') }}</a></li>
+            <li><a id="closeMenu" href="javascript:;">{{ trans('view.homemenu.closemenu') }}</a></li>
         </ul>
     </div>
     <div id="backGatePage"></div>

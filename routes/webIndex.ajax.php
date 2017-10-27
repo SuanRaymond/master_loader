@@ -16,12 +16,6 @@ Route::post('/SignSend', 'signSend@index');
 Route::post('/GameSend', 'signSend@game');
 //大頭照上傳
 Route::post('/PhotoSend', 'photoSend@index');
-//地址暫存
-Route::post('/CAddressS', 'addressSession@index');
-//地址刪除
-Route::post('/CAddressD', 'addressSession@deleteA');
-//地址暫存 選擇
-Route::post('/SAddress', 'selectAddrSession@index');
 //取得金流單
 Route::post('/PayCardList', 'payCardList@index');
 //取得金流單

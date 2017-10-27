@@ -1,6 +1,15 @@
 <?php
 	return [
 
+		'addressList' => [
+			'typeMaster'    => '請填入 正確預設勾選',
+			'nullAddressID' => '請正確勾選要刪除的地址',
+			'nullName'      => '請填入 收货人',
+			'nullPhone'     => '請填入 联系电话',
+			'nullAddress'   => '請填入 送货地址',
+		],
+
+
 		/***** 後台專用 *****/
 		'manager' => [
 			'images' => [

@@ -44,22 +44,24 @@ Route::post('/Check', 'verificationCheck@check');
 Route::get('/PUpload', 'photoUpload@index');
 //訂單查詢 頁面
 Route::get('/BuyList', 'memberBuyList@index');
-//收貨地址管理 頁面
-Route::get('/AddressList', 'addressManagement@index');
-//收貨地址新增 頁面
-Route::get('/NAddress', 'addressManagement@newdata');
-//收貨地址修改 頁面
-Route::get('/CAddress', 'addressManagement@change');
-//收貨地址新增 驗證
-Route::post('/NAddress', 'addressManagement@Ncheck');
-//收貨地址修改 驗證
-Route::post('/CAddress', 'addressManagement@Ccheck');
-//收貨地址選擇 頁面
-Route::get('/SAddress', 'addressManagement@select');
+
+/***** 地址 ******/
+//收貨地址管理
+Route::get('/AddressList', 'Account\Address\address@index');
+//收貨地址管理－新增
+Route::get('/AddressListAdd', 'Account\Address\address@add');
+//收貨地址管理－修改
+Route::get('/AddressListCha', 'Account\Address\address@change');
+//收貨地址管理－刪除
+Route::get('/AddressListDel', 'Account\Address\address@delete');
+//收貨地址管理－修改預設
+Route::get('/AddressListMas', 'Account\Address\address@setMaster');
+//收貨地址管理－選取
+Route::get('/AddressListPic', 'Account\Address\address@pick');
+/***** 地址 ******/
+
 //信用卡
 Route::get('/creditCard', 'Shop\sendCreditCard@index');
-
-
 
 //購物網
 Route::get('/Shop', 'Shop\homeShop@index');

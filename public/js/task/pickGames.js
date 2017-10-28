@@ -70,7 +70,7 @@ function SuFunGame(_obj){
 }
 function ErFunGame(_obj){
     // console.log(_obj);
-    swal("失败", "", "error");
+    swal("失败", _obj.ResultJSON.error, "error");
 }
 
 

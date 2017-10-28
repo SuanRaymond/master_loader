@@ -59,7 +59,7 @@ function doublecheck(Type){
                     showLoaderOnConfirm: true,
                 },
                 function(){
-                    RaySys.AJAX.Send({TypeID: Type}, '/ajax/GameSend', 'SuFun', 'ErFun');
+                    RaySys.AJAX.Send({TypeID: Type}, '/ajax/GameSend', 'SuFunGame', 'ErFunGame');
                 });
             },1000)
         });

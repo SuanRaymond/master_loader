@@ -182,6 +182,8 @@
         </ul>
     </div>
     <div id="backGatePage"></div>
+
+    <div id="testPage" class="hidden">{!! session()->get('testPage', '') !!}</div>
 </body>
 
 </html>

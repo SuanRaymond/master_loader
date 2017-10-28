@@ -100,6 +100,9 @@ class ShopAuthenticate
                 return redirect('Check');
             }
             if($this->box->status != 0){
+                if($this->box->status == 9){
+                    session()->put('testPage', $this->box->result);
+                }
                 return $this->reRrror(trans('message.error.'.$this->box->status). '--1');
             }
             /*----------------------------------與廠商溝通----------------------------------*/

@@ -33,7 +33,7 @@
                 </a>
             </div>
             <div class="animated bounceInLeft IconItem span6">
-                <a class="WaitingBtn" href="/Shop">
+                <a href="/Shop">
                     <img src="./images/shop.png" width="100%">
                     <div class="IconItemText" align="center">{{ trans('view.home.b.quickShop') }}</div>
                 </a>
@@ -73,7 +73,7 @@
         </div>
         <div id="doSomethingBlockBodyResort" align="center" class="row IconBody">
             <div class="animated bounceInDown IconItem span6">
-                <a class="WaitingBtn" href="/Task">
+                <a href="/Task">
                     <img src="./images/task.png" width="100%">
                     <div class="IconItemText" align="center">{{ trans('view.home.b.quickTask') }}</div>
                 </a>

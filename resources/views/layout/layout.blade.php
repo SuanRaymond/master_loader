@@ -78,7 +78,7 @@
         });
 
         function WaitFrom(){
-            RaySys.Alert.Fixet("{{ trans('message.onWaiting') }}", "", 0);
+            {{-- RaySys.Alert.Fixet("{{ trans('message.onWaiting') }}", "", 0); --}}
         }
     </script>
 

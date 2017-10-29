@@ -29,6 +29,20 @@ class buy extends Controller
             return $this->rewarning(trans('message.warn.projectNull'));
         }
         $this->box->params->shopCarList = json_decode($this->box->params->shopCarList);
+
+        /*----------------------------------針對 VIP 所做的阻擋----------------------------------*/
+        $vipCount = 0;
+        foreach($this->box->params->shopCarList as $shopID => $count){
+            if($shopID == 10008 || $shopID == 10009){
+                $vipCount++;
+            }
+        }
+        if($vipCount >= 2){
+            $this->reError(trans('error.VIPCount2'));
+            return redirect('/ShopCar');
+        }
+        /*----------------------------------針對 VIP 所做的阻擋----------------------------------*/
+
         $result = $this->search();
         if(!$result){
             return redirect('/Login');
@@ -59,6 +73,7 @@ class buy extends Controller
             $this->box->itemID[] = $shopID;
             $this->box->itemNU[] = $count;
         }
+        /*----------------------------------組成購物確認單----------------------------------*/
 
         /*----------------------------------與廠商溝通----------------------------------*/
         //放入連線區塊

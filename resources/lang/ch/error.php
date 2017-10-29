@@ -1,6 +1,10 @@
 <?php
 	return [
 
+		/***** 針對 VIP 所做的阻擋 ******/
+		'VIPCount2' => '僅限購一組VIP',
+		/***** 針對 VIP 所做的阻擋 ******/
+
 		'addressList' => [
 			'typeMaster'    => '請填入 正確預設勾選',
 			'nullAddressID' => '請正確勾選要刪除的地址',

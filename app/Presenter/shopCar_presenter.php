@@ -72,14 +72,14 @@ class shopCar_presenter{
 
                                                 <div class="span4">'. trans('view.shopCar.th.productQuantity'). '</div>
                                                 <div class="span2 text-center">
-                                                    '. ($_notInCar ? '<span class="glyphicon glyphicon-plus addItem WaitingBtn" aria-hidden="true"
+                                                    '. (($_notInCar && $row->shopID != 10008 && $row->shopID != 10009) ? '<span class="glyphicon glyphicon-plus addItem WaitingBtn" aria-hidden="true"
                                                           id="addItem_'. $row->shopID. '"></span>' : ''). '
                                                 </div>
                                                 <div class="span2 text-center">
                                                     <span id="quantity_'. $row->shopID. '">'. $row->count. '</span>
                                                 </div>
                                                 <div class="span2 text-center">
-                                                    '. ($_notInCar ? '<span class="glyphicon glyphicon-minus mnsItem WaitingBtn" aria-hidden="true"
+                                                    '. (($_notInCar && $row->shopID != 10008 && $row->shopID != 10009) ? '<span class="glyphicon glyphicon-minus mnsItem WaitingBtn" aria-hidden="true"
                                                           id="mnsItem_'. $row->shopID. '"></span>' : ''). '
                                                 </div>
                                             </div>

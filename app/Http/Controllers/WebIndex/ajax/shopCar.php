@@ -35,7 +35,7 @@ class shopCar extends Controller
                 addSessionJson('SetShopID', $this->box->params->shopID);
                 addSessionJson('SetShopNum', $this->box->params->shopNum);
             }
-            else{
+            else if($this->box->params->shopID != 10008 && $this->box->params->shopID != 10009){
                 $this->box->json = getSessionJson('SetShopID');
                 foreach($this->box->json as $key => $value){
                     if($this->box->params->shopID == $value){

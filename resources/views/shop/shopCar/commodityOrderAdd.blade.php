@@ -125,7 +125,7 @@
 		    // console.log(_obj);
 		    // swal("购买失敗", _obj.ResultJSON.error, "error");
 		    swal({
-		        title: "签到失败",
+		        title: "购买失敗",
 		        text: _obj.ResultJSON.error,
 		        type:"error",
 		        closeOnConfirm: false,

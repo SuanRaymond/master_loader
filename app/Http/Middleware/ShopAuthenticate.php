@@ -102,7 +102,7 @@ class ShopAuthenticate
             }
             if($this->box->status != 0){
                 // if($this->box->status == 8 || $this->box->status == 9){
-                    dd($this->box->result);
+                    dd(1, $this->box->path, $this->box->result);
                 // }
                 return $this->reRrror(trans('message.error.'.$this->box->status). '--1');
             }
@@ -135,7 +135,7 @@ class ShopAuthenticate
             $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
             if($this->box->status != 0){
                 // if($this->box->status == 8 || $this->box->status == 9){
-                    dd($this->box->result);
+                    dd(2, $this->box->path, $this->box->result);
                 // }
                 return $this->reRrror(trans('message.error.'.$this->box->status). '--2');
             }

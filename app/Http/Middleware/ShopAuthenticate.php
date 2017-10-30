@@ -106,9 +106,6 @@ class ShopAuthenticate
                 // }
                 return $this->reRrror(trans('message.error.'.$this->box->status). '--1');
             }
-            else{
-                dd(1, $this->box);
-            }
             /*----------------------------------與廠商溝通----------------------------------*/
 
             //整理資料

@@ -123,18 +123,18 @@
 		}
 		function ErFun(_obj){
 		    // console.log(_obj);
-		    swal("付款失敗", _obj.ResultJSON.error, "error");
-		    // swal({
-		    //     title: "签到失败",
-		    //     text: _obj.ResultJSON.error,
-		    //     type:"error",
-		    //     closeOnConfirm: false,
-		    //     showLoaderOnConfirm: true,
-		    //     confirmButtonText: "确认",
-		    // },
-		    // function(){
-		    //     document.location.href="/Task";
-		    // });
+		    // swal("购买失敗", _obj.ResultJSON.error, "error");
+		    swal({
+		        title: "签到失败",
+		        text: _obj.ResultJSON.error,
+		        type:"error",
+		        closeOnConfirm: false,
+		        showLoaderOnConfirm: true,
+		        confirmButtonText: "确认",
+		    },
+		    function(){
+		        document.location.href="/BuyList";
+		    });
 		}
 	</script>
 </head>

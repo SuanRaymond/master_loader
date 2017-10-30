@@ -40,7 +40,7 @@ class homeTask extends Controller
         //放入連線區塊
         //需呼叫的功能
         $this->box->callFunction = 'GetRebateTaskToday';
-        $this->box->sendApiUrl   = env('INDEX_DOMAIN');
+        $this->box->sendApiUrl   = config('app.urlAPIIndex');
 
         //放入資料區塊
         $this->box->sendParams             = [];
@@ -63,7 +63,7 @@ class homeTask extends Controller
             //需呼叫的功能
 
             $this->box->callFunction = 'RebateList';
-            $this->box->sendApiUrl   = env('INDEX_DOMAIN');
+            $this->box->sendApiUrl   = config('app.urlAPIIndex');
 
             //放入資料區塊
             $this->box->sendParams             = [];
@@ -87,7 +87,7 @@ class homeTask extends Controller
             //需呼叫的功能
 
             $this->box->callFunction = 'GetRebateTaskList';
-            $this->box->sendApiUrl   = env('INDEX_DOMAIN');
+            $this->box->sendApiUrl   = config('app.urlAPIIndex');
 
             //放入資料區塊
             $this->box->sendParams             = [];

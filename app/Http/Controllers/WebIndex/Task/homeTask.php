@@ -20,7 +20,8 @@ class homeTask extends Controller
         $this->box->html   = (object) array();
 
 
-        $this->box->html->RebateList = '';
+        $this->box->html->RebateList    = '';
+        $this->box->html->contentBottom = '';
     }
 
     public function index()

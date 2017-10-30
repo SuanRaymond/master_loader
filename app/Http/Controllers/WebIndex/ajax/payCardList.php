@@ -66,7 +66,7 @@ class payCardList extends Controller
             echo json_encode(array(
                 'result' => 'ER',
                 'msg'    => request('ID'),
-                'error'  => '',
+                'error'  => trans('message.error.'.$this->box->status),
             ));
         }
         exit;
@@ -121,7 +121,7 @@ class payCardList extends Controller
             echo json_encode(array(
                 'result' => 'ER',
                 'msg'    => request('ID'),
-                'error'  => '',
+                'error'  => trans('message.error.'.$this->box->status),
             ));
         }
         exit;

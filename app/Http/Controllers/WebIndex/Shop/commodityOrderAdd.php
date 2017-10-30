@@ -69,8 +69,8 @@ class commodityOrderAdd extends Controller
         }
 
         removeSessionJson('SetBuyList');
-        removeSessionJson('SetShopID');
-        removeSessionJson('SetShopNum');
+        // removeSessionJson('SetShopID');
+        // removeSessionJson('SetShopNum');
 
         createSessionJson('SetShopID');
         createSessionJson('SetShopNum');
@@ -81,14 +81,10 @@ class commodityOrderAdd extends Controller
         foreach($carNumList as $key => $num){
             addSessionJson('SetShopNum', $num);
         }
-
-        if(empty(getSessionJson('ShoporderID'))){
-            removeSessionJson('ShoporderID');
-            createSessionJson('ShoporderID');
-        }
+        removeSessionJson('ShoporderID');
         //信用卡交易轉送－資料整理
-        addSessionJson('ShoporderID',$this->box->result->ShoporderID);
-
+        createSessionJson('ShoporderID');
+        addSessionJson('ShoporderID',json_encode($this->box->result->ShoporderID));
         $box = $this->box;
 
         //進入購物轉跳頁面

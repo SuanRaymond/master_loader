@@ -117,6 +117,17 @@ class buy extends Controller
 
         /*----------------------------------組成個人資料確認單----------------------------------*/
         if(empty(getSessionJson('address'))){
+            session()->save();
+            $this->box->address            = (object) array();
+            $this->box->address->addressee = '';
+            $this->box->address->phone     = '';
+            $this->box->address->address   = '';
+
+            session()->put('address', json_encode($this->box->address));
+            session()->save();
+        }
+        $address = getSessionJson('address');
+        if($address->addressee == ""|| $address->phone == ""|| $address->address == ""){
 
             /*----------------------------------與廠商溝通----------------------------------*/
             //放入連線區塊

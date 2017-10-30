@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'useType' => env('USETYPE', 'ONLINE'),
 
     /*
     |--------------------------------------------------------------------------
@@ -57,6 +58,14 @@ return [
     'urlWebIndex' => env('WEB_INDEX_DOMAIN', ''),
     //後台入口
     'urlWebManager' => env('WEB_MANAGER_DOMAIN', ''),
+
+
+    //入口網的API
+    'urlAPIIndex' => env('INDEX_DOMAIN', ''),
+    //購物網的API
+    'urlAPIShop' => env('SHOP_DOMAIN', ''),
+    //後台的API
+    'urlAPIManager' => env('MANAGER_DOMAIN', ''),
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

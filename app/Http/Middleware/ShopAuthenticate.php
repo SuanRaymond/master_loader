@@ -83,7 +83,7 @@ class ShopAuthenticate
             //放入連線區塊
             //需呼叫的功能
             $this->box->callFunction = 'Login';
-            $this->box->sendApiUrl   = env('INDEX_DOMAIN');
+            $this->box->sendApiUrl   = config('app.urlAPIIndex');
 
             //放入資料區塊
             $this->box->sendParams             = [];
@@ -102,7 +102,7 @@ class ShopAuthenticate
             }
             if($this->box->status != 0){
                 // if($this->box->status == 8 || $this->box->status == 9){
-                    dd(1, $this->box, config('app.debug'), env('USETYPE'), env('INDEX_DOMAIN'));
+                    dd(1, $this->box, config('app.debug'), config('app.useType'), config('app.urlAPIIndex'));
                 // }
                 return $this->reRrror(trans('message.error.'.$this->box->status). '--1');
             }
@@ -120,7 +120,7 @@ class ShopAuthenticate
             //放入連線區塊
             //需呼叫的功能
             $this->box->callFunction = 'SetLoginInfo';
-            $this->box->sendApiUrl   = env('INDEX_DOMAIN');
+            $this->box->sendApiUrl   = config('app.urlAPIIndex');
             //放入資料區塊
             $this->box->sendParams                = [];
             $this->box->sendParams['MemberID']    = $this->box->member->memberID;
@@ -135,7 +135,7 @@ class ShopAuthenticate
             $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
             if($this->box->status != 0){
                 // if($this->box->status == 8 || $this->box->status == 9){
-                    dd(2, $this->box, config('app.debug'), env('USETYPE'), env('INDEX_DOMAIN'));
+                    dd(2, $this->box, config('app.debug'), config('app.useType'), config('app.urlAPIIndex'));
                 // }
                 return $this->reRrror(trans('message.error.'.$this->box->status). '--2');
             }

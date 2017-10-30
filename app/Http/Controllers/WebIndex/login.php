@@ -19,6 +19,10 @@ class login extends Controller
 
     public function index()
     {
+        removeSessionJson('account');
+        removeSessionJson('password');
+        removeSessionJson('member');
+
         return mIView('login');
     }
 

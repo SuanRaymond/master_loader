@@ -78,14 +78,14 @@ class payCardList extends Controller
         if(getSessionJson('ShoporderID')){
             $this->box->callFunction = 'PayCard';
             $this->box->sendApiUrl = env('SHOP_DOMAIN');
-
+            $this->box->params->ShopOrderID = getSessionJson('ShoporderID')[0];
             $this->box->sessionmember = with(new web_judge_services($this->box))->check(['CMSS']);
             //放入資料區塊
             $this->box->sendParams                = [];
             $this->box->sendParams['MemberID']    = auth()->user->memberID;
-            $this->box->sendParams['ShopOrderID'] = getSessionJson('ShoporderID')[0];
+            $this->box->sendParams['ShopOrderID'] = $this->box->params->ShopOrderID;
             $this->box->sendParams['CardType']    = $this->box->params->CardType;
-
+            // dd($this->box);
             //送出資料
             $this->box->result    = with(new connection_services())->callApi($this->box);
             $this->box->getResult = $this->box->result;

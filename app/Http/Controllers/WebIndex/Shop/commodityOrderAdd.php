@@ -27,6 +27,8 @@ class commodityOrderAdd extends Controller
 
     public function index()
     {
+        //清除購買的交易單號
+        removeSessionJson('ShoporderID');
         $this->box->memberAddress = getSessionJson('address');
 
         //----------------------------------與廠商溝通----------------------------------
@@ -52,7 +54,7 @@ class commodityOrderAdd extends Controller
         if($this->box->status != 0){
             return $this->reError(trans('message.error.'.$this->box->status));
         }
-        $this->box->ShoporderID = $this->box->result->ShoporderID;
+        // $this->box->ShoporderID = $this->box->result->ShoporderID;
         // 收件人參數
         removeSessionJson('address');
         // 產品資料參數
@@ -69,8 +71,8 @@ class commodityOrderAdd extends Controller
         }
 
         removeSessionJson('SetBuyList');
-        // removeSessionJson('SetShopID');
-        // removeSessionJson('SetShopNum');
+        removeSessionJson('SetShopID');
+        removeSessionJson('SetShopNum');
 
         createSessionJson('SetShopID');
         createSessionJson('SetShopNum');
@@ -81,12 +83,15 @@ class commodityOrderAdd extends Controller
         foreach($carNumList as $key => $num){
             addSessionJson('SetShopNum', $num);
         }
-        removeSessionJson('ShoporderID');
         //信用卡交易轉送－資料整理
+        $this->box->ShoporderID = [];
+        foreach($this->box->result->ShoporderID as $ShoporderID => $row){
+            $this->box->ShoporderID[$row] = $row;
+        }
         createSessionJson('ShoporderID');
-        addSessionJson('ShoporderID',json_encode($this->box->result->ShoporderID));
+        addSessionJson('ShoporderID',$this->box->ShoporderID);
         $box = $this->box;
-
+        // dd(getSessionJson('ShoporderID')[0]);
         //進入購物轉跳頁面
         return mSView('shopCar.commodityOrderAdd', compact('box'));
 

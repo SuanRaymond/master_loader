@@ -135,7 +135,7 @@ class ShopAuthenticate
             $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
             if($this->box->status != 0){
                 // if($this->box->status == 8 || $this->box->status == 9){
-                    dd(2, $this->box, env('USETYPE'), env('INDEX_DOMAIN'));
+                    dd(2, $this->box, config('app.debug'), env('USETYPE'), env('INDEX_DOMAIN'));
                 // }
                 return $this->reRrror(trans('message.error.'.$this->box->status). '--2');
             }

@@ -10,8 +10,9 @@ $(document).ready(function(){
 function SuFun(){
     // console.log("aaaaaa");
     swal({
+        html: true,
         title: "获得加速"+$("#TaskOdds").val()+"%",
-        text: "获得"+$("#MoneyBack").val()+"金蛋",
+        text: "获得<br><span style='color:#FF0000; font-size: 25pt;'><b>"+$("#MoneyBack").val()+"</b></span><br>金蛋",
         type:"success",
         confirmButtonText: "确认",
         closeOnConfirm: false,

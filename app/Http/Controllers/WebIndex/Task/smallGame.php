@@ -31,6 +31,7 @@ class smallGame extends Controller
         //放置目前位置
         session()->put('menu', Request()->path());
         $this->box->GameAns = getSessionJson('SetGameANS');
+        $this->box->GameAns[0]->MoneyBack = pFormat($this->box->GameAns[0]->MoneyBack);
         // dd($this->box->GameAns[0]);
         if($this->box->GameAns[0]->Type==0){
             $this->box->html->OddsDetail   = with(new sGame_presenter())->OddsDetail($this->box->GameAns[0]->OddsDetail);

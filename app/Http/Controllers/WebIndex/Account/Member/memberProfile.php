@@ -83,6 +83,8 @@ class memberProfile extends Controller
         $this->box->member->mail       = $this->box->member->mail;
         $this->box->member->address    = $this->box->member->address;
         $this->box->member->birthday   = $this->box->member->birthday;
+        //修改頁面是用-做切割，在使用者未填生日時會造成資料錯誤。
+        $this->box->member->birthday2  = empty($this->box->member->birthday)?'-0-0':$this->box->member->birthday;
         $this->box->member->gender     = $this->box->member->gender;
         $this->box->member->languageID = $this->box->member->languageID;
         $this->box->member->points     = pFormat($this->box->member->points);

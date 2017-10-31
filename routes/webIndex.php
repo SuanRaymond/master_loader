@@ -25,25 +25,27 @@ Route::post('/Registered', 'registered@check');
 
 //登出
 Route::get('/Logout', 'logout@index');
-
-//修改密碼
-Route::get('/CPwd', 'changePassword@index');
-//修改密碼 驗證
-Route::post('/CPwd', 'changePassword@check');//修改密碼
-
-Route::get('/MFire', 'memberProfile@index');//會員明細
-//修改會員資料
-Route::get('/CMFire', 'changeMemberProfile@index');
-//修改會員資料 驗證
-Route::post('/CMFire', 'changeMemberProfile@check');
 //驗證碼驗證
 Route::get('/Check', 'verificationCheck@index');
 //驗證碼驗證 驗證
 Route::post('/Check', 'verificationCheck@check');
+
+/***** 會員中心 ******/
+//修改密碼
+Route::get('/CPwd', 'Account\Member\changePassword@index');
+//修改密碼 驗證
+Route::post('/CPwd', 'Account\Member\changePassword@check');//修改密碼
+
+Route::get('/MFile', 'Account\Member\memberProfile@index');//會員明細
+//修改會員資料
+Route::get('/CMFile', 'Account\Member\memberProfile@change');
+//修改會員資料 驗證
+Route::post('/CMFile', 'Account\Member\memberProfile@check');
 //上傳頭像 頁面
-Route::get('/PUpload', 'photoUpload@index');
+Route::get('/PUpload', 'Account\Member\photoUpload@index');
 //訂單查詢 頁面
-Route::get('/BuyList', 'memberBuyList@index');
+Route::get('/BuyList', 'Account\Member\memberBuyList@index');
+
 
 /***** 地址 ******/
 //收貨地址管理

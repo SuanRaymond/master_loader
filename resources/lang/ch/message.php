@@ -137,6 +137,7 @@
 			'addresseeNull' => '收货人未输入',
 			'phoneNull'     => '联系电话未输入',
 			'addressNull'   => '送货地址未输入',
+			'bankerror'     => '帐户资讯输入不完整',
 
 		],
 		'success' => [

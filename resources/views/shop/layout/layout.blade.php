@@ -57,7 +57,7 @@
                 </a>
             </div>
             <div class="span3">
-                <a class="btn navbar-brand WaitingBtn" role="button" href="/MFire" style="padding-left: 0px; padding-right: 0px;">
+                <a class="btn navbar-brand WaitingBtn" role="button" href="/MFile" style="padding-left: 0px; padding-right: 0px;">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     {{ trans('view.mfile') }}
                 </a>

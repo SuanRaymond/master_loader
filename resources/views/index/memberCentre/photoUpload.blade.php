@@ -89,7 +89,7 @@
                     showLoaderOnConfirm: true,
                 },
                 function(){
-                    document.location.href="/MFire";
+                    document.location.href="/MFile";
                 });
             }
             function ErFun(_obj){
@@ -117,7 +117,7 @@
                 <a class="button button-rounded button-flat-primary" id="photoSend">確認上傳</a>
             </div>
             <div class="span6">
-                <a class="button button-rounded button-flat-primary" href="/MFire">返回取消</a>
+                <a class="button button-rounded button-flat-primary" href="/MFile">返回取消</a>
             </div>
             <input type="hidden" id="photodata">
         </div>

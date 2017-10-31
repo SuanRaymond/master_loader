@@ -28,8 +28,7 @@
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                  {{ trans('view.addressList.b.add') }}
             </a>
-            {{-- 日後要記得修改這個地方 --}}
-            <a href="/MFire" class="btn button button-flat-caution button-large button-block btn-group btn-group-xs WaitingBtn span12">
+            <a href="/MFile" class="btn button button-flat-caution button-large button-block btn-group btn-group-xs WaitingBtn span12">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                  {{ trans('view.b.cancel') }}
             </a>

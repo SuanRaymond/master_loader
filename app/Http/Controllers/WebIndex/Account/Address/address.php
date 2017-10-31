@@ -33,7 +33,7 @@ class address extends Controller
 	{
 		$this->box->html->addressList = '';
 		$this->search();
-
+        // dd(getSessionJson('address'));
 		//組成頁面
 		$this->box->html->addressList = with(new address_presenter())->addressList($this->box->result->List, $this->box->result->DefaultID);
 

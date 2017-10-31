@@ -1,39 +1,22 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <!-- 引入JS -->
-        <link type="text/css" rel="stylesheet" href="./lib/css/bootstrap.css"/>
-        <link type="text/css" rel="stylesheet" href="./lib/css/bootstrap-theme.css"/>
-        <link type="text/css" rel="stylesheet" href="./lib/css/sweetalert.css">
-        <link type="text/css" rel="stylesheet" href="./lib/css/buttons.css">
-        <link type="text/css" rel="stylesheet" href="./lib/css/base.css"/>
-        <!-- 引入CSS -->
-        <script type="text/javascript" src="./lib/js/jquery-3.2.1.js"></script>
-        <script type="text/javascript" src="./lib/js/bootstrap.js"></script>
-        <script type="text/javascript" src="./lib/js/sweetalert.js"></script>
-        <script type="text/javascript" src="./lib/js/buttons.js"></script>
-        <script type="text/javascript" src="./lib/js/base.js"></script>
+@extends('layout.layout')
 
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $("#CMFrie_Submit").click(function(){
-                    $("#CMFrie_Form").submit();
-                });
+@section('cssImport')
+@stop
 
-                /** Alert **/
-                {!! session()->get('msg', '') !!}
-                {{ setMesage(null) }}
+@section('jsImport')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#CMFile_Submit").click(function(){
+                $("#CMFile_Form").submit();
             });
-        </script>
-    </head>
-    <body>
+        });
+    </script>
+@stop
+
+@section('content')
         <div class="span12" style="text-align: center;"><h1>{{ trans('view.CMFile.CMFileTitle') }}</h1></div>
             <div class="span12">
-                <form method="post" id="CMFrie_Form">
+                <form method="post" id="CMFile_Form">
                     {{ csrf_field() }}
                     <table class=" table table-striped table-bordered table-condensed">
                         <tbody>
@@ -154,6 +137,34 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td style="text-align: right; color: red; vertical-align: middle;">
+                                    {{ trans('view.CMFile.th.information') }}
+                                </td>
+                                <td style="color: red;">
+                                    {!! trans('view.CMFile.th.informationdetail') !!}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    {{ trans('view.CMFile.th.accountName') }}
+                                </td>
+                                <td>
+                                    <input type="text" name="bankname"  value={{ $box->member->bankname }}>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    {{ trans('view.CMFile.th.bankCode') }}
+                                </td>
+                                <td>
+                                    <select id="bankID" name="bankID">
+                                        <option value="0" {{ $box->member->bankID  == 0 ? " selected='true'" : ''  }}>{{ trans('view.CMFile.cl.select') }}</option>
+                                        <option value="006" {{ $box->member->bankID  == 006 ? " selected='true'" : ''  }}>{{ trans('view.CMFile.cl.Bank006') }}</option>
+                                        <option value="700" {{ $box->member->bankID  == 700 ? " selected='true'" : ''  }}>{{ trans('view.CMFile.cl.Bank700') }}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td style="text-align: right;">
                                     {{ trans('view.CMFile.th.cardnumber') }}
                                 </td>
@@ -166,11 +177,14 @@
                 </form>
             </div>
             <div class="span6">
-                <a id="CMFrie_Submit" class="button button-flat-primary button-large  button-block">{{ trans('view.CMFile.b.save') }}</a>
+                <a id="CMFile_Submit" class="button button-flat-primary button-large  button-block">{{ trans('view.CMFile.b.save') }}</a>
             </div>
             <div class="span6">
-                <a href="/MFire" class="button button-flat-primary button-large  button-block">{{ trans('view.CMFile.b.cancel') }}</a>
+                <a href="/MFile" class="button button-flat-primary button-large  button-block">{{ trans('view.CMFile.b.cancel') }}</a>
             </div>
         </div>
-    </body>
-</html>
+        <div style="margin-bottom: 40px;">&nbsp;</div>
+@stop
+
+@section('contentBottom')
+@stop

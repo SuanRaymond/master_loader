@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\WebIndex;
+namespace App\Http\Controllers\WebIndex\Account\Member;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

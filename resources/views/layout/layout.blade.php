@@ -171,7 +171,7 @@
                     @endif
                 </div>
             </li>
-            <li><a class="WaitingBtn MenuWaitingBtn" href="/MFire">{{ trans('view.homemenu.MFile') }}</a></li>
+            <li><a class="WaitingBtn MenuWaitingBtn" href="/MFile">{{ trans('view.homemenu.MFile') }}</a></li>
             <li><a class="WaitingBtn MenuWaitingBtn" href="/Shop">{{ trans('view.home.b.quickShop') }}</a></li>
             {{-- <li><a>音樂</a></li>
             <li><a>教育</a></li>

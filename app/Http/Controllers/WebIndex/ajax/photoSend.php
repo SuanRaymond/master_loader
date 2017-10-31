@@ -19,7 +19,7 @@ class photoSend extends Controller
         $this->box->params->photo = Request()->get('photo', null);
 
     }
-    // 每日簽到
+    // 照片上傳
     public function index()
     {
         // dd($this->box->params->photo);

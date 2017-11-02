@@ -1,6 +1,7 @@
 <?php
 
 return [
+    //目前所處狀態
     'useType' => env('USETYPE', 'ONLINE'),
 
     /*

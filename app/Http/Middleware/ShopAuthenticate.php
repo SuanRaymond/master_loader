@@ -6,7 +6,6 @@ use App\Services\connection_services;
 use App\Services\web_judge_services;
 
 use Closure;
-use Log;
 class ShopAuthenticate
 {
     public $box;
@@ -97,14 +96,13 @@ class ShopAuthenticate
             $this->box = with(new web_judge_services($this->box))->check(['CAPI']);
             if($this->box->status == 13){
                 session()->put('memberID', json_encode($this->box->result->Member->memberID));
-            // dd($this->box);
                 return redirect('Check');
             }
             if($this->box->status != 0){
                 // if($this->box->status == 8 || $this->box->status == 9){
                     // dd(1, $this->box, config('app.debug'), config('app.useType'), config('app.urlAPIIndex'));
                 // }
-                return $this->reRrror(trans('message.error.'.$this->box->status). '--1');
+                return $this->reError(trans('message.error.'.$this->box->status). '--1');
             }
             /*----------------------------------與廠商溝通----------------------------------*/
 
@@ -137,7 +135,7 @@ class ShopAuthenticate
                 // if($this->box->status == 8 || $this->box->status == 9){
                     // dd(2, $this->box, config('app.debug'), config('app.useType'), config('app.urlAPIIndex'));
                 // }
-                return $this->reRrror(trans('message.error.'.$this->box->status). '--2');
+                return $this->reError(trans('message.error.'.$this->box->status). '--2');
             }
             /*----------------------------------與廠商溝通----------------------------------*/
             auth()->loginType = true;
@@ -153,7 +151,7 @@ class ShopAuthenticate
         }
     }
 
-    public function reRrror($_msg)
+    public function reError($_msg)
     {
         // session()->put('account', null);
         session()->put('password', null);

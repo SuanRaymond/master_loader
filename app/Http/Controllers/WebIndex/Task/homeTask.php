@@ -81,7 +81,8 @@ class homeTask extends Controller
             //組合Html
             $this->box->html->RebateList = $bateList_presenter->bateList($this->box->result->RebateList);
             $this->box->html->contentBottom = $bateList_presenter->contentBottom();
-        }elseif ($this->box->result->Status == 1) {
+        }
+        else if($this->box->result->Status == 1){
             /*----------------------------------與廠商溝通----------------------------------*/
             //放入連線區塊
             //需呼叫的功能

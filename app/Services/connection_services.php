@@ -11,7 +11,7 @@ class connection_services{
 	{
 		$_object->reKey     = config('app.key');
         $_object->deBugMode = false;
-        if(config('app.debug') == true && config('app.useType') == 'LOCAL'){
+        if(config('app.debug') == true && (config('app.useType') == 'LOCAL') || config('app.useType') == 'TEST')){
             $_object->deBugMode = true;
         }
 

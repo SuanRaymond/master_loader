@@ -146,6 +146,7 @@
 			'buyOK' => "购买成功",
 			'CMFileOK' => '资料修改成功',
 			'CpwdOK' => '密码修改成功请重新登入',
+			'FpwdOK' => '密码重新设定完毕请重新登入',
 			'CheckCodeOK' => '帐号认证成功',
 			'insertOK' => '新增商品成功',
 			'updateOK' => '更新商品成功',

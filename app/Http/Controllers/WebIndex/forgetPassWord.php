@@ -55,7 +55,7 @@ class forgetPassWord extends Controller
             return $this->reRrror(trans('message.error.'.$this->box->status));
         }
         //輸出成功訊息
-        setMesage([alert(trans('message.title.success'), trans('message.success.CpwdOK'), 1)]);
+        setMesage([alert(trans('message.title.success'), trans('message.success.FpwdOK'), 1)]);
 
         //重新導向
         return redirect('/Login');

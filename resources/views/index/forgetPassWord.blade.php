@@ -11,7 +11,19 @@
                     // 四個欄位皆填寫
                     if($("#PasswordN").val()== $("#PasswordA").val()){
                         // 兩次密碼皆相同
-                        $("#FPwd_Form").submit();
+                        // $("#FPwd_Form").submit();
+                        swal({
+                            title: "請稍候！",
+                            text: "处理中",
+                            type:"",
+                            closeOnConfirm: false,
+                            showConfirmButton: false,
+                            showLoaderOnConfirm: true,
+                            timer: 500,
+                        },
+                        function(){
+                            $("#FPwd_Form").submit();
+                        });
                     }else{
                         swal("提示", "密码与密码确认不符", "info");
                     }

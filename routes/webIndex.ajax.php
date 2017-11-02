@@ -20,6 +20,8 @@ Route::post('/PhotoSend', 'photoSend@index');
 Route::post('/PayCardList', 'payCardList@index');
 //取得金流單
 Route::post('/PayCardListSession', 'payCardList@paySession');
+//取得忘記密碼驗證碼
+Route::post('/GetCheckCodeSend', 'getCheckCodeSend@index');
 
 
 

@@ -29,6 +29,10 @@ Route::get('/Logout', 'logout@index');
 Route::get('/Check', 'verificationCheck@index');
 //驗證碼驗證 驗證
 Route::post('/Check', 'verificationCheck@check');
+//忘記密碼
+Route::get('/FPwd', 'forgetPassWord@index');
+//忘記密碼 驗證
+Route::post('/FPwd', 'forgetPassWord@check');
 
 /***** 會員中心 ******/
 //修改密碼

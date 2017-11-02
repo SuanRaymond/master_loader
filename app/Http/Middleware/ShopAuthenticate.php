@@ -32,6 +32,8 @@ class ShopAuthenticate
             'PUpload',
             'ajax/PhotoSend',
             'ajax/SCAS',
+            'ajax/GetCheckCodeSend',
+            'FPwd',
 
             // 'Task',
             // 'Sign',

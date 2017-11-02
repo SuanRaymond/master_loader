@@ -80,11 +80,11 @@
                 <div id="Login_Other_From" class="accordion-body collapse">
                     <hr>
                     <div class="accordion-inner">
-<!--                         <a class="button button-flat-royal button-lg button-block" id="Forget_Submit">
+                        <a href="/FPwd" class="button button-flat-royal button-lg button-block" id="Forget_Submit">
                             {{ trans('view.login.b.forget') }}
                         </a>
                         <div align="center">{{ trans('view.and') }}</div>
- -->
+
                         <a href="/Registered" class="button button-flat-primary button-lg button-block" id="Create_Submit">
                             {{ trans('view.login.b.create') }}
                         </a>

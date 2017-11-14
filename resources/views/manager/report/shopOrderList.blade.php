@@ -41,6 +41,56 @@
 					<div class="row-fluid">
 						{!! $box->ctrlHtml->account !!}
 					</div>
+
+					<div class="row-fluid">
+						<div class="span6">
+                            <div class="control-group">
+                                <label class="control-label" for="shopType">{{ trans('managerView.shopOrderList.cl.shopType') }}：</label>
+                                <div class="controls">
+                                    <div class="span10">
+                                        <select class="span12 m-wrap" name="shopType" id="shopType">
+                                            <option value="-1" {!! $box->params->shopType==-1 ? 'selected="true"' : '' !!} >
+                                            	{{ trans('managerView.s.-1') }}
+                                           	</option>
+                                            <option value="0" {!! $box->params->shopType==0 ? 'selected="true"' : '' !!} >
+                                            	{{ trans('managerView.shopOrderList.shopType.0') }}
+                                            </option>
+                                            <option value="1" {!! $box->params->shopType==1 ? 'selected="true"' : '' !!} >
+                                            	{{ trans('managerView.shopOrderList.shopType.1') }}
+                                            </option>
+                                            <option value="2" {!! $box->params->shopType==2 ? 'selected="true"' : '' !!} >
+                                            	{{ trans('managerView.shopOrderList.shopType.2') }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+	                </div>
+	                <div class="row-fluid">
+						<div class="span6">
+                            <div class="control-group">
+                                <label class="control-label" for="minPay">{{ trans('managerView.shopOrderList.cl.minPay') }}：</label>
+                                <div class="controls">
+                                    <div class="span10">
+                                         <input type="number" class="m-wrap span10" name="minPay" id="minPay"
+                                        placeholder="{{ trans('managerView.shopOrderList.cl.minPay') }}" value="{{ $box->params->minPay }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            <div class="control-group">
+                                <label class="control-label" for="maxPay">{{ trans('managerView.shopOrderList.cl.maxPay') }}：</label>
+                                <div class="controls">
+                                    <div class="span10">
+                                         <input type="number" class="m-wrap span10" name="maxPay" id="maxPay"
+                                        placeholder="{{ trans('managerView.shopOrderList.cl.maxPay') }}" value="{{ $box->params->maxPay }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+	                </div>
 					<div class="row-fluid">
 						{!! $box->ctrlHtml->date !!}
 					</div>

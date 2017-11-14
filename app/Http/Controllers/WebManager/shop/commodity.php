@@ -48,20 +48,20 @@ class commodity extends Controller
         $this->box->sendApiUrl = env('MANAGER_DOMAIN');
 
         //放入資料區塊
-        $this->box->sendParams             = [];
-        $this->box->sendParams['title'] = $this->box->params->title;
-        $this->box->sendParams['subTitle']     = $this->box->params->subTitle;
-        $this->box->sendParams['imagesTitle']     = $this->box->params->imagesTitle;
-        $this->box->sendParams['imagesShow']     = $this->box->params->imagesShow;
-        $this->box->sendParams['menuID']     = $this->box->params->menuID;
-        $this->box->sendParams['price']     = $this->box->params->price;
-        $this->box->sendParams['points']     = $this->box->params->points;
-        $this->box->sendParams['transport']     = $this->box->params->transport;
-        $this->box->sendParams['quantity']     = $this->box->params->quantity;
-        $this->box->sendParams['style']     = $this->box->params->chstyle;
-        $this->box->sendParams['detail']     = $this->box->params->detail;
-        $this->box->sendParams['norm']     = $this->box->params->norm;
-        $this->box->sendParams['memo']     = $this->box->params->memo;
+        $this->box->sendParams                = [];
+        $this->box->sendParams['title']       = $this->box->params->title;
+        $this->box->sendParams['subTitle']    = $this->box->params->subTitle;
+        $this->box->sendParams['imagesTitle'] = $this->box->params->imagesTitle;
+        $this->box->sendParams['imagesShow']  = $this->box->params->imagesShow;
+        $this->box->sendParams['menuID']      = $this->box->params->menuID;
+        $this->box->sendParams['price']       = $this->box->params->price;
+        $this->box->sendParams['points']      = $this->box->params->points;
+        $this->box->sendParams['transport']   = $this->box->params->transport;
+        $this->box->sendParams['quantity']    = $this->box->params->quantity;
+        $this->box->sendParams['style']       = $this->box->params->chstyle;
+        $this->box->sendParams['detail']      = $this->box->params->detail;
+        $this->box->sendParams['norm']        = $this->box->params->norm;
+        $this->box->sendParams['memo']        = $this->box->params->memo;
 
         //送出資料
         $this->box->result    = with(new connection_services())->callApi($this->box);

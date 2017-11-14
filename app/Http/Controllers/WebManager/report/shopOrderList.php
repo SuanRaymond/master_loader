@@ -28,26 +28,30 @@ class shopOrderList extends Controller
         $this->box->result->pagetop    = null;
         $this->box->result->pagebottom = null;
 
-        $this->box->params->mineAccount      = null;
-        $this->box->params->account          = Request()->get('account', null);
-        $this->box->params->downtype         = Request()->get('adminDown', 1);
-        $this->box->params->start            = Request()->get('startDate', date('Y-m-d 00:00', strtotime('first day of this month')));
-        $this->box->params->end              = Request()->get('endDate', date('Y-m-d 23:59', strtotime('last day of this month')));
-        $this->box->params->row              = Request()->get('row', 10);
-        $this->box->params->page             = Request()->get('page', 1);
+        $this->box->params->mineAccount = null;
+        $this->box->params->account     = Request()->get('account', null);
+        $this->box->params->downtype    = Request()->get('adminDown', 1);
+        $this->box->params->shopType    = Request()->get('shopType', -1);
+        $this->box->params->minPay      = Request()->get('minPay', null);
+        $this->box->params->maxPay      = Request()->get('maxPay', null);
+        $this->box->params->start       = Request()->get('startDate', date('Y-m-d 00:00', strtotime('first day of this month')));
+        $this->box->params->end         = Request()->get('endDate', date('Y-m-d 23:59', strtotime('last day of this month')));
+        $this->box->params->row         = Request()->get('row', 10);
+        $this->box->params->page        = Request()->get('page', 1);
     }
 
 	public function index()
     {
+        //確定是誰在使用
         $this->box->params->mineAccount = auth()->user->account;
 
-        if(is_null($this->box->params->account)){
-            $this->box->params->account = auth()->user->account;
-        }
+        //製作控制項
         $this->box->ctrlHtml = $this->ctrl_services->get(auth()->user->account, ['A', 'DT', 'ROW', 'BTN'], $this->box->params);
 
+        //搜尋
         $this->search();
 
+        //輸出
     	$box = $this->box;
         return mMView('report.shopOrderList', compact('box'));
     }
@@ -58,7 +62,7 @@ class shopOrderList extends Controller
         //放入連線區塊
         //需呼叫的功能
         $this->box->callFunction = 'GetShopOrderList';
-        $this->box->sendApiUrl   = env('MANAGER_DOMAIN');
+        $this->box->sendApiUrl   = config('app.urlAPIManager');
 
         //放入資料區塊
         $this->box->sendParams                = [];
@@ -81,8 +85,6 @@ class shopOrderList extends Controller
         if($this->box->status != 0){
             return $this->reRrror(trans('message.error.'.$this->box->status));
         }
-
-        // dd($this->box);
 
         $shopOrderList_presenter = new shopOrderList_presenter();
         $page_presenter          = new page_presenter();
